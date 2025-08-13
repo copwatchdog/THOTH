@@ -80,3 +80,21 @@ Short procedural rules
     Silver: Idempotent full-refresh cleaning from Bronze.
 
     Gold: Append new records; update only on corrections; never truncate. Maintain change-log for provenance.
+
+CopWatchDog Community License 1.0 (Simple)
+
+You’re free to use, copy, change, and share this software only if:
+
+    You don’t use it to make money or run a business that profits from it.
+
+    You don’t use it for any police, military, prison, or surveillance work.
+
+If you share or change the software, you have to:
+
+    Keep these rules in place.
+
+    Share your changes with the same rules.
+
+We provide this software as-is, with no promises it works.
+
+If you break these rules, your right to use the software ends.
