@@ -5,40 +5,47 @@ CopWatchdog is an abolitionist data pipeline and media platform tracking NYPD of
 License
 
 CopWatchdog is licensed under the CopWatchDog Community License 1.0, which strictly prohibits use by law enforcement or commercial entities. It protects against commodification and enforces copyleft to keep the software in community hands only. See LICENSE.md for details.
-Project Directory Layout (Medallion Architecture)
 
+
+Project Directory Layout (Medallion Architecture)
+```text
 copwatchdog/
 ├── data/
-│   ├── bronze/              # Raw, immutable scraped/downloaded files (append-only)
-│   ├── silver/              # Cleaned, normalized, reproducible tables
-│   └── gold/                # Curated, integrated datasets for consumption (append + updates)
+│   ├── bronze/       # Raw, immutable scraped/downloaded files (append-only)
+│   ├── silver/       # Cleaned, normalized, reproducible tables
+│   └── gold/         # Curated, integrated datasets (append + updates)
 ├── etl/
-│   ├── extract/             # Scrapers & data fetchers
-│   ├── transform/           # Cleaning & normalization scripts
-│   └── load/                # Integration and load scripts for gold layer
+│   ├── extract/      # Scrapers & data fetchers
+│   ├── transform/    # Cleaning & normalization scripts
+│   └── load/         # Integration/load scripts for gold layer
 ├── db/
-│   └── copwatchdog.db       # SQLite database (optional)
+│   └── copwatchdog.db  # SQLite database (optional)
 ├── cli/
-│   └── copwatchdog.py       # CLI entrypoint for data operations
+│   └── copwatchdog.py  # CLI entrypoint
 ├── docs/
-│   ├── schema.md            # Data dictionary and schema documentation
-│   └── usage.md             # Pipeline usage and CLI guide
-├── notebooks/               # Jupyter notebooks for exploration
+│   ├── schema.md       # Data dictionary & schema docs
+│   └── usage.md        # Pipeline usage guide
+├── notebooks/           # Jupyter notebooks
 ├── requirements.txt
 └── README.md
+```
 
 Medallion Architecture Breakdown
-Attribute	Bronze	Silver	Gold
-Folder	data/bronze/	data/silver/	data/gold/
-Definition	Immutable raw ingests	Cleaned, normalized datasets	Curated, consumption-ready datasets
-Objective	Preserve source audit trail	Normalize for QA & joins	Build canonical profiles & events
-Object Type	Raw files (PDF, HTML, JSON)	CSV/SQL tables	CSV/SQL tables/views
-Load Method	Append-only, timestamped	Full-refresh (overwrite safe)	Incremental append + targeted updates
-Data Transformation	None (store as-is)	Cleaning, normalization	Integration, deduplication, enrichment
-Data Modeling	None	Flat tables	Flat/simple star schema with keys
-Retention	Keep all files, checksum-named	Overwrite silver files	Append-only; maintain change-log table
-Access	Developers only (protected)	Developers & analysts	Public, read-only downstream consumers
-Audience	Devs, data engineers	Devs, analysts	Organizers, researchers, journalists
+```markdown
+| Attribute           | Bronze                         | Silver                        | Gold                                   |
+| ------------------- | ------------------------------ | ----------------------------- | -------------------------------------- |
+| Folder              | `data/bronze/`                 | `data/silver/`                | `data/gold/`                           |
+| Definition          | Immutable raw ingests          | Cleaned, normalized datasets  | Curated, consumption-ready datasets    |
+| Objective           | Preserve source audit trail    | Normalize for QA & joins      | Build canonical profiles & events      |
+| Object Type         | Raw files (PDF, HTML, JSON)    | CSV/SQL tables                | CSV/SQL tables/views                   |
+| Load Method         | Append-only, timestamped       | Full-refresh (overwrite safe) | Incremental append + targeted updates  |
+| Data Transformation | None (store as-is)             | Cleaning, normalization       | Integration, deduplication, enrichment |
+| Data Modeling       | None                           | Flat tables                   | Flat/simple star schema with keys      |
+| Retention           | Keep all files, checksum-named | Overwrite silver files        | Append-only; maintain change-log table |
+| Access              | Developers only (protected)    | Developers & analysts         | Public, read-only downstream consumers |
+| Audience            | Devs, data engineers           | Devs, analysts                | Organizers, researchers, journalists   |
+```
+
 Naming Conventions
 
     Use snake_case lowercase with underscores.
