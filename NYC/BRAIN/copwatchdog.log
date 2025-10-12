@@ -1,0 +1,1093 @@
+2025-10-03 12:23:14,662 [INFO] Them Dogs Gonna Get'm
+2025-10-03 12:23:15,722 [INFO] Launching headless Chromium
+2025-10-03 12:23:19,980 [INFO] Visiting NYPD Trials: https://www.nyc.gov/site/nypd/bureaus/administrative/trials.page
+2025-10-03 12:23:22,821 [INFO] Found 1 tables on the NYPD Trials page
+2025-10-03 12:23:24,702 [INFO] Table scored 6.5 points based on keywords
+2025-10-03 12:23:24,702 [INFO] Selected 1 tables with threshold >= 2
+2025-10-03 12:23:26,243 [INFO] Extracted 28 rows from table (headers: ['Date', 'Time', 'Rank', 'Name', 'Trial Room', 'Case Type'])
+2025-10-03 12:23:26,243 [INFO] Table #1: extracted 28 rows
+2025-10-03 12:23:26,243 [INFO] Record #1 parsed Name -> First: 'Julian' Last: 'Reyes'
+2025-10-03 12:23:26,243 [INFO] Record #2 parsed Name -> First: 'Jovanna' Last: 'Martes'
+2025-10-03 12:23:26,243 [INFO] Record #3 parsed Name -> First: 'Lucia' Last: 'Gaynor'
+2025-10-03 12:23:26,243 [INFO] Record #4 parsed Name -> First: 'Alan' Last: 'Ye'
+2025-10-03 12:23:26,243 [INFO] Record #5 parsed Name -> First: 'Kenneth' Last: 'Farrell'
+2025-10-03 12:23:26,243 [INFO] Record #6 parsed Name -> First: 'Alan' Last: 'Ye'
+2025-10-03 12:23:26,243 [INFO] Record #7 parsed Name -> First: 'Lateef' Last: 'Stinson'
+2025-10-03 12:23:26,243 [INFO] Record #8 parsed Name -> First: 'Rayna' Last: 'Rampaul'
+2025-10-03 12:23:26,243 [INFO] Record #9 parsed Name -> First: 'Ivan' Last: 'Villanueva'
+2025-10-03 12:23:26,243 [INFO] Record #10 parsed Name -> First: 'Gregory' Last: 'Howard'
+2025-10-03 12:23:26,243 [INFO] Record #11 parsed Name -> First: 'Ivan' Last: 'Villanueva'
+2025-10-03 12:23:26,244 [INFO] Record #12 parsed Name -> First: 'Christopher' Last: 'Musa'
+2025-10-03 12:23:26,244 [INFO] Record #13 parsed Name -> First: 'Gregory' Last: 'Howard'
+2025-10-03 12:23:26,244 [INFO] Record #14 parsed Name -> First: 'Harry' Last: 'Espinal'
+2025-10-03 12:23:26,244 [INFO] Record #15 parsed Name -> First: 'Christopher' Last: 'Musa'
+2025-10-03 12:23:26,244 [INFO] Record #16 parsed Name -> First: 'Laura' Last: 'Devoy'
+2025-10-03 12:23:26,244 [INFO] Record #17 parsed Name -> First: 'Miguel' Last: 'Estevez'
+2025-10-03 12:23:26,244 [INFO] Record #18 parsed Name -> First: 'Michael' Last: 'Velazquez'
+2025-10-03 12:23:26,244 [INFO] Record #19 parsed Name -> First: 'Miguel' Last: 'Estevez'
+2025-10-03 12:23:26,244 [INFO] Record #20 parsed Name -> First: 'Donald' Last: 'Aridas'
+2025-10-03 12:23:26,244 [INFO] Record #21 parsed Name -> First: 'Anthony' Last: 'Diaz'
+2025-10-03 12:23:26,244 [INFO] Record #22 parsed Name -> First: 'Christopher' Last: 'Rodrigo'
+2025-10-03 12:23:26,244 [INFO] Record #23 parsed Name -> First: 'Michelle' Last: 'Bonaparte'
+2025-10-03 12:23:26,244 [INFO] Record #24 parsed Name -> First: 'Michelle' Last: 'Bonaparte'
+2025-10-03 12:23:26,244 [INFO] Record #25 parsed Name -> First: 'Michelle' Last: 'Bonaparte'
+2025-10-03 12:23:26,244 [INFO] Record #26 parsed Name -> First: 'Ariel' Last: 'Peraltayascaribay'
+2025-10-03 12:23:26,244 [INFO] Record #27 parsed Name -> First: 'Lenita' Last: 'Harrison'
+2025-10-03 12:23:26,244 [INFO] Record #28 parsed Name -> First: 'Lenita' Last: 'Harrison'
+2025-10-03 12:23:26,244 [INFO] Total trial records extracted: 28
+2025-10-03 12:23:26,244 [INFO] Main: extracted 28 records from NYPDTRIAL
+2025-10-03 12:23:26,244 [INFO] Main: beginning 50-a enrichment pass
+2025-10-03 12:23:26,244 [INFO] Main: 50-a enrich record #1 - Julian Reyes
+2025-10-03 12:23:26,244 [INFO] 50-a: Searching for 'Julian Reyes' (First='Julian' Last='Reyes')
+2025-10-03 12:23:27,329 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:23:28,424 [INFO] 50-a: 28 search results for 'Julian Reyes'
+2025-10-03 12:23:28,438 [INFO] 50-a: candidate#1 'Reyes, Julian' -> First='Julian' Last='Reyes'
+2025-10-03 12:23:28,438 [INFO] 50-a: exact match found on candidate#1 'Reyes, Julian'
+2025-10-03 12:23:28,737 [INFO] 50-a: officer profile loaded
+2025-10-03 12:23:28,757 [INFO] 50-a: identity snippet (first 300 chars): Julian Reyes
+Badge #19056, Hispanic Male
+Police Officer at 44th Precinct since December 2015
+Service started July 2015, made $190,000 last year, Tax #959128
+
+
+Substantiated Allegations:
+Force: Chokehold
+Force: Physical force
+Force: Restricted Breathing
+2025-10-03 12:23:28,771 [INFO] 50-a: badge extracted via selector 'span.badge': 19056
+2025-10-03 12:23:28,792 [INFO] 50-a: service_start parsed: 07/01/2015
+2025-10-03 12:23:28,805 [INFO] 50-a: last_earned extracted from span.compensation: $190,000
+2025-10-03 12:23:28,814 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:23:28,884 [INFO] 50-a: summary 'Allegations' -> 4
+2025-10-03 12:23:28,913 [INFO] 50-a: summary 'Substantiated' -> 3
+2025-10-03 12:23:28,937 [INFO] 50-a: summary 'Substantiated (Charges)' -> 1
+2025-10-03 12:23:28,992 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
+2025-10-03 12:23:28,997 [INFO] 50-a: enrichment complete for 'Julian Reyes' (badge=19056, pct=44, started=07/01/2015, last_earned=$190,000)
+2025-10-03 12:23:28,997 [INFO] Main: 50-a enrich record #2 - Jovanna Martes
+2025-10-03 12:23:28,997 [INFO] 50-a: Searching for 'Jovanna Martes' (First='Jovanna' Last='Martes')
+2025-10-03 12:23:29,521 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:23:30,844 [INFO] 50-a: 30 search results for 'Jovanna Martes'
+2025-10-03 12:23:30,857 [INFO] 50-a: candidate#1 'Martes, Jovanna' -> First='Jovanna' Last='Martes'
+2025-10-03 12:23:30,857 [INFO] 50-a: exact match found on candidate#1 'Martes, Jovanna'
+2025-10-03 12:23:31,100 [INFO] 50-a: officer profile loaded
+2025-10-03 12:23:31,119 [INFO] 50-a: identity snippet (first 300 chars): Jovanna Martes
+Badge #24350, Hispanic Female
+Police Officer at 44th Precinct since November 2014
+Also served at Patrol Borough Bronx
+Service started July 2012, made $217,000 last year, Tax #953055
+Other names: Jovanna Woloski
+
+
+Substantiated Allegations:
+Force: Chokehold
+Force: Physical force (2)
+Fo
+2025-10-03 12:23:31,132 [INFO] 50-a: badge extracted via selector 'span.badge': 24350
+2025-10-03 12:23:31,145 [INFO] 50-a: service_start parsed: 07/01/2012
+2025-10-03 12:23:31,165 [INFO] 50-a: last_earned extracted from span.compensation: $217,000
+2025-10-03 12:23:31,175 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:23:31,258 [INFO] 50-a: summary 'Complaints' -> 5
+2025-10-03 12:23:31,283 [INFO] 50-a: summary 'Allegations' -> 24
+2025-10-03 12:23:31,308 [INFO] 50-a: summary 'Substantiated' -> 8
+2025-10-03 12:23:31,357 [INFO] 50-a: summary 'Substantiated (Charges)' -> 1
+2025-10-03 12:23:31,481 [INFO] 50-a: summary 'Unsubstantiated' -> 3
+2025-10-03 12:23:31,506 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 9
+2025-10-03 12:23:31,509 [INFO] 50-a: enrichment complete for 'Jovanna Martes' (badge=24350, pct=44, started=07/01/2012, last_earned=$217,000)
+2025-10-03 12:23:31,510 [INFO] Main: 50-a enrich record #3 - Lucia Gaynor
+2025-10-03 12:23:31,510 [INFO] 50-a: Searching for 'Lucia Gaynor' (First='Lucia' Last='Gaynor')
+2025-10-03 12:23:32,032 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:23:33,058 [INFO] 50-a: 4 search results for 'Lucia Gaynor'
+2025-10-03 12:23:33,071 [INFO] 50-a: candidate#1 'Gaynor, Lucia F.' -> First='Lucia' Last='Gaynor'
+2025-10-03 12:23:33,071 [INFO] 50-a: exact match found on candidate#1 'Gaynor, Lucia F.'
+2025-10-03 12:23:33,314 [INFO] 50-a: officer profile loaded
+2025-10-03 12:23:33,330 [INFO] 50-a: identity snippet (first 300 chars): Lucia F. Gaynor
+Badge #314, Hispanic Female
+Police Officer at 50th Precinct since September 2023
+Also served at Legal Bureau
+Service started July 2013, made $189,000 last year, Tax #955148
+2025-10-03 12:23:33,343 [INFO] 50-a: badge extracted via selector 'span.badge': 314
+2025-10-03 12:23:33,358 [INFO] 50-a: service_start parsed: 07/01/2013
+2025-10-03 12:23:33,370 [INFO] 50-a: last_earned extracted from span.compensation: $189,000
+2025-10-03 12:23:33,381 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:23:33,438 [INFO] 50-a: summary 'Complaints' -> 2
+2025-10-03 12:23:33,466 [INFO] 50-a: summary 'Allegations' -> 5
+2025-10-03 12:23:33,495 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:23:33,577 [INFO] 50-a: summary 'Unsubstantiated' -> 1
+2025-10-03 12:23:33,581 [INFO] 50-a: enrichment complete for 'Lucia Gaynor' (badge=314, pct=50, started=07/01/2013, last_earned=$189,000)
+2025-10-03 12:23:33,581 [INFO] Main: 50-a enrich record #4 - Alan Ye
+2025-10-03 12:23:33,581 [INFO] 50-a: Searching for 'Alan Ye' (First='Alan' Last='Ye')
+2025-10-03 12:23:34,104 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:23:38,195 [INFO] 50-a: 13 search results for 'Alan Ye'
+2025-10-03 12:23:38,207 [INFO] 50-a: candidate#1 'Ye, Alan M.' -> First='Alan' Last='Ye'
+2025-10-03 12:23:38,207 [INFO] 50-a: exact match found on candidate#1 'Ye, Alan M.'
+2025-10-03 12:23:38,441 [INFO] 50-a: officer profile loaded
+2025-10-03 12:23:38,457 [INFO] 50-a: identity snippet (first 300 chars): Alan M. Ye
+Badge #3354, Asian Male
+Sergeant at 60th Precinct since March 2022
+Also served at 81st Precinct
+Service started January 2006, made $179,000 last year, Tax #940930
+
+
+Lawsuit Settlements:
+$15,001   Andrews v. City of New York et al, EDNY
+View Details
+2025-10-03 12:23:38,470 [INFO] 50-a: badge extracted via selector 'span.badge': 3354
+2025-10-03 12:23:38,482 [INFO] 50-a: service_start parsed: 01/01/2006
+2025-10-03 12:23:38,493 [INFO] 50-a: last_earned extracted from span.compensation: $179,000
+2025-10-03 12:23:38,502 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:23:38,589 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:23:38,612 [INFO] 50-a: summary 'Unsubstantiated' -> 1
+2025-10-03 12:23:38,624 [INFO] 50-a: lawsuits=2 settlements=15001
+2025-10-03 12:23:38,624 [INFO] 50-a: enrichment complete for 'Alan Ye' (badge=3354, pct=60, started=01/01/2006, last_earned=$179,000)
+2025-10-03 12:23:38,624 [INFO] Main: 50-a enrich record #5 - Kenneth Farrell
+2025-10-03 12:23:38,624 [INFO] 50-a: Searching for 'Kenneth Farrell' (First='Kenneth' Last='Farrell')
+2025-10-03 12:23:39,146 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:23:49,268 [INFO] 50-a: 17 search results for 'Kenneth Farrell'
+2025-10-03 12:23:49,282 [INFO] 50-a: candidate#1 'Farrell, Kenneth M.' -> First='Kenneth' Last='Farrell'
+2025-10-03 12:23:49,282 [INFO] 50-a: exact match found on candidate#1 'Farrell, Kenneth M.'
+2025-10-03 12:23:49,518 [INFO] 50-a: officer profile loaded
+2025-10-03 12:23:49,538 [INFO] 50-a: identity snippet (first 300 chars): Kenneth M. Farrell
+Lieutenant at Medical Division since November 2023
+Also served at 105th Precinct, Police Service Area 2, 107th Precinct
+Service started January 2007, made $189,000 last year, Tax #943220
+White Male
+
+
+Lawsuit Settlements:
+$82,500   Regan, Ronald vs City of New York, et al., 2016 ED
+2025-10-03 12:23:49,576 [INFO] 50-a: service_start parsed: 01/01/2007
+2025-10-03 12:23:49,593 [INFO] 50-a: last_earned extracted from span.compensation: $189,000
+2025-10-03 12:23:49,613 [INFO] 50-a: has_discipline=N has_articles=Y
+2025-10-03 12:23:49,702 [INFO] 50-a: summary 'Complaints' -> 3
+2025-10-03 12:23:49,764 [INFO] 50-a: summary 'Allegations' -> 10
+2025-10-03 12:23:49,814 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:23:49,995 [INFO] 50-a: summary 'Unsubstantiated' -> 3
+2025-10-03 12:23:50,011 [INFO] 50-a: lawsuits=0 settlements=0
+2025-10-03 12:23:50,011 [INFO] 50-a: enrichment complete for 'Kenneth Farrell' (badge=None, pct=324, started=01/01/2007, last_earned=$189,000)
+2025-10-03 12:23:50,011 [INFO] Main: 50-a enrich record #6 - Alan Ye
+2025-10-03 12:23:50,011 [INFO] 50-a: Searching for 'Alan Ye' (First='Alan' Last='Ye')
+2025-10-03 12:23:50,544 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:23:50,877 [INFO] 50-a: 13 search results for 'Alan Ye'
+2025-10-03 12:23:50,892 [INFO] 50-a: candidate#1 'Ye, Alan M.' -> First='Alan' Last='Ye'
+2025-10-03 12:23:50,892 [INFO] 50-a: exact match found on candidate#1 'Ye, Alan M.'
+2025-10-03 12:23:50,979 [INFO] 50-a: officer profile loaded
+2025-10-03 12:23:51,005 [INFO] 50-a: identity snippet (first 300 chars): Alan M. Ye
+Badge #3354, Asian Male
+Sergeant at 60th Precinct since March 2022
+Also served at 81st Precinct
+Service started January 2006, made $179,000 last year, Tax #940930
+
+
+Lawsuit Settlements:
+$15,001   Andrews v. City of New York et al, EDNY
+View Details
+2025-10-03 12:23:51,027 [INFO] 50-a: badge extracted via selector 'span.badge': 3354
+2025-10-03 12:23:51,044 [INFO] 50-a: service_start parsed: 01/01/2006
+2025-10-03 12:23:51,064 [INFO] 50-a: last_earned extracted from span.compensation: $179,000
+2025-10-03 12:23:51,074 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:23:51,232 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:23:51,263 [INFO] 50-a: summary 'Unsubstantiated' -> 1
+2025-10-03 12:23:51,275 [INFO] 50-a: lawsuits=2 settlements=15001
+2025-10-03 12:23:51,275 [INFO] 50-a: enrichment complete for 'Alan Ye' (badge=3354, pct=60, started=01/01/2006, last_earned=$179,000)
+2025-10-03 12:23:51,275 [INFO] Main: 50-a enrich record #7 - Lateef Stinson
+2025-10-03 12:23:51,275 [INFO] 50-a: Searching for 'Lateef Stinson' (First='Lateef' Last='Stinson')
+2025-10-03 12:23:51,796 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:23:58,722 [INFO] 50-a: 2 search results for 'Lateef Stinson'
+2025-10-03 12:23:58,741 [INFO] 50-a: candidate#1 'Stinson, Lateef S.' -> First='Lateef' Last='Stinson'
+2025-10-03 12:23:58,741 [INFO] 50-a: exact match found on candidate#1 'Stinson, Lateef S.'
+2025-10-03 12:23:59,026 [INFO] 50-a: officer profile loaded
+2025-10-03 12:23:59,045 [INFO] 50-a: identity snippet (first 300 chars): Lateef S. Stinson
+Badge #15203, Black Male
+Police Officer at 67th Precinct since July 2024
+Also served at Brooklyn Court Section, 41st Precinct, Quartermaster Section, 7th Precinct
+Service started July 2017, made $223,000 last year, Tax #964300
+
+
+
+Discipline Cases:
+
+Case: 2020-22004
+Closed: 4/28/202
+2025-10-03 12:23:59,057 [INFO] 50-a: badge extracted via selector 'span.badge': 15203
+2025-10-03 12:23:59,069 [INFO] 50-a: service_start parsed: 07/01/2017
+2025-10-03 12:23:59,087 [INFO] 50-a: last_earned extracted from span.compensation: $223,000
+2025-10-03 12:23:59,116 [INFO] 50-a: has_discipline=Y has_articles=N
+2025-10-03 12:23:59,162 [INFO] 50-a: summary 'Complaints' -> 2
+2025-10-03 12:23:59,186 [INFO] 50-a: summary 'Allegations' -> 5
+2025-10-03 12:23:59,210 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:23:59,264 [INFO] 50-a: summary 'Unsubstantiated' -> 4
+2025-10-03 12:23:59,278 [INFO] 50-a: lawsuits=2 settlements=16500
+2025-10-03 12:23:59,278 [INFO] 50-a: enrichment complete for 'Lateef Stinson' (badge=15203, pct=67, started=07/01/2017, last_earned=$223,000)
+2025-10-03 12:23:59,278 [INFO] Main: 50-a enrich record #8 - Rayna Rampaul
+2025-10-03 12:23:59,278 [INFO] 50-a: Searching for 'Rayna Rampaul' (First='Rayna' Last='Rampaul')
+2025-10-03 12:23:59,816 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:24:08,548 [INFO] 50-a: 2 search results for 'Rayna Rampaul'
+2025-10-03 12:24:08,565 [INFO] 50-a: candidate#1 'Rampaul, Rayna V.' -> First='Rayna' Last='Rampaul'
+2025-10-03 12:24:08,566 [INFO] 50-a: exact match found on candidate#1 'Rampaul, Rayna V.'
+2025-10-03 12:24:08,812 [INFO] 50-a: officer profile loaded
+2025-10-03 12:24:08,830 [INFO] 50-a: identity snippet (first 300 chars): Rayna V. Rampaul
+Badge #4816, Black Female
+Sergeant Detective Squad at Manhattan Court Section since March 2025
+Also served at Fleet Services Division, Photo Unit, Photo Unit, 7th Precinct Detective Squad, 67th Precinct, Patrol Borough Brooklyn North, 13th Precinct Detective Squad
+Service started Ja
+2025-10-03 12:24:08,845 [INFO] 50-a: badge extracted via selector 'span.badge': 4816
+2025-10-03 12:24:08,867 [INFO] 50-a: service_start parsed: 01/01/2006
+2025-10-03 12:24:08,927 [INFO] 50-a: has_discipline=N has_articles=Y
+2025-10-03 12:24:08,992 [INFO] 50-a: summary 'Complaints' -> 7
+2025-10-03 12:24:09,019 [INFO] 50-a: summary 'Allegations' -> 14
+2025-10-03 12:24:09,051 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:24:09,187 [INFO] 50-a: summary 'Unsubstantiated' -> 6
+2025-10-03 12:24:09,198 [INFO] 50-a: lawsuits=4 settlements=136000
+2025-10-03 12:24:09,199 [INFO] 50-a: enrichment complete for 'Rayna Rampaul' (badge=4816, pct=127, started=01/01/2006, last_earned=None)
+2025-10-03 12:24:09,199 [INFO] Main: 50-a enrich record #9 - Ivan Villanueva
+2025-10-03 12:24:09,199 [INFO] 50-a: Searching for 'Ivan Villanueva' (First='Ivan' Last='Villanueva')
+2025-10-03 12:24:09,722 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:24:18,784 [INFO] 50-a: 16 search results for 'Ivan Villanueva'
+2025-10-03 12:24:18,799 [INFO] 50-a: candidate#1 'Villanueva, Ivan' -> First='Ivan' Last='Villanueva'
+2025-10-03 12:24:18,799 [INFO] 50-a: exact match found on candidate#1 'Villanueva, Ivan'
+2025-10-03 12:24:19,039 [INFO] 50-a: officer profile loaded
+2025-10-03 12:24:19,056 [INFO] 50-a: identity snippet (first 300 chars): Ivan Villanueva
+Badge #4982, Hispanic Male
+Detective Grade 2 at Military and Extended Leave Desk since February 2025
+Also served at Police Service Area 9 VIPER, Organized Crime Investigation Division, Patrol Borough Queens Impact Response Team, 113th Precinct Detective Squad, 102nd Precinct Detectiv
+2025-10-03 12:24:19,067 [INFO] 50-a: badge extracted via selector 'span.badge': 4982
+2025-10-03 12:24:19,081 [INFO] 50-a: service_start parsed: 07/01/2008
+2025-10-03 12:24:19,092 [INFO] 50-a: last_earned extracted from span.compensation: $197,000
+2025-10-03 12:24:19,101 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:24:19,152 [INFO] 50-a: summary 'Complaints' -> 4
+2025-10-03 12:24:19,178 [INFO] 50-a: summary 'Allegations' -> 4
+2025-10-03 12:24:19,209 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:24:19,322 [INFO] 50-a: summary 'Unsubstantiated' -> 2
+2025-10-03 12:24:19,339 [INFO] 50-a: lawsuits=6 settlements=72500
+2025-10-03 12:24:19,339 [INFO] 50-a: enrichment complete for 'Ivan Villanueva' (badge=4982, pct=MELD, started=07/01/2008, last_earned=$197,000)
+2025-10-03 12:24:19,340 [INFO] Main: 50-a enrich record #10 - Gregory Howard
+2025-10-03 12:24:19,340 [INFO] 50-a: Searching for 'Gregory Howard' (First='Gregory' Last='Howard')
+2025-10-03 12:24:19,868 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:24:28,969 [INFO] 50-a: 32 search results for 'Gregory Howard'
+2025-10-03 12:24:28,991 [INFO] 50-a: candidate#1 'Howard, Gregory' -> First='Gregory' Last='Howard'
+2025-10-03 12:24:28,991 [INFO] 50-a: exact match found on candidate#1 'Howard, Gregory'
+2025-10-03 12:24:29,239 [INFO] 50-a: officer profile loaded
+2025-10-03 12:24:29,259 [INFO] 50-a: identity snippet (first 300 chars): Gregory Howard
+Badge #706, Black Male
+Detective Specialist at Military and Extended Leave Desk since July 2025
+Also served at 120th Precinct
+Service started January 2006, made $150,000 last year, Tax #941042
+
+
+
+Discipline Cases:
+
+Case: 2019-20807
+Closed: 9/13/2019
+
+View Details
+
+
+Lawsuit Settlements
+2025-10-03 12:24:29,272 [INFO] 50-a: badge extracted via selector 'span.badge': 706
+2025-10-03 12:24:29,288 [INFO] 50-a: service_start parsed: 01/01/2006
+2025-10-03 12:24:29,302 [INFO] 50-a: last_earned extracted from span.compensation: $150,000
+2025-10-03 12:24:29,342 [INFO] 50-a: has_discipline=Y has_articles=Y
+2025-10-03 12:24:29,391 [INFO] 50-a: summary 'Complaints' -> 4
+2025-10-03 12:24:29,421 [INFO] 50-a: summary 'Allegations' -> 4
+2025-10-03 12:24:29,454 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:24:29,513 [INFO] 50-a: summary 'Unsubstantiated' -> 3
+2025-10-03 12:24:29,527 [INFO] 50-a: lawsuits=11 settlements=79000
+2025-10-03 12:24:29,527 [INFO] 50-a: enrichment complete for 'Gregory Howard' (badge=706, pct=MELD, started=01/01/2006, last_earned=$150,000)
+2025-10-03 12:24:29,528 [INFO] Main: 50-a enrich record #11 - Ivan Villanueva
+2025-10-03 12:24:29,528 [INFO] 50-a: Searching for 'Ivan Villanueva' (First='Ivan' Last='Villanueva')
+2025-10-03 12:24:30,058 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:24:30,506 [INFO] 50-a: 16 search results for 'Ivan Villanueva'
+2025-10-03 12:24:30,543 [INFO] 50-a: candidate#1 'Villanueva, Ivan' -> First='Ivan' Last='Villanueva'
+2025-10-03 12:24:30,543 [INFO] 50-a: exact match found on candidate#1 'Villanueva, Ivan'
+2025-10-03 12:24:30,683 [INFO] 50-a: officer profile loaded
+2025-10-03 12:24:30,704 [INFO] 50-a: identity snippet (first 300 chars): Ivan Villanueva
+Badge #4982, Hispanic Male
+Detective Grade 2 at Military and Extended Leave Desk since February 2025
+Also served at Police Service Area 9 VIPER, Organized Crime Investigation Division, Patrol Borough Queens Impact Response Team, 113th Precinct Detective Squad, 102nd Precinct Detectiv
+2025-10-03 12:24:30,757 [INFO] 50-a: badge extracted via selector 'span.badge': 4982
+2025-10-03 12:24:30,816 [INFO] 50-a: service_start parsed: 07/01/2008
+2025-10-03 12:24:30,893 [INFO] 50-a: last_earned extracted from span.compensation: $197,000
+2025-10-03 12:24:30,920 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:24:31,027 [INFO] 50-a: summary 'Complaints' -> 4
+2025-10-03 12:24:31,096 [INFO] 50-a: summary 'Allegations' -> 4
+2025-10-03 12:24:31,133 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:24:31,252 [INFO] 50-a: summary 'Unsubstantiated' -> 2
+2025-10-03 12:24:31,264 [INFO] 50-a: lawsuits=6 settlements=72500
+2025-10-03 12:24:31,264 [INFO] 50-a: enrichment complete for 'Ivan Villanueva' (badge=4982, pct=MELD, started=07/01/2008, last_earned=$197,000)
+2025-10-03 12:24:31,264 [INFO] Main: 50-a enrich record #12 - Christopher Musa
+2025-10-03 12:24:31,264 [INFO] 50-a: Searching for 'Christopher Musa' (First='Christopher' Last='Musa')
+2025-10-03 12:24:31,792 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:24:39,163 [INFO] 50-a: 31 search results for 'Christopher Musa'
+2025-10-03 12:24:39,195 [INFO] 50-a: candidate#1 'Musa, Christopher F.' -> First='Christopher' Last='Musa'
+2025-10-03 12:24:39,195 [INFO] 50-a: exact match found on candidate#1 'Musa, Christopher F.'
+2025-10-03 12:24:39,502 [INFO] 50-a: officer profile loaded
+2025-10-03 12:24:39,530 [INFO] 50-a: identity snippet (first 300 chars): Christopher F. Musa
+Badge #3353, White Male
+Sergeant at 73rd Precinct since December 2018
+Also served at 110th Precinct
+Service started January 2012, made $159,000 last year, Tax #952040
+
+
+Substantiated Allegations:
+Force: Chokehold
+Force: Hit against inanimate object
+Force: Physical force
+Force: Re
+2025-10-03 12:24:39,551 [INFO] 50-a: badge extracted via selector 'span.badge': 3353
+2025-10-03 12:24:39,580 [INFO] 50-a: service_start parsed: 01/01/2012
+2025-10-03 12:24:39,606 [INFO] 50-a: last_earned extracted from span.compensation: $159,000
+2025-10-03 12:24:39,643 [INFO] 50-a: has_discipline=Y has_articles=N
+2025-10-03 12:24:39,755 [INFO] 50-a: summary 'Complaints' -> 14
+2025-10-03 12:24:39,806 [INFO] 50-a: summary 'Allegations' -> 39
+2025-10-03 12:24:39,855 [INFO] 50-a: summary 'Substantiated' -> 8
+2025-10-03 12:24:40,021 [INFO] 50-a: summary 'Substantiated (Charges)' -> 3
+2025-10-03 12:24:40,514 [INFO] 50-a: summary 'Unsubstantiated' -> 2
+2025-10-03 12:24:40,539 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 5
+2025-10-03 12:24:40,553 [INFO] 50-a: lawsuits=4 settlements=1598000
+2025-10-03 12:24:40,553 [INFO] 50-a: enrichment complete for 'Christopher Musa' (badge=3353, pct=73, started=01/01/2012, last_earned=$159,000)
+2025-10-03 12:24:40,553 [INFO] Main: 50-a enrich record #13 - Gregory Howard
+2025-10-03 12:24:40,553 [INFO] 50-a: Searching for 'Gregory Howard' (First='Gregory' Last='Howard')
+2025-10-03 12:24:41,077 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:24:41,386 [INFO] 50-a: 32 search results for 'Gregory Howard'
+2025-10-03 12:24:41,453 [INFO] 50-a: candidate#1 'Howard, Gregory' -> First='Gregory' Last='Howard'
+2025-10-03 12:24:41,454 [INFO] 50-a: exact match found on candidate#1 'Howard, Gregory'
+2025-10-03 12:24:41,605 [INFO] 50-a: officer profile loaded
+2025-10-03 12:24:41,630 [INFO] 50-a: identity snippet (first 300 chars): Gregory Howard
+Badge #706, Black Male
+Detective Specialist at Military and Extended Leave Desk since July 2025
+Also served at 120th Precinct
+Service started January 2006, made $150,000 last year, Tax #941042
+
+
+
+Discipline Cases:
+
+Case: 2019-20807
+Closed: 9/13/2019
+
+View Details
+
+
+Lawsuit Settlements
+2025-10-03 12:24:41,660 [INFO] 50-a: badge extracted via selector 'span.badge': 706
+2025-10-03 12:24:41,678 [INFO] 50-a: service_start parsed: 01/01/2006
+2025-10-03 12:24:41,700 [INFO] 50-a: last_earned extracted from span.compensation: $150,000
+2025-10-03 12:24:41,743 [INFO] 50-a: has_discipline=Y has_articles=Y
+2025-10-03 12:24:41,883 [INFO] 50-a: summary 'Complaints' -> 4
+2025-10-03 12:24:41,932 [INFO] 50-a: summary 'Allegations' -> 4
+2025-10-03 12:24:41,974 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:24:42,174 [INFO] 50-a: summary 'Unsubstantiated' -> 3
+2025-10-03 12:24:42,195 [INFO] 50-a: lawsuits=11 settlements=79000
+2025-10-03 12:24:42,195 [INFO] 50-a: enrichment complete for 'Gregory Howard' (badge=706, pct=MELD, started=01/01/2006, last_earned=$150,000)
+2025-10-03 12:24:42,196 [INFO] Main: 50-a enrich record #14 - Harry Espinal
+2025-10-03 12:24:42,196 [INFO] 50-a: Searching for 'Harry Espinal' (First='Harry' Last='Espinal')
+2025-10-03 12:24:42,760 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:24:47,866 [INFO] 50-a: 33 search results for 'Harry Espinal'
+2025-10-03 12:24:47,879 [INFO] 50-a: candidate#1 'Espinal, Harry' -> First='Harry' Last='Espinal'
+2025-10-03 12:24:47,879 [INFO] 50-a: exact match found on candidate#1 'Espinal, Harry'
+2025-10-03 12:24:48,136 [INFO] 50-a: officer profile loaded
+2025-10-03 12:24:48,157 [INFO] 50-a: identity snippet (first 300 chars): Harry Espinal
+Badge #19236, Hispanic Male
+Police Officer at Manhattan Court Section since August 2023
+Also served at Specialized Training Section, 88th Precinct
+Service started July 2015, made $190,000 last year, Tax #958556
+2025-10-03 12:24:48,170 [INFO] 50-a: badge extracted via selector 'span.badge': 19236
+2025-10-03 12:24:48,184 [INFO] 50-a: service_start parsed: 07/01/2015
+2025-10-03 12:24:48,196 [INFO] 50-a: last_earned extracted from span.compensation: $190,000
+2025-10-03 12:24:48,206 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:24:48,214 [INFO] 50-a: enrichment complete for 'Harry Espinal' (badge=19236, pct=127, started=07/01/2015, last_earned=$190,000)
+2025-10-03 12:24:48,214 [INFO] Main: 50-a enrich record #15 - Christopher Musa
+2025-10-03 12:24:48,214 [INFO] 50-a: Searching for 'Christopher Musa' (First='Christopher' Last='Musa')
+2025-10-03 12:24:48,740 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:24:48,899 [INFO] 50-a: 31 search results for 'Christopher Musa'
+2025-10-03 12:24:48,914 [INFO] 50-a: candidate#1 'Musa, Christopher F.' -> First='Christopher' Last='Musa'
+2025-10-03 12:24:48,914 [INFO] 50-a: exact match found on candidate#1 'Musa, Christopher F.'
+2025-10-03 12:24:49,044 [INFO] 50-a: officer profile loaded
+2025-10-03 12:24:49,066 [INFO] 50-a: identity snippet (first 300 chars): Christopher F. Musa
+Badge #3353, White Male
+Sergeant at 73rd Precinct since December 2018
+Also served at 110th Precinct
+Service started January 2012, made $159,000 last year, Tax #952040
+
+
+Substantiated Allegations:
+Force: Chokehold
+Force: Hit against inanimate object
+Force: Physical force
+Force: Re
+2025-10-03 12:24:49,078 [INFO] 50-a: badge extracted via selector 'span.badge': 3353
+2025-10-03 12:24:49,092 [INFO] 50-a: service_start parsed: 01/01/2012
+2025-10-03 12:24:49,104 [INFO] 50-a: last_earned extracted from span.compensation: $159,000
+2025-10-03 12:24:49,124 [INFO] 50-a: has_discipline=Y has_articles=N
+2025-10-03 12:24:49,190 [INFO] 50-a: summary 'Complaints' -> 14
+2025-10-03 12:24:49,216 [INFO] 50-a: summary 'Allegations' -> 39
+2025-10-03 12:24:49,240 [INFO] 50-a: summary 'Substantiated' -> 8
+2025-10-03 12:24:49,314 [INFO] 50-a: summary 'Substantiated (Charges)' -> 3
+2025-10-03 12:24:49,539 [INFO] 50-a: summary 'Unsubstantiated' -> 2
+2025-10-03 12:24:49,566 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 5
+2025-10-03 12:24:49,578 [INFO] 50-a: lawsuits=4 settlements=1598000
+2025-10-03 12:24:49,578 [INFO] 50-a: enrichment complete for 'Christopher Musa' (badge=3353, pct=73, started=01/01/2012, last_earned=$159,000)
+2025-10-03 12:24:49,579 [INFO] Main: 50-a enrich record #16 - Laura Devoy
+2025-10-03 12:24:49,579 [INFO] 50-a: Searching for 'Laura Devoy' (First='Laura' Last='Devoy')
+2025-10-03 12:24:50,102 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:24:59,038 [INFO] 50-a: 10 search results for 'Laura Devoy'
+2025-10-03 12:24:59,094 [INFO] 50-a: candidate#1 'Delohery, Maura F.' -> First='Maura' Last='Delohery'
+2025-10-03 12:24:59,119 [INFO] 50-a: candidate#2 'Delacruzsoriano, Laura T.' -> First='Laura' Last='Delacruzsoriano'
+2025-10-03 12:24:59,135 [INFO] 50-a: candidate#3 'Varisco, Laura M.' -> First='Laura' Last='Varisco'
+2025-10-03 12:24:59,153 [INFO] 50-a: candidate#4 'Colwell, Laura' -> First='Laura' Last='Colwell'
+2025-10-03 12:24:59,173 [INFO] 50-a: candidate#5 'Bromley, Laura E.' -> First='Laura' Last='Bromley'
+2025-10-03 12:24:59,190 [INFO] 50-a: candidate#6 'Diblasi, Laura' -> First='Laura' Last='Diblasi'
+2025-10-03 12:24:59,208 [INFO] 50-a: candidate#7 'Gaon, Laura M.' -> First='Laura' Last='Gaon'
+2025-10-03 12:24:59,221 [INFO] 50-a: candidate#8 'Roberts, Laura' -> First='Laura' Last='Roberts'
+2025-10-03 12:24:59,254 [INFO] 50-a: candidate#9 'Torressantana, Laura M.' -> First='Laura' Last='Torressantana'
+2025-10-03 12:24:59,286 [INFO] 50-a: candidate#10 'Cespedes, Laura' -> First='Laura' Last='Cespedes'
+2025-10-03 12:24:59,287 [WARNING] 50-a: no exact name match found for 'Laura Devoy'. Trying partial-last fallback.
+2025-10-03 12:24:59,539 [WARNING] 50-a: still no match for 'Laura Devoy'. Skipping 50-a enrichment.
+2025-10-03 12:24:59,539 [INFO] Main: 50-a enrich record #17 - Miguel Estevez
+2025-10-03 12:24:59,539 [INFO] 50-a: Searching for 'Miguel Estevez' (First='Miguel' Last='Estevez')
+2025-10-03 12:25:00,140 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:25:08,854 [INFO] 50-a: 31 search results for 'Miguel Estevez'
+2025-10-03 12:25:08,899 [INFO] 50-a: candidate#1 'Estevez, Miguel E.' -> First='Miguel' Last='Estevez'
+2025-10-03 12:25:08,899 [INFO] 50-a: exact match found on candidate#1 'Estevez, Miguel E.'
+2025-10-03 12:25:09,738 [INFO] 50-a: officer profile loaded
+2025-10-03 12:25:09,763 [INFO] 50-a: identity snippet (first 300 chars): Miguel E. Estevez
+Badge #1301, Hispanic Male
+Sergeant at 41st Precinct since November 2023
+Also served at Police Service Area 8, Transit Bureau District 11, Narcotics Borough Bronx, 108th Precinct
+Service started July 2005, made $146,000 last year, Tax #938446
+miguel.estevez@nypd.org
+
+
+Lawsuit Settl
+2025-10-03 12:25:09,786 [INFO] 50-a: badge extracted via selector 'span.badge': 1301
+2025-10-03 12:25:09,810 [INFO] 50-a: service_start parsed: 07/01/2005
+2025-10-03 12:25:09,832 [INFO] 50-a: last_earned extracted from span.compensation: $146,000
+2025-10-03 12:25:09,855 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:25:09,944 [INFO] 50-a: summary 'Complaints' -> 5
+2025-10-03 12:25:09,979 [INFO] 50-a: summary 'Allegations' -> 7
+2025-10-03 12:25:10,031 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:25:10,300 [INFO] 50-a: summary 'Unsubstantiated' -> 2
+2025-10-03 12:25:10,323 [INFO] 50-a: lawsuits=8 settlements=197500
+2025-10-03 12:25:10,323 [INFO] 50-a: enrichment complete for 'Miguel Estevez' (badge=1301, pct=41, started=07/01/2005, last_earned=$146,000)
+2025-10-03 12:25:10,324 [INFO] Main: 50-a enrich record #18 - Michael Velazquez
+2025-10-03 12:25:10,324 [INFO] 50-a: Searching for 'Michael Velazquez' (First='Michael' Last='Velazquez')
+2025-10-03 12:25:10,852 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:25:18,960 [INFO] 50-a: 12 search results for 'Michael Velazquez'
+2025-10-03 12:25:18,972 [INFO] 50-a: candidate#1 'Velazquez, Michael V.' -> First='Michael' Last='Velazquez'
+2025-10-03 12:25:18,972 [INFO] 50-a: exact match found on candidate#1 'Velazquez, Michael V.'
+2025-10-03 12:25:19,209 [INFO] 50-a: officer profile loaded
+2025-10-03 12:25:19,228 [INFO] 50-a: identity snippet (first 300 chars): Michael V. Velazquez
+Badge #20892, Hispanic Male
+Police Officer at 50th Precinct since May 2019
+Service started January 2017, made $226,000 last year, Tax #963312
+2025-10-03 12:25:19,240 [INFO] 50-a: badge extracted via selector 'span.badge': 20892
+2025-10-03 12:25:19,252 [INFO] 50-a: service_start parsed: 01/01/2017
+2025-10-03 12:25:19,263 [INFO] 50-a: last_earned extracted from span.compensation: $226,000
+2025-10-03 12:25:19,272 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:25:19,344 [INFO] 50-a: summary 'Complaints' -> 3
+2025-10-03 12:25:19,372 [INFO] 50-a: summary 'Allegations' -> 5
+2025-10-03 12:25:19,400 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:25:19,502 [INFO] 50-a: lawsuits=0 settlements=0
+2025-10-03 12:25:19,502 [INFO] 50-a: enrichment complete for 'Michael Velazquez' (badge=20892, pct=50, started=01/01/2017, last_earned=$226,000)
+2025-10-03 12:25:19,502 [INFO] Main: 50-a enrich record #19 - Miguel Estevez
+2025-10-03 12:25:19,502 [INFO] 50-a: Searching for 'Miguel Estevez' (First='Miguel' Last='Estevez')
+2025-10-03 12:25:20,022 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:25:20,229 [INFO] 50-a: 31 search results for 'Miguel Estevez'
+2025-10-03 12:25:20,242 [INFO] 50-a: candidate#1 'Estevez, Miguel E.' -> First='Miguel' Last='Estevez'
+2025-10-03 12:25:20,242 [INFO] 50-a: exact match found on candidate#1 'Estevez, Miguel E.'
+2025-10-03 12:25:20,322 [INFO] 50-a: officer profile loaded
+2025-10-03 12:25:20,340 [INFO] 50-a: identity snippet (first 300 chars): Miguel E. Estevez
+Badge #1301, Hispanic Male
+Sergeant at 41st Precinct since November 2023
+Also served at Police Service Area 8, Transit Bureau District 11, Narcotics Borough Bronx, 108th Precinct
+Service started July 2005, made $146,000 last year, Tax #938446
+miguel.estevez@nypd.org
+
+
+Lawsuit Settl
+2025-10-03 12:25:20,354 [INFO] 50-a: badge extracted via selector 'span.badge': 1301
+2025-10-03 12:25:20,368 [INFO] 50-a: service_start parsed: 07/01/2005
+2025-10-03 12:25:20,381 [INFO] 50-a: last_earned extracted from span.compensation: $146,000
+2025-10-03 12:25:20,393 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:25:20,446 [INFO] 50-a: summary 'Complaints' -> 5
+2025-10-03 12:25:20,481 [INFO] 50-a: summary 'Allegations' -> 7
+2025-10-03 12:25:20,508 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:25:20,629 [INFO] 50-a: summary 'Unsubstantiated' -> 2
+2025-10-03 12:25:20,641 [INFO] 50-a: lawsuits=8 settlements=197500
+2025-10-03 12:25:20,641 [INFO] 50-a: enrichment complete for 'Miguel Estevez' (badge=1301, pct=41, started=07/01/2005, last_earned=$146,000)
+2025-10-03 12:25:20,641 [INFO] Main: 50-a enrich record #20 - Donald Aridas
+2025-10-03 12:25:20,641 [INFO] 50-a: Searching for 'Donald Aridas' (First='Donald' Last='Aridas')
+2025-10-03 12:25:21,164 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:25:28,643 [INFO] 50-a: 12 search results for 'Donald Aridas'
+2025-10-03 12:25:28,664 [INFO] 50-a: candidate#1 'Aridas, Donald A.' -> First='Donald' Last='Aridas'
+2025-10-03 12:25:28,664 [INFO] 50-a: exact match found on candidate#1 'Aridas, Donald A.'
+2025-10-03 12:25:30,005 [INFO] 50-a: officer profile loaded
+2025-10-03 12:25:30,030 [INFO] 50-a: identity snippet (first 300 chars): Donald A. Aridas
+Badge #30787, White Male
+Police Officer at 19th Precinct since January 2007
+Service started January 2006, made $249,000 last year, Tax #939882
+donald.aridas@nypd.org
+
+
+Substantiated Allegations:
+Force: Pepper spray
+Abuse of Authority: Refusal to obtain medical treatment
+2025-10-03 12:25:30,043 [INFO] 50-a: badge extracted via selector 'span.badge': 30787
+2025-10-03 12:25:30,061 [INFO] 50-a: service_start parsed: 01/01/2006
+2025-10-03 12:25:30,084 [INFO] 50-a: last_earned extracted from span.compensation: $249,000
+2025-10-03 12:25:30,104 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:25:30,164 [INFO] 50-a: summary 'Complaints' -> 9
+2025-10-03 12:25:30,189 [INFO] 50-a: summary 'Allegations' -> 17
+2025-10-03 12:25:30,217 [INFO] 50-a: summary 'Substantiated' -> 2
+2025-10-03 12:25:30,242 [INFO] 50-a: summary 'Substantiated (Charges)' -> 2
+2025-10-03 12:25:30,353 [INFO] 50-a: summary 'Unsubstantiated' -> 4
+2025-10-03 12:25:30,378 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 2
+2025-10-03 12:25:30,383 [INFO] 50-a: enrichment complete for 'Donald Aridas' (badge=30787, pct=19, started=01/01/2006, last_earned=$249,000)
+2025-10-03 12:25:30,383 [INFO] Main: 50-a enrich record #21 - Anthony Diaz
+2025-10-03 12:25:30,383 [INFO] 50-a: Searching for 'Anthony Diaz' (First='Anthony' Last='Diaz')
+2025-10-03 12:25:30,911 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:25:38,590 [INFO] 50-a: 30 search results for 'Anthony Diaz'
+2025-10-03 12:25:38,618 [INFO] 50-a: candidate#1 'Diaz, Anthony' -> First='Anthony' Last='Diaz'
+2025-10-03 12:25:38,618 [INFO] 50-a: exact match found on candidate#1 'Diaz, Anthony'
+2025-10-03 12:25:38,861 [INFO] 50-a: officer profile loaded
+2025-10-03 12:25:38,882 [INFO] 50-a: identity snippet (first 300 chars): Anthony Diaz
+Badge #24331, Hispanic Male
+Police Officer at Bronx Court Section since April 2025
+Also served at Manhattan Court Section, Police Service Area 6, 52nd Precinct, 108th Precinct
+Service started July 2013, made $200,000 last year, Tax #954730
+
+
+
+Discipline Cases:
+
+Case: 2018-18739
+Closed: 
+2025-10-03 12:25:38,904 [INFO] 50-a: badge extracted via selector 'span.badge': 24331
+2025-10-03 12:25:38,924 [INFO] 50-a: service_start parsed: 07/01/2013
+2025-10-03 12:25:38,938 [INFO] 50-a: last_earned extracted from span.compensation: $200,000
+2025-10-03 12:25:38,966 [INFO] 50-a: has_discipline=Y has_articles=N
+2025-10-03 12:25:39,014 [INFO] 50-a: summary 'Complaints' -> 2
+2025-10-03 12:25:39,041 [INFO] 50-a: summary 'Allegations' -> 3
+2025-10-03 12:25:39,079 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:25:39,128 [INFO] 50-a: lawsuits=0 settlements=0
+2025-10-03 12:25:39,128 [INFO] 50-a: enrichment complete for 'Anthony Diaz' (badge=24331, pct=89, started=07/01/2013, last_earned=$200,000)
+2025-10-03 12:25:39,129 [INFO] Main: 50-a enrich record #22 - Christopher Rodrigo
+2025-10-03 12:25:39,129 [INFO] 50-a: Searching for 'Christopher Rodrigo' (First='Christopher' Last='Rodrigo')
+2025-10-03 12:25:39,662 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:25:49,159 [INFO] 50-a: 39 search results for 'Christopher Rodrigo'
+2025-10-03 12:25:49,185 [INFO] 50-a: candidate#1 'Rodrigo, Christopher A.' -> First='Christopher' Last='Rodrigo'
+2025-10-03 12:25:49,185 [INFO] 50-a: exact match found on candidate#1 'Rodrigo, Christopher A.'
+2025-10-03 12:25:49,536 [INFO] 50-a: officer profile loaded
+2025-10-03 12:25:49,556 [INFO] 50-a: identity snippet (first 300 chars): Christopher A. Rodrigo
+Badge #7729, Hispanic Male
+Detective Specialist at Patrol Borough Manhattan North Community Affairs Section since March 2023
+Also served at Narcotics Division, Narcotics Borough Brooklyn North, 32nd Precinct
+Service started July 2001, made $198,000 last year, Tax #929060
+
+
+
+Di
+2025-10-03 12:25:49,569 [INFO] 50-a: badge extracted via selector 'span.badge': 7729
+2025-10-03 12:25:49,581 [INFO] 50-a: service_start parsed: 07/01/2001
+2025-10-03 12:25:49,592 [INFO] 50-a: last_earned extracted from span.compensation: $198,000
+2025-10-03 12:25:49,609 [INFO] 50-a: has_discipline=Y has_articles=N
+2025-10-03 12:25:49,668 [INFO] 50-a: summary 'Complaints' -> 14
+2025-10-03 12:25:49,701 [INFO] 50-a: summary 'Allegations' -> 27
+2025-10-03 12:25:49,729 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:25:49,841 [INFO] 50-a: summary 'Unsubstantiated' -> 13
+2025-10-03 12:25:49,861 [INFO] 50-a: lawsuits=4 settlements=287500
+2025-10-03 12:25:49,861 [INFO] 50-a: enrichment complete for 'Christopher Rodrigo' (badge=7729, pct=761, started=07/01/2001, last_earned=$198,000)
+2025-10-03 12:25:49,861 [INFO] Main: 50-a enrich record #23 - Michelle Bonaparte
+2025-10-03 12:25:49,862 [INFO] 50-a: Searching for 'Michelle Bonaparte' (First='Michelle' Last='Bonaparte')
+2025-10-03 12:25:50,386 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:25:58,970 [INFO] 50-a: 21 search results for 'Michelle Bonaparte'
+2025-10-03 12:25:58,987 [INFO] 50-a: candidate#1 'Bonaparte, Michelle' -> First='Michelle' Last='Bonaparte'
+2025-10-03 12:25:58,987 [INFO] 50-a: exact match found on candidate#1 'Bonaparte, Michelle'
+2025-10-03 12:25:59,291 [INFO] 50-a: officer profile loaded
+2025-10-03 12:25:59,307 [INFO] 50-a: identity snippet (first 300 chars): Michelle Bonaparte
+Badge #1887, Black Female
+Detective Grade 3 at 79th Precinct Detective Squad since April 2019
+Also served at 84th Precinct
+Service started January 2006, made $231,000 last year, Tax #940972
+2025-10-03 12:25:59,323 [INFO] 50-a: badge extracted via selector 'span.badge': 1887
+2025-10-03 12:25:59,336 [INFO] 50-a: service_start parsed: 01/01/2006
+2025-10-03 12:25:59,348 [INFO] 50-a: last_earned extracted from span.compensation: $231,000
+2025-10-03 12:25:59,357 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:25:59,402 [INFO] 50-a: summary 'Complaints' -> 3
+2025-10-03 12:25:59,425 [INFO] 50-a: summary 'Allegations' -> 6
+2025-10-03 12:25:59,453 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:25:59,535 [INFO] 50-a: summary 'Unsubstantiated' -> 2
+2025-10-03 12:25:59,561 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
+2025-10-03 12:25:59,565 [INFO] 50-a: enrichment complete for 'Michelle Bonaparte' (badge=1887, pct=79, started=01/01/2006, last_earned=$231,000)
+2025-10-03 12:25:59,565 [INFO] Main: 50-a enrich record #24 - Michelle Bonaparte
+2025-10-03 12:25:59,565 [INFO] 50-a: Searching for 'Michelle Bonaparte' (First='Michelle' Last='Bonaparte')
+2025-10-03 12:26:00,088 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:26:00,259 [INFO] 50-a: 21 search results for 'Michelle Bonaparte'
+2025-10-03 12:26:00,273 [INFO] 50-a: candidate#1 'Bonaparte, Michelle' -> First='Michelle' Last='Bonaparte'
+2025-10-03 12:26:00,274 [INFO] 50-a: exact match found on candidate#1 'Bonaparte, Michelle'
+2025-10-03 12:26:00,362 [INFO] 50-a: officer profile loaded
+2025-10-03 12:26:00,460 [INFO] 50-a: identity snippet (first 300 chars): Michelle Bonaparte
+Badge #1887, Black Female
+Detective Grade 3 at 79th Precinct Detective Squad since April 2019
+Also served at 84th Precinct
+Service started January 2006, made $231,000 last year, Tax #940972
+2025-10-03 12:26:00,487 [INFO] 50-a: badge extracted via selector 'span.badge': 1887
+2025-10-03 12:26:00,517 [INFO] 50-a: service_start parsed: 01/01/2006
+2025-10-03 12:26:00,534 [INFO] 50-a: last_earned extracted from span.compensation: $231,000
+2025-10-03 12:26:00,550 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:26:00,620 [INFO] 50-a: summary 'Complaints' -> 3
+2025-10-03 12:26:00,647 [INFO] 50-a: summary 'Allegations' -> 6
+2025-10-03 12:26:00,672 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:26:00,749 [INFO] 50-a: summary 'Unsubstantiated' -> 2
+2025-10-03 12:26:00,780 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
+2025-10-03 12:26:00,784 [INFO] 50-a: enrichment complete for 'Michelle Bonaparte' (badge=1887, pct=79, started=01/01/2006, last_earned=$231,000)
+2025-10-03 12:26:00,784 [INFO] Main: 50-a enrich record #25 - Michelle Bonaparte
+2025-10-03 12:26:00,784 [INFO] 50-a: Searching for 'Michelle Bonaparte' (First='Michelle' Last='Bonaparte')
+2025-10-03 12:26:01,308 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:26:01,456 [INFO] 50-a: 21 search results for 'Michelle Bonaparte'
+2025-10-03 12:26:01,472 [INFO] 50-a: candidate#1 'Bonaparte, Michelle' -> First='Michelle' Last='Bonaparte'
+2025-10-03 12:26:01,472 [INFO] 50-a: exact match found on candidate#1 'Bonaparte, Michelle'
+2025-10-03 12:26:01,555 [INFO] 50-a: officer profile loaded
+2025-10-03 12:26:01,574 [INFO] 50-a: identity snippet (first 300 chars): Michelle Bonaparte
+Badge #1887, Black Female
+Detective Grade 3 at 79th Precinct Detective Squad since April 2019
+Also served at 84th Precinct
+Service started January 2006, made $231,000 last year, Tax #940972
+2025-10-03 12:26:01,593 [INFO] 50-a: badge extracted via selector 'span.badge': 1887
+2025-10-03 12:26:01,606 [INFO] 50-a: service_start parsed: 01/01/2006
+2025-10-03 12:26:01,625 [INFO] 50-a: last_earned extracted from span.compensation: $231,000
+2025-10-03 12:26:01,635 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:26:01,694 [INFO] 50-a: summary 'Complaints' -> 3
+2025-10-03 12:26:01,729 [INFO] 50-a: summary 'Allegations' -> 6
+2025-10-03 12:26:01,760 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:26:01,843 [INFO] 50-a: summary 'Unsubstantiated' -> 2
+2025-10-03 12:26:01,870 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
+2025-10-03 12:26:01,874 [INFO] 50-a: enrichment complete for 'Michelle Bonaparte' (badge=1887, pct=79, started=01/01/2006, last_earned=$231,000)
+2025-10-03 12:26:01,874 [INFO] Main: 50-a enrich record #26 - Ariel Peraltayascaribay
+2025-10-03 12:26:01,874 [INFO] 50-a: Searching for 'Ariel Peraltayascaribay' (First='Ariel' Last='Peraltayascaribay')
+2025-10-03 12:26:02,398 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:26:09,822 [INFO] 50-a: 1 search results for 'Ariel Peraltayascaribay'
+2025-10-03 12:26:09,869 [INFO] 50-a: candidate#1 'Peraltayascaribay, Ariel E.' -> First='Ariel' Last='Peraltayascaribay'
+2025-10-03 12:26:09,869 [INFO] 50-a: exact match found on candidate#1 'Peraltayascaribay, Ariel E.'
+2025-10-03 12:26:10,175 [INFO] 50-a: officer profile loaded
+2025-10-03 12:26:10,193 [INFO] 50-a: identity snippet (first 300 chars): Ariel E. Peraltayascaribay
+Badge #13628, Hispanic Male
+Police Officer at Brooklyn Court Section since December 2024
+Also served at Medical Division, 30th Precinct
+Service started January 2020, Tax #969283
+2025-10-03 12:26:10,209 [INFO] 50-a: badge extracted via selector 'span.badge': 13628
+2025-10-03 12:26:10,224 [INFO] 50-a: service_start parsed: 01/01/2020
+2025-10-03 12:26:10,238 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-03 12:26:10,372 [INFO] 50-a: summary 'Allegations' -> 3
+2025-10-03 12:26:10,407 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:26:10,552 [INFO] 50-a: lawsuits=0 settlements=0
+2025-10-03 12:26:10,553 [INFO] 50-a: enrichment complete for 'Ariel Peraltayascaribay' (badge=13628, pct=36, started=01/01/2020, last_earned=None)
+2025-10-03 12:26:10,553 [INFO] Main: 50-a enrich record #27 - Lenita Harrison
+2025-10-03 12:26:10,553 [INFO] 50-a: Searching for 'Lenita Harrison' (First='Lenita' Last='Harrison')
+2025-10-03 12:26:11,094 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:26:19,203 [INFO] 50-a: 21 search results for 'Lenita Harrison'
+2025-10-03 12:26:19,354 [INFO] 50-a: candidate#1 'Harrison, Lenita I.' -> First='Lenita' Last='Harrison'
+2025-10-03 12:26:19,355 [INFO] 50-a: exact match found on candidate#1 'Harrison, Lenita I.'
+2025-10-03 12:26:19,659 [INFO] 50-a: officer profile loaded
+2025-10-03 12:26:19,771 [INFO] 50-a: identity snippet (first 300 chars): Lenita I. Harrison
+Badge #26439, Black Female
+Police Officer at Patrol Borough Brooklyn North since October 2021
+Also served at 77th Precinct
+Service started July 2003, made $177,000 last year, Tax #932776
+
+
+
+Discipline Cases:
+
+Case: 2013-9135
+Closed: 7/22/2014
+Document
+Case: 2013=9135
+Closed: 7/22/
+2025-10-03 12:26:19,797 [INFO] 50-a: badge extracted via selector 'span.badge': 26439
+2025-10-03 12:26:19,831 [INFO] 50-a: service_start parsed: 07/01/2003
+2025-10-03 12:26:19,860 [INFO] 50-a: last_earned extracted from span.compensation: $177,000
+2025-10-03 12:26:19,904 [INFO] 50-a: has_discipline=Y has_articles=N
+2025-10-03 12:26:20,020 [INFO] 50-a: summary 'Complaints' -> 4
+2025-10-03 12:26:20,071 [INFO] 50-a: summary 'Allegations' -> 5
+2025-10-03 12:26:20,147 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:26:20,336 [INFO] 50-a: summary 'Unsubstantiated' -> 2
+2025-10-03 12:26:20,357 [INFO] 50-a: enrichment complete for 'Lenita Harrison' (badge=26439, pct=PBBN, started=07/01/2003, last_earned=$177,000)
+2025-10-03 12:26:20,357 [INFO] Main: 50-a enrich record #28 - Lenita Harrison
+2025-10-03 12:26:20,357 [INFO] 50-a: Searching for 'Lenita Harrison' (First='Lenita' Last='Harrison')
+2025-10-03 12:26:20,893 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-03 12:26:21,264 [INFO] 50-a: 21 search results for 'Lenita Harrison'
+2025-10-03 12:26:21,300 [INFO] 50-a: candidate#1 'Harrison, Lenita I.' -> First='Lenita' Last='Harrison'
+2025-10-03 12:26:21,300 [INFO] 50-a: exact match found on candidate#1 'Harrison, Lenita I.'
+2025-10-03 12:26:21,443 [INFO] 50-a: officer profile loaded
+2025-10-03 12:26:21,484 [INFO] 50-a: identity snippet (first 300 chars): Lenita I. Harrison
+Badge #26439, Black Female
+Police Officer at Patrol Borough Brooklyn North since October 2021
+Also served at 77th Precinct
+Service started July 2003, made $177,000 last year, Tax #932776
+
+
+
+Discipline Cases:
+
+Case: 2013-9135
+Closed: 7/22/2014
+Document
+Case: 2013=9135
+Closed: 7/22/
+2025-10-03 12:26:21,507 [INFO] 50-a: badge extracted via selector 'span.badge': 26439
+2025-10-03 12:26:21,540 [INFO] 50-a: service_start parsed: 07/01/2003
+2025-10-03 12:26:21,577 [INFO] 50-a: last_earned extracted from span.compensation: $177,000
+2025-10-03 12:26:21,615 [INFO] 50-a: has_discipline=Y has_articles=N
+2025-10-03 12:26:21,670 [INFO] 50-a: summary 'Complaints' -> 4
+2025-10-03 12:26:21,703 [INFO] 50-a: summary 'Allegations' -> 5
+2025-10-03 12:26:21,751 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-03 12:26:21,958 [INFO] 50-a: summary 'Unsubstantiated' -> 2
+2025-10-03 12:26:21,965 [INFO] 50-a: enrichment complete for 'Lenita Harrison' (badge=26439, pct=PBBN, started=07/01/2003, last_earned=$177,000)
+2025-10-03 12:26:21,966 [INFO] Main: beginning payroll enrichment pass
+2025-10-03 12:26:22,201 [INFO] Main: payroll enrich record #1 - First='Julian' Last='Reyes'
+2025-10-03 12:26:22,201 [INFO] Payroll: Searching for 'Julian Reyes'
+2025-10-03 12:26:24,748 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:26:25,588 [WARNING] Payroll: search input 'input#search-view' not found
+2025-10-03 12:26:25,588 [INFO] Main: payroll enrich record #2 - First='Jovanna' Last='Martes'
+2025-10-03 12:26:25,588 [INFO] Payroll: Searching for 'Jovanna Martes'
+2025-10-03 12:26:29,743 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:26:32,638 [INFO] Payroll: found 100 table rows for 'Jovanna Martes'
+2025-10-03 12:26:32,638 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:26:32,643 [INFO] Payroll: using service_start tie-breaker = 2012-07-01
+2025-10-03 12:26:32,856 [INFO] Payroll: row#1 -> year=2014, first='THOMAS', last='ADAMS', agency_start='01/10/2007'
+2025-10-03 12:26:33,069 [INFO] Payroll: row#2 -> year=2014, first='WALE', last='ADEBAYO', agency_start='11/29/1999'
+2025-10-03 12:26:33,223 [INFO] Payroll: row#3 -> year=2014, first='EMMANUEL', last='ADEDOKUN', agency_start='10/24/1991'
+2025-10-03 12:26:33,475 [INFO] Payroll: row#4 -> year=2014, first='BOLANLE', last='ADEGOKE', agency_start='06/18/2001'
+2025-10-03 12:26:33,641 [INFO] Payroll: row#5 -> year=2014, first='FRANCISCO', last='AGIS', agency_start='01/20/2004'
+2025-10-03 12:26:33,787 [INFO] Payroll: row#6 -> year=2014, first='PAUL', last='AGLI', agency_start='07/07/1999'
+2025-10-03 12:26:33,932 [INFO] Payroll: row#7 -> year=2014, first='ROBERT', last='AGLIALORO', agency_start='07/06/2010'
+2025-10-03 12:26:34,133 [INFO] Payroll: row#8 -> year=2014, first='ROBERT', last='AGLIETTI', agency_start='06/30/1992'
+2025-10-03 12:26:34,367 [INFO] Payroll: row#9 -> year=2014, first='MICHAEL', last='AGNESE', agency_start='08/30/1993'
+2025-10-03 12:26:34,512 [INFO] Payroll: row#10 -> year=2014, first='MIKELJAN', last='AGOLLI', agency_start='07/06/2011'
+2025-10-03 12:26:34,512 [INFO] Payroll: reached 5 rows without finding 2024/2023, stopping early
+2025-10-03 12:26:34,512 [WARNING] Payroll: no suitable payroll match found for 'Jovanna Martes'
+2025-10-03 12:26:34,512 [INFO] Main: payroll enrich record #3 - First='Lucia' Last='Gaynor'
+2025-10-03 12:26:34,512 [INFO] Payroll: Searching for 'Lucia Gaynor'
+2025-10-03 12:26:36,193 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:26:37,688 [INFO] Payroll: found 100 table rows for 'Lucia Gaynor'
+2025-10-03 12:26:37,689 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:26:37,689 [INFO] Payroll: using service_start tie-breaker = 2013-07-01
+2025-10-03 12:26:37,831 [INFO] Payroll: row#1 -> year=2014, first='THOMAS', last='ADAMS', agency_start='01/10/2007'
+2025-10-03 12:26:37,966 [INFO] Payroll: row#2 -> year=2014, first='WALE', last='ADEBAYO', agency_start='11/29/1999'
+2025-10-03 12:26:38,098 [INFO] Payroll: row#3 -> year=2014, first='EMMANUEL', last='ADEDOKUN', agency_start='10/24/1991'
+2025-10-03 12:26:38,258 [INFO] Payroll: row#4 -> year=2014, first='BOLANLE', last='ADEGOKE', agency_start='06/18/2001'
+2025-10-03 12:26:38,370 [INFO] Payroll: row#5 -> year=2014, first='FRANCISCO', last='AGIS', agency_start='01/20/2004'
+2025-10-03 12:26:38,499 [INFO] Payroll: row#6 -> year=2014, first='PAUL', last='AGLI', agency_start='07/07/1999'
+2025-10-03 12:26:38,634 [INFO] Payroll: row#7 -> year=2014, first='ROBERT', last='AGLIALORO', agency_start='07/06/2010'
+2025-10-03 12:26:38,764 [INFO] Payroll: row#8 -> year=2014, first='ROBERT', last='AGLIETTI', agency_start='06/30/1992'
+2025-10-03 12:26:39,090 [INFO] Payroll: row#9 -> year=2014, first='MICHAEL', last='AGNESE', agency_start='08/30/1993'
+2025-10-03 12:26:39,300 [INFO] Payroll: row#10 -> year=2014, first='MIKELJAN', last='AGOLLI', agency_start='07/06/2011'
+2025-10-03 12:26:39,300 [INFO] Payroll: reached 5 rows without finding 2024/2023, stopping early
+2025-10-03 12:26:39,300 [WARNING] Payroll: no suitable payroll match found for 'Lucia Gaynor'
+2025-10-03 12:26:39,300 [INFO] Main: payroll enrich record #4 - First='Alan' Last='Ye'
+2025-10-03 12:26:39,300 [INFO] Payroll: Searching for 'Alan Ye'
+2025-10-03 12:26:42,119 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:26:44,194 [INFO] Payroll: found 100 table rows for 'Alan Ye'
+2025-10-03 12:26:44,194 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:26:44,196 [INFO] Payroll: using service_start tie-breaker = 2006-01-01
+2025-10-03 12:26:44,857 [INFO] Payroll: row#1 -> year=2014, first='ALAN', last='YE', agency_start='01/09/2006'
+2025-10-03 12:26:45,040 [INFO] Payroll: row#2 -> year=2024, first='ALAN', last='YE', agency_start='01/09/2006'
+2025-10-03 12:26:45,040 [INFO] Last-name match: source='Ye' candidate='YE' -> True
+2025-10-03 12:26:45,040 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:26:45,041 [INFO] Payroll: chosen row year=2024 agency_start=01/09/2006 status=ACTIVE - payroll fields updated
+2025-10-03 12:26:45,041 [INFO] Main: payroll enrich record #5 - First='Kenneth' Last='Farrell'
+2025-10-03 12:26:45,042 [INFO] Payroll: Searching for 'Kenneth Farrell'
+2025-10-03 12:26:46,436 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:26:48,274 [INFO] Payroll: found 100 table rows for 'Kenneth Farrell'
+2025-10-03 12:26:48,274 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:26:48,274 [INFO] Payroll: using service_start tie-breaker = 2007-01-01
+2025-10-03 12:26:48,434 [INFO] Payroll: row#1 -> year=2014, first='THOMAS', last='ADAMS', agency_start='01/10/2007'
+2025-10-03 12:26:48,553 [INFO] Payroll: row#2 -> year=2014, first='WALE', last='ADEBAYO', agency_start='11/29/1999'
+2025-10-03 12:26:48,674 [INFO] Payroll: row#3 -> year=2014, first='EMMANUEL', last='ADEDOKUN', agency_start='10/24/1991'
+2025-10-03 12:26:48,808 [INFO] Payroll: row#4 -> year=2014, first='BOLANLE', last='ADEGOKE', agency_start='06/18/2001'
+2025-10-03 12:26:48,923 [INFO] Payroll: row#5 -> year=2014, first='FRANCISCO', last='AGIS', agency_start='01/20/2004'
+2025-10-03 12:26:49,048 [INFO] Payroll: row#6 -> year=2014, first='PAUL', last='AGLI', agency_start='07/07/1999'
+2025-10-03 12:26:49,275 [INFO] Payroll: row#7 -> year=2014, first='ROBERT', last='AGLIALORO', agency_start='07/06/2010'
+2025-10-03 12:26:49,473 [INFO] Payroll: row#8 -> year=2014, first='ROBERT', last='AGLIETTI', agency_start='06/30/1992'
+2025-10-03 12:26:49,646 [INFO] Payroll: row#9 -> year=2014, first='MICHAEL', last='AGNESE', agency_start='08/30/1993'
+2025-10-03 12:26:49,796 [INFO] Payroll: row#10 -> year=2014, first='MIKELJAN', last='AGOLLI', agency_start='07/06/2011'
+2025-10-03 12:26:49,796 [INFO] Payroll: reached 5 rows without finding 2024/2023, stopping early
+2025-10-03 12:26:49,797 [WARNING] Payroll: no suitable payroll match found for 'Kenneth Farrell'
+2025-10-03 12:26:49,797 [INFO] Main: payroll enrich record #6 - First='Alan' Last='Ye'
+2025-10-03 12:26:49,797 [INFO] Payroll: Searching for 'Alan Ye'
+2025-10-03 12:26:52,771 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:26:54,714 [INFO] Payroll: found 100 table rows for 'Alan Ye'
+2025-10-03 12:26:54,715 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:26:54,715 [INFO] Payroll: using service_start tie-breaker = 2006-01-01
+2025-10-03 12:26:55,223 [INFO] Payroll: row#1 -> year=2014, first='ALAN', last='YE', agency_start='01/09/2006'
+2025-10-03 12:26:55,838 [INFO] Payroll: row#2 -> year=2024, first='ALAN', last='YE', agency_start='01/09/2006'
+2025-10-03 12:26:55,840 [INFO] Last-name match: source='Ye' candidate='YE' -> True
+2025-10-03 12:26:55,841 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:26:55,841 [INFO] Payroll: chosen row year=2024 agency_start=01/09/2006 status=ACTIVE - payroll fields updated
+2025-10-03 12:26:55,842 [INFO] Main: payroll enrich record #7 - First='Lateef' Last='Stinson'
+2025-10-03 12:26:55,842 [INFO] Payroll: Searching for 'Lateef Stinson'
+2025-10-03 12:26:57,436 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:26:59,741 [INFO] Payroll: found 100 table rows for 'Lateef Stinson'
+2025-10-03 12:26:59,741 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:26:59,741 [INFO] Payroll: using service_start tie-breaker = 2017-07-01
+2025-10-03 12:26:59,941 [INFO] Payroll: row#1 -> year=2014, first='THOMAS', last='ADAMS', agency_start='01/10/2007'
+2025-10-03 12:27:00,194 [INFO] Payroll: row#2 -> year=2014, first='WALE', last='ADEBAYO', agency_start='11/29/1999'
+2025-10-03 12:27:00,395 [INFO] Payroll: row#3 -> year=2014, first='EMMANUEL', last='ADEDOKUN', agency_start='10/24/1991'
+2025-10-03 12:27:00,588 [INFO] Payroll: row#4 -> year=2014, first='BOLANLE', last='ADEGOKE', agency_start='06/18/2001'
+2025-10-03 12:27:00,746 [INFO] Payroll: row#5 -> year=2014, first='FRANCISCO', last='AGIS', agency_start='01/20/2004'
+2025-10-03 12:27:00,898 [INFO] Payroll: row#6 -> year=2014, first='PAUL', last='AGLI', agency_start='07/07/1999'
+2025-10-03 12:27:01,861 [INFO] Payroll: row#7 -> year=2014, first='ROBERT', last='AGLIALORO', agency_start='07/06/2010'
+2025-10-03 12:27:02,112 [INFO] Payroll: row#8 -> year=2014, first='ROBERT', last='AGLIETTI', agency_start='06/30/1992'
+2025-10-03 12:27:02,473 [INFO] Payroll: row#9 -> year=2014, first='MICHAEL', last='AGNESE', agency_start='08/30/1993'
+2025-10-03 12:27:02,685 [INFO] Payroll: row#10 -> year=2014, first='MIKELJAN', last='AGOLLI', agency_start='07/06/2011'
+2025-10-03 12:27:02,685 [INFO] Payroll: reached 5 rows without finding 2024/2023, stopping early
+2025-10-03 12:27:02,685 [WARNING] Payroll: no suitable payroll match found for 'Lateef Stinson'
+2025-10-03 12:27:02,685 [INFO] Main: payroll enrich record #8 - First='Rayna' Last='Rampaul'
+2025-10-03 12:27:02,686 [INFO] Payroll: Searching for 'Rayna Rampaul'
+2025-10-03 12:27:05,168 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:27:07,664 [INFO] Payroll: found 100 table rows for 'Rayna Rampaul'
+2025-10-03 12:27:07,665 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:27:07,665 [INFO] Payroll: using service_start tie-breaker = 2006-01-01
+2025-10-03 12:27:08,382 [INFO] Payroll: row#1 -> year=2014, first='THOMAS', last='ADAMS', agency_start='01/10/2007'
+2025-10-03 12:27:08,534 [INFO] Payroll: row#2 -> year=2014, first='WALE', last='ADEBAYO', agency_start='11/29/1999'
+2025-10-03 12:27:08,725 [INFO] Payroll: row#3 -> year=2014, first='EMMANUEL', last='ADEDOKUN', agency_start='10/24/1991'
+2025-10-03 12:27:08,871 [INFO] Payroll: row#4 -> year=2014, first='BOLANLE', last='ADEGOKE', agency_start='06/18/2001'
+2025-10-03 12:27:09,019 [INFO] Payroll: row#5 -> year=2014, first='FRANCISCO', last='AGIS', agency_start='01/20/2004'
+2025-10-03 12:27:09,160 [INFO] Payroll: row#6 -> year=2014, first='PAUL', last='AGLI', agency_start='07/07/1999'
+2025-10-03 12:27:09,308 [INFO] Payroll: row#7 -> year=2014, first='ROBERT', last='AGLIALORO', agency_start='07/06/2010'
+2025-10-03 12:27:09,450 [INFO] Payroll: row#8 -> year=2014, first='ROBERT', last='AGLIETTI', agency_start='06/30/1992'
+2025-10-03 12:27:09,600 [INFO] Payroll: row#9 -> year=2014, first='MICHAEL', last='AGNESE', agency_start='08/30/1993'
+2025-10-03 12:27:09,736 [INFO] Payroll: row#10 -> year=2014, first='MIKELJAN', last='AGOLLI', agency_start='07/06/2011'
+2025-10-03 12:27:09,736 [INFO] Payroll: reached 5 rows without finding 2024/2023, stopping early
+2025-10-03 12:27:09,736 [WARNING] Payroll: no suitable payroll match found for 'Rayna Rampaul'
+2025-10-03 12:27:09,736 [INFO] Main: payroll enrich record #9 - First='Ivan' Last='Villanueva'
+2025-10-03 12:27:09,736 [INFO] Payroll: Searching for 'Ivan Villanueva'
+2025-10-03 12:27:12,104 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:27:14,414 [INFO] Payroll: found 100 table rows for 'Ivan Villanueva'
+2025-10-03 12:27:14,414 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:27:14,415 [INFO] Payroll: using service_start tie-breaker = 2008-07-01
+2025-10-03 12:27:15,162 [INFO] Payroll: row#1 -> year=2014, first='IVAN', last='VILLANUEVA', agency_start='07/08/2008'
+2025-10-03 12:27:15,396 [INFO] Payroll: row#2 -> year=2024, first='IVAN', last='VILLANUEVA', agency_start='07/08/2008'
+2025-10-03 12:27:15,397 [INFO] Last-name match: source='Villanueva' candidate='VILLANUEVA' -> True
+2025-10-03 12:27:15,397 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:27:15,397 [INFO] Payroll: chosen row year=2024 agency_start=07/08/2008 status=ACTIVE - payroll fields updated
+2025-10-03 12:27:15,397 [INFO] Main: payroll enrich record #10 - First='Gregory' Last='Howard'
+2025-10-03 12:27:15,398 [INFO] Payroll: Searching for 'Gregory Howard'
+2025-10-03 12:27:18,262 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:27:20,571 [INFO] Payroll: found 100 table rows for 'Gregory Howard'
+2025-10-03 12:27:20,572 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:27:20,572 [INFO] Payroll: using service_start tie-breaker = 2006-01-01
+2025-10-03 12:27:20,886 [INFO] Payroll: row#1 -> year=2014, first='GREGORY', last='HOWARD', agency_start='01/31/2006'
+2025-10-03 12:27:21,204 [INFO] Payroll: row#2 -> year=2024, first='GREGORY', last='HOWARD', agency_start='01/31/2006'
+2025-10-03 12:27:21,205 [INFO] Last-name match: source='Howard' candidate='HOWARD' -> True
+2025-10-03 12:27:21,205 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:27:21,205 [INFO] Payroll: chosen row year=2024 agency_start=01/31/2006 status=ACTIVE - payroll fields updated
+2025-10-03 12:27:21,205 [INFO] Main: payroll enrich record #11 - First='Ivan' Last='Villanueva'
+2025-10-03 12:27:21,205 [INFO] Payroll: Searching for 'Ivan Villanueva'
+2025-10-03 12:27:23,440 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:27:25,801 [INFO] Payroll: found 100 table rows for 'Ivan Villanueva'
+2025-10-03 12:27:25,801 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:27:25,802 [INFO] Payroll: using service_start tie-breaker = 2008-07-01
+2025-10-03 12:27:26,031 [INFO] Payroll: row#1 -> year=2014, first='IVAN', last='VILLANUEVA', agency_start='07/08/2008'
+2025-10-03 12:27:26,234 [INFO] Payroll: row#2 -> year=2024, first='IVAN', last='VILLANUEVA', agency_start='07/08/2008'
+2025-10-03 12:27:26,234 [INFO] Last-name match: source='Villanueva' candidate='VILLANUEVA' -> True
+2025-10-03 12:27:26,234 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:27:26,235 [INFO] Payroll: chosen row year=2024 agency_start=07/08/2008 status=ACTIVE - payroll fields updated
+2025-10-03 12:27:26,235 [INFO] Main: payroll enrich record #12 - First='Christopher' Last='Musa'
+2025-10-03 12:27:26,235 [INFO] Payroll: Searching for 'Christopher Musa'
+2025-10-03 12:27:29,048 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:27:31,271 [INFO] Payroll: found 100 table rows for 'Christopher Musa'
+2025-10-03 12:27:31,272 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:27:31,273 [INFO] Payroll: using service_start tie-breaker = 2012-01-01
+2025-10-03 12:27:31,625 [INFO] Payroll: row#1 -> year=2014, first='CHRISTOPHER', last='MUSA', agency_start='01/09/2012'
+2025-10-03 12:27:31,808 [INFO] Payroll: row#2 -> year=2024, first='CHRISTOPHER', last='MUSA', agency_start='01/09/2012'
+2025-10-03 12:27:31,808 [INFO] Last-name match: source='Musa' candidate='MUSA' -> True
+2025-10-03 12:27:31,808 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:27:31,808 [INFO] Payroll: chosen row year=2024 agency_start=01/09/2012 status=ACTIVE - payroll fields updated
+2025-10-03 12:27:31,808 [INFO] Main: payroll enrich record #13 - First='Gregory' Last='Howard'
+2025-10-03 12:27:31,808 [INFO] Payroll: Searching for 'Gregory Howard'
+2025-10-03 12:27:34,376 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:27:37,093 [INFO] Payroll: found 100 table rows for 'Gregory Howard'
+2025-10-03 12:27:37,094 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:27:37,094 [INFO] Payroll: using service_start tie-breaker = 2006-01-01
+2025-10-03 12:27:37,491 [INFO] Payroll: row#1 -> year=2014, first='GREGORY', last='HOWARD', agency_start='01/31/2006'
+2025-10-03 12:27:37,636 [INFO] Payroll: row#2 -> year=2024, first='GREGORY', last='HOWARD', agency_start='01/31/2006'
+2025-10-03 12:27:37,636 [INFO] Last-name match: source='Howard' candidate='HOWARD' -> True
+2025-10-03 12:27:37,637 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:27:37,637 [INFO] Payroll: chosen row year=2024 agency_start=01/31/2006 status=ACTIVE - payroll fields updated
+2025-10-03 12:27:37,637 [INFO] Main: payroll enrich record #14 - First='Harry' Last='Espinal'
+2025-10-03 12:27:37,637 [INFO] Payroll: Searching for 'Harry Espinal'
+2025-10-03 12:27:40,168 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:27:43,271 [INFO] Payroll: found 100 table rows for 'Harry Espinal'
+2025-10-03 12:27:43,272 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:27:43,274 [INFO] Payroll: using service_start tie-breaker = 2015-07-01
+2025-10-03 12:27:43,960 [INFO] Payroll: row#1 -> year=2024, first='HARRY', last='ESPINAL', agency_start='07/08/2015'
+2025-10-03 12:27:43,960 [INFO] Last-name match: source='Espinal' candidate='ESPINAL' -> True
+2025-10-03 12:27:43,961 [INFO] Payroll: row#1 is 2024, chosen immediately, breaking loop
+2025-10-03 12:27:43,961 [INFO] Payroll: chosen row year=2024 agency_start=07/08/2015 status=ACTIVE - payroll fields updated
+2025-10-03 12:27:43,961 [INFO] Main: payroll enrich record #15 - First='Christopher' Last='Musa'
+2025-10-03 12:27:43,961 [INFO] Payroll: Searching for 'Christopher Musa'
+2025-10-03 12:27:46,745 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:27:47,964 [INFO] Payroll: found 100 table rows for 'Christopher Musa'
+2025-10-03 12:27:47,965 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:27:47,965 [INFO] Payroll: using service_start tie-breaker = 2012-01-01
+2025-10-03 12:27:48,316 [INFO] Payroll: row#1 -> year=2014, first='CHRISTOPHER', last='MUSA', agency_start='01/09/2012'
+2025-10-03 12:27:48,445 [INFO] Payroll: row#2 -> year=2024, first='CHRISTOPHER', last='MUSA', agency_start='01/09/2012'
+2025-10-03 12:27:48,445 [INFO] Last-name match: source='Musa' candidate='MUSA' -> True
+2025-10-03 12:27:48,446 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:27:48,446 [INFO] Payroll: chosen row year=2024 agency_start=01/09/2012 status=ACTIVE - payroll fields updated
+2025-10-03 12:27:48,446 [INFO] Main: payroll enrich record #16 - First='Laura' Last='Devoy'
+2025-10-03 12:27:48,446 [INFO] Payroll: Searching for 'Laura Devoy'
+2025-10-03 12:27:50,979 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:27:52,905 [INFO] Payroll: found 100 table rows for 'Laura Devoy'
+2025-10-03 12:27:52,905 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:27:53,060 [INFO] Payroll: row#1 -> year=2024, first='LAURA', last='DEVOY', agency_start='10/01/2018'
+2025-10-03 12:27:53,060 [INFO] Last-name match: source='Devoy' candidate='DEVOY' -> True
+2025-10-03 12:27:53,060 [INFO] Payroll: row#1 is 2024, chosen immediately, breaking loop
+2025-10-03 12:27:53,061 [INFO] Payroll: chosen row year=2024 agency_start=10/01/2018 status=ON LEAVE - payroll fields updated
+2025-10-03 12:27:53,061 [INFO] Main: payroll enrich record #17 - First='Miguel' Last='Estevez'
+2025-10-03 12:27:53,061 [INFO] Payroll: Searching for 'Miguel Estevez'
+2025-10-03 12:27:55,790 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:27:56,835 [INFO] Payroll: found 100 table rows for 'Miguel Estevez'
+2025-10-03 12:27:56,835 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:27:56,835 [INFO] Payroll: using service_start tie-breaker = 2005-07-01
+2025-10-03 12:27:57,236 [INFO] Payroll: row#1 -> year=2014, first='MIGUEL', last='ESTEVEZ', agency_start='07/11/2005'
+2025-10-03 12:27:57,371 [INFO] Payroll: row#2 -> year=2024, first='MIGUEL', last='ESTEVEZ', agency_start='07/11/2005'
+2025-10-03 12:27:57,371 [INFO] Last-name match: source='Estevez' candidate='ESTEVEZ' -> True
+2025-10-03 12:27:57,371 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:27:57,371 [INFO] Payroll: chosen row year=2024 agency_start=07/11/2005 status=ACTIVE - payroll fields updated
+2025-10-03 12:27:57,371 [INFO] Main: payroll enrich record #18 - First='Michael' Last='Velazquez'
+2025-10-03 12:27:57,371 [INFO] Payroll: Searching for 'Michael Velazquez'
+2025-10-03 12:28:00,836 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:28:02,576 [INFO] Payroll: found 9 table rows for 'Michael Velazquez'
+2025-10-03 12:28:02,577 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:28:02,577 [INFO] Payroll: using service_start tie-breaker = 2017-01-01
+2025-10-03 12:28:02,937 [INFO] Payroll: row#1 -> year=2024, first='MICHAEL', last='VELAZQUEZ', agency_start='01/04/2017'
+2025-10-03 12:28:02,937 [INFO] Last-name match: source='Velazquez' candidate='VELAZQUEZ' -> True
+2025-10-03 12:28:02,937 [INFO] Payroll: row#1 is 2024, chosen immediately, breaking loop
+2025-10-03 12:28:02,937 [INFO] Payroll: chosen row year=2024 agency_start=01/04/2017 status=ACTIVE - payroll fields updated
+2025-10-03 12:28:02,937 [INFO] Main: payroll enrich record #19 - First='Miguel' Last='Estevez'
+2025-10-03 12:28:02,937 [INFO] Payroll: Searching for 'Miguel Estevez'
+2025-10-03 12:28:05,439 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:28:07,287 [INFO] Payroll: found 100 table rows for 'Miguel Estevez'
+2025-10-03 12:28:07,287 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:28:07,287 [INFO] Payroll: using service_start tie-breaker = 2005-07-01
+2025-10-03 12:28:07,534 [INFO] Payroll: row#1 -> year=2014, first='MIGUEL', last='ESTEVEZ', agency_start='07/11/2005'
+2025-10-03 12:28:07,665 [INFO] Payroll: row#2 -> year=2024, first='MIGUEL', last='ESTEVEZ', agency_start='07/11/2005'
+2025-10-03 12:28:07,666 [INFO] Last-name match: source='Estevez' candidate='ESTEVEZ' -> True
+2025-10-03 12:28:07,666 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:28:07,666 [INFO] Payroll: chosen row year=2024 agency_start=07/11/2005 status=ACTIVE - payroll fields updated
+2025-10-03 12:28:07,666 [INFO] Main: payroll enrich record #20 - First='Donald' Last='Aridas'
+2025-10-03 12:28:07,666 [INFO] Payroll: Searching for 'Donald Aridas'
+2025-10-03 12:28:10,774 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:28:11,795 [INFO] Payroll: found 100 table rows for 'Donald Aridas'
+2025-10-03 12:28:11,795 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:28:11,795 [INFO] Payroll: using service_start tie-breaker = 2006-01-01
+2025-10-03 12:28:12,204 [INFO] Payroll: row#1 -> year=2014, first='DONALD', last='ARIDAS', agency_start='01/09/2006'
+2025-10-03 12:28:12,359 [INFO] Payroll: row#2 -> year=2024, first='DONALD', last='ARIDAS', agency_start='01/09/2006'
+2025-10-03 12:28:12,360 [INFO] Last-name match: source='Aridas' candidate='ARIDAS' -> True
+2025-10-03 12:28:12,360 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:28:12,360 [INFO] Payroll: chosen row year=2024 agency_start=01/09/2006 status=ACTIVE - payroll fields updated
+2025-10-03 12:28:12,360 [INFO] Main: payroll enrich record #21 - First='Anthony' Last='Diaz'
+2025-10-03 12:28:12,360 [INFO] Payroll: Searching for 'Anthony Diaz'
+2025-10-03 12:28:15,356 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:28:16,186 [INFO] Payroll: found 100 table rows for 'Anthony Diaz'
+2025-10-03 12:28:16,187 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:28:16,187 [INFO] Payroll: using service_start tie-breaker = 2013-07-01
+2025-10-03 12:28:16,774 [INFO] Payroll: row#1 -> year=2014, first='ANTHONY', last='DIAZ', agency_start='07/09/2013'
+2025-10-03 12:28:16,897 [INFO] Payroll: row#2 -> year=2014, first='ANTHONY', last='DIAZ', agency_start='01/20/2004'
+2025-10-03 12:28:17,075 [INFO] Payroll: row#3 -> year=2014, first='ANTHONY', last='DIAZ', agency_start='04/30/1995'
+2025-10-03 12:28:17,195 [INFO] Payroll: row#4 -> year=2014, first='ANTHONY', last='DIAZ', agency_start='01/26/1988'
+2025-10-03 12:28:17,332 [INFO] Payroll: row#5 -> year=2024, first='ANTHONY', last='DIAZ', agency_start='01/20/2004'
+2025-10-03 12:28:17,332 [INFO] Last-name match: source='Diaz' candidate='DIAZ' -> True
+2025-10-03 12:28:17,332 [INFO] Payroll: row#5 is 2024, chosen immediately, breaking loop
+2025-10-03 12:28:17,332 [INFO] Payroll: chosen row year=2024 agency_start=01/20/2004 status=CEASED - payroll fields updated
+2025-10-03 12:28:17,333 [INFO] Main: payroll enrich record #22 - First='Christopher' Last='Rodrigo'
+2025-10-03 12:28:17,333 [INFO] Payroll: Searching for 'Christopher Rodrigo'
+2025-10-03 12:28:20,090 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:28:21,439 [INFO] Payroll: found 100 table rows for 'Christopher Rodrigo'
+2025-10-03 12:28:21,440 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:28:21,440 [INFO] Payroll: using service_start tie-breaker = 2001-07-01
+2025-10-03 12:28:21,656 [INFO] Payroll: row#1 -> year=2014, first='CHRISTOPHER', last='RODRIGO', agency_start='07/02/2001'
+2025-10-03 12:28:21,811 [INFO] Payroll: row#2 -> year=2024, first='CHRISTOPHER', last='RODRIGO', agency_start='07/02/2001'
+2025-10-03 12:28:21,811 [INFO] Last-name match: source='Rodrigo' candidate='RODRIGO' -> True
+2025-10-03 12:28:21,811 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:28:21,811 [INFO] Payroll: chosen row year=2024 agency_start=07/02/2001 status=ACTIVE - payroll fields updated
+2025-10-03 12:28:21,811 [INFO] Main: payroll enrich record #23 - First='Michelle' Last='Bonaparte'
+2025-10-03 12:28:21,811 [INFO] Payroll: Searching for 'Michelle Bonaparte'
+2025-10-03 12:28:24,560 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:28:25,830 [INFO] Payroll: found 100 table rows for 'Michelle Bonaparte'
+2025-10-03 12:28:25,830 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:28:25,830 [INFO] Payroll: using service_start tie-breaker = 2006-01-01
+2025-10-03 12:28:26,128 [INFO] Payroll: row#1 -> year=2014, first='MICHELLE', last='BONAPARTE', agency_start='01/31/2006'
+2025-10-03 12:28:26,323 [INFO] Payroll: row#2 -> year=2024, first='MICHELLE', last='BONAPARTE', agency_start='01/31/2006'
+2025-10-03 12:28:26,323 [INFO] Last-name match: source='Bonaparte' candidate='BONAPARTE' -> True
+2025-10-03 12:28:26,323 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:28:26,323 [INFO] Payroll: chosen row year=2024 agency_start=01/31/2006 status=ACTIVE - payroll fields updated
+2025-10-03 12:28:26,325 [INFO] Main: payroll enrich record #24 - First='Michelle' Last='Bonaparte'
+2025-10-03 12:28:26,325 [INFO] Payroll: Searching for 'Michelle Bonaparte'
+2025-10-03 12:28:28,721 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:28:30,753 [INFO] Payroll: found 100 table rows for 'Michelle Bonaparte'
+2025-10-03 12:28:30,753 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:28:30,755 [INFO] Payroll: using service_start tie-breaker = 2006-01-01
+2025-10-03 12:28:31,186 [INFO] Payroll: row#1 -> year=2014, first='MICHELLE', last='BONAPARTE', agency_start='01/31/2006'
+2025-10-03 12:28:31,464 [INFO] Payroll: row#2 -> year=2024, first='MICHELLE', last='BONAPARTE', agency_start='01/31/2006'
+2025-10-03 12:28:31,464 [INFO] Last-name match: source='Bonaparte' candidate='BONAPARTE' -> True
+2025-10-03 12:28:31,465 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:28:31,465 [INFO] Payroll: chosen row year=2024 agency_start=01/31/2006 status=ACTIVE - payroll fields updated
+2025-10-03 12:28:31,466 [INFO] Main: payroll enrich record #25 - First='Michelle' Last='Bonaparte'
+2025-10-03 12:28:31,466 [INFO] Payroll: Searching for 'Michelle Bonaparte'
+2025-10-03 12:28:34,210 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:28:35,060 [INFO] Payroll: found 100 table rows for 'Michelle Bonaparte'
+2025-10-03 12:28:35,060 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:28:35,060 [INFO] Payroll: using service_start tie-breaker = 2006-01-01
+2025-10-03 12:28:35,807 [INFO] Payroll: row#1 -> year=2014, first='MICHELLE', last='BONAPARTE', agency_start='01/31/2006'
+2025-10-03 12:28:35,938 [INFO] Payroll: row#2 -> year=2024, first='MICHELLE', last='BONAPARTE', agency_start='01/31/2006'
+2025-10-03 12:28:35,938 [INFO] Last-name match: source='Bonaparte' candidate='BONAPARTE' -> True
+2025-10-03 12:28:35,938 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:28:35,938 [INFO] Payroll: chosen row year=2024 agency_start=01/31/2006 status=ACTIVE - payroll fields updated
+2025-10-03 12:28:35,938 [INFO] Main: payroll enrich record #26 - First='Ariel' Last='Peraltayascaribay'
+2025-10-03 12:28:35,938 [INFO] Payroll: Searching for 'Ariel Peraltayascaribay'
+2025-10-03 12:28:38,606 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:28:39,638 [INFO] Payroll: found 100 table rows for 'Ariel Peraltayascaribay'
+2025-10-03 12:28:39,639 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:28:39,639 [INFO] Payroll: using service_start tie-breaker = 2020-01-01
+2025-10-03 12:28:39,847 [INFO] Payroll: row#1 -> year=2014, first='THOMAS', last='ADAMS', agency_start='01/10/2007'
+2025-10-03 12:28:39,962 [INFO] Payroll: row#2 -> year=2014, first='WALE', last='ADEBAYO', agency_start='11/29/1999'
+2025-10-03 12:28:40,072 [INFO] Payroll: row#3 -> year=2014, first='EMMANUEL', last='ADEDOKUN', agency_start='10/24/1991'
+2025-10-03 12:28:40,213 [INFO] Payroll: row#4 -> year=2014, first='BOLANLE', last='ADEGOKE', agency_start='06/18/2001'
+2025-10-03 12:28:40,327 [INFO] Payroll: row#5 -> year=2014, first='FRANCISCO', last='AGIS', agency_start='01/20/2004'
+2025-10-03 12:28:40,438 [INFO] Payroll: row#6 -> year=2014, first='PAUL', last='AGLI', agency_start='07/07/1999'
+2025-10-03 12:28:40,542 [INFO] Payroll: row#7 -> year=2014, first='ROBERT', last='AGLIALORO', agency_start='07/06/2010'
+2025-10-03 12:28:40,645 [INFO] Payroll: row#8 -> year=2014, first='ROBERT', last='AGLIETTI', agency_start='06/30/1992'
+2025-10-03 12:28:40,766 [INFO] Payroll: row#9 -> year=2014, first='MICHAEL', last='AGNESE', agency_start='08/30/1993'
+2025-10-03 12:28:40,895 [INFO] Payroll: row#10 -> year=2014, first='MIKELJAN', last='AGOLLI', agency_start='07/06/2011'
+2025-10-03 12:28:40,895 [INFO] Payroll: reached 5 rows without finding 2024/2023, stopping early
+2025-10-03 12:28:40,895 [WARNING] Payroll: no suitable payroll match found for 'Ariel Peraltayascaribay'
+2025-10-03 12:28:40,895 [INFO] Main: payroll enrich record #27 - First='Lenita' Last='Harrison'
+2025-10-03 12:28:40,895 [INFO] Payroll: Searching for 'Lenita Harrison'
+2025-10-03 12:28:43,220 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:28:44,326 [INFO] Payroll: found 100 table rows for 'Lenita Harrison'
+2025-10-03 12:28:44,326 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:28:44,327 [INFO] Payroll: using service_start tie-breaker = 2003-07-01
+2025-10-03 12:28:44,683 [INFO] Payroll: row#1 -> year=2014, first='LENITA', last='HARRISON', agency_start='07/01/2003'
+2025-10-03 12:28:44,847 [INFO] Payroll: row#2 -> year=2024, first='LENITA', last='HARRISON', agency_start='07/01/2003'
+2025-10-03 12:28:44,847 [INFO] Last-name match: source='Harrison' candidate='HARRISON' -> True
+2025-10-03 12:28:44,847 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:28:44,847 [INFO] Payroll: chosen row year=2024 agency_start=07/01/2003 status=ACTIVE - payroll fields updated
+2025-10-03 12:28:44,847 [INFO] Main: payroll enrich record #28 - First='Lenita' Last='Harrison'
+2025-10-03 12:28:44,847 [INFO] Payroll: Searching for 'Lenita Harrison'
+2025-10-03 12:28:47,363 [INFO] Payroll: loaded https://data.cityofnewyork.us/City-Government/Citywide-Payroll-Data-Fiscal-Year-/k397-673e/explore/query/SELECT%0A%20%20%60fiscal_year%60%2C%0A%20%20%60payroll_number%60%2C%0A%20%20%60agency_name%60%2C%0A%20%20%60last_name%60%2C%0A%20%20%60first_name%60%2C%0A%20%20%60mid_init%60%2C%0A%20%20%60agency_start_date%60%2C%0A%20%20%60work_location_borough%60%2C%0A%20%20%60title_description%60%2C%0A%20%20%60leave_status_as_of_june_30%60%2C%0A%20%20%60base_salary%60%2C%0A%20%20%60pay_basis%60%2C%0A%20%20%60regular_hours%60%2C%0A%20%20%60regular_gross_paid%60%2C%0A%20%20%60ot_hours%60%2C%0A%20%20%60total_ot_paid%60%2C%0A%20%20%60total_other_pay%60%0AWHERE%0A%20%20caseless_one_of%28%0A%20%20%20%20%60agency_name%60%2C%0A%20%20%20%20%22Police%20Department%22%2C%0A%20%20%20%20%22POLICE%20DEPARTMENT%22%0A%20%20%29%0AORDER%20BY%20%60agency_name%60%20ASC%20NULL%20LAST%2C%20%60fiscal_year%60%20DESC%20NULL%20FIRST/page/filter
+2025-10-03 12:28:48,662 [INFO] Payroll: found 100 table rows for 'Lenita Harrison'
+2025-10-03 12:28:48,662 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-03 12:28:48,662 [INFO] Payroll: using service_start tie-breaker = 2003-07-01
+2025-10-03 12:28:48,793 [INFO] Payroll: row#1 -> year=2014, first='LENITA', last='HARRISON', agency_start='07/01/2003'
+2025-10-03 12:28:48,914 [INFO] Payroll: row#2 -> year=2024, first='LENITA', last='HARRISON', agency_start='07/01/2003'
+2025-10-03 12:28:48,915 [INFO] Last-name match: source='Harrison' candidate='HARRISON' -> True
+2025-10-03 12:28:48,915 [INFO] Payroll: row#2 is 2024, chosen immediately, breaking loop
+2025-10-03 12:28:48,915 [INFO] Payroll: chosen row year=2024 agency_start=07/01/2003 status=ACTIVE - payroll fields updated
+2025-10-03 12:28:49,697 [INFO] Browser closed, Dogs returned
+2025-10-03 12:28:49,731 [INFO] Writing CSV to copwatchdog.csv
+2025-10-03 12:28:49,735 [INFO] CSV write complete. Rows written: 28
