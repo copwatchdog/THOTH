@@ -1,239 +1,0 @@
-[34m2025-09-28 23:31:05[39m Executing: CREATE TABLE bronze.doberman_fetch (     Date DATE,     Time TIME,     Rank INTEGER,     First VARCHAR(100),     Last VARCHAR(100),     Room VARCHAR(100),     Case_Type VARCHAR(100),     Badge VARCHAR(100),     PCT VARCHAR(100),     PCT_URL VARCHAR(255),     Started DATE,     Last_Earned DATE,     Disciplined BOOLEAN,     Articles INTEGER,     Complaints INTEGER,     Allegations INTEGER,     Substantiated INTEGER,     Charges INTEGER,     Unsubstantiated INTEGER,     Guidelined INTEGER,     Lawsuits INTEGER,     Total_Settlements INTEGER,     Status VARCHAR(100),     Base_Salary NUMERIC(10, 2),     Pay_Basis VARCHAR(100),     Regular_Hours NUMERIC(10, 2),     Regular_Gross_Paid NUMERIC(10, 2),     OT_Hours NUMERIC(10, 2),     Total_OT_Paid NUMERIC(10, 2),     Total_Other_Pay NUMERIC(10, 2) )
-[34m2025-09-28 23:31:05[39m [31mExecute fail : schema "bronze" does not exist[39m
-[34m2025-09-28 23:31:42[39m Executing: CREATE SCHEMA bronze
-[34m2025-09-28 23:31:42[39m [32mResult: Completed in 87ms[39m
-[34m2025-09-28 23:31:59[39m Executing: CREATE TABLE bronze.doberman_fetch (     Date DATE,     Time TIME,     Rank INTEGER,     First VARCHAR(100),     Last VARCHAR(100),     Room VARCHAR(100),     Case_Type VARCHAR(100),     Badge VARCHAR(100),     PCT VARCHAR(100),     PCT_URL VARCHAR(255),     Started DATE,     Last_Earned DATE,     Disciplined BOOLEAN,     Articles INTEGER,     Complaints INTEGER,     Allegations INTEGER,     Substantiated INTEGER,     Charges INTEGER,     Unsubstantiated INTEGER,     Guidelined INTEGER,     Lawsuits INTEGER,     Total_Settlements INTEGER,     Status VARCHAR(100),     Base_Salary NUMERIC(10, 2),     Pay_Basis VARCHAR(100),     Regular_Hours NUMERIC(10, 2),     Regular_Gross_Paid NUMERIC(10, 2),     OT_Hours NUMERIC(10, 2),     Total_OT_Paid NUMERIC(10, 2),     Total_Other_Pay NUMERIC(10, 2) )
-[34m2025-09-28 23:32:00[39m [32mResult: Completed in 110ms[39m
-[34m2025-09-29 07:06:12[39m Executing: IF OBJECT_ID('bronze.doberman_fetch', 'U') IS NOT NULL     DROP TABLE bronze.doberman_fetch
-[34m2025-09-29 07:06:12[39m [31mExecute fail : syntax error at or near "IF"[39m
-[34m2025-09-29 07:06:30[39m Executing: CREATE TABLE bronze.doberman_fetch (     Date DATE,     Time TIME,     Rank INTEGER,     First VARCHAR(100),     Last VARCHAR(100),     Room VARCHAR(100),     Case_Type VARCHAR(100),     Badge VARCHAR(100),     PCT VARCHAR(100),     PCT_URL VARCHAR(255),     Started DATE,     Last_Earned DATE,     Disciplined BOOLEAN,     Articles INTEGER,     Complaints INTEGER,     Allegations INTEGER,     Substantiated INTEGER,     Charges INTEGER,     Unsubstantiated INTEGER,     Guidelined INTEGER,     Lawsuits INTEGER,     Total_Settlements INTEGER,     Status VARCHAR(100),     Base_Salary NUMERIC(10, 2),     Pay_Basis VARCHAR(100),     Regular_Hours NUMERIC(10, 2),     Regular_Gross_Paid NUMERIC(10, 2),     OT_Hours NUMERIC(10, 2),     Total_OT_Paid NUMERIC(10, 2),     Total_Other_Pay NUMERIC(10, 2) )
-[34m2025-09-29 07:06:30[39m [31mExecute fail : relation "doberman_fetch" already exists[39m
-[34m2025-09-29 07:06:35[39m Executing: IF OBJECT_ID('bronze.doberman_fetch', 'U') IS NOT NULL     DROP TABLE bronze.doberman_fetch
-[34m2025-09-29 07:06:35[39m [31mExecute fail : syntax error at or near "IF"[39m
-[34m2025-09-29 07:07:46[39m Executing: DO $$ BEGIN     IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'bronze' AND tablename = 'doberman_fetch') THEN         EXECUTE 'DROP TABLE bronze.doberman_fetch';     END IF; END $$
-[34m2025-09-29 07:07:46[39m [32mResult: Completed in 95ms[39m
-[34m2025-09-29 07:18:12[39m Executing: BULK INSERT bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' WITH (     FIRSTROW = 2,     DELIMITERS = ',',     FORMAT = 'CSV',     FIELDTERMINATOR = ',',     TABLOCK  )
-[34m2025-09-29 07:18:12[39m [31mExecute fail : syntax error at or near "BULK"[39m
-[34m2025-09-29 07:20:02[39m Executing: COPY bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' WITH (     FORMAT csv,     HEADER true,     DELIMITER ',' )
-[34m2025-09-29 07:20:02[39m [31mExecute fail : must be superuser or have privileges of the pg_read_server_files role to COPY from a file[39m
-[34m2025-09-29 07:21:24[39m Executing: \COPY bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' WITH (     FORMAT csv,     HEADER true,     DELIMITER ',' )
-[34m2025-09-29 07:21:24[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 07:23:35[39m Executing: \COPY bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' WITH (     FORMAT csv,     HEADER true,     DELIMITER ',' )
-[34m2025-09-29 07:23:36[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 07:26:21[39m Executing: \COPY bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' WITH (     FORMAT csv,     HEADER true,     DELIMITER ',',     VERBOSE )
-[34m2025-09-29 07:26:21[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 07:43:57[39m Executing: \COPY bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' WITH (     FORMAT csv,     HEADER true,     DELIMITER ',',     VERBOSE )
-[34m2025-09-29 07:43:57[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 07:45:52[39m Executing: SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE usename = 'copwatchdog' LIMIT 100
-[34m2025-09-29 07:45:52[39m [31mExecute fail : terminating connection due to administrator command[39m
-[34m2025-09-29 07:46:52[39m Executing: SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE usename = 'copwatchdog' LIMIT 100
-[34m2025-09-29 07:46:52[39m [31mExecute fail : terminating connection due to administrator command[39m
-[34m2025-09-29 12:39:10[39m Executing: DO $$ BEGIN     IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'bronze' AND tablename = 'doberman_fetch') THEN         EXECUTE 'DROP TABLE bronze.doberman_fetch';     END IF; END $$
-[34m2025-09-29 12:39:10[39m [32mResult: Completed in 538ms[39m
-[34m2025-09-29 12:39:14[39m Executing: DO $$ BEGIN     IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'bronze' AND tablename = 'doberman_fetch') THEN         EXECUTE 'DROP TABLE bronze.doberman_fetch';     END IF; END $$
-[34m2025-09-29 12:39:14[39m [32mResult: Completed in 84ms[39m
-[34m2025-09-29 12:39:41[39m Executing: DO $$ BEGIN     IF NOT EXISTS (SELECT 1 FROM pg_namespace WHERE nspname = 'bronze') THEN         CREATE SCHEMA bronze;     END IF; END $$
-[34m2025-09-29 12:39:41[39m [32mResult: Completed in 82ms[39m
-[34m2025-09-29 12:39:44[39m Executing: DO $$ BEGIN     IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'bronze' AND tablename = 'doberman_fetch') THEN         EXECUTE 'DROP TABLE bronze.doberman_fetch';     END IF; END $$
-[34m2025-09-29 12:39:44[39m [32mResult: Completed in 85ms[39m
-[34m2025-09-29 12:39:46[39m Executing: CREATE TABLE bronze.doberman_fetch (     Date DATE,     Time TIME,     Rank INTEGER,     First VARCHAR(100),     Last VARCHAR(100),     Room VARCHAR(100),     Case_Type VARCHAR(100),     Badge VARCHAR(100),     PCT VARCHAR(100),     PCT_URL VARCHAR(255),     Started DATE,     Last_Earned DATE,     Disciplined BOOLEAN,     Articles INTEGER,     Complaints INTEGER,     Allegations INTEGER,     Substantiated INTEGER,     Charges INTEGER,     Unsubstantiated INTEGER,     Guidelined INTEGER,     Lawsuits INTEGER,     Total_Settlements INTEGER,     Status VARCHAR(100),     Base_Salary NUMERIC(10, 2),     Pay_Basis VARCHAR(100),     Regular_Hours NUMERIC(10, 2),     Regular_Gross_Paid NUMERIC(10, 2),     OT_Hours NUMERIC(10, 2),     Total_OT_Paid NUMERIC(10, 2),     Total_Other_Pay NUMERIC(10, 2) )
-[34m2025-09-29 12:39:46[39m [32mResult: Completed in 109ms[39m
-[34m2025-09-29 12:39:51[39m Executing: \COPY bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' WITH (     FORMAT csv,     HEADER true,     DELIMITER ',',     VERBOSE )
-[34m2025-09-29 12:39:51[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 12:40:15[39m Executing: \COPY bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' WITH (     FORMAT csv,     HEADER true,     DELIMITER ',',     VERBOSE )
-[34m2025-09-29 12:40:15[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 12:40:19[39m Executing: COPY bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' WITH (     FORMAT csv,     HEADER true,     DELIMITER ',',     VERBOSE )
-[34m2025-09-29 12:40:19[39m [31mExecute fail : must be superuser or have privileges of the pg_read_server_files role to COPY from a file[39m
-[34m2025-09-29 12:40:30[39m Executing: COPY bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' WITH (     FORMAT csv,     HEADER true,     DELIMITER ',',     VERBOSE )
-[34m2025-09-29 12:40:30[39m [31mExecute fail : must be superuser or have privileges of the pg_read_server_files role to COPY from a file[39m
-[34m2025-09-29 12:43:16[39m Executing: \COPY bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' WITH (     FORMAT csv,     HEADER true,     DELIMITER ',',     VERBOSE )
-[34m2025-09-29 12:43:16[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 13:06:24[39m Executing: \copy bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' CSV HEADER DELIMITER ','
-[34m2025-09-29 13:06:24[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 13:12:27[39m Executing: CREATE TABLE bronze.doberman_fetch (     Date VARCHAR(50),     Time VARCHAR(50),     Rank VARCHAR(200),     First VARCHAR(200),     Last VARCHAR(200),     Room VARCHAR(100),     Case_Type VARCHAR(300),     Badge VARCHAR(100),     PCT VARCHAR(100),     PCT_URL VARCHAR(500),     Started VARCHAR(50),     Last_Earned VARCHAR(200),     Disciplined VARCHAR(10),     Articles VARCHAR(50),     Complaints VARCHAR(50),     Allegations VARCHAR(50),     Substantiated VARCHAR(50),     Charges VARCHAR(50),     Unsubstantiated VARCHAR(50),     Guidelined VARCHAR(50),     Lawsuits VARCHAR(50),     Total_Settlements VARCHAR(50),     Status VARCHAR(100),     Base_Salary VARCHAR(100),     Pay_Basis VARCHAR(100),     Regular_Hours VARCHAR(100),     Regular_Gross_Paid VARCHAR(100),     OT_Hours VARCHAR(100),     Total_OT_Paid VARCHAR(100),     Total_Other_Pay VARCHAR(100) )
-[34m2025-09-29 13:12:27[39m [31mExecute fail : relation "doberman_fetch" already exists[39m
-[34m2025-09-29 13:12:35[39m Executing: DO $$ BEGIN     IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'bronze' AND tablename = 'doberman_fetch') THEN         EXECUTE 'DROP TABLE bronze.doberman_fetch';     END IF; END $$
-[34m2025-09-29 13:12:35[39m [32mResult: Completed in 92ms[39m
-[34m2025-09-29 13:12:38[39m Executing: CREATE TABLE bronze.doberman_fetch (     Date VARCHAR(50),     Time VARCHAR(50),     Rank VARCHAR(200),     First VARCHAR(200),     Last VARCHAR(200),     Room VARCHAR(100),     Case_Type VARCHAR(300),     Badge VARCHAR(100),     PCT VARCHAR(100),     PCT_URL VARCHAR(500),     Started VARCHAR(50),     Last_Earned VARCHAR(200),     Disciplined VARCHAR(10),     Articles VARCHAR(50),     Complaints VARCHAR(50),     Allegations VARCHAR(50),     Substantiated VARCHAR(50),     Charges VARCHAR(50),     Unsubstantiated VARCHAR(50),     Guidelined VARCHAR(50),     Lawsuits VARCHAR(50),     Total_Settlements VARCHAR(50),     Status VARCHAR(100),     Base_Salary VARCHAR(100),     Pay_Basis VARCHAR(100),     Regular_Hours VARCHAR(100),     Regular_Gross_Paid VARCHAR(100),     OT_Hours VARCHAR(100),     Total_OT_Paid VARCHAR(100),     Total_Other_Pay VARCHAR(100) )
-[34m2025-09-29 13:12:38[39m [32mResult: Completed in 86ms[39m
-[34m2025-09-29 13:12:46[39m Executing: \copy bronze.doberman_fetch FROM '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' CSV HEADER DELIMITER ','
-[34m2025-09-29 13:12:46[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 13:15:34[39m Executing: DO $$ BEGIN     IF NOT EXISTS (SELECT 1 FROM pg_namespace WHERE nspname = 'bronze') THEN         CREATE SCHEMA bronze;     END IF; END $$
-[34m2025-09-29 13:15:34[39m [32mResult: Completed in 92ms[39m
-[34m2025-09-29 13:15:36[39m Executing: DO $$ BEGIN     IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'bronze' AND tablename = 'doberman_fetch') THEN         EXECUTE 'DROP TABLE bronze.doberman_fetch';     END IF; END $$
-[34m2025-09-29 13:15:36[39m [32mResult: Completed in 77ms[39m
-[34m2025-09-29 13:15:38[39m Executing: \echo 'Starting import script: cwd_doberman_001.sql'
-[34m2025-09-29 13:15:38[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 13:15:49[39m Executing: echo 'Starting import script: cwd_doberman_001.sql'
-[34m2025-09-29 13:15:49[39m [31mExecute fail : syntax error at or near "echo"[39m
-[34m2025-09-29 13:16:35[39m Executing: CREATE SCHEMA IF NOT EXISTS bronze
-[34m2025-09-29 13:16:35[39m [33mschema "bronze" already exists, skipping[39m
-[34m2025-09-29 13:16:35[39m [32mResult: Completed in 100ms[39m
-[34m2025-09-29 13:16:46[39m Executing: DROP TABLE IF EXISTS bronze.doberman_fetch
-[34m2025-09-29 13:16:46[39m [33mtable "doberman_fetch" does not exist, skipping[39m
-[34m2025-09-29 13:16:46[39m [32mResult: Completed in 79ms[39m
-[34m2025-09-29 13:17:00[39m Executing: \if :{?csv} \else     \set csv '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \endif
-[34m2025-09-29 13:17:00[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 13:17:04[39m Executing: \copy bronze.doberman_fetch FROM :'csv' CSV HEADER DELIMITER ','  \echo 'Staging import complete.' SELECT 'staging_rows=' || count(*) FROM bronze.doberman_fetch
-[34m2025-09-29 13:17:04[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 13:17:07[39m Executing: CREATE TABLE IF NOT EXISTS bronze.doberman_fetch_typed (     date_report date,     time_report time,     rank text,     first text,     last text,     room text,     case_type text,     badge text,     pct text,     pct_url text,     started date,     last_earned_text text,     disciplined boolean,     articles integer,     complaints integer,     allegations integer,     substantiated integer,     charges integer,     unsubstantiated integer,     guidelined integer,     lawsuits integer,     total_settlements numeric,     status text,     base_salary numeric,     pay_basis text,     regular_hours numeric,     regular_gross_paid numeric,     ot_hours numeric,     total_ot_paid numeric,     total_other_pay numeric )
-[34m2025-09-29 13:17:07[39m [33mrelation "doberman_fetch_typed" already exists, skipping[39m
-[34m2025-09-29 13:17:07[39m [32mResult: Completed in 96ms[39m
-[34m2025-09-29 13:17:15[39m Executing: TRUNCATE TABLE bronze.doberman_fetch_typed
-[34m2025-09-29 13:17:15[39m [32mResult: Completed in 199ms[39m
-[34m2025-09-29 13:18:01[39m Executing: \echo 'Staging table created. Importing CSV from:' :csv
-[34m2025-09-29 13:18:02[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 13:40:55[39m Executing: DO $$ BEGIN     IF NOT EXISTS (SELECT 1 FROM pg_namespace WHERE nspname = 'bronze') THEN         CREATE SCHEMA bronze;     END IF; END $$
-[34m2025-09-29 13:40:55[39m [32mResult: Completed in 541ms[39m
-[34m2025-09-29 13:40:57[39m Executing: DO $$ BEGIN     IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'bronze' AND tablename = 'doberman_fetch') THEN         EXECUTE 'DROP TABLE bronze.doberman_fetch';     END IF; END $$
-[34m2025-09-29 13:40:57[39m [32mResult: Completed in 94ms[39m
-[34m2025-09-29 13:41:06[39m Executing: \echo 'Starting import script: cwd_doberman_001.sql'
-[34m2025-09-29 13:41:06[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 13:41:13[39m Executing: \if '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \else     \set csv '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \endif
-[34m2025-09-29 13:41:13[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 13:41:14[39m Executing: \if '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \else     \set csv '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \endif
-[34m2025-09-29 13:41:14[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 13:41:19[39m Executing: CREATE SCHEMA IF NOT EXISTS bronze
-[34m2025-09-29 13:41:19[39m [33mschema "bronze" already exists, skipping[39m
-[34m2025-09-29 13:41:19[39m [32mResult: Completed in 122ms[39m
-[34m2025-09-29 13:41:30[39m Executing: DROP TABLE IF EXISTS bronze.doberman_fetch
-[34m2025-09-29 13:41:30[39m [33mtable "doberman_fetch" does not exist, skipping[39m
-[34m2025-09-29 13:41:30[39m [32mResult: Completed in 65ms[39m
-[34m2025-09-29 13:46:12[39m Executing: SELECT * FROM bronze.doberman_fetch LIMIT 100
-[34m2025-09-29 13:46:12[39m [31mExecute fail : relation "bronze.doberman_fetch" does not exist[39m
-[34m2025-09-29 13:50:20[39m Executing: TRUNCATE TABLE bronze.doberman_fetch
-[34m2025-09-29 13:50:20[39m [31mExecute fail : relation "bronze.doberman_fetch" does not exist[39m
-[34m2025-09-29 13:50:23[39m Executing: \copy bronze.doberman_fetch FROM :'csv' CSV HEADER DELIMITER ','
-[34m2025-09-29 13:50:24[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 13:50:25[39m Executing: SELECT * FROM bronze.doberman_fetch LIMIT 10
-[34m2025-09-29 13:50:25[39m [31mExecute fail : relation "bronze.doberman_fetch" does not exist[39m
-[34m2025-09-29 13:50:33[39m Executing: CREATE TABLE IF NOT EXISTS bronze.doberman_fetch (     date text,     time text,     rank text,     first text,     last text,     room text,     case_type text,     badge text,     pct text,     pct_url text,     started text,     last_earned text,     disciplined text,     articles text,     complaints text,     allegations text,     substantiated text,     charges text,     unsubstantiated text,     guidelined text,     lawsuits text,     total_settlements text,     status text,     base_salary text,     pay_basis text,     regular_hours text,     regular_gross_paid text,     ot_hours text,     total_ot_paid text,     total_other_pay text )
-[34m2025-09-29 13:50:34[39m [32mResult: Completed in 90ms[39m
-[34m2025-09-29 13:52:59[39m Executing: \pset pager off \x auto SELECT * FROM bronze.doberman_fetch
-[34m2025-09-29 13:53:00[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 13:53:34[39m Executing: \pset pager off \x auto SELECT * FROM bronze.doberman_fetch
-[34m2025-09-29 13:53:34[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:02:49[39m Executing: SELECT * FROM bronze.doberman_fetch LIMIT 100
-[34m2025-09-29 14:02:49[39m [32mResult: Completed in 541ms[39m
-[34m2025-09-29 14:03:28[39m Executing: CREATE TABLE IF NOT EXISTS bronze.doberman_fetch (     date text,     time text,     rank text,     first text,     last text,     room text,     case_type text,     badge text,     pct text,     pct_url text,     started text,     last_earned text,     disciplined text,     articles text,     complaints text,     allegations text,     substantiated text,     charges text,     unsubstantiated text,     guidelined text,     lawsuits text,     total_settlements text,     status text,     base_salary text,     pay_basis text,     regular_hours text,     regular_gross_paid text,     ot_hours text,     total_ot_paid text,     total_other_pay text )
-[34m2025-09-29 14:03:28[39m [33mrelation "doberman_fetch" already exists, skipping[39m
-[34m2025-09-29 14:03:28[39m [32mResult: Completed in 93ms[39m
-[34m2025-09-29 14:03:35[39m Executing: SELECT * FROM bronze.doberman_fetch LIMIT 100
-[34m2025-09-29 14:03:35[39m [32mResult: Completed in 75ms[39m
-[34m2025-09-29 14:04:04[39m Executing: SELECT * FROM bronze.doberman_fetch LIMIT 16
-[34m2025-09-29 14:04:04[39m [32mResult: Completed in 84ms[39m
-[34m2025-09-29 14:05:36[39m Executing: CREATE SCHEMA IF NOT EXISTS bronze
-[34m2025-09-29 14:05:36[39m [33mschema "bronze" already exists, skipping[39m
-[34m2025-09-29 14:05:36[39m [32mResult: Completed in 118ms[39m
-[34m2025-09-29 14:05:39[39m Executing: CREATE TABLE IF NOT EXISTS bronze.doberman_fetch (     date text,     time text,     rank text,     first text,     last text,     room text,     case_type text,     badge text,     pct text,     pct_url text,     started text,     last_earned text,     disciplined text,     articles text,     complaints text,     allegations text,     substantiated text,     charges text,     unsubstantiated text,     guidelined text,     lawsuits text,     total_settlements text,     status text,     base_salary text,     pay_basis text,     regular_hours text,     regular_gross_paid text,     ot_hours text,     total_ot_paid text,     total_other_pay text )
-[34m2025-09-29 14:05:39[39m [33mrelation "doberman_fetch" already exists, skipping[39m
-[34m2025-09-29 14:05:39[39m [32mResult: Completed in 76ms[39m
-[34m2025-09-29 14:05:50[39m Executing: SELECT * FROM bronze.doberman_fetch LIMIT 16
-[34m2025-09-29 14:05:50[39m [32mResult: Completed in 76ms[39m
-[34m2025-09-29 14:06:10[39m Executing: DO $$ BEGIN     IF NOT EXISTS (SELECT 1 FROM pg_namespace WHERE nspname = 'bronze') THEN         CREATE SCHEMA bronze;     END IF; END $$
-[34m2025-09-29 14:06:10[39m [32mResult: Completed in 91ms[39m
-[34m2025-09-29 14:06:13[39m Executing: DO $$ BEGIN     -- Previously we dropped the staging table here; dropping can cause race conditions     -- and surprises. Keep the table and create it idempotently below instead.     -- IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'bronze' AND tablename = 'doberman_fetch') THEN     --     EXECUTE 'DROP TABLE bronze.doberman_fetch';     -- END IF; END $$
-[34m2025-09-29 14:06:13[39m [32mResult: Completed in 80ms[39m
-[34m2025-09-29 14:06:17[39m Executing: CREATE SCHEMA IF NOT EXISTS bronze
-[34m2025-09-29 14:06:17[39m [33mschema "bronze" already exists, skipping[39m
-[34m2025-09-29 14:06:17[39m [32mResult: Completed in 81ms[39m
-[34m2025-09-29 14:06:20[39m Executing: CREATE TABLE IF NOT EXISTS bronze.doberman_fetch (     date text,     time text,     rank text,     first text,     last text,     room text,     case_type text,     badge text,     pct text,     pct_url text,     started text,     last_earned text,     disciplined text,     articles text,     complaints text,     allegations text,     substantiated text,     charges text,     unsubstantiated text,     guidelined text,     lawsuits text,     total_settlements text,     status text,     base_salary text,     pay_basis text,     regular_hours text,     regular_gross_paid text,     ot_hours text,     total_ot_paid text,     total_other_pay text )
-[34m2025-09-29 14:06:20[39m [33mrelation "doberman_fetch" already exists, skipping[39m
-[34m2025-09-29 14:06:20[39m [32mResult: Completed in 94ms[39m
-[34m2025-09-29 14:06:24[39m Executing: SELECT * FROM bronze.doberman_fetch LIMIT 16
-[34m2025-09-29 14:06:24[39m [32mResult: Completed in 78ms[39m
-[34m2025-09-29 14:08:04[39m Executing: \echo 'Starting import script: cwd_doberman_001.sql'
-[34m2025-09-29 14:08:04[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:08:07[39m Executing: \if '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \else     \set csv '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \endif
-[34m2025-09-29 14:08:07[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:08:31[39m Executing: \echo 'Starting import script: cwd_doberman_001.sql'
-[34m2025-09-29 14:08:31[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:08:34[39m Executing: \if '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \else     \set csv '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \endif
-[34m2025-09-29 14:08:34[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:08:44[39m Executing: \if '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \else     \set csv '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \endif
-[34m2025-09-29 14:08:44[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:08:50[39m Executing: \echo 'Starting import script: cwd_doberman_001.sql'
-[34m2025-09-29 14:08:50[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:09:17[39m Executing: \copy bronze.doberman_fetch FROM :'csv' CSV HEADER DELIMITER ','  \echo 'Staging import complete.' SELECT 'staging_rows=' || count(*) FROM bronze.doberman_fetch
-[34m2025-09-29 14:09:17[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:09:19[39m Executing: \echo 'Staging table created. Importing CSV from:' :csv
-[34m2025-09-29 14:09:19[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:09:40[39m Executing: \if '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \else     \set csv '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \endif
-[34m2025-09-29 14:09:40[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:10:24[39m Executing: \echo 'Staging table created. Importing CSV from:' :csv
-[34m2025-09-29 14:10:24[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:14:27[39m Executing: DO $$ BEGIN     IF NOT EXISTS (SELECT 1 FROM pg_namespace WHERE nspname = 'bronze') THEN         CREATE SCHEMA bronze;     END IF; END $$
-[34m2025-09-29 14:14:27[39m [32mResult: Completed in 37ms[39m
-[34m2025-09-29 14:14:30[39m Executing: DROP TABLE IF EXISTS bronze.doberman_fetch
-[34m2025-09-29 14:14:30[39m [32mResult: Completed in 80ms[39m
-[34m2025-09-29 14:14:34[39m Executing: COPY bronze.doberman_fetch FROM '/path/on/dbserver/copwatchdog.csv' CSV HEADER DELIMITER ','
-[34m2025-09-29 14:14:34[39m [31mExecute fail : must be superuser or have privileges of the pg_read_server_files role to COPY from a file[39m
-[34m2025-09-29 14:14:39[39m Executing: CREATE TABLE IF NOT EXISTS bronze.doberman_fetch_typed (     date_report date,     time_report time,     rank text,     first text,     last text,     room text,     case_type text,     badge text,     pct text,     pct_url text,     started date,     last_earned_text text,     disciplined boolean,     articles integer,     complaints integer,     allegations integer,     substantiated integer,     charges integer,     unsubstantiated integer,     guidelined integer,     lawsuits integer,     total_settlements numeric,     status text,     base_salary numeric,     pay_basis text,     regular_hours numeric,     regular_gross_paid numeric,     ot_hours numeric,     total_ot_paid numeric,     total_other_pay numeric )
-[34m2025-09-29 14:14:39[39m [33mrelation "doberman_fetch_typed" already exists, skipping[39m
-[34m2025-09-29 14:14:39[39m [32mResult: Completed in 79ms[39m
-[34m2025-09-29 14:14:43[39m Executing: TRUNCATE TABLE bronze.doberman_fetch_typed
-[34m2025-09-29 14:14:43[39m [32mResult: Completed in 85ms[39m
-[34m2025-09-29 14:14:48[39m Executing: SELECT 'done_staging=' || count(*) FROM bronze.doberman_fetch LIMIT 100
-[34m2025-09-29 14:14:48[39m [31mExecute fail : relation "bronze.doberman_fetch" does not exist[39m
-[34m2025-09-29 14:14:50[39m Executing: SELECT 'done_typed=' || count(*) FROM bronze.doberman_fetch_typed LIMIT 100
-[34m2025-09-29 14:14:50[39m [32mResult: 1 rows retrieved in 80ms[39m
-[34m2025-09-29 14:24:21[39m Executing: SELECT 'done_staging=' || count(*) FROM bronze.doberman_fetch LIMIT 100
-[34m2025-09-29 14:24:22[39m [31mExecute fail : relation "bronze.doberman_fetch" does not exist[39m
-[34m2025-09-29 14:24:40[39m Executing: DROP TABLE IF EXISTS bronze.doberman_fetch
-[34m2025-09-29 14:24:40[39m [33mtable "doberman_fetch" does not exist, skipping[39m
-[34m2025-09-29 14:24:40[39m [32mResult: Completed in 317ms[39m
-[34m2025-09-29 14:24:43[39m Executing: CREATE TABLE bronze.doberman_fetch (     date text,     time text,     rank text,     first text,     last text,     room text,     case_type text,     badge text,     pct text,     pct_url text,     started text,     last_earned text,     disciplined text,     articles text,     complaints text,     allegations text,     substantiated text,     charges text,     unsubstantiated text,     guidelined text,     lawsuits text,     total_settlements text,     status text,     base_salary text,     pay_basis text,     regular_hours text,     regular_gross_paid text,     ot_hours text,     total_ot_paid text,     total_other_pay text )
-[34m2025-09-29 14:24:43[39m [32mResult: Completed in 91ms[39m
-[34m2025-09-29 14:24:44[39m Executing: CREATE TABLE bronze.doberman_fetch (     date text,     time text,     rank text,     first text,     last text,     room text,     case_type text,     badge text,     pct text,     pct_url text,     started text,     last_earned text,     disciplined text,     articles text,     complaints text,     allegations text,     substantiated text,     charges text,     unsubstantiated text,     guidelined text,     lawsuits text,     total_settlements text,     status text,     base_salary text,     pay_basis text,     regular_hours text,     regular_gross_paid text,     ot_hours text,     total_ot_paid text,     total_other_pay text )
-[34m2025-09-29 14:24:44[39m [31mExecute fail : relation "doberman_fetch" already exists[39m
-[34m2025-09-29 14:24:46[39m Executing: DO $$ BEGIN     IF NOT EXISTS (SELECT 1 FROM pg_namespace WHERE nspname = 'bronze') THEN         CREATE SCHEMA bronze;     END IF; END $$
-[34m2025-09-29 14:24:46[39m [32mResult: Completed in 75ms[39m
-[34m2025-09-29 14:24:54[39m Executing: DROP TABLE IF EXISTS bronze.doberman_fetch
-[34m2025-09-29 14:24:54[39m [32mResult: Completed in 81ms[39m
-[34m2025-09-29 14:25:01[39m Executing: CREATE TABLE bronze.doberman_fetch (     date text,     time text,     rank text,     first text,     last text,     room text,     case_type text,     badge text,     pct text,     pct_url text,     started text,     last_earned text,     disciplined text,     articles text,     complaints text,     allegations text,     substantiated text,     charges text,     unsubstantiated text,     guidelined text,     lawsuits text,     total_settlements text,     status text,     base_salary text,     pay_basis text,     regular_hours text,     regular_gross_paid text,     ot_hours text,     total_ot_paid text,     total_other_pay text )
-[34m2025-09-29 14:25:01[39m [32mResult: Completed in 46ms[39m
-[34m2025-09-29 14:25:09[39m Executing: COPY bronze.doberman_fetch FROM '/path/on/dbserver/copwatchdog.csv' CSV HEADER DELIMITER ','
-[34m2025-09-29 14:25:09[39m [31mExecute fail : must be superuser or have privileges of the pg_read_server_files role to COPY from a file[39m
-[34m2025-09-29 14:25:30[39m Executing: COPY bronze.doberman_fetch FROM '/path/on/dbserver/copwatchdog.csv' CSV HEADER DELIMITER ','
-[34m2025-09-29 14:25:30[39m [31mExecute fail : must be superuser or have privileges of the pg_read_server_files role to COPY from a file[39m
-[34m2025-09-29 14:27:33[39m Executing: DO $$ BEGIN     IF NOT EXISTS (SELECT 1 FROM pg_namespace WHERE nspname = 'bronze') THEN         CREATE SCHEMA bronze;     END IF; END $$
-[34m2025-09-29 14:27:33[39m [32mResult: Completed in 81ms[39m
-[34m2025-09-29 14:27:37[39m Executing: DO $$ BEGIN     IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'bronze' AND tablename = 'doberman_fetch') THEN         EXECUTE 'DROP TABLE bronze.doberman_fetch';     END IF; END $$
-[34m2025-09-29 14:27:37[39m [32mResult: Completed in 79ms[39m
-[34m2025-09-29 14:27:45[39m Executing: \echo 'Starting import script: cwd_doberman_001.sql'
-[34m2025-09-29 14:27:45[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:27:46[39m Executing: \if '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \else     \set csv '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \endif
-[34m2025-09-29 14:27:46[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:28:09[39m Executing: \if '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \else     \set csv '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \endif
-[34m2025-09-29 14:28:09[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:28:32[39m Executing: CREATE SCHEMA IF NOT EXISTS bronze
-[34m2025-09-29 14:28:32[39m [33mschema "bronze" already exists, skipping[39m
-[34m2025-09-29 14:28:32[39m [32mResult: Completed in 125ms[39m
-[34m2025-09-29 14:28:52[39m Executing: DROP TABLE IF EXISTS bronze.doberman_fetch
-[34m2025-09-29 14:28:52[39m [33mtable "doberman_fetch" does not exist, skipping[39m
-[34m2025-09-29 14:28:52[39m [32mResult: Completed in 81ms[39m
-[34m2025-09-29 14:29:01[39m Executing: CREATE TABLE bronze.doberman_fetch (     date text,     time text,     rank text,     first text,     last text,     room text,     case_type text,     badge text,     pct text,     pct_url text,     started text,     last_earned text,     disciplined text,     articles text,     complaints text,     allegations text,     substantiated text,     charges text,     unsubstantiated text,     guidelined text,     lawsuits text,     total_settlements text,     status text,     base_salary text,     pay_basis text,     regular_hours text,     regular_gross_paid text,     ot_hours text,     total_ot_paid text,     total_other_pay text )
-[34m2025-09-29 14:29:01[39m [32mResult: Completed in 51ms[39m
-[34m2025-09-29 14:29:14[39m Executing: \echo 'Staging table created. Importing CSV from:' '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv'
-[34m2025-09-29 14:29:14[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:29:29[39m Executing: \copy bronze.doberman_fetch FROM :'csv' CSV HEADER DELIMITER ','  \echo 'Staging import complete.' SELECT 'staging_rows=' || count(*) FROM bronze.doberman_fetch
-[34m2025-09-29 14:29:29[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:31:09[39m Executing: \if '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \else     \set csv '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \endif  \echo 'Staging table created. Importing CSV from:' 'copwatchdog.csv'
-[34m2025-09-29 14:31:09[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:32:17[39m Executing: \if 'copwatchdog.csv' \else     \set csv '/Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/CSV/copwatchdog.csv' \endif  \echo 'Staging table created. Importing CSV from:' 'copwatchdog.csv'
-[34m2025-09-29 14:32:17[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:32:30[39m Executing: \copy bronze.doberman_fetch FROM :'csv' CSV HEADER DELIMITER ','  \echo 'Staging import complete.' SELECT 'staging_rows=' || count(*) FROM bronze.doberman_fetch
-[34m2025-09-29 14:32:30[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:32:55[39m Executing: DO $$ BEGIN     IF NOT EXISTS (SELECT 1 FROM pg_namespace WHERE nspname = 'bronze') THEN         CREATE SCHEMA bronze;     END IF; END $$
-[34m2025-09-29 14:32:55[39m [32mResult: Completed in 79ms[39m
-[34m2025-09-29 14:33:03[39m Executing: DO $$ BEGIN     IF EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = 'bronze' AND tablename = 'doberman_fetch') THEN         EXECUTE 'DROP TABLE bronze.doberman_fetch';     END IF; END $$
-[34m2025-09-29 14:33:03[39m [32mResult: Completed in 89ms[39m
-[34m2025-09-29 14:33:05[39m Executing: \echo 'Starting import script: cwd_doberman_001.sql'
-[34m2025-09-29 14:33:06[39m [31mExecute fail : syntax error at or near "\"[39m
-[34m2025-09-29 14:33:14[39m Executing: CREATE SCHEMA IF NOT EXISTS bronze
-[34m2025-09-29 14:33:14[39m [33mschema "bronze" already exists, skipping[39m
-[34m2025-09-29 14:33:14[39m [32mResult: Completed in 167ms[39m
-[34m2025-09-29 14:33:25[39m Executing: DROP TABLE IF EXISTS bronze.doberman_fetch
-[34m2025-09-29 14:33:25[39m [33mtable "doberman_fetch" does not exist, skipping[39m
-[34m2025-09-29 14:33:25[39m [32mResult: Completed in 105ms[39m
-
