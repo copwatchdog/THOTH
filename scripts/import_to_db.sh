@@ -95,6 +95,22 @@ done
 
 echo "[$(date +'%Y-%m-%d %H:%M:%S')] Import run complete: processed=$processed failed=$failed" | tee -a "$LOG_FILE"
 
+# If any imports succeeded, trigger HERMES ETL to transform raw data to clean
+if [ $processed -gt 0 ]; then
+	echo "[$(date +'%Y-%m-%d %H:%M:%S')] Triggering HERMES ETL transformation" | tee -a "$LOG_FILE"
+	
+	if [ -x "$REPO_DIR/scripts/hermes/run_hermes_etl.sh" ]; then
+		if "$REPO_DIR/scripts/hermes/run_hermes_etl.sh" >> "$LOG_FILE" 2>&1; then
+			echo "[$(date +'%Y-%m-%d %H:%M:%S')] HERMES ETL completed successfully" | tee -a "$LOG_FILE"
+		else
+			echo "[$(date +'%Y-%m-%d %H:%M:%S')] HERMES ETL failed - check logs" | tee -a "$LOG_FILE"
+			send_mail "HERMES ETL FAILED" "HERMES transformation failed after successful import. processed=$processed failed=$failed.\n\nRecent log:\n$(tail -n 50 "$LOG_FILE")"
+		fi
+	else
+		echo "[$(date +'%Y-%m-%d %H:%M:%S')] HERMES ETL script not found at $REPO_DIR/scripts/hermes/run_hermes_etl.sh" | tee -a "$LOG_FILE"
+	fi
+fi
+
 if [ $failed -eq 0 ]; then
 	send_mail "Thoth import SUCCEEDED" "Import completed successfully. Files processed: $processed.\n\nRecent log:\n$(tail -n 50 "$LOG_FILE")"
 	exit 0
