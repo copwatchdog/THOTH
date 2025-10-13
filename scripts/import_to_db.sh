@@ -68,18 +68,29 @@ for csv in "${csv_files[@]}"; do
 		PSQL_CMD=(psql -v ON_ERROR_STOP=1 -c)
 	fi
 
-	if "${PSQL_CMD[@]}" "\copy cwd_raw.officers_raw FROM '$csv' WITH (FORMAT csv, HEADER true)" >>"$LOG_FILE" 2>&1; then
-		echo "[$(date +'%Y-%m-%d %H:%M:%S')] Import succeeded for $csv" | tee -a "$LOG_FILE"
-		mv "$csv" "$ARCHIVE_DIR/$(basename "$csv")"
-		processed=$((processed + 1))
-	else
-		echo "[$(date +'%Y-%m-%d %H:%M:%S')] Import FAILED for $csv" | tee -a "$LOG_FILE"
-		failed=$((failed + 1))
-		# send immediate failure notification with tail of log
-		tail -n 200 "$LOG_FILE" | sed -n '1,200p' > "$REPO_DIR/last_import_failure.log" || true
-		send_mail "Thoth import FAILED" "Import failed for $csv. See last_import_failure.log attached or on the server.\n\nRecent log:\n$(tail -n 50 "$LOG_FILE")"
-		# continue to next file (do not abort all)
-	fi
+		# If a Hermes/db helper exists, prefer that (it knows the project's conventions)
+		if [ -x "$REPO_DIR/scripts/db/import_into_cwd_raw.sh" ]; then
+			echo "Found helper scripts/db/import_into_cwd_raw.sh; using it to import $csv" | tee -a "$LOG_FILE"
+			if "$REPO_DIR/scripts/db/import_into_cwd_raw.sh" "$csv" >>"$LOG_FILE" 2>&1; then
+				echo "[$(date +'%Y-%m-%d %H:%M:%S')] Import succeeded for $csv (via helper)" | tee -a "$LOG_FILE"
+				processed=$((processed + 1))
+			else
+				echo "[$(date +'%Y-%m-%d %H:%M:%S')] Import FAILED for $csv (via helper)" | tee -a "$LOG_FILE"
+				failed=$((failed + 1))
+				tail -n 200 "$LOG_FILE" | sed -n '1,200p' > "$REPO_DIR/last_import_failure.log" || true
+				send_mail "Thoth import FAILED" "Import failed for $csv using helper. See last_import_failure.log on the server.\n\nRecent log:\n$(tail -n 50 "$LOG_FILE")"
+			fi
+		else
+			if "${PSQL_CMD[@]}" "\copy cwd_raw.officers_raw FROM '$csv' WITH (FORMAT csv, HEADER true)" >>"$LOG_FILE" 2>&1; then
+				echo "[$(date +'%Y-%m-%d %H:%M:%S')] Import succeeded for $csv (direct)" | tee -a "$LOG_FILE"
+				processed=$((processed + 1))
+			else
+				echo "[$(date +'%Y-%m-%d %H:%M:%S')] Import FAILED for $csv (direct)" | tee -a "$LOG_FILE"
+				failed=$((failed + 1))
+				tail -n 200 "$LOG_FILE" | sed -n '1,200p' > "$REPO_DIR/last_import_failure.log" || true
+				send_mail "Thoth import FAILED" "Import failed for $csv using direct psql. See last_import_failure.log on the server.\n\nRecent log:\n$(tail -n 50 "$LOG_FILE")"
+			fi
+		fi
 done
 
 echo "[$(date +'%Y-%m-%d %H:%M:%S')] Import run complete: processed=$processed failed=$failed" | tee -a "$LOG_FILE"
