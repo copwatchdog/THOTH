@@ -1,2 +1,8 @@
 NYC/BRAIN/.env
 .DS_Store
+NYC/BRAIN/VERSIONS/
+NYC/CSV/ARCHIVE/
+
+# project logs and env
+copwatchdog.log
+.env
