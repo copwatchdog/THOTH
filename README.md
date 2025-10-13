@@ -1,12 +1,15 @@
 # CopWatchdog
 
-<p align="center">
-  <img src="assets/images/logo-dark.png" alt="CopWatchdog Logo" width="200"/>
-</p>
-<br>
-<p align="center">
-  <img src="assets/images/logo-light.png" alt="CopWatchdog Logo" width="200"/>
-</p>
+<table>
+    <tr>
+        <td>
+            <img src="assets/images/logo-dark.png" alt="CopWatchdog Logo" width="100%"/>
+        </td>
+        <td>
+            <img src="assets/images/logo-light.png" alt="CopWatchdog Logo" width="100%"/>
+        </td>
+    <tr>
+</table>
 
 ## About
 
