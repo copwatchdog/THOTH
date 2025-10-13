@@ -1,5 +1,13 @@
 # CopWatchdog
 
+<p align="center">
+  <img src="assets/images/logo-dark.png" alt="CopWatchdog Logo" width="200"/>
+</p>
+<br>
+<p align="center">
+  <img src="assets/images/logo-light.png" alt="CopWatchdog Logo" width="200"/>
+</p>
+
 ## About
 
 CopWatchdog is an abolitionist data pipeline and media platform tracking NYPD officers' profiles, trials, and public records. We build transparent, community-driven tools for accountability and organizing, grounded in anti-surveillance and anti-capitalist values.
