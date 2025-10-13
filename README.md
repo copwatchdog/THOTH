@@ -1,99 +1,59 @@
-CopWatchdog
-About
+# CopWatchdog
 
-CopWatchdog is an abolitionist data pipeline and media platform tracking NYPD officers’ profiles, trials, and public records. We build transparent, community-driven tools for accountability and organizing, grounded in anti-surveillance and anti-capitalist values.
-License
+## About
 
-CopWatchdog is licensed under the CopWatchDog Community License 1.0, which strictly prohibits use by law enforcement or commercial entities. It protects against commodification and enforces copyleft to keep the software in community hands only. See LICENSE.md for details.
+CopWatchdog is an abolitionist data pipeline and media platform tracking NYPD officers' profiles, trials, and public records. We build transparent, community-driven tools for accountability and organizing, grounded in anti-surveillance and anti-capitalist values.
 
+## Project Structure
 
-Project Directory Layout (Medallion Architecture)
-```text
+```
 copwatchdog/
-├── data/
-│   ├── bronze/       # Raw, immutable scraped/downloaded files (append-only)
-│   ├── silver/       # Cleaned, normalized, reproducible tables
-│   └── gold/         # Curated, integrated datasets (append + updates)
-├── etl/
-│   ├── extract/      # Scrapers & data fetchers
-│   ├── transform/    # Cleaning & normalization scripts
-│   └── load/         # Integration/load scripts for gold layer
-├── db/
-│   └── copwatchdog.db  # SQLite database (optional)
-├── cli/
-│   └── copwatchdog.py  # CLI entrypoint
-├── docs/
-│   ├── schema.md       # Data dictionary & schema docs
-│   └── usage.md        # Pipeline usage guide
-├── notebooks/           # Jupyter notebooks
-├── requirements.txt
-└── README.md
+├── NYC/
+│   ├── BRAIN/
+│   │   ├── copwatchdog.csv   # Latest extracted officer data
+│   │   ├── main.py           # Main extraction script
+│   │   └── VERSIONS/         # Version history of extraction scripts
+│   └── CSV/
+│       └── FILES/            # CSV files for importing to database
+├── scripts/
+│   ├── import_to_db.sh       # Database import script
+│   └── run_copwatchdog.sh    # Script to run the extraction process
+├── copwatchdog.csv           # Master copy of extracted data
+├── LICENSE                   # License file
+└── README.md                 # This file
 ```
 
-Medallion Architecture Breakdown
-```markdown
-| Attribute           | Bronze                         | Silver                        | Gold                                   |
-| ------------------- | ------------------------------ | ----------------------------- | -------------------------------------- |
-| Folder              | `data/bronze/`                 | `data/silver/`                | `data/gold/`                           |
-| Definition          | Immutable raw ingests          | Cleaned, normalized datasets  | Curated, consumption-ready datasets    |
-| Objective           | Preserve source audit trail    | Normalize for QA & joins      | Build canonical profiles & events      |
-| Object Type         | Raw files (PDF, HTML, JSON)    | CSV/SQL tables                | CSV/SQL tables/views                   |
-| Load Method         | Append-only, timestamped       | Full-refresh (overwrite safe) | Incremental append + targeted updates  |
-| Data Transformation | None (store as-is)             | Cleaning, normalization       | Integration, deduplication, enrichment |
-| Data Modeling       | None                           | Flat tables                   | Flat/simple star schema with keys      |
-| Retention           | Keep all files, checksum-named | Overwrite silver files        | Append-only; maintain change-log table |
-| Access              | Developers only (protected)    | Developers & analysts         | Public, read-only downstream consumers |
-| Audience            | Devs, data engineers           | Devs, analysts                | Organizers, researchers, journalists   |
-```
+## Extraction Process
 
-Naming Conventions
+CopWatchdog works by:
 
-    Use snake_case lowercase with underscores.
+1. **Data Collection**: The Python-based scraper (`NYC/BRAIN/main.py`) automatically visits the NYPD Trials public calendar website using a headless Chrome browser.
 
-    Avoid SQL reserved words.
+2. **Table Identification**: The scraper intelligently identifies relevant tables containing officer information by scoring them based on keywords.
 
-    Use source prefix for Bronze and Silver: <source>_<entity> (e.g., nypd_trials, 50a_profiles).
+3. **Data Extraction**: Once the relevant tables are found, the system extracts officer data including:
+   - Trial dates, times, and locations
+   - Officer names and ranks
+   - Case types and details
 
-    Use category prefix for Gold tables with domain terms:
+4. **Data Enrichment**: Additional officer information is gathered from 50-a.org and other public sources, including:
+   - Badge numbers and precinct information
+   - Complaint histories and settlement amounts
+   - Salary and overtime data
 
-        dim_ for dimensions (e.g., dim_officers)
+5. **Storage & Import**: The extracted data is saved to CSV files (`copwatchdog.csv` and `NYC/BRAIN/copwatchdog.csv`) and can be imported to a database using the `scripts/import_to_db.sh` script.
 
-        fact_ for facts/events (e.g., fact_trials)
+## CopWatchDog Community License 1.0 (Simple)
 
-        agg_ for aggregations (e.g., agg_salaries)
+You're free to use, copy, change, and share this software only if:
 
-Primary Data Sources
-
-    NYPD Trial Calendar
-    Raw monthly trial schedules scraped from the official NYC site.
-
-    50-a.org
-    Public officer profiles with misconduct and salary data.
-
-    NYC Open Data - Payroll
-    Official structured payroll data filtered for NYPD.
-
-Short procedural rules
-
-    Bronze: Append raw files with checksum metadata; no deletions.
-
-    Silver: Idempotent full-refresh cleaning from Bronze.
-
-    Gold: Append new records; update only on corrections; never truncate. Maintain change-log for provenance.
-
-CopWatchDog Community License 1.0 (Simple)
-
-You’re free to use, copy, change, and share this software only if:
-
-    You don’t use it to make money or run a business that profits from it.
-
-    You don’t use it for any police, military, prison, or surveillance work.
+- You don't use it to make money or run a business that profits from it.
+- You don't use it for any police, military, prison, or surveillance work.
 
 If you share or change the software, you have to:
 
-    Keep these rules in place.
-
-    Share your changes with the same rules.
+- Keep these rules in place.
+- Share your changes with the same rules.
 
 We provide this software as-is, with no promises it works.
 
