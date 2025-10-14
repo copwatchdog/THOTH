@@ -104,10 +104,16 @@ fi
 log "INFO" "Starting copwatchdog scraper..."
 if python3 main.py 2>&1 | tee -a "$SCRAPER_LOG"; then
     log "INFO" "Scraper completed successfully"
+    SCRAPER_SUCCESS=true
 else
     PY_EXIT=$?
     log "ERROR" "Scraper failed with exit code: $PY_EXIT"
-    # Continue execution - we might still want to process existing files
+    # Check if this was a catastrophic failure
+    if [ $PY_EXIT -gt 1 ]; then
+        log "ERROR" "Critical scraper failure detected. Halting execution."
+        exit $PY_EXIT
+    fi
+    SCRAPER_SUCCESS=false
 fi
 # Run database import if scraper succeeded or we want to process existing files
 if [ -x "$THOTH/scripts/import_to_db.sh" ]; then

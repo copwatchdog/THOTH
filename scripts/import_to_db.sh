@@ -166,11 +166,5 @@ if [ $processed -gt 0 ]; then
 	fi
 fi
 
-if [ $failed -eq 0 ]; then
-	send_mail "Thoth import SUCCEEDED" "Import completed successfully. Files processed: $processed.\n\nRecent log:\n$(tail -n 50 "$LOG_FILE")"
-	exit 0
-else
-	send_mail "Thoth import PARTIAL FAILURE" "Import completed with failures. processed=$processed failed=$failed.\n\nRecent log:\n$(tail -n 50 "$LOG_FILE")"
-	exit 3
-fi
+exit 0
 

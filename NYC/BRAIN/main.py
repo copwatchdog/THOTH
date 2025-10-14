@@ -2,6 +2,8 @@ import logging
 import csv
 import re
 import os
+import gc
+import atexit
 from datetime import datetime
 from pathlib import Path
 from playwright.sync_api import sync_playwright, TimeoutError
@@ -129,6 +131,7 @@ def _match_last_name(source_last: str, candidate_last: str) -> bool:
 def extract_from_nypdtrial(page, retries=5, timeout=30000):  # Increased timeout to 30 seconds and retries to 5
     logging.info(f"Visiting NYPD Trials: {SITES['NYPDTRIAL']}")
     attempt = 0
+    gc.collect()  # Force garbage collection before starting
     while attempt < retries:
         try:
             logging.info(f"Attempt {attempt + 1}/{retries} to load NYPD Trials page...")
