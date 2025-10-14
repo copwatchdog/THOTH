@@ -1,6 +1,7 @@
 import logging
 import csv
 import re
+import os
 from datetime import datetime
 from pathlib import Path
 from playwright.sync_api import sync_playwright, TimeoutError
@@ -16,7 +17,13 @@ KEYWORDS = ["Date", "Time", "Rank", "Name", "Trial Room", "Case Type"]
 THRESHOLD = 2
 SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
 LOG_FILE = "copwatchdog.log"
-CSV_FILE = "copwatchdog.csv"
+
+# Generate monthly CSV filename in format YYMM-copwatchdog.csv
+current_date = datetime.now()
+month_prefix = f"{str(current_date.year)[2:]}{current_date.month:02d}"
+CSV_FILE = f"{month_prefix}-copwatchdog.csv"
+CSV_DIR = Path("../CSV/FILES")  # Output directory for CSV files
+LOCAL_CSV_FILE = "copwatchdog.csv"  # Keep a copy in the current directory
 
 # === Setup logging ===
 logging.basicConfig(
@@ -502,7 +509,11 @@ with sync_playwright() as p:
     logging.info("Browser closed, Dogs returned")
 
 # === Save CSV ===
-csv_path = Path(CSV_FILE)
+# Ensure the CSV directory exists
+CSV_DIR.mkdir(parents=True, exist_ok=True)
+csv_path = CSV_DIR / CSV_FILE
+local_csv_path = Path(LOCAL_CSV_FILE)
+
 fieldnames = [
     "Date","Time","Rank","First","Last","Room","Case Type",
     "Badge","PCT","PCT URL","Started","Last Earned",
@@ -513,44 +524,51 @@ fieldnames = [
     "Status","Base Salary","Pay Basis","Regular Hours","Regular Gross Paid","OT Hours","Total OT Paid","Total Other Pay"
 ]
 
-logging.info(f"Writing CSV to {csv_path}")
-with csv_path.open("w", newline="", encoding="utf-8") as f:
-    writer = csv.DictWriter(f, fieldnames=fieldnames)
-    writer.writeheader()
-    written = 0
-    for r in all_records:
-        writer.writerow({
-            "Date": r.get("Date",""),
-            "Time": r.get("Time",""),
-            "Rank": r.get("Rank",""),
-            "First": r.get("First",""),
-            "Last": r.get("Last",""),
-            "Room": r.get("Trial Room",""),
-            "Case Type": r.get("Case Type",""),
-            "Badge": r.get("badge",""),
-            "PCT": r.get("precinct_number",""),
-            "PCT URL": r.get("precinct_link",""),
-            "Started": r.get("service_start",""),
-            "Last Earned": r.get("last_earned",""),
-            "Disciplined": r.get("has_discipline","N"),
-            "Articles": r.get("has_articles","N"),
-            "# Complaints": r.get("num_complaints",0),
-            "# Allegations": r.get("num_allegations",0),
-            "# Substantiated": r.get("num_substantiated",0),
-            "# Charges": r.get("num_substantiated_charges",0),
-            "# Unsubstantiated": r.get("num_unsubstantiated",0),
-            "# Guidelined": r.get("num_within_guidelines",0),
-            "# Lawsuits": r.get("num_lawsuits",0),
-            "Total Settlements": r.get("total_settlements",0),
-            "Status": r.get("leave_status_as_of_june_30",""),
-            "Base Salary": r.get("base_salary",""),
-            "Pay Basis": r.get("pay_basis",""),
-            "Regular Hours": r.get("regular_hours",""),
-            "Regular Gross Paid": r.get("regular_gross_paid",""),
-            "OT Hours": r.get("ot_hours",""),
-            "Total OT Paid": r.get("total_ot_paid",""),
-            "Total Other Pay": r.get("total_other_pay",""),
-        })
-        written += 1
+# Function to write CSV with the same content
+def write_csv_file(filepath, records):
+    logging.info(f"Writing CSV to {filepath}")
+    with filepath.open("w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
+        written = 0
+        for r in records:
+            writer.writerow({
+                "Date": r.get("Date",""),
+                "Time": r.get("Time",""),
+                "Rank": r.get("Rank",""),
+                "First": r.get("First",""),
+                "Last": r.get("Last",""),
+                "Room": r.get("Trial Room",""),
+                "Case Type": r.get("Case Type",""),
+                "Badge": r.get("badge",""),
+                "PCT": r.get("precinct_number",""),
+                "PCT URL": r.get("precinct_link",""),
+                "Started": r.get("service_start",""),
+                "Last Earned": r.get("last_earned",""),
+                "Disciplined": r.get("has_discipline","N"),
+                "Articles": r.get("has_articles","N"),
+                "# Complaints": r.get("num_complaints",0),
+                "# Allegations": r.get("num_allegations",0),
+                "# Substantiated": r.get("num_substantiated",0),
+                "# Charges": r.get("num_substantiated_charges",0),
+                "# Unsubstantiated": r.get("num_unsubstantiated",0),
+                "# Guidelined": r.get("num_within_guidelines",0),
+                "# Lawsuits": r.get("num_lawsuits",0),
+                "Total Settlements": r.get("total_settlements",0),
+                "Status": r.get("leave_status_as_of_june_30",""),
+                "Base Salary": r.get("base_salary",""),
+                "Pay Basis": r.get("pay_basis",""),
+                "Regular Hours": r.get("regular_hours",""),
+                "Regular Gross Paid": r.get("regular_gross_paid",""),
+                "OT Hours": r.get("ot_hours",""),
+                "Total OT Paid": r.get("total_ot_paid",""),
+                "Total Other Pay": r.get("total_other_pay",""),
+            })
+            written += 1
+        return written
 
-logging.info(f"CSV write complete. Rows written: {written}")
+# Write to both locations
+monthly_written = write_csv_file(csv_path, all_records)
+local_written = write_csv_file(local_csv_path, all_records)
+
+logging.info(f"CSV write complete. Monthly file ({csv_path}): {monthly_written} rows, Local file ({local_csv_path}): {local_written} rows")
