@@ -6,9 +6,9 @@ set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-LOG_FILE="$REPO_DIR/copwatchdog.log"
+LOG_FILE="$REPO_DIR/LOGS/hermes.log"
 
-echo "[$(date +'%Y-%m-%d %H:%M:%S')] Starting copwatchdog run" | tee -a "$LOG_FILE"
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] Release the hounds!" | tee -a "$LOG_FILE"
 
 cd "$REPO_DIR/NYC/BRAIN" || { echo "Could not cd to $REPO_DIR/NYC/BRAIN" | tee -a "$LOG_FILE"; exit 2; }
 

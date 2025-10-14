@@ -16,7 +16,7 @@ SITES = {
 KEYWORDS = ["Date", "Time", "Rank", "Name", "Trial Room", "Case Type"]
 THRESHOLD = 2
 SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
-LOG_FILE = "copwatchdog.log"
+LOG_FILE = "../../LOGS/thoth.log"
 
 # Generate monthly CSV filename in format YYMM-copwatchdog.csv
 current_date = datetime.now()
