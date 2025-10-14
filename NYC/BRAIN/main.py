@@ -26,9 +26,13 @@ CSV_DIR = Path("../CSV")  # Output directory for CSV files
 LOCAL_CSV_FILE = "copwatchdog.csv"  # Keep a copy in the current directory
 
 # === Setup logging ===
+# Clear old log file
+if os.path.exists(LOG_FILE):
+    open(LOG_FILE, 'w').close()
+
 logging.basicConfig(
     filename=LOG_FILE,
-    filemode="w",
+    filemode="w",  # Always overwrite
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
 )
@@ -122,19 +126,39 @@ def _match_last_name(source_last: str, candidate_last: str) -> bool:
     return result
 
 # === NYPDTRIAL Extraction ===
-def extract_from_nypdtrial(page, retries=3, timeout=5000):
+def extract_from_nypdtrial(page, retries=5, timeout=30000):  # Increased timeout to 30 seconds and retries to 5
     logging.info(f"Visiting NYPD Trials: {SITES['NYPDTRIAL']}")
     attempt = 0
     while attempt < retries:
         try:
+            logging.info(f"Attempt {attempt + 1}/{retries} to load NYPD Trials page...")
             page.goto(SITES["NYPDTRIAL"], timeout=timeout, wait_until="networkidle")
-            break
+            logging.info("Page loaded successfully")
+            # Add a verification step
+            if page.query_selector("table"):
+                logging.info("Found table elements on the page")
+                break
+            else:
+                logging.warning("Page loaded but no tables found, may need to retry")
+                attempt += 1
         except TimeoutError:
             attempt += 1
-            logging.warning(f"NYPD Trials page load timed out (attempt {attempt}/{retries})")
+            logging.warning(f"NYPD Trials page load timed out after {timeout}ms (attempt {attempt}/{retries})")
+            if attempt < retries:
+                logging.info("Waiting 5 seconds before retrying...")
+                page.wait_for_timeout(5000)  # Wait 5 seconds between attempts
+        except Exception as e:
+            attempt += 1
+            logging.error(f"Unexpected error loading page: {str(e)}")
             if attempt >= retries:
                 logging.error(f"Failed to load NYPD Trials page after {retries} attempts")
                 return []
+            logging.info("Waiting 5 seconds before retrying...")
+            page.wait_for_timeout(5000)  # Wait 5 seconds between attempts
+    
+    if attempt >= retries:
+        logging.error(f"Failed to load NYPD Trials page after {retries} attempts")
+        return []
 
     tables = page.query_selector_all("table")
     logging.info(f"Found {len(tables)} tables on the NYPD Trials page")
@@ -571,4 +595,7 @@ def write_csv_file(filepath, records):
 monthly_written = write_csv_file(csv_path, all_records)
 local_written = write_csv_file(local_csv_path, all_records)
 
-logging.info(f"CSV write complete. Monthly file ({csv_path}): {monthly_written} rows, Local file ({local_csv_path}): {local_written} rows")
+logging.info(f"=== THOTH Mission Complete ===")
+logging.info(f"Monthly CSV file ({csv_path}): {monthly_written} rows")
+logging.info(f"Local CSV file ({local_csv_path}): {local_written} rows")
+logging.info("Successful Operation - Ready for HERMES ETL")

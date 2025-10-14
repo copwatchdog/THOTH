@@ -1,0 +1,78 @@
+                                                           version                                                           
+-----------------------------------------------------------------------------------------------------------------------------
+ PostgreSQL 15.14 (Debian 15.14-0+deb12u1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+(1 row)
+[2025-10-14 14:55:58] [INFO] Starting import_to_db.sh
+[2025-10-14 14:55:58] [INFO] Starting database import process
+[2025-10-14 14:55:58] [INFO] Found 2 CSV files to process:
+[2025-10-14 14:55:58] [INFO]   - 2509-copwatchdog.csv
+[2025-10-14 14:55:58] [INFO]   - 2510-copwatchdog.csv
+[2025-10-14 14:55:58] [INFO] Importing /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
+[2025-10-14 14:55:58] [INFO] Using service=copwatchdog configuration
+[2025-10-14 14:55:58] [INFO] Using helper script to import /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
+[DEBUG] Current working directory: /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/BRAIN
+/Users/vicstizzi/ART/YUMYODA/TECH/HERMES/scripts/db/import_into_cwd_raw.sh:12: command not found: realpath
+[DEBUG] Full path to CSV: 
+[DEBUG] File exists and is readable
+[DEBUG] File contents preview:
+Date,Time,Rank,First,Last,Room,Case Type,Badge,PCT,PCT URL,Started,Last Earned,Disciplined,Articles,# Complaints,# Allegations,# Substantiated,# Charges,# Unsubstantiated,# Guidelined,# Lawsuits,Total Settlements,Status,Base Salary,Pay Basis,Regular Hours,Regular Gross Paid,OT Hours,Total OT Paid,Total Other Pay
+9/3/2025,1000,Detective,Frankie,Palaguachi,A,Drug Test,27476,59,https://50-a.org/command/59,01/01/2015,"$210,000",N,N,0,0,0,0,0,0,0,0,ACTIVE,"$105,146.00",per Annum,"1,834.28","$122,949.07",653.15,"$66,635.22","$20,595.58"
+Loading /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv into cwd_raw.officers_raw
+BEGIN
+CREATE TABLE
+COPY 15
+INSERT 0 15
+COMMIT
+Import complete. Recent rows:
+     officer_id     |                                 source_file                                 | first_name | last_name  | badge | pct  | date_reported 
+--------------------+-----------------------------------------------------------------------------+------------+------------+-------+------+---------------
+ 093025AB12432      | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv | Andres     | Matos      | 12432 | 27   | 2025-09-30
+ 092525AB22798      | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv | Jonathan   | Baptiste   | 22798 | 769  | 2025-09-25
+ 092525AB4081       | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv | Joel       | Ayala      | 4081  | 46   | 2025-09-25
+ 092325AB788        | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv | Richard    | Zimmer     | 788   | 50   | 2025-09-23
+ 091825AB19236      | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv | Harry      | Espinal    | 19236 | 127  | 2025-09-18
+ 091825BB22859      | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv | Brooks     | Ingram     | 22859 | 929  | 2025-09-18
+ 091825CNDevoyLaura | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv | Laura      | Devoy      |       |      | 2025-09-18
+ 091625AB5205       | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv | Steven     | Dulcey     | 5205  | 931  | 2025-09-16
+ 091625BB19557      | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv | Matthew    | Arguinzoni | 19557 | MELD | 2025-09-16
+ 091125AB21275      | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv | Stephan    | Grant      | 21275 | 23   | 2025-09-11
+(10 rows)
+
+[2025-10-14 14:55:59] [INFO] Import succeeded for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
+[2025-10-14 14:55:59] [INFO] Importing /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
+[2025-10-14 14:55:59] [INFO] Using service=copwatchdog configuration
+[2025-10-14 14:55:59] [INFO] Using helper script to import /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
+[DEBUG] Current working directory: /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/BRAIN
+/Users/vicstizzi/ART/YUMYODA/TECH/HERMES/scripts/db/import_into_cwd_raw.sh:12: command not found: realpath
+[DEBUG] Full path to CSV: 
+[DEBUG] File exists and is readable
+[DEBUG] File contents preview:
+Date,Time,Rank,First,Last,Room,Case Type,Badge,PCT,PCT URL,Started,Last Earned,Disciplined,Articles,# Complaints,# Allegations,# Substantiated,# Charges,# Unsubstantiated,# Guidelined,# Lawsuits,Total Settlements,Status,Base Salary,Pay Basis,Regular Hours,Regular Gross Paid,OT Hours,Total OT Paid,Total Other Pay
+10/1/2025,1000,Police Officer,Julian,Reyes,A,Use of Force,19056,44,https://50-a.org/command/44pct,07/01/2015,"$141,000",N,N,0,4,3,1,0,1,0,0,,,,,,,,
+Loading /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv into cwd_raw.officers_raw
+BEGIN
+CREATE TABLE
+COPY 28
+INSERT 0 28
+COMMIT
+Import complete. Recent rows:
+  officer_id   |                                 source_file                                 | first_name  |     last_name     | badge | pct  | date_reported 
+---------------+-----------------------------------------------------------------------------+-------------+-------------------+-------+------+---------------
+ 102925AB26439 | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv | Lenita      | Harrison          | 26439 | PBBN | 2025-10-29
+ 102825AB26439 | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv | Lenita      | Harrison          | 26439 | PBBN | 2025-10-28
+ 102725AB13628 | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv | Ariel       | Peraltayascaribay | 13628 | 36   | 2025-10-27
+ 102425AB1887  | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv | Michelle    | Bonaparte         | 1887  | 79   | 2025-10-24
+ 102325AB1887  | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv | Michelle    | Bonaparte         | 1887  | 79   | 2025-10-23
+ 102225AB1887  | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv | Michelle    | Bonaparte         | 1887  | 79   | 2025-10-22
+ 102125AB7729  | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv | Christopher | Rodrigo           | 7729  | 761  | 2025-10-21
+ 101725AB30787 | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv | Donald      | Aridas            | 30787 | 19   | 2025-10-17
+ 101725BB24331 | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv | Anthony     | Diaz              | 24331 | 89   | 2025-10-17
+ 101525AB1301  | /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv | Miguel      | Estevez           | 1301  | 41   | 2025-10-15
+(10 rows)
+
+[2025-10-14 14:55:59] [INFO] Import succeeded for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
+[2025-10-14 14:55:59] [INFO] Import run complete: processed=2 failed=0
+[2025-10-14 14:55:59] [INFO] Triggering HERMES ETL transformation
+[2025-10-14 14:55:59] [ERROR] HERMES ETL failed - check logs
+/Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/scripts/import_to_db.sh: line 162: LOG_FILE: unbound variable
+/Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/scripts/import_to_db.sh: line 162: send_mail: command not found
