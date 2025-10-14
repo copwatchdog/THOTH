@@ -16,6 +16,8 @@ if [ -f "$REPO_DIR/.env" ]; then
   echo "Found project .env file; ensure dependencies are available." | tee -a "$LOG_FILE"
 fi
 
+# Initialize PY_EXIT with a default value
+PY_EXIT=0
 python3 main.py >> "$LOG_FILE" 2>&1
 PY_EXIT=$?
 if [ $PY_EXIT -ne 0 ]; then

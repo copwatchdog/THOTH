@@ -7,21 +7,21 @@ Date,Time,Rank,First,Last,Room,Case Type,Badge,PCT,PCT URL,Started,Last Earned,D
 10/3/2025,1000,Sergeant,Alan,Ye,A,Failed to Take Police Action,3354,60,https://50-a.org/command/60pct,01/01/2006,"$135,000",N,N,0,0,0,0,1,0,2,15001,ACTIVE,"$96,477.00",per Annum,"2,080","$125,172.17",242.42,"$22,750.82","$31,515.46"
 10/6/2025,1000,Police Officer,Lateef,Stinson,A,Insubordination,15203,67,https://50-a.org/command/67pct,07/01/2017,"$170,000",Y,N,2,5,0,0,4,0,2,16500,ACTIVE,"$105,146.00",per Annum,"1,888.57","$139,035.41",627.95,"$64,371.15","$20,055.56"
 10/7/2025,1000,Sergeant,Rayna,Rampaul,A,Shoplifting,4816,127,https://50-a.org/command/127,01/01/2006,"$193,000",N,Y,7,14,0,0,6,0,4,136000,,,,,,,,
-10/7/2025,1000,Detective,Ivan,Villanueva,B,Sexual Misconduct,4982,MELD,https://50-a.org/command/MELD,07/01/2008,"$179,000",N,N,4,4,0,0,2,0,6,72500,ACTIVE,"$130,260.00",per Annum,"2,080","$129,316.25",429.12,"$45,205.54","$22,789.75"
+10/7/2025,1000,Detective,Ivan,Villanueva,B,Sexual Misconduct,4982,MELD,https://50-a.org/command/MELD,07/01/2008,"$179,000",N,N,4,4,0,0,2,0,6,72500,,,,,,,,
 10/8/2025,1000,Detective,Gregory,Howard,A,Drug Test,706,MELD,https://50-a.org/command/MELD,01/01/2006,"$161,000",Y,Y,4,4,0,0,3,0,11,79000,ACTIVE,"$115,923.00",per Annum,"2,080","$115,140.04",70.72,"$7,183.41","$27,614.33"
 10/8/2025,1000,Detective,Ivan,Villanueva,B,Sexual Misconduct,4982,MELD,https://50-a.org/command/MELD,07/01/2008,"$179,000",N,N,4,4,0,0,2,0,6,72500,,,,,,,,
-10/9/2025,1000,Sergeant,Christopher,Musa,A,Use of Force,3353,73,https://50-a.org/command/73pct,01/01/2012,"$147,000",Y,N,14,39,8,3,2,5,4,1598000,,,,,,,,
-10/9/2025,1000,Detective,Gregory,Howard,B,Drug Test,706,MELD,https://50-a.org/command/MELD,01/01/2006,"$161,000",Y,Y,4,4,0,0,3,0,11,79000,,,,,,,,
+10/9/2025,1000,Sergeant,Christopher,Musa,A,Use of Force,3353,73,https://50-a.org/command/73pct,01/01/2012,"$147,000",Y,N,14,39,8,3,2,5,4,1598000,ACTIVE,"$118,056.00",per Annum,"2,080","$120,936.16",128.92,"$11,705.29","$26,585.99"
+10/9/2025,1000,Detective,Gregory,Howard,B,Drug Test,706,MELD,https://50-a.org/command/MELD,01/01/2006,"$161,000",Y,Y,4,4,0,0,3,0,11,79000,ACTIVE,"$115,923.00",per Annum,"2,080","$115,140.04",70.72,"$7,183.41","$27,614.33"
 10/9/2025,1000,Police Officer,Harry,Espinal,C,Domestic Incident,19236,127,https://50-a.org/command/127,07/01/2015,"$166,000",N,N,0,0,0,0,0,0,0,0,ACTIVE,"$105,146.00",per Annum,"2,068.57","$127,952.74",495.23,"$43,981.23","$18,047.24"
 10/10/2025,1000,Sergeant,Christopher,Musa,A,Use of Force,3353,73,https://50-a.org/command/73pct,01/01/2012,"$147,000",Y,N,14,39,8,3,2,5,4,1598000,ACTIVE,"$118,056.00",per Annum,"2,080","$120,936.16",128.92,"$11,705.29","$26,585.99"
 10/10/2025,1000,Pol Admin Aide,Laura,Devoy,B,Abuse of Time,,,,,,N,N,0,0,0,0,0,0,0,0,ON LEAVE,"$47,100.00",per Annum,"1,750","$13,296.93",0,$0.00,$0.00
 10/14/2025,1000,Sergeant,Miguel,Estevez,A,EEO,1301,41,https://50-a.org/command/41pct,07/01/2005,"$184,000",N,N,5,7,0,0,2,0,8,197500,ACTIVE,"$118,056.00",per Annum,"2,080","$117,422.29",61.75,"$4,663.66","$23,463.95"
 10/14/2025,1000,Police Officer,Michael,Velazquez,B,Improper Relationship,20892,50,https://50-a.org/command/50pct,01/01/2017,"$178,000",N,N,3,5,0,0,0,0,0,0,ACTIVE,"$105,146.00",per Annum,"2,080","$142,245.57",480.55,"$51,727.20","$31,805.31"
-10/15/2025,1000,Sergeant,Miguel,Estevez,A,EEO,1301,41,https://50-a.org/command/41pct,07/01/2005,"$184,000",N,N,5,7,0,0,2,0,8,197500,,,,,,,,
+10/15/2025,1000,Sergeant,Miguel,Estevez,A,EEO,1301,41,https://50-a.org/command/41pct,07/01/2005,"$184,000",N,N,5,7,0,0,2,0,8,197500,ACTIVE,"$118,056.00",per Annum,"2,080","$117,422.29",61.75,"$4,663.66","$23,463.95"
 10/17/2025,1000,Police Officer,Donald,Aridas,A,Use of Force,30787,19,https://50-a.org/command/19pct,01/01/2006,"$192,000",N,N,9,17,2,2,4,2,0,0,ACTIVE,"$105,146.00",per Annum,"2,080","$153,923.33",535.25,"$59,107.59","$36,073.30"
 10/17/2025,1000,Police Officer,Anthony,Diaz,B,DWI,24331,89,https://50-a.org/command/89,07/01/2013,"$187,000",Y,N,2,3,0,0,0,0,0,0,ACTIVE,"$118,056.00",per Annum,"2,080","$155,833.42",118.63,"$19,168.00","$25,368.22"
-10/21/2025,1000,Detective,Christopher,Rodrigo,A,Domestic Incident,7729,761,https://50-a.org/command/761,07/01/2001,"$183,000",Y,N,14,27,0,0,13,0,4,287500,ACTIVE,"$115,923.00",per Annum,"2,080","$115,140.04",641.98,"$61,469.21","$21,053.00"
-10/22/2025,1000,Detective,Michelle,Bonaparte,A,False Statement,1887,79,https://50-a.org/command/79det,01/01/2006,"$238,000",N,N,3,6,0,0,2,1,0,0,,,,,,,,
+10/21/2025,1000,Detective,Christopher,Rodrigo,A,Domestic Incident,7729,761,https://50-a.org/command/761,07/01/2001,"$183,000",Y,N,14,27,0,0,13,0,4,287500,,,,,,,,
+10/22/2025,1000,Detective,Michelle,Bonaparte,A,False Statement,1887,79,https://50-a.org/command/79det,01/01/2006,"$238,000",N,N,3,6,0,0,2,1,0,0,ACTIVE,"$115,923.00",per Annum,"2,080","$117,280.29",999.13,"$93,263.25","$20,207.52"
 10/23/2025,1000,Detective,Michelle,Bonaparte,A,False Statement,1887,79,https://50-a.org/command/79det,01/01/2006,"$238,000",N,N,3,6,0,0,2,1,0,0,ACTIVE,"$115,923.00",per Annum,"2,080","$117,280.29",999.13,"$93,263.25","$20,207.52"
 10/24/2025,1000,Detective,Michelle,Bonaparte,A,False Statement,1887,79,https://50-a.org/command/79det,01/01/2006,"$238,000",N,N,3,6,0,0,2,1,0,0,ACTIVE,"$115,923.00",per Annum,"2,080","$117,280.29",999.13,"$93,263.25","$20,207.52"
 10/27/2025,1000,Police Officer,Ariel,Peraltayascaribay,A,Domestic Incident,13628,36,https://50-a.org/command/36,01/01/2020,,N,N,0,3,0,0,0,0,0,0,,,,,,,,

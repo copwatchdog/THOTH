@@ -22,7 +22,7 @@ LOG_FILE = "../../LOGS/thoth.log"
 current_date = datetime.now()
 month_prefix = f"{str(current_date.year)[2:]}{current_date.month:02d}"
 CSV_FILE = f"{month_prefix}-copwatchdog.csv"
-CSV_DIR = Path("../CSV/FILES")  # Output directory for CSV files
+CSV_DIR = Path("../CSV")  # Output directory for CSV files
 LOCAL_CSV_FILE = "copwatchdog.csv"  # Keep a copy in the current directory
 
 # === Setup logging ===

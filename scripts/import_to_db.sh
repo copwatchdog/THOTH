@@ -1,7 +1,7 @@
 
 #!/bin/bash
 # import_to_db.sh
-# Import CSVs from NYC/CSV/FILES into the database table cwd_raw.officers_raw
+# Import CSVs from NYC/CSV into the database table cwd_raw.officers_raw
 # Uses credentials from a .env file (top-level or NYC/BRAIN/.env). Sends
 # simple email notifications on success/failure to the configured recipient.
 
@@ -9,8 +9,7 @@ set -euo pipefail
 
 REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LOG_FILE="$REPO_DIR/copwatchdog.log"
-CSV_DIR="$REPO_DIR/NYC/CSV/FILES"
-ARCHIVE_DIR="$REPO_DIR/NYC/CSV/ARCHIVE"
+CSV_DIR="$REPO_DIR/NYC/CSV"
 NOTIFY_ADDR="stizzi@yumyoda.com"
 
 echo "[$(date +'%Y-%m-%d %H:%M:%S')] Starting import_to_db.sh" | tee -a "$LOG_FILE"
@@ -61,11 +60,13 @@ fi
 for csv in "${csv_files[@]}"; do
 	echo "[$(date +'%Y-%m-%d %H:%M:%S')] Importing $csv" | tee -a "$LOG_FILE"
 
-	# Use psql. Prefer DATABASE_URL if set; otherwise rely on PG* env vars.
+	# Use psql. Prefer DATABASE_URL if set; otherwise try service configuration, then PG* env vars.
 	if [ -n "${DATABASE_URL-}" ]; then
 		PSQL_CMD=(psql "$DATABASE_URL" -v ON_ERROR_STOP=1 -c)
 	else
-		PSQL_CMD=(psql -v ON_ERROR_STOP=1 -c)
+		# Always try to use the service configuration first
+		echo "Using service=copwatchdog configuration" | tee -a "$LOG_FILE"
+		PSQL_CMD=(psql "service=copwatchdog" -v ON_ERROR_STOP=1 -c)
 	fi
 
 		# If a Hermes/db helper exists, prefer that (it knows the project's conventions)

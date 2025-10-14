@@ -1,0 +1,17 @@
+[2025-10-13 23:11:23] Starting import_to_db.sh
+Sourced /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/BRAIN/.env
+No CSV files found in /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/FILES; nothing to import.
+[2025-10-13 23:11:23] Finished import_to_db.sh (no files)
+[2025-10-13 23:19:44] Starting import_to_db.sh
+Sourced /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/BRAIN/.env
+[2025-10-13 23:19:44] Importing /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
+Using service=copwatchdog configuration
+ERROR:  invalid input syntax for type bigint: "9/3/2025"
+CONTEXT:  COPY officers_raw, line 2, column id: "9/3/2025"
+[2025-10-13 23:19:45] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv (direct)
+[2025-10-13 23:19:45] Importing /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
+Using service=copwatchdog configuration
+ERROR:  invalid input syntax for type bigint: "10/1/2025"
+CONTEXT:  COPY officers_raw, line 2, column id: "10/1/2025"
+[2025-10-13 23:19:45] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv (direct)
+[2025-10-13 23:19:45] Import run complete: processed=0 failed=2
