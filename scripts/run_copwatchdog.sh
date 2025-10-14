@@ -4,15 +4,16 @@
 
 set -euo pipefail
 
-REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+THOTH="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+HERMES="$(cd "$THOTH/.." && pwd)"
 
-LOG_FILE="$REPO_DIR/LOGS/hermes.log"
+LOG_FILE="$THOTH/LOGS/thoth.log"
 
 echo "[$(date +'%Y-%m-%d %H:%M:%S')] Release the hounds!" | tee -a "$LOG_FILE"
 
-cd "$REPO_DIR/NYC/BRAIN" || { echo "Could not cd to $REPO_DIR/NYC/BRAIN" | tee -a "$LOG_FILE"; exit 2; }
+cd "$THOTH/NYC/BRAIN" || { echo "Could not cd to $THOTH/NYC/BRAIN" | tee -a "$LOG_FILE"; exit 2; }
 
-if [ -f "$REPO_DIR/.env" ]; then
+if [ -f "$THOTH/.env" ]; then
   echo "Found project .env file; ensure dependencies are available." | tee -a "$LOG_FILE"
 fi
 
@@ -28,9 +29,9 @@ fi
 
 echo "[$(date +'%Y-%m-%d %H:%M:%S')] Finished copwatchdog run" | tee -a "$LOG_FILE"
 
-if [ -x "$REPO_DIR/scripts/import_to_db.sh" ]; then
+if [ -x "$THOTH/scripts/import_to_db.sh" ]; then
   echo "Triggering import_to_db.sh" | tee -a "$LOG_FILE"
-  "$REPO_DIR/scripts/import_to_db.sh" >> "$LOG_FILE" 2>&1 || echo "Import script failed" | tee -a "$LOG_FILE"
+  "$THOTH/scripts/import_to_db.sh" >> "$LOG_FILE" 2>&1 || echo "Import script failed" | tee -a "$LOG_FILE"
 fi
 
 exit 0

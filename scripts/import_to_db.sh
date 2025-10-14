@@ -7,21 +7,22 @@
 
 set -euo pipefail
 
-REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-LOG_FILE="$REPO_DIR/copwatchdog.log"
-CSV_DIR="$REPO_DIR/NYC/CSV"
+THOTH="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+HERMES="$(cd "$THOTH/.." && pwd)"
+LOG_FILE="$THOTH/LOGS/thoth.log"
+CSV_DIR="$THOTH/NYC/CSV"
 NOTIFY_ADDR="stizzi@yumyoda.com"
 
 echo "[$(date +'%Y-%m-%d %H:%M:%S')] Starting import_to_db.sh" | tee -a "$LOG_FILE"
 
 # Load environment variables from .env (top-level first, then NYC/BRAIN)
-if [ -f "$REPO_DIR/.env" ]; then
+if [ -f "$THOTH/.env" ]; then
 	# shellcheck disable=SC1090
-	set -a; source "$REPO_DIR/.env"; set +a
-	echo "Sourced $REPO_DIR/.env" | tee -a "$LOG_FILE"
-elif [ -f "$REPO_DIR/NYC/BRAIN/.env" ]; then
-	set -a; source "$REPO_DIR/NYC/BRAIN/.env"; set +a
-	echo "Sourced $REPO_DIR/NYC/BRAIN/.env" | tee -a "$LOG_FILE"
+	set -a; source "$THOTH/.env"; set +a
+	echo "Sourced $THOTH/.env" | tee -a "$LOG_FILE"
+elif [ -f "$THOTH/NYC/BRAIN/.env" ]; then
+	set -a; source "$THOTH/NYC/BRAIN/.env"; set +a
+	echo "Sourced $THOTH/NYC/BRAIN/.env" | tee -a "$LOG_FILE"
 else
 	echo "No .env file found; cannot obtain DB credentials. Aborting." | tee -a "$LOG_FILE"
 	exit 2
@@ -40,8 +41,6 @@ send_mail() {
 	fi
 }
 
-# Ensure ARCHIVE_DIR exists
-mkdir -p "$ARCHIVE_DIR"
 
 processed=0
 failed=0
@@ -70,15 +69,15 @@ for csv in "${csv_files[@]}"; do
 	fi
 
 		# If a Hermes/db helper exists, prefer that (it knows the project's conventions)
-		if [ -x "$REPO_DIR/scripts/db/import_into_cwd_raw.sh" ]; then
+		if [ -x "$HERMES/scripts/db/import_into_cwd_raw.sh" ]; then
 			echo "Found helper scripts/db/import_into_cwd_raw.sh; using it to import $csv" | tee -a "$LOG_FILE"
-			if "$REPO_DIR/scripts/db/import_into_cwd_raw.sh" "$csv" >>"$LOG_FILE" 2>&1; then
+			if "$HERMES/scripts/db/import_into_cwd_raw.sh" "$csv" >>"$LOG_FILE" 2>&1; then
 				echo "[$(date +'%Y-%m-%d %H:%M:%S')] Import succeeded for $csv (via helper)" | tee -a "$LOG_FILE"
 				processed=$((processed + 1))
 			else
 				echo "[$(date +'%Y-%m-%d %H:%M:%S')] Import FAILED for $csv (via helper)" | tee -a "$LOG_FILE"
 				failed=$((failed + 1))
-				tail -n 200 "$LOG_FILE" | sed -n '1,200p' > "$REPO_DIR/last_import_failure.log" || true
+				tail -n 200 "$LOG_FILE" | sed -n '1,200p' > "$THOTH/last_import_failure.log" || true
 				send_mail "Thoth import FAILED" "Import failed for $csv using helper. See last_import_failure.log on the server.\n\nRecent log:\n$(tail -n 50 "$LOG_FILE")"
 			fi
 		else
@@ -88,7 +87,7 @@ for csv in "${csv_files[@]}"; do
 			else
 				echo "[$(date +'%Y-%m-%d %H:%M:%S')] Import FAILED for $csv (direct)" | tee -a "$LOG_FILE"
 				failed=$((failed + 1))
-				tail -n 200 "$LOG_FILE" | sed -n '1,200p' > "$REPO_DIR/last_import_failure.log" || true
+				tail -n 200 "$LOG_FILE" | sed -n '1,200p' > "$THOTH/last_import_failure.log" || true
 				send_mail "Thoth import FAILED" "Import failed for $csv using direct psql. See last_import_failure.log on the server.\n\nRecent log:\n$(tail -n 50 "$LOG_FILE")"
 			fi
 		fi
@@ -100,15 +99,15 @@ echo "[$(date +'%Y-%m-%d %H:%M:%S')] Import run complete: processed=$processed f
 if [ $processed -gt 0 ]; then
 	echo "[$(date +'%Y-%m-%d %H:%M:%S')] Triggering HERMES ETL transformation" | tee -a "$LOG_FILE"
 	
-	if [ -x "$REPO_DIR/scripts/hermes/run_hermes_etl.sh" ]; then
-		if "$REPO_DIR/scripts/hermes/run_hermes_etl.sh" >> "$LOG_FILE" 2>&1; then
+	if [ -x "$HERMES/scripts/hermes/run_hermes_etl.sh" ]; then
+		if "$HERMES/scripts/hermes/run_hermes_etl.sh" >> "$LOG_FILE" 2>&1; then
 			echo "[$(date +'%Y-%m-%d %H:%M:%S')] HERMES ETL completed successfully" | tee -a "$LOG_FILE"
 		else
 			echo "[$(date +'%Y-%m-%d %H:%M:%S')] HERMES ETL failed - check logs" | tee -a "$LOG_FILE"
 			send_mail "HERMES ETL FAILED" "HERMES transformation failed after successful import. processed=$processed failed=$failed.\n\nRecent log:\n$(tail -n 50 "$LOG_FILE")"
 		fi
 	else
-		echo "[$(date +'%Y-%m-%d %H:%M:%S')] HERMES ETL script not found at $REPO_DIR/scripts/hermes/run_hermes_etl.sh" | tee -a "$LOG_FILE"
+		echo "[$(date +'%Y-%m-%d %H:%M:%S')] HERMES ETL script not found at $HERMES/scripts/hermes/run_hermes_etl.sh" | tee -a "$LOG_FILE"
 	fi
 fi
 
