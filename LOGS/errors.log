@@ -9,3 +9,5 @@
 [2025-10-15 17:32:44] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] Found existing SSH tunnel on port 5433 - killing
 [2025-10-15 17:32:54] [ERROR] [DB_TUNNEL] [setup_db_tunnel.sh] Database connection test failed
 [2025-10-15 17:32:54] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] You might need to fix sslmode in ~/.pg_service.conf to 'prefer' instead of 'require'
+[2025-10-16 00:20:24] [ERROR] [DB_TUNNEL] [setup_db_tunnel.sh] Failed to install required dependencies
+[2025-10-16 00:21:31] [ERROR] [DB_TUNNEL] [setup_db_tunnel.sh] Failed to install required dependencies
