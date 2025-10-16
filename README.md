@@ -1,5 +1,4 @@
 # CopWatchdog
-# test
 
 <table>
     <tr>
