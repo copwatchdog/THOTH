@@ -1,0 +1,11 @@
+[2025-10-15 17:18:18] [ERROR] [DB_TUNNEL] [setup_db_tunnel.sh] SSH tunnel process not found after setup - something went wrong
+[2025-10-15 17:21:28] [ERROR] [DB_TUNNEL] [setup_db_tunnel.sh] Database connection test failed
+[2025-10-15 17:22:30] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] Found existing SSH tunnel on port 5433 - killing
+[2025-10-15 17:22:40] [ERROR] [DB_TUNNEL] [setup_db_tunnel.sh] Database connection test failed
+[2025-10-15 17:22:40] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] You might need to fix sslmode in ~/.pg_service.conf to 'prefer' instead of 'require'
+[2025-10-15 17:23:14] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] Found existing SSH tunnel on port 5433 - killing
+[2025-10-15 17:23:24] [ERROR] [DB_TUNNEL] [setup_db_tunnel.sh] Database connection test failed
+[2025-10-15 17:23:24] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] You might need to fix sslmode in ~/.pg_service.conf to 'prefer' instead of 'require'
+[2025-10-15 17:32:44] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] Found existing SSH tunnel on port 5433 - killing
+[2025-10-15 17:32:54] [ERROR] [DB_TUNNEL] [setup_db_tunnel.sh] Database connection test failed
+[2025-10-15 17:32:54] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] You might need to fix sslmode in ~/.pg_service.conf to 'prefer' instead of 'require'

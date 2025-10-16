@@ -18,7 +18,13 @@ SITES = {
 KEYWORDS = ["Date", "Time", "Rank", "Name", "Trial Room", "Case Type"]
 THRESHOLD = 2
 SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
-LOG_FILE = "../../LOGS/thoth.log"
+
+# Set up paths
+THOTH_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+LOGS_DIR = os.path.join(THOTH_ROOT, "LOGS")
+os.makedirs(LOGS_DIR, exist_ok=True)
+
+THOTH_LOG = os.path.join(LOGS_DIR, "thoth.log")
 
 # Generate monthly CSV filename in format YYMM-copwatchdog.csv
 current_date = datetime.now()
@@ -29,11 +35,11 @@ LOCAL_CSV_FILE = "copwatchdog.csv"  # Keep a copy in the current directory
 
 # === Setup logging ===
 # Clear old log file
-if os.path.exists(LOG_FILE):
-    open(LOG_FILE, 'w').close()
+if os.path.exists(THOTH_LOG):
+    open(THOTH_LOG, 'w').close()
 
 logging.basicConfig(
-    filename=LOG_FILE,
+    filename=THOTH_LOG,
     filemode="w",  # Always overwrite
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
@@ -72,6 +78,15 @@ def extract_table(table):
     return records
 
 def _norm(s: str) -> str:
+    """
+    Normalize a string by converting to lowercase and removing all non-alphanumeric characters.
+    
+    Args:
+        s: The string to normalize
+        
+    Returns:
+        Normalized string (lowercase with only alphanumeric chars)
+    """
     return re.sub(r"[^a-z0-9]", "", s.lower()) if s else ""
 
 def _parse_mmddyyyy(s: str):
@@ -87,20 +102,43 @@ def _parse_mm01yyyy(s: str):
         return None
 
 def _split_candidate_name(name_text: str):
+    """
+    Parse a name string into first and last name components.
+    
+    Handles both "Last, First" and "First Last" formats.
+    
+    Args:
+        name_text: A string containing a person's name
+        
+    Returns:
+        Tuple of (first_name, last_name)
+    """
     if not name_text:
         return "", ""
     name_text = name_text.strip()
     if "," in name_text:
+        # Handle "Last, First" format
         last, rest = [p.strip() for p in name_text.split(",", 1)]
         first = rest.split()[0] if rest else ""
         return first, last
     parts = name_text.split()
     if len(parts) == 1:
+        # Only one name part provided
         return parts[0], ""
+    # Assume "First Last" format
     return parts[0], " ".join(parts[1:])
 
 # === Payroll Name Matching Helpers ===
 def _strip_suffix(name: str) -> str:
+    """
+    Remove common name suffixes (Jr, Sr, II, etc.) from a name.
+    
+    Args:
+        name: A name that might contain a suffix
+        
+    Returns:
+        The name without the suffix, if a suffix was found
+    """
     if not name:
         return ""
     parts = name.lower().split()
@@ -108,23 +146,28 @@ def _strip_suffix(name: str) -> str:
         parts = parts[:-1]
     return " ".join(parts)
 
-def _match_first_name(source_first: str, candidate_first: str) -> bool:
-    if not source_first or not candidate_first:
-        logging.info(f"First-name match skipped due to missing value: source='{source_first}', candidate='{candidate_first}'")
-        return False
-    result = _norm(source_first.split()[0]) == _norm(candidate_first.split()[0])
-    logging.info(f"First-name match: source='{source_first}' candidate='{candidate_first}' -> {result}")
-    return result
-
 def _match_last_name(source_last: str, candidate_last: str) -> bool:
+    """
+    Compare last names, handling suffixes and allowing partial matches.
+    
+    This function strips suffixes and checks if either name is contained within 
+    the other after normalization (removing non-alphanumeric chars).
+    
+    Args:
+        source_last: The source last name to match
+        candidate_last: The candidate last name to compare against
+        
+    Returns:
+        True if the names match by containment after normalization
+    """
     if not source_last or not candidate_last:
-        logging.info(f"Last-name match skipped due to missing value: source='{source_last}', candidate='{candidate_last}'")
+        logging.debug(f"Last-name match skipped due to missing value: source='{source_last}', candidate='{candidate_last}'")
         return False
     source_last_clean = _strip_suffix(source_last)
     candidate_last_clean = _strip_suffix(candidate_last)
     result = (_norm(source_last_clean) in _norm(candidate_last_clean) or
               _norm(candidate_last_clean) in _norm(source_last_clean))
-    logging.info(f"Last-name match: source='{source_last}' candidate='{candidate_last}' -> {result}")
+    logging.debug(f"Last-name match: source='{source_last}' candidate='{candidate_last}' -> {result}")
     return result
 
 # === NYPDTRIAL Extraction ===
@@ -452,7 +495,7 @@ def enrich_with_payroll(page, record):
 
         # Relaxed normalized name check
         if not _match_last_name(last, last_name):
-            logging.info(f"Payroll: row#{row_idx} last-name mismatch (candidate '{first_name} {last_name}')")
+            logging.debug(f"Payroll: row#{row_idx} last-name mismatch (candidate '{first_name} {last_name}')")
             continue
 
         # === Priority year, choose immediately and stop ===
