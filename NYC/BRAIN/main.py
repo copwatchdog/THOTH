@@ -128,6 +128,29 @@ def _split_candidate_name(name_text: str):
     # Assume "First Last" format
     return parts[0], " ".join(parts[1:])
 
+
+def _extract_initial(name_text: str) -> str:
+    """
+    Extract a single-letter middle initial from a name string, if present.
+
+    Examples:
+      'Harrison, Lenita I.' -> 'I'
+      'Lenita I. Harrison' -> 'I'
+
+    Returns uppercase initial or empty string when not found.
+    """
+    if not name_text:
+        return ""
+    # Look for a single letter followed by a period (common form)
+    m = re.search(r"\b([A-Za-z])\.\b", name_text)
+    if m:
+        return m.group(1).upper()
+    # Fallback: single letter at the end or between names without a dot
+    m2 = re.search(r"\b([A-Za-z])\b(?=[^A-Za-z]*$)", name_text)
+    if m2 and len(m2.group(1)) == 1:
+        return m2.group(1).upper()
+    return ""
+
 # === Payroll Name Matching Helpers ===
 def _strip_suffix(name: str) -> str:
     """
@@ -177,54 +200,56 @@ def extract_from_nypdtrial(page, retries=5, timeout=30000):  # Increased timeout
     gc.collect()  # Force garbage collection before starting
     while attempt < retries:
         try:
-            logging.info(f"Attempt {attempt + 1}/{retries} to load NYPD Trials page...")
+            logging.info(f"Trails: Attempt {attempt + 1}/{retries} to load NYPD Trials page...")
             page.goto(SITES["NYPDTRIAL"], timeout=timeout, wait_until="networkidle")
-            logging.info("Page loaded successfully")
+            logging.info("Trails: Page loaded successfully")
             # Add a verification step
             if page.query_selector("table"):
-                logging.info("Found table elements on the page")
+                logging.info("Trails: Found table elements on the page")
                 break
             else:
-                logging.warning("Page loaded but no tables found, may need to retry")
+                logging.warning("Trails: Page loaded but no tables found, may need to retry")
                 attempt += 1
         except TimeoutError:
             attempt += 1
-            logging.warning(f"NYPD Trials page load timed out after {timeout}ms (attempt {attempt}/{retries})")
+            logging.warning(f"Trails: NYPD Trials page load timed out after {timeout}ms (attempt {attempt}/{retries})")
             if attempt < retries:
-                logging.info("Waiting 5 seconds before retrying...")
+                logging.info("50-a: Waiting 5 seconds before retrying...")
                 page.wait_for_timeout(5000)  # Wait 5 seconds between attempts
         except Exception as e:
             attempt += 1
-            logging.error(f"Unexpected error loading page: {str(e)}")
+            logging.error(f"Trails: Unexpected error loading page: {str(e)}")
             if attempt >= retries:
-                logging.error(f"Failed to load NYPD Trials page after {retries} attempts")
+                logging.error(f"Trails: Failed to load NYPD Trials page after {retries} attempts")
                 return []
-            logging.info("Waiting 5 seconds before retrying...")
+            logging.info("Trails: Waiting 5 seconds before retrying...")
             page.wait_for_timeout(5000)  # Wait 5 seconds between attempts
     
     if attempt >= retries:
-        logging.error(f"Failed to load NYPD Trials page after {retries} attempts")
+        logging.error(f"Trails: Failed to load NYPD Trials page after {retries} attempts")
         return []
 
     tables = page.query_selector_all("table")
-    logging.info(f"Found {len(tables)} tables on the NYPD Trials page")
+    logging.info(f"Trails: Found {len(tables)} tables on the NYPD Trials page")
 
     scored_tables = [(table, score_table_by_keywords(table, KEYWORDS)) for table in tables]
     selected_tables = [t for t, score in scored_tables if score >= THRESHOLD]
-    logging.info(f"Selected {len(selected_tables)} tables with threshold >= {THRESHOLD}")
+    logging.info(f"Trails: Selected {len(selected_tables)} tables with threshold >= {THRESHOLD}")
 
     records = []
     for ti, table in enumerate(selected_tables, start=1):
         data = extract_table(table)
-        logging.info(f"Table #{ti}: extracted {len(data)} rows")
+        logging.info(f"Trails: Table #{ti}: extracted {len(data)} rows")
         for row_idx, record in enumerate(data, start=1):
             if record.get("Name"):
                 parts = record["Name"].split()
                 record["First"] = parts[0]
                 record["Last"] = " ".join(parts[1:]) if len(parts) > 1 else ""
-                logging.info(f"Record #{row_idx} parsed Name -> First: '{record['First']}' Last: '{record['Last']}'")
+                # Extract middle initial if present in the name string
+                record["Initial"] = _extract_initial(record["Name"])
+                logging.info(f"Trails: Record #{row_idx} parsed Name -> First: '{record['First']}' Last: '{record['Last']}'")
             records.append(record)
-    logging.info(f"Total trial records extracted: {len(records)}")
+    logging.info(f"Trails: Total trial records extracted: {len(records)}")
     return records
 
 # === FIFTYA Enrichment ===
@@ -436,7 +461,12 @@ def enrich_with_payroll(page, record):
         logging.warning("Payroll: Missing First or Last; skipping enrichment")
         return
 
-    query = f"{first} {last}"
+    # Include middle initial in the payroll query when available to improve matching
+    initial = record.get("Initial", "")
+    if initial:
+        query = f"{first} {last} {initial}"
+    else:
+        query = f"{first} {last}"
     logging.info(f"Payroll: Searching for '{query}'")
     try:
         page.goto(SITES["PAYROLL"], wait_until="networkidle")
@@ -546,7 +576,66 @@ def enrich_with_payroll(page, record):
         except Exception as e:
             logging.warning(f"Payroll: failed to parse chosen row for '{query}': {e}")
     else:
-        logging.warning(f"Payroll: no suitable payroll match found for '{query}'")
+        logging.warning(f"Payroll: no suitable payroll match found for '{query}' — will attempt one refresh-and-retry")
+        # Try one safe refresh and retry in case the site returned inconsistent results
+        try:
+            page.reload(wait_until="networkidle")
+            logging.info(f"Payroll: page reloaded for retry for '{query}'")
+            # Small wait to allow dynamic content to settle
+            page.wait_for_timeout(1000)
+            # Re-run the search input fill/press sequence
+            search_input = page.query_selector("input#search-view")
+            if search_input:
+                search_input.fill(query)
+                search_input.press("Enter")
+                page.wait_for_selector("table tbody tr", timeout=7000)
+                rows = page.query_selector_all("table tbody tr")
+                logging.info(f"Payroll: retry found {len(rows)} rows for '{query}'")
+                # Only attempt to find a match using the exact same logic as above
+                for row_idx, row in enumerate(rows, start=1):
+                    if row_idx > 25:
+                        break
+                    cells = [c.inner_text().strip() for c in row.query_selector_all("td")]
+                    if not cells or len(cells) < 17:
+                        continue
+                    year = cells[0]
+                    last_name = cells[3]
+                    first_name = cells[4]
+                    agency_start_date = cells[6]
+                    if year not in (priority_year, fallback_year):
+                        continue
+                    if not _match_last_name(last, last_name):
+                        continue
+                    # prefer priority year on retry as well
+                    if year == priority_year:
+                        chosen = (cells, None)
+                        logging.info(f"Payroll(retry): row#{row_idx} is {year}, chosen immediately")
+                        break
+                    if year == fallback_year and not chosen:
+                        chosen = (cells, None)
+                        logging.info(f"Payroll(retry): row#{row_idx} chosen as fallback")
+                if chosen:
+                    cells, _ = chosen
+                    try:
+                        payroll_data = {
+                            "leave_status_as_of_june_30": cells[9],
+                            "base_salary": cells[10],
+                            "pay_basis": cells[11],
+                            "regular_hours": cells[12],
+                            "regular_gross_paid": cells[13],
+                            "ot_hours": cells[14],
+                            "total_ot_paid": cells[15],
+                            "total_other_pay": cells[16],
+                        }
+                        record.update(payroll_data)
+                        record["Last Earned"] = payroll_data["regular_gross_paid"]
+                        logging.info(f"Payroll(retry): payroll fields updated from retry for '{query}'")
+                    except Exception as e:
+                        logging.warning(f"Payroll(retry): failed to parse chosen row for '{query}': {e}")
+        except TimeoutError:
+            logging.warning(f"Payroll: retry timed out for '{query}'")
+        except Exception as e:
+            logging.warning(f"Payroll: retry encountered error for '{query}': {e}")
 
 
 # === Main Script ===
