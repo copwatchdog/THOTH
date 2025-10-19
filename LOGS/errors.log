@@ -1,13 +1,13 @@
-[2025-10-18 20:47:33] [WARNING] [COPWATCHDOG] [run_copwatchdog.sh] Direct database connection failed, trying SSH tunnel...
-[2025-10-18 20:48:07] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Failed to apply schema fixes - import may fail
-[2025-10-18 20:48:38] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
-[2025-10-18 20:49:08] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
-2025-10-18 20:49:39,190 [ERROR] Database connection failed: could not translate host name "psql002.mayfirst.cx" to address: nodename nor servname provided, or not known
+[2025-10-18 23:24:05] [WARNING] [COPWATCHDOG] [run_copwatchdog.sh] Direct database connection failed, trying SSH tunnel...
+[2025-10-18 23:24:39] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Failed to apply schema fixes - import may fail
+[2025-10-18 23:25:10] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
+[2025-10-18 23:25:40] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
+2025-10-18 23:26:11,287 [ERROR] Database connection failed: could not translate host name "psql002.mayfirst.cx" to address: nodename nor servname provided, or not known
 
-2025-10-18 20:49:39,190 [ERROR] HERMES ETL failed: could not translate host name "psql002.mayfirst.cx" to address: nodename nor servname provided, or not known
+2025-10-18 23:26:11,287 [ERROR] HERMES ETL failed: could not translate host name "psql002.mayfirst.cx" to address: nodename nor servname provided, or not known
 
-2025-10-18 20:49:39,190 [ERROR] HERMES ETL failed: could not translate host name "psql002.mayfirst.cx" to address: nodename nor servname provided, or not known
+2025-10-18 23:26:11,287 [ERROR] HERMES ETL failed: could not translate host name "psql002.mayfirst.cx" to address: nodename nor servname provided, or not known
 
-[2025-10-18 20:49:39] [ERROR] [HERMES] [run_hermes_etl.sh] HERMES ETL failed
-[2025-10-18 20:49:39] [ERROR] [HERMES] [run_hermes_etl.sh] Check logs for detailed error information
-[2025-10-18 20:49:39] [ERROR] [THOTH] [run_copwatchdog.sh] HERMES ETL transformation failed
+[2025-10-18 23:26:11] [ERROR] [HERMES] [run_hermes_etl.sh] HERMES ETL failed
+[2025-10-18 23:26:11] [ERROR] [HERMES] [run_hermes_etl.sh] Check logs for detailed error information
+[2025-10-18 23:26:11] [ERROR] [THOTH] [run_copwatchdog.sh] HERMES ETL transformation failed

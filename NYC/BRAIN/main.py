@@ -482,12 +482,10 @@ def enrich_with_payroll(page, record):
         logging.warning(f"Payroll: timeout or no results for '{query}'")
         return
 
-    rows = page.query_selector_all("table tbody tr")
-    logging.info(f"Payroll: found {len(rows)} table rows for '{query}'")
-    if not rows:
-        logging.warning(f"Payroll: no rows returned for '{query}'")
-        return
-
+    # We'll attempt the search + parse up to 3 times (initial + 2 retries)
+    max_attempts = 3
+    attempt = 0
+    chosen = None
     current_year = datetime.now().year
     priority_year = str(current_year - 1)
     fallback_year = str(current_year - 2)
@@ -497,62 +495,89 @@ def enrich_with_payroll(page, record):
     if service_start_dt:
         logging.info(f"Payroll: using service_start tie-breaker = {service_start_dt.date()}")
 
-    chosen = None  # Initialize BEFORE the loop
+    # Scan up to N rows per attempt to avoid spinning forever on huge result sets
+    max_rows_per_attempt = 10
 
-    for row_idx, row in enumerate(rows, start=1):
-        if row_idx > 10 and not chosen:
-            logging.info(f"Payroll: reached 5 rows without finding {priority_year}/{fallback_year}, stopping early")
-            break
+    while attempt < max_attempts and not chosen:
+        attempt += 1
+        logging.info(f"Payroll: attempt {attempt}/{max_attempts} for '{query}'")
+        try:
+            # On retry attempts, refresh the page to help dynamic content settle
+            if attempt > 1:
+                try:
+                    page.reload(wait_until="networkidle")
+                    logging.info(f"Payroll: page reloaded for retry attempt {attempt} for '{query}'")
+                except Exception:
+                    logging.info(f"Payroll: page reload failed on attempt {attempt}, continuing to query DOM")
 
-        cells = [c.inner_text().strip() for c in row.query_selector_all("td")]
-        if not cells or len(cells) < 17:
-            logging.info(f"Payroll: skipping row #{row_idx} (insufficient cells)")
-            continue
+            # Re-query rows from the DOM each attempt
+            rows = page.query_selector_all("table tbody tr")
+            logging.info(f"Payroll: found {len(rows)} table rows for '{query}' on attempt {attempt}")
+            if not rows:
+                logging.warning(f"Payroll: no rows returned for '{query}' on attempt {attempt}")
+                continue
 
-        year = cells[0]
-        last_name = cells[3]
-        first_name = cells[4]
-        agency_start_date = cells[6]
+            for row_idx, row in enumerate(rows, start=1):
+                if row_idx > max_rows_per_attempt:
+                    logging.info(f"Payroll: reached {max_rows_per_attempt} rows on attempt {attempt}, stopping scan for this attempt")
+                    break
 
-        logging.info(
-            f"Payroll: row#{row_idx} -> year={year}, first='{first_name}', "
-            f"last='{last_name}', agency_start='{agency_start_date}'"
-        )
+                cells = [c.inner_text().strip() for c in row.query_selector_all("td")]
+                if not cells or len(cells) < 17:
+                    logging.debug(f"Payroll: skipping row #{row_idx} on attempt {attempt} (insufficient cells)")
+                    continue
 
-        # Only consider two years prior to current
-        if year not in (priority_year, fallback_year):
-            continue
+                year = cells[0]
+                last_name = cells[3]
+                first_name = cells[4]
+                agency_start_date = cells[6]
 
-        # Relaxed normalized name check
-        if not _match_last_name(last, last_name):
-            logging.debug(f"Payroll: row#{row_idx} last-name mismatch (candidate '{first_name} {last_name}')")
-            continue
+                logging.info(
+                    f"Payroll: attempt {attempt} row#{row_idx} -> year={year}, first='{first_name}', "
+                    f"last='{last_name}', agency_start='{agency_start_date}'"
+                )
 
-        # === Priority year, choose immediately and stop ===
-        if year == priority_year:
-            chosen = (cells, None)
-            logging.info(f"Payroll: row#{row_idx} is {year}, chosen immediately, breaking loop")
-            break
+                # Only consider priority and fallback years
+                if year not in (priority_year, fallback_year):
+                    continue
 
-        # === Fallback year, tie-break by delta_days ===
-        if year == fallback_year:
-            delta_days = None
-            if service_start_dt:
-                asd = _parse_mmddyyyy(agency_start_date)
-                if asd:
-                    delta_days = abs((asd - service_start_dt).days)
-                    logging.info(f"Payroll: row#{row_idx} matched {fallback_year}; agency_start delta_days={delta_days}")
+                if not _match_last_name(last, last_name):
+                    logging.debug(f"Payroll: attempt {attempt} row#{row_idx} last-name mismatch (candidate '{first_name} {last_name}')")
+                    continue
 
-            if not chosen:
-                chosen = (cells, delta_days)
-                logging.info(f"Payroll: row#{row_idx} tentatively chosen")
-            else:
-                _, current_delta = chosen
-                if delta_days is not None and (current_delta is None or delta_days < current_delta):
-                    chosen = (cells, delta_days)
-                    logging.info(
-                        f"Payroll: row#{row_idx} replaces previous {fallback_year} (smaller delta {delta_days} < {current_delta})"
-                    )
+                # Immediate accept for priority year
+                if year == priority_year:
+                    chosen = (cells, None)
+                    logging.info(f"Payroll: attempt {attempt} row#{row_idx} is {year}, chosen immediately")
+                    break
+
+                # Fallback year: use tie-breaker by service_start delta
+                if year == fallback_year:
+                    delta_days = None
+                    if service_start_dt:
+                        asd = _parse_mmddyyyy(agency_start_date)
+                        if asd:
+                            delta_days = abs((asd - service_start_dt).days)
+                            logging.info(f"Payroll: attempt {attempt} row#{row_idx} matched {fallback_year}; agency_start delta_days={delta_days}")
+
+                    if not chosen:
+                        chosen = (cells, delta_days)
+                        logging.info(f"Payroll: attempt {attempt} row#{row_idx} tentatively chosen as fallback")
+                    else:
+                        _, current_delta = chosen
+                        if delta_days is not None and (current_delta is None or delta_days < current_delta):
+                            chosen = (cells, delta_days)
+                            logging.info(
+                                f"Payroll: attempt {attempt} row#{row_idx} replaces previous fallback (smaller delta {delta_days} < {current_delta})"
+                            )
+
+            # end for rows
+        except TimeoutError:
+            logging.warning(f"Payroll: attempt {attempt} timed out for '{query}'")
+        except Exception as e:
+            logging.warning(f"Payroll: attempt {attempt} encountered error for '{query}': {e}")
+
+    # end while attempts
 
     if chosen:
         cells, _ = chosen
