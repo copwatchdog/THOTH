@@ -468,19 +468,7 @@ def enrich_with_payroll(page, record):
     else:
         query = f"{first} {last}"
     logging.info(f"Payroll: Searching for '{query}'")
-    try:
-        page.goto(SITES["PAYROLL"], wait_until="networkidle")
-        logging.info(f"Payroll: loaded {page.url}")
-        search_input = page.query_selector("input#search-view")
-        if not search_input:
-            logging.warning("Payroll: search input 'input#search-view' not found")
-            return
-        search_input.fill(query)
-        search_input.press("Enter")
-        page.wait_for_selector("table tbody tr", timeout=7000)
-    except TimeoutError:
-        logging.warning(f"Payroll: timeout or no results for '{query}'")
-        return
+    # Note: do NOT try a single submit here; instead perform a full navigation+submit on each attempt
 
     # We'll attempt the search + parse up to 3 times (initial + 2 retries)
     max_attempts = 3
@@ -502,13 +490,59 @@ def enrich_with_payroll(page, record):
         attempt += 1
         logging.info(f"Payroll: attempt {attempt}/{max_attempts} for '{query}'")
         try:
-            # On retry attempts, refresh the page to help dynamic content settle
-            if attempt > 1:
+            # Do a full re-entry each attempt: navigate to the payroll site and submit the search
+            try:
+                page.goto(SITES["PAYROLL"], wait_until="networkidle")
+                logging.info(f"Payroll: navigated to payroll site for attempt {attempt} for '{query}'")
+                # find the search input and run the query
+                search_input = page.query_selector("input#search-view")
+                if not search_input:
+                    logging.warning(f"Payroll: search input not found on attempt {attempt} for '{query}' - will retry")
+                    # small wait before next attempt to avoid tight loop
+                    page.wait_for_timeout(500)
+                    continue
+                search_input.fill(query)
+                search_input.press("Enter")
+                page.wait_for_selector("table tbody tr", timeout=7000)
+                logging.info(f"Payroll: search submitted on attempt {attempt} for '{query}'")
+
+                # Quick verification: ensure the search input took and results are relevant.
                 try:
-                    page.reload(wait_until="networkidle")
-                    logging.info(f"Payroll: page reloaded for retry attempt {attempt} for '{query}'")
-                except Exception:
-                    logging.info(f"Payroll: page reload failed on attempt {attempt}, continuing to query DOM")
+                    applied_val = ""
+                    try:
+                        applied_val = search_input.input_value()
+                    except Exception:
+                        applied_val = search_input.get_attribute("value") if hasattr(search_input, 'get_attribute') else ""
+
+                    norm_applied = _norm(applied_val or "")
+                    norm_last = _norm(last)
+                    norm_first = _norm(first)
+
+                    # Check the first few rows for the target name; if none match and the input value
+                    # doesn't contain the name, treat as a failed search and retry.
+                    preliminary_rows = page.query_selector_all("table tbody tr")[:5]
+                    found_in_rows = False
+                    for pr in preliminary_rows:
+                        try:
+                            row_text = " ".join([c.inner_text().strip() for c in pr.query_selector_all("td")])
+                        except Exception:
+                            row_text = pr.inner_text().strip()
+                        if (norm_last and norm_last in _norm(row_text)) or (norm_first and norm_first in _norm(row_text)):
+                            found_in_rows = True
+                            break
+
+                    if not found_in_rows and norm_last and norm_last not in norm_applied and norm_first and norm_first not in norm_applied:
+                        logging.warning(f"Payroll: search input did not apply for '{query}' on attempt {attempt} (input='{applied_val}'); will retry")
+                        page.wait_for_timeout(500)
+                        continue
+                except Exception as e:
+                    logging.debug(f"Payroll: verification check failed on attempt {attempt} for '{query}': {e}")
+            except TimeoutError:
+                logging.warning(f"Payroll: navigation/search timed out on attempt {attempt} for '{query}'")
+                continue
+            except Exception as e:
+                logging.info(f"Payroll: navigation/search encountered error on attempt {attempt} for '{query}': {e}")
+                continue
 
             # Re-query rows from the DOM each attempt
             rows = page.query_selector_all("table tbody tr")
@@ -610,53 +644,68 @@ def enrich_with_payroll(page, record):
             page.wait_for_timeout(1000)
             # Re-run the search input fill/press sequence
             search_input = page.query_selector("input#search-view")
+            if not search_input:
+                logging.info(f"Payroll: search input not found after reload for '{query}' — will navigate and attempt full submit")
+                try:
+                    page.goto(SITES["PAYROLL"], wait_until="networkidle")
+                    logging.info(f"Payroll: navigated to payroll site for final retry for '{query}'")
+                    page.wait_for_timeout(500)
+                    search_input = page.query_selector("input#search-view")
+                except Exception as e:
+                    logging.warning(f"Payroll: navigation failed during final retry for '{query}': {e}")
+
             if search_input:
-                search_input.fill(query)
-                search_input.press("Enter")
-                page.wait_for_selector("table tbody tr", timeout=7000)
-                rows = page.query_selector_all("table tbody tr")
-                logging.info(f"Payroll: retry found {len(rows)} rows for '{query}'")
-                # Only attempt to find a match using the exact same logic as above
-                for row_idx, row in enumerate(rows, start=1):
-                    if row_idx > 25:
-                        break
-                    cells = [c.inner_text().strip() for c in row.query_selector_all("td")]
-                    if not cells or len(cells) < 17:
-                        continue
-                    year = cells[0]
-                    last_name = cells[3]
-                    first_name = cells[4]
-                    agency_start_date = cells[6]
-                    if year not in (priority_year, fallback_year):
-                        continue
-                    if not _match_last_name(last, last_name):
-                        continue
-                    # prefer priority year on retry as well
-                    if year == priority_year:
-                        chosen = (cells, None)
-                        logging.info(f"Payroll(retry): row#{row_idx} is {year}, chosen immediately")
-                        break
-                    if year == fallback_year and not chosen:
-                        chosen = (cells, None)
-                        logging.info(f"Payroll(retry): row#{row_idx} chosen as fallback")
-                if chosen:
-                    cells, _ = chosen
-                    try:
-                        payroll_data = {
-                            "leave_status_as_of_june_30": cells[9],
-                            "base_salary": cells[10],
-                            "pay_basis": cells[11],
-                            "regular_hours": cells[12],
-                            "regular_gross_paid": cells[13],
-                            "ot_hours": cells[14],
-                            "total_ot_paid": cells[15],
-                            "total_other_pay": cells[16],
-                        }
-                        record.update(payroll_data)
-                        record["Last Earned"] = payroll_data["regular_gross_paid"]
-                        logging.info(f"Payroll(retry): payroll fields updated from retry for '{query}'")
-                    except Exception as e:
-                        logging.warning(f"Payroll(retry): failed to parse chosen row for '{query}': {e}")
+                logging.info(f"Payroll: re-submitting search on final retry for '{query}'")
+                try:
+                    search_input.fill(query)
+                    search_input.press("Enter")
+                    page.wait_for_selector("table tbody tr", timeout=7000)
+                except TimeoutError:
+                    logging.warning(f"Payroll: final retry search timed out for '{query}'")
+            # collect rows after attempting to re-submit (or just reading what's on the page)
+            rows = page.query_selector_all("table tbody tr")
+            logging.info(f"Payroll: retry found {len(rows)} rows for '{query}'")
+            # Only attempt to find a match using the exact same logic as above
+            for row_idx, row in enumerate(rows, start=1):
+                if row_idx > 25:
+                    break
+                cells = [c.inner_text().strip() for c in row.query_selector_all("td")]
+                if not cells or len(cells) < 17:
+                    continue
+                year = cells[0]
+                last_name = cells[3]
+                first_name = cells[4]
+                agency_start_date = cells[6]
+                if year not in (priority_year, fallback_year):
+                    continue
+                if not _match_last_name(last, last_name):
+                    continue
+                # prefer priority year on retry as well
+                if year == priority_year:
+                    chosen = (cells, None)
+                    logging.info(f"Payroll(retry): row#{row_idx} is {year}, chosen immediately")
+                    break
+                if year == fallback_year and not chosen:
+                    chosen = (cells, None)
+                    logging.info(f"Payroll(retry): row#{row_idx} chosen as fallback")
+            if chosen:
+                cells, _ = chosen
+                try:
+                    payroll_data = {
+                        "leave_status_as_of_june_30": cells[9],
+                        "base_salary": cells[10],
+                        "pay_basis": cells[11],
+                        "regular_hours": cells[12],
+                        "regular_gross_paid": cells[13],
+                        "ot_hours": cells[14],
+                        "total_ot_paid": cells[15],
+                        "total_other_pay": cells[16],
+                    }
+                    record.update(payroll_data)
+                    record["Last Earned"] = payroll_data["regular_gross_paid"]
+                    logging.info(f"Payroll(retry): payroll fields updated from retry for '{query}'")
+                except Exception as e:
+                    logging.warning(f"Payroll(retry): failed to parse chosen row for '{query}': {e}")
         except TimeoutError:
             logging.warning(f"Payroll: retry timed out for '{query}'")
         except Exception as e:
