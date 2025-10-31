@@ -495,7 +495,11 @@ def enrich_with_50a(page, record):
         m = re.search(r"Named in (\d+) known lawsuits", text)
         record["num_lawsuits"] = int(m.group(1)) if m else 0
         m2 = re.search(r"\$(\d[\d,]*) total settlements", text)
-        record["total_settlements"] = int(m2.group(1).replace(",", "")) if m2 else 0
+        if m2:
+            settlement_value = int(m2.group(1).replace(",", ""))
+            record["total_settlements"] = f"${settlement_value:,}"
+        else:
+            record["total_settlements"] = 0
         logging.info(f"50-a: lawsuits={record.get('num_lawsuits')} settlements={record.get('total_settlements')}")
 
     logging.info(f"50-a: enrichment complete for '{officer_name}' (badge={record.get('badge')}, pct={record.get('precinct_number')}, started={record.get('service_start')}, last_earned={record.get('last_earned')})")

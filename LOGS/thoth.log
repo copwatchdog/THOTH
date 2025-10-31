@@ -1,82 +1,82 @@
-2025-10-31 13:51:54,614 [INFO] Them Dogs Gonna Get'm
-2025-10-31 13:51:55,540 [INFO] Launching headless Chromium
-2025-10-31 13:51:56,535 [INFO] Visiting NYPD Trials: https://www.nyc.gov/site/nypd/bureaus/administrative/trials.page
-2025-10-31 13:51:56,550 [INFO] Trails: Attempt 1/3 to load NYPD Trials page...
-2025-10-31 13:51:58,892 [INFO] Trails: Page loaded successfully
-2025-10-31 13:51:58,931 [INFO] Trails: Found table elements on the page
-2025-10-31 13:51:58,947 [INFO] Trails: Found 1 tables on the NYPD Trials page
-2025-10-31 13:52:01,079 [INFO] Table scored 7.5 points based on keywords
-2025-10-31 13:52:01,079 [INFO] Trails: Selected 1 tables with threshold >= 2
-2025-10-31 13:52:02,776 [INFO] Extracted 19 rows from table (headers: ['Date', 'Time', 'Rank', 'Name', 'Trial Room', 'Case Type'])
-2025-10-31 13:52:02,777 [INFO] Trails: Table #1: extracted 19 rows
-2025-10-31 13:52:02,777 [INFO] Trails: Record #1 parsed Name -> First: 'Boubacar' Last: 'Barry'
-2025-10-31 13:52:02,778 [INFO] Trails: Record #2 parsed Name -> First: 'Jaenice' Last: 'Smith'
-2025-10-31 13:52:02,778 [INFO] Trails: Record #3 parsed Name -> First: 'Ryan' Last: 'Zelman'
-2025-10-31 13:52:02,778 [INFO] Trails: Record #4 parsed Name -> First: 'Jaenice' Last: 'Smith'
-2025-10-31 13:52:02,778 [INFO] Trails: Record #5 parsed Name -> First: 'Jaenice' Last: 'Smith'
-2025-10-31 13:52:02,778 [INFO] Trails: Record #6 parsed Name -> First: 'Vincent' Last: 'Cavitolo'
-2025-10-31 13:52:02,779 [INFO] Trails: Record #7 parsed Name -> First: 'Md' Last: 'Alam'
-2025-10-31 13:52:02,779 [INFO] Trails: Record #8 parsed Name -> First: 'Omar' Last: 'Habib'
-2025-10-31 13:52:02,779 [INFO] Trails: Record #9 parsed Name -> First: 'Vincent' Last: 'Cavitolo'
-2025-10-31 13:52:02,779 [INFO] Trails: Record #10 parsed Name -> First: 'Md' Last: 'Alam'
-2025-10-31 13:52:02,779 [INFO] Trails: Record #11 parsed Name -> First: 'Vincent' Last: 'Cavitolo'
-2025-10-31 13:52:02,779 [INFO] Trails: Record #12 parsed Name -> First: 'Md' Last: 'Alam'
-2025-10-31 13:52:02,779 [INFO] Trails: Record #13 parsed Name -> First: 'Omar' Last: 'Habib'
-2025-10-31 13:52:02,779 [INFO] Trails: Record #14 parsed Name -> First: 'Joshua' Last: 'Moscoso'
-2025-10-31 13:52:02,780 [INFO] Trails: Record #15 parsed Name -> First: 'Wayne' Last: 'Isaacs'
-2025-10-31 13:52:02,780 [INFO] Trails: Record #16 parsed Name -> First: 'Kiada' Last: 'Moragne'
-2025-10-31 13:52:02,781 [INFO] Trails: Record #17 parsed Name -> First: 'Wayne' Last: 'Isaacs'
-2025-10-31 13:52:02,781 [INFO] Trails: Record #18 parsed Name -> First: 'Wayne' Last: 'Isaacs'
-2025-10-31 13:52:02,781 [INFO] Trails: Record #19 parsed Name -> First: 'Tina' Last: 'Shymanski'
-2025-10-31 13:52:02,781 [INFO] Trails: Total trial records extracted: 19
-2025-10-31 13:52:02,781 [INFO] Main: extracted 19 records from NYPDTRIAL
-2025-10-31 13:52:02,781 [INFO] Main: beginning 50-a enrichment pass
-2025-10-31 13:52:02,781 [INFO] Main: 50-a enrich record #1 - Boubacar Barry
-2025-10-31 13:52:02,781 [INFO] 50-a: Searching for 'Boubacar Barry' (First='Boubacar' Last='Barry')
-2025-10-31 13:52:03,903 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:04,524 [INFO] 50-a: 1 search results for 'Boubacar Barry'
-2025-10-31 13:52:04,543 [INFO] 50-a: candidate#1 'Barry, Boubacar' -> First='Boubacar' Last='Barry'
-2025-10-31 13:52:04,543 [INFO] 50-a: exact match found on candidate#1 'Barry, Boubacar'
-2025-10-31 13:52:04,992 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:05,013 [INFO] 50-a: identity snippet (first 300 chars): Boubacar Barry
+2025-10-31 15:47:19,970 [INFO] Them Dogs Gonna Get'm
+2025-10-31 15:47:21,233 [INFO] Launching headless Chromium
+2025-10-31 15:47:23,120 [INFO] Visiting NYPD Trials: https://www.nyc.gov/site/nypd/bureaus/administrative/trials.page
+2025-10-31 15:47:23,152 [INFO] Trails: Attempt 1/3 to load NYPD Trials page...
+2025-10-31 15:47:27,640 [INFO] Trails: Page loaded successfully
+2025-10-31 15:47:27,721 [INFO] Trails: Found table elements on the page
+2025-10-31 15:47:27,742 [INFO] Trails: Found 1 tables on the NYPD Trials page
+2025-10-31 15:47:29,632 [INFO] Table scored 7.5 points based on keywords
+2025-10-31 15:47:29,633 [INFO] Trails: Selected 1 tables with threshold >= 2
+2025-10-31 15:47:31,795 [INFO] Extracted 19 rows from table (headers: ['Date', 'Time', 'Rank', 'Name', 'Trial Room', 'Case Type'])
+2025-10-31 15:47:31,795 [INFO] Trails: Table #1: extracted 19 rows
+2025-10-31 15:47:31,795 [INFO] Trails: Record #1 parsed Name -> First: 'Boubacar' Last: 'Barry'
+2025-10-31 15:47:31,796 [INFO] Trails: Record #2 parsed Name -> First: 'Jaenice' Last: 'Smith'
+2025-10-31 15:47:31,796 [INFO] Trails: Record #3 parsed Name -> First: 'Ryan' Last: 'Zelman'
+2025-10-31 15:47:31,796 [INFO] Trails: Record #4 parsed Name -> First: 'Jaenice' Last: 'Smith'
+2025-10-31 15:47:31,796 [INFO] Trails: Record #5 parsed Name -> First: 'Jaenice' Last: 'Smith'
+2025-10-31 15:47:31,796 [INFO] Trails: Record #6 parsed Name -> First: 'Vincent' Last: 'Cavitolo'
+2025-10-31 15:47:31,796 [INFO] Trails: Record #7 parsed Name -> First: 'Md' Last: 'Alam'
+2025-10-31 15:47:31,796 [INFO] Trails: Record #8 parsed Name -> First: 'Omar' Last: 'Habib'
+2025-10-31 15:47:31,796 [INFO] Trails: Record #9 parsed Name -> First: 'Vincent' Last: 'Cavitolo'
+2025-10-31 15:47:31,796 [INFO] Trails: Record #10 parsed Name -> First: 'Md' Last: 'Alam'
+2025-10-31 15:47:31,797 [INFO] Trails: Record #11 parsed Name -> First: 'Vincent' Last: 'Cavitolo'
+2025-10-31 15:47:31,797 [INFO] Trails: Record #12 parsed Name -> First: 'Md' Last: 'Alam'
+2025-10-31 15:47:31,797 [INFO] Trails: Record #13 parsed Name -> First: 'Omar' Last: 'Habib'
+2025-10-31 15:47:31,797 [INFO] Trails: Record #14 parsed Name -> First: 'Joshua' Last: 'Moscoso'
+2025-10-31 15:47:31,797 [INFO] Trails: Record #15 parsed Name -> First: 'Wayne' Last: 'Isaacs'
+2025-10-31 15:47:31,797 [INFO] Trails: Record #16 parsed Name -> First: 'Kiada' Last: 'Moragne'
+2025-10-31 15:47:31,797 [INFO] Trails: Record #17 parsed Name -> First: 'Wayne' Last: 'Isaacs'
+2025-10-31 15:47:31,797 [INFO] Trails: Record #18 parsed Name -> First: 'Wayne' Last: 'Isaacs'
+2025-10-31 15:47:31,797 [INFO] Trails: Record #19 parsed Name -> First: 'Tina' Last: 'Shymanski'
+2025-10-31 15:47:31,798 [INFO] Trails: Total trial records extracted: 19
+2025-10-31 15:47:31,798 [INFO] Main: extracted 19 records from NYPDTRIAL
+2025-10-31 15:47:31,798 [INFO] Main: beginning 50-a enrichment pass
+2025-10-31 15:47:31,798 [INFO] Main: 50-a enrich record #1 - Boubacar Barry
+2025-10-31 15:47:31,798 [INFO] 50-a: Searching for 'Boubacar Barry' (First='Boubacar' Last='Barry')
+2025-10-31 15:47:32,932 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:47:33,553 [INFO] 50-a: 1 search results for 'Boubacar Barry'
+2025-10-31 15:47:33,579 [INFO] 50-a: candidate#1 'Barry, Boubacar' -> First='Boubacar' Last='Barry'
+2025-10-31 15:47:33,580 [INFO] 50-a: exact match found on candidate#1 'Barry, Boubacar'
+2025-10-31 15:47:33,853 [INFO] 50-a: officer profile loaded
+2025-10-31 15:47:33,883 [INFO] 50-a: identity snippet (first 300 chars): Boubacar Barry
 Badge #4530, Black Male
 Police Officer at Transit Bureau District 4 since October 2022
 Also served at Transit Bureau Manhattan
 Service started October 2021, made $97,500 last year, Tax #972522
-2025-10-31 13:52:05,045 [INFO] 50-a: badge extracted via selector 'span.badge': 4530
-2025-10-31 13:52:05,073 [INFO] 50-a: service_start parsed: 10/01/2021
-2025-10-31 13:52:05,092 [INFO] 50-a: last_earned extracted from span.compensation: $97,500
-2025-10-31 13:52:05,106 [INFO] 50-a: has_discipline=N has_articles=N
-2025-10-31 13:52:05,172 [INFO] 50-a: summary 'Complaints' -> 3
-2025-10-31 13:52:05,207 [INFO] 50-a: summary 'Allegations' -> 15
-2025-10-31 13:52:05,235 [INFO] 50-a: summary 'Substantiated' -> 0
-2025-10-31 13:52:05,377 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 4
-2025-10-31 13:52:05,384 [INFO] 50-a: enrichment complete for 'Boubacar Barry' (badge=4530, pct=4, started=10/01/2021, last_earned=$97,500)
-2025-10-31 13:52:05,384 [INFO] Main: 50-a enrich record #2 - Jaenice Smith
-2025-10-31 13:52:05,384 [INFO] 50-a: Searching for 'Jaenice Smith' (First='Jaenice' Last='Smith')
-2025-10-31 13:52:05,912 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:06,577 [INFO] 50-a: 18 search results for 'Jaenice Smith'
-2025-10-31 13:52:06,605 [INFO] 50-a: candidate#1 'Smith, Jaenice' -> First='Jaenice' Last='Smith'
-2025-10-31 13:52:06,605 [INFO] 50-a: exact match found on candidate#1 'Smith, Jaenice'
-2025-10-31 13:52:07,162 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:07,179 [INFO] 50-a: identity snippet (first 300 chars): Jaenice Smith
+2025-10-31 15:47:33,905 [INFO] 50-a: badge extracted via selector 'span.badge': 4530
+2025-10-31 15:47:33,943 [INFO] 50-a: service_start parsed: 10/01/2021
+2025-10-31 15:47:33,974 [INFO] 50-a: last_earned extracted from span.compensation: $97,500
+2025-10-31 15:47:33,996 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-31 15:47:34,100 [INFO] 50-a: summary 'Complaints' -> 3
+2025-10-31 15:47:34,157 [INFO] 50-a: summary 'Allegations' -> 15
+2025-10-31 15:47:34,199 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-31 15:47:34,379 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 4
+2025-10-31 15:47:34,388 [INFO] 50-a: enrichment complete for 'Boubacar Barry' (badge=4530, pct=4, started=10/01/2021, last_earned=$97,500)
+2025-10-31 15:47:34,388 [INFO] Main: 50-a enrich record #2 - Jaenice Smith
+2025-10-31 15:47:34,388 [INFO] 50-a: Searching for 'Jaenice Smith' (First='Jaenice' Last='Smith')
+2025-10-31 15:47:34,919 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:47:35,362 [INFO] 50-a: 18 search results for 'Jaenice Smith'
+2025-10-31 15:47:35,388 [INFO] 50-a: candidate#1 'Smith, Jaenice' -> First='Jaenice' Last='Smith'
+2025-10-31 15:47:35,388 [INFO] 50-a: exact match found on candidate#1 'Smith, Jaenice'
+2025-10-31 15:47:35,733 [INFO] 50-a: officer profile loaded
+2025-10-31 15:47:35,756 [INFO] 50-a: identity snippet (first 300 chars): Jaenice Smith
 Badge #7774, Black Female
 Detective Specialist at Queens Court Section since March 2025
 Also served at Patrol Services Bureau Wheel, Patrol Borough Brooklyn North
 Service started July 2005, made $148,000 last year, Tax #939488
-2025-10-31 13:52:07,195 [INFO] 50-a: badge extracted via selector 'span.badge': 7774
-2025-10-31 13:52:07,218 [INFO] 50-a: service_start parsed: 07/01/2005
-2025-10-31 13:52:07,250 [INFO] 50-a: last_earned extracted from span.compensation: $148,000
-2025-10-31 13:52:07,269 [INFO] 50-a: has_discipline=N has_articles=N
-2025-10-31 13:52:07,287 [INFO] 50-a: enrichment complete for 'Jaenice Smith' (badge=7774, pct=176, started=07/01/2005, last_earned=$148,000)
-2025-10-31 13:52:07,287 [INFO] Main: 50-a enrich record #3 - Ryan Zelman
-2025-10-31 13:52:07,287 [INFO] 50-a: Searching for 'Ryan Zelman' (First='Ryan' Last='Zelman')
-2025-10-31 13:52:07,821 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:08,515 [INFO] 50-a: 30 search results for 'Ryan Zelman'
-2025-10-31 13:52:08,534 [INFO] 50-a: candidate#1 'Zelman, Ryan C.' -> First='Ryan' Last='Zelman'
-2025-10-31 13:52:08,534 [INFO] 50-a: exact match found on candidate#1 'Zelman, Ryan C.'
-2025-10-31 13:52:08,814 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:08,954 [INFO] 50-a: identity snippet (first 300 chars): Ryan C. Zelman
+2025-10-31 15:47:35,769 [INFO] 50-a: badge extracted via selector 'span.badge': 7774
+2025-10-31 15:47:35,789 [INFO] 50-a: service_start parsed: 07/01/2005
+2025-10-31 15:47:35,806 [INFO] 50-a: last_earned extracted from span.compensation: $148,000
+2025-10-31 15:47:35,843 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-31 15:47:35,855 [INFO] 50-a: enrichment complete for 'Jaenice Smith' (badge=7774, pct=176, started=07/01/2005, last_earned=$148,000)
+2025-10-31 15:47:35,855 [INFO] Main: 50-a enrich record #3 - Ryan Zelman
+2025-10-31 15:47:35,855 [INFO] 50-a: Searching for 'Ryan Zelman' (First='Ryan' Last='Zelman')
+2025-10-31 15:47:36,391 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:47:36,867 [INFO] 50-a: 30 search results for 'Ryan Zelman'
+2025-10-31 15:47:36,899 [INFO] 50-a: candidate#1 'Zelman, Ryan C.' -> First='Ryan' Last='Zelman'
+2025-10-31 15:47:36,900 [INFO] 50-a: exact match found on candidate#1 'Zelman, Ryan C.'
+2025-10-31 15:47:37,198 [INFO] 50-a: officer profile loaded
+2025-10-31 15:47:37,222 [INFO] 50-a: identity snippet (first 300 chars): Ryan C. Zelman
 Badge #4748, White Male
 Police Officer at 45th Precinct since May 2019
 Service started April 2018, made $141,000 last year, Tax #965911
@@ -90,97 +90,97 @@ Discourtesy: Word
 
 
 
-2025-10-31 13:52:08,986 [INFO] 50-a: badge extracted via selector 'span.badge': 4748
-2025-10-31 13:52:09,018 [INFO] 50-a: service_start parsed: 04/01/2018
-2025-10-31 13:52:09,049 [INFO] 50-a: last_earned extracted from span.compensation: $141,000
-2025-10-31 13:52:09,082 [INFO] 50-a: has_discipline=N has_articles=N
-2025-10-31 13:52:09,220 [INFO] 50-a: summary 'Complaints' -> 5
-2025-10-31 13:52:09,274 [INFO] 50-a: summary 'Allegations' -> 9
-2025-10-31 13:52:09,345 [INFO] 50-a: summary 'Substantiated' -> 3
-2025-10-31 13:52:09,800 [INFO] 50-a: lawsuits=0 settlements=0
-2025-10-31 13:52:09,800 [INFO] 50-a: enrichment complete for 'Ryan Zelman' (badge=4748, pct=45, started=04/01/2018, last_earned=$141,000)
-2025-10-31 13:52:09,800 [INFO] Main: 50-a enrich record #4 - Jaenice Smith
-2025-10-31 13:52:09,800 [INFO] 50-a: Searching for 'Jaenice Smith' (First='Jaenice' Last='Smith')
-2025-10-31 13:52:10,335 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:10,486 [INFO] 50-a: 18 search results for 'Jaenice Smith'
-2025-10-31 13:52:10,502 [INFO] 50-a: candidate#1 'Smith, Jaenice' -> First='Jaenice' Last='Smith'
-2025-10-31 13:52:10,503 [INFO] 50-a: exact match found on candidate#1 'Smith, Jaenice'
-2025-10-31 13:52:10,586 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:10,614 [INFO] 50-a: identity snippet (first 300 chars): Jaenice Smith
+2025-10-31 15:47:37,242 [INFO] 50-a: badge extracted via selector 'span.badge': 4748
+2025-10-31 15:47:37,264 [INFO] 50-a: service_start parsed: 04/01/2018
+2025-10-31 15:47:37,283 [INFO] 50-a: last_earned extracted from span.compensation: $141,000
+2025-10-31 15:47:37,311 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-31 15:47:37,424 [INFO] 50-a: summary 'Complaints' -> 5
+2025-10-31 15:47:37,459 [INFO] 50-a: summary 'Allegations' -> 9
+2025-10-31 15:47:37,506 [INFO] 50-a: summary 'Substantiated' -> 3
+2025-10-31 15:47:37,808 [INFO] 50-a: lawsuits=0 settlements=0
+2025-10-31 15:47:37,808 [INFO] 50-a: enrichment complete for 'Ryan Zelman' (badge=4748, pct=45, started=04/01/2018, last_earned=$141,000)
+2025-10-31 15:47:37,808 [INFO] Main: 50-a enrich record #4 - Jaenice Smith
+2025-10-31 15:47:37,808 [INFO] 50-a: Searching for 'Jaenice Smith' (First='Jaenice' Last='Smith')
+2025-10-31 15:47:38,339 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:47:38,656 [INFO] 50-a: 18 search results for 'Jaenice Smith'
+2025-10-31 15:47:38,683 [INFO] 50-a: candidate#1 'Smith, Jaenice' -> First='Jaenice' Last='Smith'
+2025-10-31 15:47:38,683 [INFO] 50-a: exact match found on candidate#1 'Smith, Jaenice'
+2025-10-31 15:47:38,819 [INFO] 50-a: officer profile loaded
+2025-10-31 15:47:39,077 [INFO] 50-a: identity snippet (first 300 chars): Jaenice Smith
 Badge #7774, Black Female
 Detective Specialist at Queens Court Section since March 2025
 Also served at Patrol Services Bureau Wheel, Patrol Borough Brooklyn North
 Service started July 2005, made $148,000 last year, Tax #939488
-2025-10-31 13:52:10,629 [INFO] 50-a: badge extracted via selector 'span.badge': 7774
-2025-10-31 13:52:10,642 [INFO] 50-a: service_start parsed: 07/01/2005
-2025-10-31 13:52:10,657 [INFO] 50-a: last_earned extracted from span.compensation: $148,000
-2025-10-31 13:52:10,671 [INFO] 50-a: has_discipline=N has_articles=N
-2025-10-31 13:52:10,679 [INFO] 50-a: enrichment complete for 'Jaenice Smith' (badge=7774, pct=176, started=07/01/2005, last_earned=$148,000)
-2025-10-31 13:52:10,679 [INFO] Main: 50-a enrich record #5 - Jaenice Smith
-2025-10-31 13:52:10,679 [INFO] 50-a: Searching for 'Jaenice Smith' (First='Jaenice' Last='Smith')
-2025-10-31 13:52:11,208 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:11,366 [INFO] 50-a: 18 search results for 'Jaenice Smith'
-2025-10-31 13:52:11,387 [INFO] 50-a: candidate#1 'Smith, Jaenice' -> First='Jaenice' Last='Smith'
-2025-10-31 13:52:11,387 [INFO] 50-a: exact match found on candidate#1 'Smith, Jaenice'
-2025-10-31 13:52:11,493 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:11,513 [INFO] 50-a: identity snippet (first 300 chars): Jaenice Smith
+2025-10-31 15:47:39,110 [INFO] 50-a: badge extracted via selector 'span.badge': 7774
+2025-10-31 15:47:39,130 [INFO] 50-a: service_start parsed: 07/01/2005
+2025-10-31 15:47:39,161 [INFO] 50-a: last_earned extracted from span.compensation: $148,000
+2025-10-31 15:47:39,189 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-31 15:47:39,212 [INFO] 50-a: enrichment complete for 'Jaenice Smith' (badge=7774, pct=176, started=07/01/2005, last_earned=$148,000)
+2025-10-31 15:47:39,212 [INFO] Main: 50-a enrich record #5 - Jaenice Smith
+2025-10-31 15:47:39,212 [INFO] 50-a: Searching for 'Jaenice Smith' (First='Jaenice' Last='Smith')
+2025-10-31 15:47:39,750 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:47:40,062 [INFO] 50-a: 18 search results for 'Jaenice Smith'
+2025-10-31 15:47:40,130 [INFO] 50-a: candidate#1 'Smith, Jaenice' -> First='Jaenice' Last='Smith'
+2025-10-31 15:47:40,130 [INFO] 50-a: exact match found on candidate#1 'Smith, Jaenice'
+2025-10-31 15:47:40,310 [INFO] 50-a: officer profile loaded
+2025-10-31 15:47:40,334 [INFO] 50-a: identity snippet (first 300 chars): Jaenice Smith
 Badge #7774, Black Female
 Detective Specialist at Queens Court Section since March 2025
 Also served at Patrol Services Bureau Wheel, Patrol Borough Brooklyn North
 Service started July 2005, made $148,000 last year, Tax #939488
-2025-10-31 13:52:11,532 [INFO] 50-a: badge extracted via selector 'span.badge': 7774
-2025-10-31 13:52:11,546 [INFO] 50-a: service_start parsed: 07/01/2005
-2025-10-31 13:52:11,563 [INFO] 50-a: last_earned extracted from span.compensation: $148,000
-2025-10-31 13:52:11,574 [INFO] 50-a: has_discipline=N has_articles=N
-2025-10-31 13:52:11,586 [INFO] 50-a: enrichment complete for 'Jaenice Smith' (badge=7774, pct=176, started=07/01/2005, last_earned=$148,000)
-2025-10-31 13:52:11,586 [INFO] Main: 50-a enrich record #6 - Vincent Cavitolo
-2025-10-31 13:52:11,586 [INFO] 50-a: Searching for 'Vincent Cavitolo' (First='Vincent' Last='Cavitolo')
-2025-10-31 13:52:12,112 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:14,609 [INFO] 50-a: 29 search results for 'Vincent Cavitolo'
-2025-10-31 13:52:14,632 [INFO] 50-a: candidate#1 'Cavitolo, Vincent P.' -> First='Vincent' Last='Cavitolo'
-2025-10-31 13:52:14,632 [INFO] 50-a: exact match found on candidate#1 'Cavitolo, Vincent P.'
-2025-10-31 13:52:15,142 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:15,169 [INFO] 50-a: identity snippet (first 300 chars): Vincent P. Cavitolo
+2025-10-31 15:47:40,370 [INFO] 50-a: badge extracted via selector 'span.badge': 7774
+2025-10-31 15:47:40,405 [INFO] 50-a: service_start parsed: 07/01/2005
+2025-10-31 15:47:40,432 [INFO] 50-a: last_earned extracted from span.compensation: $148,000
+2025-10-31 15:47:40,491 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-31 15:47:40,545 [INFO] 50-a: enrichment complete for 'Jaenice Smith' (badge=7774, pct=176, started=07/01/2005, last_earned=$148,000)
+2025-10-31 15:47:40,546 [INFO] Main: 50-a enrich record #6 - Vincent Cavitolo
+2025-10-31 15:47:40,546 [INFO] 50-a: Searching for 'Vincent Cavitolo' (First='Vincent' Last='Cavitolo')
+2025-10-31 15:47:41,205 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:47:43,446 [INFO] 50-a: 29 search results for 'Vincent Cavitolo'
+2025-10-31 15:47:43,530 [INFO] 50-a: candidate#1 'Cavitolo, Vincent P.' -> First='Vincent' Last='Cavitolo'
+2025-10-31 15:47:43,530 [INFO] 50-a: exact match found on candidate#1 'Cavitolo, Vincent P.'
+2025-10-31 15:47:43,782 [INFO] 50-a: officer profile loaded
+2025-10-31 15:47:43,811 [INFO] 50-a: identity snippet (first 300 chars): Vincent P. Cavitolo
 Badge #20821, White Male
 Police Officer at Narcotics Borough Brooklyn North since May 2025
 Also served at Transit Bureau District 30, Transit Bureau District 34, Brooklyn Court Section, 70th Precinct, 10th Precinct
 Service started November 2020, made $81,300 last year, Tax #96957
-2025-10-31 13:52:15,189 [INFO] 50-a: badge extracted via selector 'span.badge': 20821
-2025-10-31 13:52:15,203 [INFO] 50-a: service_start parsed: 11/01/2020
-2025-10-31 13:52:15,219 [INFO] 50-a: last_earned extracted from span.compensation: $81,300
-2025-10-31 13:52:15,242 [INFO] 50-a: has_discipline=N has_articles=N
-2025-10-31 13:52:15,335 [INFO] 50-a: summary 'Allegations' -> 6
-2025-10-31 13:52:15,368 [INFO] 50-a: summary 'Substantiated' -> 2
-2025-10-31 13:52:15,493 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
-2025-10-31 13:52:15,498 [INFO] 50-a: enrichment complete for 'Vincent Cavitolo' (badge=20821, pct=92, started=11/01/2020, last_earned=$81,300)
-2025-10-31 13:52:15,498 [INFO] Main: 50-a enrich record #7 - Md Alam
-2025-10-31 13:52:15,498 [INFO] 50-a: Searching for 'Md Alam' (First='Md' Last='Alam')
-2025-10-31 13:52:16,023 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:24,631 [INFO] 50-a: 36 search results for 'Md Alam'
-2025-10-31 13:52:24,656 [INFO] 50-a: candidate#1 'Alam, Md N.' -> First='Md' Last='Alam'
-2025-10-31 13:52:24,656 [INFO] 50-a: exact match found on candidate#1 'Alam, Md N.'
-2025-10-31 13:52:24,948 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:24,968 [INFO] 50-a: identity snippet (first 300 chars): Md N. Alam
+2025-10-31 15:47:43,829 [INFO] 50-a: badge extracted via selector 'span.badge': 20821
+2025-10-31 15:47:43,861 [INFO] 50-a: service_start parsed: 11/01/2020
+2025-10-31 15:47:43,882 [INFO] 50-a: last_earned extracted from span.compensation: $81,300
+2025-10-31 15:47:43,897 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-31 15:47:44,044 [INFO] 50-a: summary 'Allegations' -> 6
+2025-10-31 15:47:44,086 [INFO] 50-a: summary 'Substantiated' -> 2
+2025-10-31 15:47:44,326 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
+2025-10-31 15:47:44,334 [INFO] 50-a: enrichment complete for 'Vincent Cavitolo' (badge=20821, pct=92, started=11/01/2020, last_earned=$81,300)
+2025-10-31 15:47:44,334 [INFO] Main: 50-a enrich record #7 - Md Alam
+2025-10-31 15:47:44,334 [INFO] 50-a: Searching for 'Md Alam' (First='Md' Last='Alam')
+2025-10-31 15:47:44,873 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:47:53,821 [INFO] 50-a: 36 search results for 'Md Alam'
+2025-10-31 15:47:53,855 [INFO] 50-a: candidate#1 'Alam, Md N.' -> First='Md' Last='Alam'
+2025-10-31 15:47:53,855 [INFO] 50-a: exact match found on candidate#1 'Alam, Md N.'
+2025-10-31 15:47:54,428 [INFO] 50-a: officer profile loaded
+2025-10-31 15:47:54,463 [INFO] 50-a: identity snippet (first 300 chars): Md N. Alam
 Badge #8042, Asian Male
 Police Officer at Military and Extended Leave Desk since January 2023
 Also served at Midtown North Precinct, 52nd Precinct
 Service started July 2016, made $103,000 last year, Tax #961604
-2025-10-31 13:52:24,987 [INFO] 50-a: badge extracted via selector 'span.badge': 8042
-2025-10-31 13:52:25,002 [INFO] 50-a: service_start parsed: 07/01/2016
-2025-10-31 13:52:25,020 [INFO] 50-a: last_earned extracted from span.compensation: $103,000
-2025-10-31 13:52:25,037 [INFO] 50-a: has_discipline=N has_articles=N
-2025-10-31 13:52:25,106 [INFO] 50-a: summary 'Complaints' -> 2
-2025-10-31 13:52:25,144 [INFO] 50-a: summary 'Allegations' -> 3
-2025-10-31 13:52:25,179 [INFO] 50-a: summary 'Substantiated' -> 0
-2025-10-31 13:52:25,253 [INFO] 50-a: enrichment complete for 'Md Alam' (badge=8042, pct=MELD, started=07/01/2016, last_earned=$103,000)
-2025-10-31 13:52:25,253 [INFO] Main: 50-a enrich record #8 - Omar Habib
-2025-10-31 13:52:25,254 [INFO] 50-a: Searching for 'Omar Habib' (First='Omar' Last='Habib')
-2025-10-31 13:52:25,786 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:34,705 [INFO] 50-a: 32 search results for 'Omar Habib'
-2025-10-31 13:52:34,779 [INFO] 50-a: candidate#1 'Habib, Omar M.' -> First='Omar' Last='Habib'
-2025-10-31 13:52:34,780 [INFO] 50-a: exact match found on candidate#1 'Habib, Omar M.'
-2025-10-31 13:52:35,170 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:35,211 [INFO] 50-a: identity snippet (first 300 chars): Omar M. Habib
+2025-10-31 15:47:54,481 [INFO] 50-a: badge extracted via selector 'span.badge': 8042
+2025-10-31 15:47:54,511 [INFO] 50-a: service_start parsed: 07/01/2016
+2025-10-31 15:47:54,530 [INFO] 50-a: last_earned extracted from span.compensation: $103,000
+2025-10-31 15:47:54,550 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-31 15:47:54,643 [INFO] 50-a: summary 'Complaints' -> 2
+2025-10-31 15:47:54,750 [INFO] 50-a: summary 'Allegations' -> 3
+2025-10-31 15:47:54,819 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-31 15:47:54,878 [INFO] 50-a: enrichment complete for 'Md Alam' (badge=8042, pct=MELD, started=07/01/2016, last_earned=$103,000)
+2025-10-31 15:47:54,878 [INFO] Main: 50-a enrich record #8 - Omar Habib
+2025-10-31 15:47:54,879 [INFO] 50-a: Searching for 'Omar Habib' (First='Omar' Last='Habib')
+2025-10-31 15:47:55,421 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:48:03,520 [INFO] 50-a: 32 search results for 'Omar Habib'
+2025-10-31 15:48:03,543 [INFO] 50-a: candidate#1 'Habib, Omar M.' -> First='Omar' Last='Habib'
+2025-10-31 15:48:03,543 [INFO] 50-a: exact match found on candidate#1 'Habib, Omar M.'
+2025-10-31 15:48:03,886 [INFO] 50-a: officer profile loaded
+2025-10-31 15:48:03,909 [INFO] 50-a: identity snippet (first 300 chars): Omar M. Habib
 Badge #748, White Male, 40
 Police Officer at Police Service Area 5 VIPER since September 2024
 Also served at Police Service Area 7 VIPER, Manhattan Court Section, 40th Precinct, 47th Precinct
@@ -188,106 +188,106 @@ Service started January 2007, made $125,000 last year, Tax #942899
 
 
 Substantiated Allegations
-2025-10-31 13:52:35,236 [INFO] 50-a: badge extracted via selector 'span.badge': 748
-2025-10-31 13:52:35,260 [INFO] 50-a: service_start parsed: 01/01/2007
-2025-10-31 13:52:35,280 [INFO] 50-a: last_earned extracted from span.compensation: $125,000
-2025-10-31 13:52:35,317 [INFO] 50-a: has_discipline=Y has_articles=Y
-2025-10-31 13:52:35,405 [INFO] 50-a: summary 'Complaints' -> 7
-2025-10-31 13:52:35,440 [INFO] 50-a: summary 'Allegations' -> 18
-2025-10-31 13:52:35,471 [INFO] 50-a: summary 'Substantiated' -> 10
-2025-10-31 13:52:35,640 [INFO] 50-a: summary 'Substantiated (Charges)' -> 4
-2025-10-31 13:52:35,773 [INFO] 50-a: summary 'Unsubstantiated' -> 3
-2025-10-31 13:52:35,808 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
-2025-10-31 13:52:35,828 [INFO] 50-a: lawsuits=6 settlements=854000
-2025-10-31 13:52:35,828 [INFO] 50-a: enrichment complete for 'Omar Habib' (badge=748, pct=932, started=01/01/2007, last_earned=$125,000)
-2025-10-31 13:52:35,828 [INFO] Main: 50-a enrich record #9 - Vincent Cavitolo
-2025-10-31 13:52:35,829 [INFO] 50-a: Searching for 'Vincent Cavitolo' (First='Vincent' Last='Cavitolo')
-2025-10-31 13:52:36,358 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:36,516 [INFO] 50-a: 29 search results for 'Vincent Cavitolo'
-2025-10-31 13:52:36,536 [INFO] 50-a: candidate#1 'Cavitolo, Vincent P.' -> First='Vincent' Last='Cavitolo'
-2025-10-31 13:52:36,536 [INFO] 50-a: exact match found on candidate#1 'Cavitolo, Vincent P.'
-2025-10-31 13:52:36,631 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:36,650 [INFO] 50-a: identity snippet (first 300 chars): Vincent P. Cavitolo
+2025-10-31 15:48:03,932 [INFO] 50-a: badge extracted via selector 'span.badge': 748
+2025-10-31 15:48:03,959 [INFO] 50-a: service_start parsed: 01/01/2007
+2025-10-31 15:48:03,975 [INFO] 50-a: last_earned extracted from span.compensation: $125,000
+2025-10-31 15:48:04,021 [INFO] 50-a: has_discipline=Y has_articles=Y
+2025-10-31 15:48:04,087 [INFO] 50-a: summary 'Complaints' -> 7
+2025-10-31 15:48:04,119 [INFO] 50-a: summary 'Allegations' -> 18
+2025-10-31 15:48:04,150 [INFO] 50-a: summary 'Substantiated' -> 10
+2025-10-31 15:48:04,304 [INFO] 50-a: summary 'Substantiated (Charges)' -> 4
+2025-10-31 15:48:04,444 [INFO] 50-a: summary 'Unsubstantiated' -> 3
+2025-10-31 15:48:04,487 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
+2025-10-31 15:48:04,507 [INFO] 50-a: lawsuits=6 settlements=$854,000
+2025-10-31 15:48:04,507 [INFO] 50-a: enrichment complete for 'Omar Habib' (badge=748, pct=932, started=01/01/2007, last_earned=$125,000)
+2025-10-31 15:48:04,507 [INFO] Main: 50-a enrich record #9 - Vincent Cavitolo
+2025-10-31 15:48:04,507 [INFO] 50-a: Searching for 'Vincent Cavitolo' (First='Vincent' Last='Cavitolo')
+2025-10-31 15:48:05,034 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:48:05,434 [INFO] 50-a: 29 search results for 'Vincent Cavitolo'
+2025-10-31 15:48:05,473 [INFO] 50-a: candidate#1 'Cavitolo, Vincent P.' -> First='Vincent' Last='Cavitolo'
+2025-10-31 15:48:05,473 [INFO] 50-a: exact match found on candidate#1 'Cavitolo, Vincent P.'
+2025-10-31 15:48:05,623 [INFO] 50-a: officer profile loaded
+2025-10-31 15:48:05,644 [INFO] 50-a: identity snippet (first 300 chars): Vincent P. Cavitolo
 Badge #20821, White Male
 Police Officer at Narcotics Borough Brooklyn North since May 2025
 Also served at Transit Bureau District 30, Transit Bureau District 34, Brooklyn Court Section, 70th Precinct, 10th Precinct
 Service started November 2020, made $81,300 last year, Tax #96957
-2025-10-31 13:52:36,667 [INFO] 50-a: badge extracted via selector 'span.badge': 20821
-2025-10-31 13:52:36,688 [INFO] 50-a: service_start parsed: 11/01/2020
-2025-10-31 13:52:36,712 [INFO] 50-a: last_earned extracted from span.compensation: $81,300
-2025-10-31 13:52:36,724 [INFO] 50-a: has_discipline=N has_articles=N
-2025-10-31 13:52:36,826 [INFO] 50-a: summary 'Allegations' -> 6
-2025-10-31 13:52:36,866 [INFO] 50-a: summary 'Substantiated' -> 2
-2025-10-31 13:52:37,000 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
-2025-10-31 13:52:37,004 [INFO] 50-a: enrichment complete for 'Vincent Cavitolo' (badge=20821, pct=92, started=11/01/2020, last_earned=$81,300)
-2025-10-31 13:52:37,004 [INFO] Main: 50-a enrich record #10 - Md Alam
-2025-10-31 13:52:37,004 [INFO] 50-a: Searching for 'Md Alam' (First='Md' Last='Alam')
-2025-10-31 13:52:37,533 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:37,741 [INFO] 50-a: 36 search results for 'Md Alam'
-2025-10-31 13:52:37,761 [INFO] 50-a: candidate#1 'Alam, Md N.' -> First='Md' Last='Alam'
-2025-10-31 13:52:37,761 [INFO] 50-a: exact match found on candidate#1 'Alam, Md N.'
-2025-10-31 13:52:37,850 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:37,872 [INFO] 50-a: identity snippet (first 300 chars): Md N. Alam
+2025-10-31 15:48:05,658 [INFO] 50-a: badge extracted via selector 'span.badge': 20821
+2025-10-31 15:48:05,699 [INFO] 50-a: service_start parsed: 11/01/2020
+2025-10-31 15:48:05,737 [INFO] 50-a: last_earned extracted from span.compensation: $81,300
+2025-10-31 15:48:05,761 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-31 15:48:05,895 [INFO] 50-a: summary 'Allegations' -> 6
+2025-10-31 15:48:05,930 [INFO] 50-a: summary 'Substantiated' -> 2
+2025-10-31 15:48:06,031 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
+2025-10-31 15:48:06,040 [INFO] 50-a: enrichment complete for 'Vincent Cavitolo' (badge=20821, pct=92, started=11/01/2020, last_earned=$81,300)
+2025-10-31 15:48:06,040 [INFO] Main: 50-a enrich record #10 - Md Alam
+2025-10-31 15:48:06,040 [INFO] 50-a: Searching for 'Md Alam' (First='Md' Last='Alam')
+2025-10-31 15:48:06,572 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:48:06,906 [INFO] 50-a: 36 search results for 'Md Alam'
+2025-10-31 15:48:06,921 [INFO] 50-a: candidate#1 'Alam, Md N.' -> First='Md' Last='Alam'
+2025-10-31 15:48:06,922 [INFO] 50-a: exact match found on candidate#1 'Alam, Md N.'
+2025-10-31 15:48:06,995 [INFO] 50-a: officer profile loaded
+2025-10-31 15:48:07,011 [INFO] 50-a: identity snippet (first 300 chars): Md N. Alam
 Badge #8042, Asian Male
 Police Officer at Military and Extended Leave Desk since January 2023
 Also served at Midtown North Precinct, 52nd Precinct
 Service started July 2016, made $103,000 last year, Tax #961604
-2025-10-31 13:52:37,888 [INFO] 50-a: badge extracted via selector 'span.badge': 8042
-2025-10-31 13:52:37,909 [INFO] 50-a: service_start parsed: 07/01/2016
-2025-10-31 13:52:37,922 [INFO] 50-a: last_earned extracted from span.compensation: $103,000
-2025-10-31 13:52:37,931 [INFO] 50-a: has_discipline=N has_articles=N
-2025-10-31 13:52:37,988 [INFO] 50-a: summary 'Complaints' -> 2
-2025-10-31 13:52:38,022 [INFO] 50-a: summary 'Allegations' -> 3
-2025-10-31 13:52:38,053 [INFO] 50-a: summary 'Substantiated' -> 0
-2025-10-31 13:52:38,127 [INFO] 50-a: enrichment complete for 'Md Alam' (badge=8042, pct=MELD, started=07/01/2016, last_earned=$103,000)
-2025-10-31 13:52:38,127 [INFO] Main: 50-a enrich record #11 - Vincent Cavitolo
-2025-10-31 13:52:38,127 [INFO] 50-a: Searching for 'Vincent Cavitolo' (First='Vincent' Last='Cavitolo')
-2025-10-31 13:52:38,653 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:38,883 [INFO] 50-a: 29 search results for 'Vincent Cavitolo'
-2025-10-31 13:52:38,909 [INFO] 50-a: candidate#1 'Cavitolo, Vincent P.' -> First='Vincent' Last='Cavitolo'
-2025-10-31 13:52:38,909 [INFO] 50-a: exact match found on candidate#1 'Cavitolo, Vincent P.'
-2025-10-31 13:52:39,018 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:39,050 [INFO] 50-a: identity snippet (first 300 chars): Vincent P. Cavitolo
+2025-10-31 15:48:07,024 [INFO] 50-a: badge extracted via selector 'span.badge': 8042
+2025-10-31 15:48:07,036 [INFO] 50-a: service_start parsed: 07/01/2016
+2025-10-31 15:48:07,049 [INFO] 50-a: last_earned extracted from span.compensation: $103,000
+2025-10-31 15:48:07,060 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-31 15:48:07,108 [INFO] 50-a: summary 'Complaints' -> 2
+2025-10-31 15:48:07,132 [INFO] 50-a: summary 'Allegations' -> 3
+2025-10-31 15:48:07,157 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-31 15:48:07,229 [INFO] 50-a: enrichment complete for 'Md Alam' (badge=8042, pct=MELD, started=07/01/2016, last_earned=$103,000)
+2025-10-31 15:48:07,229 [INFO] Main: 50-a enrich record #11 - Vincent Cavitolo
+2025-10-31 15:48:07,229 [INFO] 50-a: Searching for 'Vincent Cavitolo' (First='Vincent' Last='Cavitolo')
+2025-10-31 15:48:07,757 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:48:08,051 [INFO] 50-a: 29 search results for 'Vincent Cavitolo'
+2025-10-31 15:48:08,065 [INFO] 50-a: candidate#1 'Cavitolo, Vincent P.' -> First='Vincent' Last='Cavitolo'
+2025-10-31 15:48:08,065 [INFO] 50-a: exact match found on candidate#1 'Cavitolo, Vincent P.'
+2025-10-31 15:48:08,141 [INFO] 50-a: officer profile loaded
+2025-10-31 15:48:08,156 [INFO] 50-a: identity snippet (first 300 chars): Vincent P. Cavitolo
 Badge #20821, White Male
 Police Officer at Narcotics Borough Brooklyn North since May 2025
 Also served at Transit Bureau District 30, Transit Bureau District 34, Brooklyn Court Section, 70th Precinct, 10th Precinct
 Service started November 2020, made $81,300 last year, Tax #96957
-2025-10-31 13:52:39,070 [INFO] 50-a: badge extracted via selector 'span.badge': 20821
-2025-10-31 13:52:39,087 [INFO] 50-a: service_start parsed: 11/01/2020
-2025-10-31 13:52:39,100 [INFO] 50-a: last_earned extracted from span.compensation: $81,300
-2025-10-31 13:52:39,111 [INFO] 50-a: has_discipline=N has_articles=N
-2025-10-31 13:52:39,214 [INFO] 50-a: summary 'Allegations' -> 6
-2025-10-31 13:52:39,244 [INFO] 50-a: summary 'Substantiated' -> 2
-2025-10-31 13:52:39,374 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
-2025-10-31 13:52:39,379 [INFO] 50-a: enrichment complete for 'Vincent Cavitolo' (badge=20821, pct=92, started=11/01/2020, last_earned=$81,300)
-2025-10-31 13:52:39,379 [INFO] Main: 50-a enrich record #12 - Md Alam
-2025-10-31 13:52:39,379 [INFO] 50-a: Searching for 'Md Alam' (First='Md' Last='Alam')
-2025-10-31 13:52:39,902 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:40,082 [INFO] 50-a: 36 search results for 'Md Alam'
-2025-10-31 13:52:40,097 [INFO] 50-a: candidate#1 'Alam, Md N.' -> First='Md' Last='Alam'
-2025-10-31 13:52:40,098 [INFO] 50-a: exact match found on candidate#1 'Alam, Md N.'
-2025-10-31 13:52:40,181 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:40,206 [INFO] 50-a: identity snippet (first 300 chars): Md N. Alam
+2025-10-31 15:48:08,167 [INFO] 50-a: badge extracted via selector 'span.badge': 20821
+2025-10-31 15:48:08,181 [INFO] 50-a: service_start parsed: 11/01/2020
+2025-10-31 15:48:08,193 [INFO] 50-a: last_earned extracted from span.compensation: $81,300
+2025-10-31 15:48:08,206 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-31 15:48:08,330 [INFO] 50-a: summary 'Allegations' -> 6
+2025-10-31 15:48:08,407 [INFO] 50-a: summary 'Substantiated' -> 2
+2025-10-31 15:48:08,528 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
+2025-10-31 15:48:08,532 [INFO] 50-a: enrichment complete for 'Vincent Cavitolo' (badge=20821, pct=92, started=11/01/2020, last_earned=$81,300)
+2025-10-31 15:48:08,532 [INFO] Main: 50-a enrich record #12 - Md Alam
+2025-10-31 15:48:08,532 [INFO] 50-a: Searching for 'Md Alam' (First='Md' Last='Alam')
+2025-10-31 15:48:09,059 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:48:09,361 [INFO] 50-a: 36 search results for 'Md Alam'
+2025-10-31 15:48:09,414 [INFO] 50-a: candidate#1 'Alam, Md N.' -> First='Md' Last='Alam'
+2025-10-31 15:48:09,414 [INFO] 50-a: exact match found on candidate#1 'Alam, Md N.'
+2025-10-31 15:48:09,627 [INFO] 50-a: officer profile loaded
+2025-10-31 15:48:09,661 [INFO] 50-a: identity snippet (first 300 chars): Md N. Alam
 Badge #8042, Asian Male
 Police Officer at Military and Extended Leave Desk since January 2023
 Also served at Midtown North Precinct, 52nd Precinct
 Service started July 2016, made $103,000 last year, Tax #961604
-2025-10-31 13:52:40,218 [INFO] 50-a: badge extracted via selector 'span.badge': 8042
-2025-10-31 13:52:40,232 [INFO] 50-a: service_start parsed: 07/01/2016
-2025-10-31 13:52:40,249 [INFO] 50-a: last_earned extracted from span.compensation: $103,000
-2025-10-31 13:52:40,259 [INFO] 50-a: has_discipline=N has_articles=N
-2025-10-31 13:52:40,317 [INFO] 50-a: summary 'Complaints' -> 2
-2025-10-31 13:52:40,348 [INFO] 50-a: summary 'Allegations' -> 3
-2025-10-31 13:52:40,381 [INFO] 50-a: summary 'Substantiated' -> 0
-2025-10-31 13:52:40,450 [INFO] 50-a: enrichment complete for 'Md Alam' (badge=8042, pct=MELD, started=07/01/2016, last_earned=$103,000)
-2025-10-31 13:52:40,450 [INFO] Main: 50-a enrich record #13 - Omar Habib
-2025-10-31 13:52:40,450 [INFO] 50-a: Searching for 'Omar Habib' (First='Omar' Last='Habib')
-2025-10-31 13:52:40,972 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:41,155 [INFO] 50-a: 32 search results for 'Omar Habib'
-2025-10-31 13:52:41,171 [INFO] 50-a: candidate#1 'Habib, Omar M.' -> First='Omar' Last='Habib'
-2025-10-31 13:52:41,171 [INFO] 50-a: exact match found on candidate#1 'Habib, Omar M.'
-2025-10-31 13:52:41,267 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:41,302 [INFO] 50-a: identity snippet (first 300 chars): Omar M. Habib
+2025-10-31 15:48:09,674 [INFO] 50-a: badge extracted via selector 'span.badge': 8042
+2025-10-31 15:48:09,687 [INFO] 50-a: service_start parsed: 07/01/2016
+2025-10-31 15:48:09,701 [INFO] 50-a: last_earned extracted from span.compensation: $103,000
+2025-10-31 15:48:09,715 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-31 15:48:09,764 [INFO] 50-a: summary 'Complaints' -> 2
+2025-10-31 15:48:09,788 [INFO] 50-a: summary 'Allegations' -> 3
+2025-10-31 15:48:09,817 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-31 15:48:09,870 [INFO] 50-a: enrichment complete for 'Md Alam' (badge=8042, pct=MELD, started=07/01/2016, last_earned=$103,000)
+2025-10-31 15:48:09,870 [INFO] Main: 50-a enrich record #13 - Omar Habib
+2025-10-31 15:48:09,870 [INFO] 50-a: Searching for 'Omar Habib' (First='Omar' Last='Habib')
+2025-10-31 15:48:10,393 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:48:10,686 [INFO] 50-a: 32 search results for 'Omar Habib'
+2025-10-31 15:48:10,718 [INFO] 50-a: candidate#1 'Habib, Omar M.' -> First='Omar' Last='Habib'
+2025-10-31 15:48:10,718 [INFO] 50-a: exact match found on candidate#1 'Habib, Omar M.'
+2025-10-31 15:48:10,801 [INFO] 50-a: officer profile loaded
+2025-10-31 15:48:10,828 [INFO] 50-a: identity snippet (first 300 chars): Omar M. Habib
 Badge #748, White Male, 40
 Police Officer at Police Service Area 5 VIPER since September 2024
 Also served at Police Service Area 7 VIPER, Manhattan Court Section, 40th Precinct, 47th Precinct
@@ -295,26 +295,26 @@ Service started January 2007, made $125,000 last year, Tax #942899
 
 
 Substantiated Allegations
-2025-10-31 13:52:41,314 [INFO] 50-a: badge extracted via selector 'span.badge': 748
-2025-10-31 13:52:41,331 [INFO] 50-a: service_start parsed: 01/01/2007
-2025-10-31 13:52:41,344 [INFO] 50-a: last_earned extracted from span.compensation: $125,000
-2025-10-31 13:52:41,388 [INFO] 50-a: has_discipline=Y has_articles=Y
-2025-10-31 13:52:41,456 [INFO] 50-a: summary 'Complaints' -> 7
-2025-10-31 13:52:41,482 [INFO] 50-a: summary 'Allegations' -> 18
-2025-10-31 13:52:41,511 [INFO] 50-a: summary 'Substantiated' -> 10
-2025-10-31 13:52:41,660 [INFO] 50-a: summary 'Substantiated (Charges)' -> 4
-2025-10-31 13:52:41,789 [INFO] 50-a: summary 'Unsubstantiated' -> 3
-2025-10-31 13:52:41,815 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
-2025-10-31 13:52:41,831 [INFO] 50-a: lawsuits=6 settlements=854000
-2025-10-31 13:52:41,831 [INFO] 50-a: enrichment complete for 'Omar Habib' (badge=748, pct=932, started=01/01/2007, last_earned=$125,000)
-2025-10-31 13:52:41,831 [INFO] Main: 50-a enrich record #14 - Joshua Moscoso
-2025-10-31 13:52:41,831 [INFO] 50-a: Searching for 'Joshua Moscoso' (First='Joshua' Last='Moscoso')
-2025-10-31 13:52:42,362 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:44,465 [INFO] 50-a: 27 search results for 'Joshua Moscoso'
-2025-10-31 13:52:44,483 [INFO] 50-a: candidate#1 'Moscoso, Joshua N.' -> First='Joshua' Last='Moscoso'
-2025-10-31 13:52:44,483 [INFO] 50-a: exact match found on candidate#1 'Moscoso, Joshua N.'
-2025-10-31 13:52:45,054 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:45,080 [INFO] 50-a: identity snippet (first 300 chars): Joshua N. Moscoso
+2025-10-31 15:48:10,842 [INFO] 50-a: badge extracted via selector 'span.badge': 748
+2025-10-31 15:48:10,855 [INFO] 50-a: service_start parsed: 01/01/2007
+2025-10-31 15:48:10,868 [INFO] 50-a: last_earned extracted from span.compensation: $125,000
+2025-10-31 15:48:10,900 [INFO] 50-a: has_discipline=Y has_articles=Y
+2025-10-31 15:48:10,955 [INFO] 50-a: summary 'Complaints' -> 7
+2025-10-31 15:48:10,979 [INFO] 50-a: summary 'Allegations' -> 18
+2025-10-31 15:48:11,004 [INFO] 50-a: summary 'Substantiated' -> 10
+2025-10-31 15:48:11,282 [INFO] 50-a: summary 'Substantiated (Charges)' -> 4
+2025-10-31 15:48:11,564 [INFO] 50-a: summary 'Unsubstantiated' -> 3
+2025-10-31 15:48:11,595 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 1
+2025-10-31 15:48:11,611 [INFO] 50-a: lawsuits=6 settlements=$854,000
+2025-10-31 15:48:11,611 [INFO] 50-a: enrichment complete for 'Omar Habib' (badge=748, pct=932, started=01/01/2007, last_earned=$125,000)
+2025-10-31 15:48:11,611 [INFO] Main: 50-a enrich record #14 - Joshua Moscoso
+2025-10-31 15:48:11,611 [INFO] 50-a: Searching for 'Joshua Moscoso' (First='Joshua' Last='Moscoso')
+2025-10-31 15:48:12,151 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:48:13,383 [INFO] 50-a: 27 search results for 'Joshua Moscoso'
+2025-10-31 15:48:13,396 [INFO] 50-a: candidate#1 'Moscoso, Joshua N.' -> First='Joshua' Last='Moscoso'
+2025-10-31 15:48:13,396 [INFO] 50-a: exact match found on candidate#1 'Moscoso, Joshua N.'
+2025-10-31 15:48:13,747 [INFO] 50-a: officer profile loaded
+2025-10-31 15:48:13,774 [INFO] 50-a: identity snippet (first 300 chars): Joshua N. Moscoso
 Badge #11260, Hispanic Male
 Police Officer at 46th Precinct Detective Squad since October 2025
 Also served at 33rd Precinct
@@ -325,26 +325,26 @@ Substantiated Allegations:
 Force: Physical force
 Abuse of Authority: Frisk
 Abuse of Autho
-2025-10-31 13:52:45,096 [INFO] 50-a: badge extracted via selector 'span.badge': 11260
-2025-10-31 13:52:45,112 [INFO] 50-a: service_start parsed: 01/01/2016
-2025-10-31 13:52:45,131 [INFO] 50-a: last_earned extracted from span.compensation: $179,000
-2025-10-31 13:52:45,167 [INFO] 50-a: has_discipline=Y has_articles=N
-2025-10-31 13:52:45,269 [INFO] 50-a: summary 'Complaints' -> 24
-2025-10-31 13:52:45,305 [INFO] 50-a: summary 'Allegations' -> 62
-2025-10-31 13:52:45,343 [INFO] 50-a: summary 'Substantiated' -> 11
-2025-10-31 13:52:45,442 [INFO] 50-a: summary 'Substantiated (Charges)' -> 1
-2025-10-31 13:52:45,716 [INFO] 50-a: summary 'Unsubstantiated' -> 2
-2025-10-31 13:52:45,755 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 12
-2025-10-31 13:52:45,768 [INFO] 50-a: lawsuits=4 settlements=155000
-2025-10-31 13:52:45,768 [INFO] 50-a: enrichment complete for 'Joshua Moscoso' (badge=11260, pct=46, started=01/01/2016, last_earned=$179,000)
-2025-10-31 13:52:45,768 [INFO] Main: 50-a enrich record #15 - Wayne Isaacs
-2025-10-31 13:52:45,768 [INFO] 50-a: Searching for 'Wayne Isaacs' (First='Wayne' Last='Isaacs')
-2025-10-31 13:52:46,293 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:52:54,474 [INFO] 50-a: 1 search results for 'Wayne Isaacs'
-2025-10-31 13:52:54,491 [INFO] 50-a: candidate#1 'Isaacs, Wayne A.' -> First='Wayne' Last='Isaacs'
-2025-10-31 13:52:54,491 [INFO] 50-a: exact match found on candidate#1 'Isaacs, Wayne A.'
-2025-10-31 13:52:54,892 [INFO] 50-a: officer profile loaded
-2025-10-31 13:52:54,919 [INFO] 50-a: identity snippet (first 300 chars): Wayne A. Isaacs
+2025-10-31 15:48:13,786 [INFO] 50-a: badge extracted via selector 'span.badge': 11260
+2025-10-31 15:48:13,799 [INFO] 50-a: service_start parsed: 01/01/2016
+2025-10-31 15:48:13,812 [INFO] 50-a: last_earned extracted from span.compensation: $179,000
+2025-10-31 15:48:13,831 [INFO] 50-a: has_discipline=Y has_articles=N
+2025-10-31 15:48:13,895 [INFO] 50-a: summary 'Complaints' -> 24
+2025-10-31 15:48:13,922 [INFO] 50-a: summary 'Allegations' -> 62
+2025-10-31 15:48:13,949 [INFO] 50-a: summary 'Substantiated' -> 11
+2025-10-31 15:48:14,105 [INFO] 50-a: summary 'Substantiated (Charges)' -> 1
+2025-10-31 15:48:14,472 [INFO] 50-a: summary 'Unsubstantiated' -> 2
+2025-10-31 15:48:14,504 [INFO] 50-a: summary 'Within NYPD Guidelines' -> 12
+2025-10-31 15:48:14,523 [INFO] 50-a: lawsuits=4 settlements=$155,000
+2025-10-31 15:48:14,523 [INFO] 50-a: enrichment complete for 'Joshua Moscoso' (badge=11260, pct=46, started=01/01/2016, last_earned=$179,000)
+2025-10-31 15:48:14,523 [INFO] Main: 50-a enrich record #15 - Wayne Isaacs
+2025-10-31 15:48:14,523 [INFO] 50-a: Searching for 'Wayne Isaacs' (First='Wayne' Last='Isaacs')
+2025-10-31 15:48:15,051 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:48:23,488 [INFO] 50-a: 1 search results for 'Wayne Isaacs'
+2025-10-31 15:48:23,500 [INFO] 50-a: candidate#1 'Isaacs, Wayne A.' -> First='Wayne' Last='Isaacs'
+2025-10-31 15:48:23,500 [INFO] 50-a: exact match found on candidate#1 'Isaacs, Wayne A.'
+2025-10-31 15:48:23,752 [INFO] 50-a: officer profile loaded
+2025-10-31 15:48:23,770 [INFO] 50-a: identity snippet (first 300 chars): Wayne A. Isaacs
 Badge #4998, Black Male
 Police Officer at Chief of Special Operations since December 2018
 Also served at Patrol Borough Brooklyn North, 79th Precinct, Quartermaster Section
@@ -353,25 +353,25 @@ Service started January 2013, made $156,000 last year, Tax #953988
 
 Substantiated Allegations:
 Force: Gun fire
-2025-10-31 13:52:54,944 [INFO] 50-a: badge extracted via selector 'span.badge': 4998
-2025-10-31 13:52:54,970 [INFO] 50-a: service_start parsed: 01/01/2013
-2025-10-31 13:52:54,990 [INFO] 50-a: last_earned extracted from span.compensation: $156,000
-2025-10-31 13:52:55,019 [INFO] 50-a: has_discipline=N has_articles=Y
-2025-10-31 13:52:55,080 [INFO] 50-a: summary 'Complaints' -> 3
-2025-10-31 13:52:55,109 [INFO] 50-a: summary 'Allegations' -> 5
-2025-10-31 13:52:55,138 [INFO] 50-a: summary 'Substantiated' -> 1
-2025-10-31 13:52:55,169 [INFO] 50-a: summary 'Substantiated (Charges)' -> 1
-2025-10-31 13:52:55,233 [INFO] 50-a: summary 'Unsubstantiated' -> 1
-2025-10-31 13:52:55,257 [INFO] 50-a: lawsuits=4 settlements=367500
-2025-10-31 13:52:55,257 [INFO] 50-a: enrichment complete for 'Wayne Isaacs' (badge=4998, pct=393, started=01/01/2013, last_earned=$156,000)
-2025-10-31 13:52:55,257 [INFO] Main: 50-a enrich record #16 - Kiada Moragne
-2025-10-31 13:52:55,257 [INFO] 50-a: Searching for 'Kiada Moragne' (First='Kiada' Last='Moragne')
-2025-10-31 13:52:55,789 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:53:04,556 [INFO] 50-a: 17 search results for 'Kiada Moragne'
-2025-10-31 13:53:04,577 [INFO] 50-a: candidate#1 'Moragne, Kiada N.' -> First='Kiada' Last='Moragne'
-2025-10-31 13:53:04,578 [INFO] 50-a: exact match found on candidate#1 'Moragne, Kiada N.'
-2025-10-31 13:53:05,316 [INFO] 50-a: officer profile loaded
-2025-10-31 13:53:05,337 [INFO] 50-a: identity snippet (first 300 chars): Kiada N. Moragne
+2025-10-31 15:48:23,783 [INFO] 50-a: badge extracted via selector 'span.badge': 4998
+2025-10-31 15:48:23,796 [INFO] 50-a: service_start parsed: 01/01/2013
+2025-10-31 15:48:23,808 [INFO] 50-a: last_earned extracted from span.compensation: $156,000
+2025-10-31 15:48:23,832 [INFO] 50-a: has_discipline=N has_articles=Y
+2025-10-31 15:48:23,893 [INFO] 50-a: summary 'Complaints' -> 3
+2025-10-31 15:48:23,917 [INFO] 50-a: summary 'Allegations' -> 5
+2025-10-31 15:48:23,941 [INFO] 50-a: summary 'Substantiated' -> 1
+2025-10-31 15:48:23,965 [INFO] 50-a: summary 'Substantiated (Charges)' -> 1
+2025-10-31 15:48:24,018 [INFO] 50-a: summary 'Unsubstantiated' -> 1
+2025-10-31 15:48:24,030 [INFO] 50-a: lawsuits=4 settlements=$367,500
+2025-10-31 15:48:24,030 [INFO] 50-a: enrichment complete for 'Wayne Isaacs' (badge=4998, pct=393, started=01/01/2013, last_earned=$156,000)
+2025-10-31 15:48:24,030 [INFO] Main: 50-a enrich record #16 - Kiada Moragne
+2025-10-31 15:48:24,030 [INFO] 50-a: Searching for 'Kiada Moragne' (First='Kiada' Last='Moragne')
+2025-10-31 15:48:24,557 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:48:34,049 [INFO] 50-a: 17 search results for 'Kiada Moragne'
+2025-10-31 15:48:34,098 [INFO] 50-a: candidate#1 'Moragne, Kiada N.' -> First='Kiada' Last='Moragne'
+2025-10-31 15:48:34,098 [INFO] 50-a: exact match found on candidate#1 'Moragne, Kiada N.'
+2025-10-31 15:48:34,471 [INFO] 50-a: officer profile loaded
+2025-10-31 15:48:34,520 [INFO] 50-a: identity snippet (first 300 chars): Kiada N. Moragne
 Lieutenant at 90th Precinct since June 2025
 Also served at Patrol Borough Brooklyn North, 69th Precinct, Police Service Area 2
 Service started July 2008, made $172,000 last year, Tax #947272
@@ -380,22 +380,22 @@ Black Female
 
 Lawsuit Settlements:
 $18,500   Cowan, Gregory vs City of New York, et al., 20
-2025-10-31 13:53:05,384 [INFO] 50-a: service_start parsed: 07/01/2008
-2025-10-31 13:53:05,397 [INFO] 50-a: last_earned extracted from span.compensation: $172,000
-2025-10-31 13:53:05,412 [INFO] 50-a: has_discipline=N has_articles=N
-2025-10-31 13:53:05,464 [INFO] 50-a: summary 'Complaints' -> 2
-2025-10-31 13:53:05,508 [INFO] 50-a: summary 'Allegations' -> 3
-2025-10-31 13:53:05,547 [INFO] 50-a: summary 'Substantiated' -> 0
-2025-10-31 13:53:05,628 [INFO] 50-a: lawsuits=2 settlements=18500
-2025-10-31 13:53:05,628 [INFO] 50-a: enrichment complete for 'Kiada Moragne' (badge=None, pct=90, started=07/01/2008, last_earned=$172,000)
-2025-10-31 13:53:05,628 [INFO] Main: 50-a enrich record #17 - Wayne Isaacs
-2025-10-31 13:53:05,628 [INFO] 50-a: Searching for 'Wayne Isaacs' (First='Wayne' Last='Isaacs')
-2025-10-31 13:53:06,150 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:53:06,274 [INFO] 50-a: 1 search results for 'Wayne Isaacs'
-2025-10-31 13:53:06,292 [INFO] 50-a: candidate#1 'Isaacs, Wayne A.' -> First='Wayne' Last='Isaacs'
-2025-10-31 13:53:06,292 [INFO] 50-a: exact match found on candidate#1 'Isaacs, Wayne A.'
-2025-10-31 13:53:06,400 [INFO] 50-a: officer profile loaded
-2025-10-31 13:53:06,422 [INFO] 50-a: identity snippet (first 300 chars): Wayne A. Isaacs
+2025-10-31 15:48:34,611 [INFO] 50-a: service_start parsed: 07/01/2008
+2025-10-31 15:48:34,632 [INFO] 50-a: last_earned extracted from span.compensation: $172,000
+2025-10-31 15:48:34,655 [INFO] 50-a: has_discipline=N has_articles=N
+2025-10-31 15:48:34,702 [INFO] 50-a: summary 'Complaints' -> 2
+2025-10-31 15:48:34,733 [INFO] 50-a: summary 'Allegations' -> 3
+2025-10-31 15:48:34,760 [INFO] 50-a: summary 'Substantiated' -> 0
+2025-10-31 15:48:34,828 [INFO] 50-a: lawsuits=2 settlements=$18,500
+2025-10-31 15:48:34,829 [INFO] 50-a: enrichment complete for 'Kiada Moragne' (badge=None, pct=90, started=07/01/2008, last_earned=$172,000)
+2025-10-31 15:48:34,829 [INFO] Main: 50-a enrich record #17 - Wayne Isaacs
+2025-10-31 15:48:34,829 [INFO] 50-a: Searching for 'Wayne Isaacs' (First='Wayne' Last='Isaacs')
+2025-10-31 15:48:35,386 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:48:35,536 [INFO] 50-a: 1 search results for 'Wayne Isaacs'
+2025-10-31 15:48:35,549 [INFO] 50-a: candidate#1 'Isaacs, Wayne A.' -> First='Wayne' Last='Isaacs'
+2025-10-31 15:48:35,550 [INFO] 50-a: exact match found on candidate#1 'Isaacs, Wayne A.'
+2025-10-31 15:48:35,645 [INFO] 50-a: officer profile loaded
+2025-10-31 15:48:35,664 [INFO] 50-a: identity snippet (first 300 chars): Wayne A. Isaacs
 Badge #4998, Black Male
 Police Officer at Chief of Special Operations since December 2018
 Also served at Patrol Borough Brooklyn North, 79th Precinct, Quartermaster Section
@@ -404,25 +404,25 @@ Service started January 2013, made $156,000 last year, Tax #953988
 
 Substantiated Allegations:
 Force: Gun fire
-2025-10-31 13:53:06,437 [INFO] 50-a: badge extracted via selector 'span.badge': 4998
-2025-10-31 13:53:06,456 [INFO] 50-a: service_start parsed: 01/01/2013
-2025-10-31 13:53:06,470 [INFO] 50-a: last_earned extracted from span.compensation: $156,000
-2025-10-31 13:53:06,505 [INFO] 50-a: has_discipline=N has_articles=Y
-2025-10-31 13:53:06,567 [INFO] 50-a: summary 'Complaints' -> 3
-2025-10-31 13:53:06,596 [INFO] 50-a: summary 'Allegations' -> 5
-2025-10-31 13:53:06,630 [INFO] 50-a: summary 'Substantiated' -> 1
-2025-10-31 13:53:06,656 [INFO] 50-a: summary 'Substantiated (Charges)' -> 1
-2025-10-31 13:53:06,727 [INFO] 50-a: summary 'Unsubstantiated' -> 1
-2025-10-31 13:53:06,741 [INFO] 50-a: lawsuits=4 settlements=367500
-2025-10-31 13:53:06,741 [INFO] 50-a: enrichment complete for 'Wayne Isaacs' (badge=4998, pct=393, started=01/01/2013, last_earned=$156,000)
-2025-10-31 13:53:06,742 [INFO] Main: 50-a enrich record #18 - Wayne Isaacs
-2025-10-31 13:53:06,742 [INFO] 50-a: Searching for 'Wayne Isaacs' (First='Wayne' Last='Isaacs')
-2025-10-31 13:53:07,262 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:53:07,387 [INFO] 50-a: 1 search results for 'Wayne Isaacs'
-2025-10-31 13:53:07,401 [INFO] 50-a: candidate#1 'Isaacs, Wayne A.' -> First='Wayne' Last='Isaacs'
-2025-10-31 13:53:07,401 [INFO] 50-a: exact match found on candidate#1 'Isaacs, Wayne A.'
-2025-10-31 13:53:07,512 [INFO] 50-a: officer profile loaded
-2025-10-31 13:53:07,536 [INFO] 50-a: identity snippet (first 300 chars): Wayne A. Isaacs
+2025-10-31 15:48:35,678 [INFO] 50-a: badge extracted via selector 'span.badge': 4998
+2025-10-31 15:48:35,702 [INFO] 50-a: service_start parsed: 01/01/2013
+2025-10-31 15:48:35,732 [INFO] 50-a: last_earned extracted from span.compensation: $156,000
+2025-10-31 15:48:35,757 [INFO] 50-a: has_discipline=N has_articles=Y
+2025-10-31 15:48:35,812 [INFO] 50-a: summary 'Complaints' -> 3
+2025-10-31 15:48:35,838 [INFO] 50-a: summary 'Allegations' -> 5
+2025-10-31 15:48:35,863 [INFO] 50-a: summary 'Substantiated' -> 1
+2025-10-31 15:48:35,890 [INFO] 50-a: summary 'Substantiated (Charges)' -> 1
+2025-10-31 15:48:35,955 [INFO] 50-a: summary 'Unsubstantiated' -> 1
+2025-10-31 15:48:35,974 [INFO] 50-a: lawsuits=4 settlements=$367,500
+2025-10-31 15:48:35,974 [INFO] 50-a: enrichment complete for 'Wayne Isaacs' (badge=4998, pct=393, started=01/01/2013, last_earned=$156,000)
+2025-10-31 15:48:35,974 [INFO] Main: 50-a enrich record #18 - Wayne Isaacs
+2025-10-31 15:48:35,974 [INFO] 50-a: Searching for 'Wayne Isaacs' (First='Wayne' Last='Isaacs')
+2025-10-31 15:48:36,518 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:48:36,687 [INFO] 50-a: 1 search results for 'Wayne Isaacs'
+2025-10-31 15:48:36,701 [INFO] 50-a: candidate#1 'Isaacs, Wayne A.' -> First='Wayne' Last='Isaacs'
+2025-10-31 15:48:36,702 [INFO] 50-a: exact match found on candidate#1 'Isaacs, Wayne A.'
+2025-10-31 15:48:36,800 [INFO] 50-a: officer profile loaded
+2025-10-31 15:48:36,822 [INFO] 50-a: identity snippet (first 300 chars): Wayne A. Isaacs
 Badge #4998, Black Male
 Police Officer at Chief of Special Operations since December 2018
 Also served at Patrol Borough Brooklyn North, 79th Precinct, Quartermaster Section
@@ -431,444 +431,447 @@ Service started January 2013, made $156,000 last year, Tax #953988
 
 Substantiated Allegations:
 Force: Gun fire
-2025-10-31 13:53:07,554 [INFO] 50-a: badge extracted via selector 'span.badge': 4998
-2025-10-31 13:53:07,568 [INFO] 50-a: service_start parsed: 01/01/2013
-2025-10-31 13:53:07,585 [INFO] 50-a: last_earned extracted from span.compensation: $156,000
-2025-10-31 13:53:07,617 [INFO] 50-a: has_discipline=N has_articles=Y
-2025-10-31 13:53:07,670 [INFO] 50-a: summary 'Complaints' -> 3
-2025-10-31 13:53:07,710 [INFO] 50-a: summary 'Allegations' -> 5
-2025-10-31 13:53:07,737 [INFO] 50-a: summary 'Substantiated' -> 1
-2025-10-31 13:53:07,774 [INFO] 50-a: summary 'Substantiated (Charges)' -> 1
-2025-10-31 13:53:07,837 [INFO] 50-a: summary 'Unsubstantiated' -> 1
-2025-10-31 13:53:07,850 [INFO] 50-a: lawsuits=4 settlements=367500
-2025-10-31 13:53:07,850 [INFO] 50-a: enrichment complete for 'Wayne Isaacs' (badge=4998, pct=393, started=01/01/2013, last_earned=$156,000)
-2025-10-31 13:53:07,850 [INFO] Main: 50-a enrich record #19 - Tina Shymanski
-2025-10-31 13:53:07,850 [INFO] 50-a: Searching for 'Tina Shymanski' (First='Tina' Last='Shymanski')
-2025-10-31 13:53:08,374 [INFO] 50-a: loaded https://www.50-a.org/
-2025-10-31 13:53:21,507 [WARNING] 50-a: timeout or no search results for 'Tina Shymanski'
-2025-10-31 13:53:21,507 [INFO] Main: beginning payroll enrichment pass
-2025-10-31 13:53:21,617 [INFO] Main: payroll enrich record #1 - First='Boubacar' Last='Barry'
-2025-10-31 13:53:21,617 [INFO] Payroll: Searching for 'Boubacar Barry'
-2025-10-31 13:53:21,617 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:53:21,618 [INFO] Payroll: using service_start tie-breaker = 2021-10-01
-2025-10-31 13:53:21,618 [INFO] Payroll: attempt 1/3 for 'Boubacar Barry'
-2025-10-31 13:53:23,501 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Boubacar Barry'
-2025-10-31 13:53:23,731 [WARNING] Payroll: search input not found on attempt 1 for 'Boubacar Barry' - will retry
-2025-10-31 13:53:24,237 [INFO] Payroll: waiting 2000ms before attempt 2 for 'Boubacar Barry'
-2025-10-31 13:53:26,241 [INFO] Payroll: attempt 2/3 for 'Boubacar Barry'
-2025-10-31 13:53:29,265 [INFO] Payroll: navigated to payroll site for attempt 2 for 'Boubacar Barry'
-2025-10-31 13:53:30,152 [INFO] Payroll: search submitted on attempt 2 for 'Boubacar Barry'
-2025-10-31 13:53:31,482 [INFO] Payroll: found 4 table rows for 'Boubacar Barry' on attempt 2
-2025-10-31 13:53:31,656 [INFO] Payroll: attempt 2 row#1 -> year=2025, first='BOUBACAR', last='BARRY', agency_start='10/12/2021'
-2025-10-31 13:53:31,832 [INFO] Payroll: attempt 2 row#2 -> year=2024, first='BOUBACAR', last='BARRY', agency_start='10/12/2021'
-2025-10-31 13:53:31,832 [INFO] Payroll: attempt 2 row#2 is 2024, chosen immediately
-2025-10-31 13:53:31,832 [INFO] Payroll: chosen row year=2024 agency_start=10/12/2021 status=ACTIVE - payroll fields updated
-2025-10-31 13:53:31,832 [INFO] Main: payroll enrich record #2 - First='Jaenice' Last='Smith'
-2025-10-31 13:53:31,832 [INFO] Payroll: Searching for 'Jaenice Smith'
-2025-10-31 13:53:31,833 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:53:31,833 [INFO] Payroll: using service_start tie-breaker = 2005-07-01
-2025-10-31 13:53:31,833 [INFO] Payroll: attempt 1/3 for 'Jaenice Smith'
-2025-10-31 13:53:34,240 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Jaenice Smith'
-2025-10-31 13:53:35,467 [INFO] Payroll: search submitted on attempt 1 for 'Jaenice Smith'
-2025-10-31 13:53:36,353 [INFO] Payroll: found 12 table rows for 'Jaenice Smith' on attempt 1
-2025-10-31 13:53:36,547 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='JAENICE', last='SMITH', agency_start='07/11/2005'
-2025-10-31 13:53:36,694 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='JAENICE', last='SMITH', agency_start='07/11/2005'
-2025-10-31 13:53:37,132 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='JAENICE', last='SMITH', agency_start='07/11/2005'
-2025-10-31 13:53:37,132 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
-2025-10-31 13:53:37,133 [INFO] Payroll: chosen row year=2024 agency_start=07/11/2005 status=ACTIVE - payroll fields updated
-2025-10-31 13:53:37,133 [INFO] Main: payroll enrich record #3 - First='Ryan' Last='Zelman'
-2025-10-31 13:53:37,133 [INFO] Payroll: Searching for 'Ryan Zelman'
-2025-10-31 13:53:37,133 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:53:37,133 [INFO] Payroll: using service_start tie-breaker = 2018-04-01
-2025-10-31 13:53:37,133 [INFO] Payroll: attempt 1/3 for 'Ryan Zelman'
-2025-10-31 13:53:39,847 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Ryan Zelman'
-2025-10-31 13:53:41,181 [INFO] Payroll: search submitted on attempt 1 for 'Ryan Zelman'
-2025-10-31 13:53:42,027 [INFO] Payroll: found 8 table rows for 'Ryan Zelman' on attempt 1
-2025-10-31 13:53:42,201 [INFO] Payroll: attempt 1 row#1 -> year=2025, first='RYAN', last='ZELMAN', agency_start='04/25/2018'
-2025-10-31 13:53:42,398 [INFO] Payroll: attempt 1 row#2 -> year=2024, first='RYAN', last='ZELMAN', agency_start='04/25/2018'
-2025-10-31 13:53:42,398 [INFO] Payroll: attempt 1 row#2 is 2024, chosen immediately
-2025-10-31 13:53:42,399 [INFO] Payroll: chosen row year=2024 agency_start=04/25/2018 status=ACTIVE - payroll fields updated
-2025-10-31 13:53:42,399 [INFO] Main: payroll enrich record #4 - First='Jaenice' Last='Smith'
-2025-10-31 13:53:42,399 [INFO] Payroll: Searching for 'Jaenice Smith'
-2025-10-31 13:53:42,399 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:53:42,399 [INFO] Payroll: using service_start tie-breaker = 2005-07-01
-2025-10-31 13:53:42,399 [INFO] Payroll: attempt 1/3 for 'Jaenice Smith'
-2025-10-31 13:53:44,746 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Jaenice Smith'
-2025-10-31 13:53:45,579 [INFO] Payroll: search submitted on attempt 1 for 'Jaenice Smith'
-2025-10-31 13:53:47,040 [INFO] Payroll: found 12 table rows for 'Jaenice Smith' on attempt 1
-2025-10-31 13:53:47,193 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='JAENICE', last='SMITH', agency_start='07/11/2005'
-2025-10-31 13:53:47,633 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='JAENICE', last='SMITH', agency_start='07/11/2005'
-2025-10-31 13:53:47,916 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='JAENICE', last='SMITH', agency_start='07/11/2005'
-2025-10-31 13:53:47,916 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
-2025-10-31 13:53:47,916 [INFO] Payroll: chosen row year=2024 agency_start=07/11/2005 status=ACTIVE - payroll fields updated
-2025-10-31 13:53:47,916 [INFO] Main: payroll enrich record #5 - First='Jaenice' Last='Smith'
-2025-10-31 13:53:47,916 [INFO] Payroll: Searching for 'Jaenice Smith'
-2025-10-31 13:53:47,916 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:53:47,916 [INFO] Payroll: using service_start tie-breaker = 2005-07-01
-2025-10-31 13:53:47,916 [INFO] Payroll: attempt 1/3 for 'Jaenice Smith'
-2025-10-31 13:53:49,375 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Jaenice Smith'
-2025-10-31 13:53:51,559 [INFO] Payroll: search submitted on attempt 1 for 'Jaenice Smith'
-2025-10-31 13:53:53,079 [WARNING] Payroll: search input did not apply for 'Jaenice Smith' on attempt 1 (input=''); will retry
-2025-10-31 13:53:53,582 [INFO] Payroll: waiting 2000ms before attempt 2 for 'Jaenice Smith'
-2025-10-31 13:53:55,589 [INFO] Payroll: attempt 2/3 for 'Jaenice Smith'
-2025-10-31 13:53:58,229 [INFO] Payroll: navigated to payroll site for attempt 2 for 'Jaenice Smith'
-2025-10-31 13:53:59,029 [INFO] Payroll: search submitted on attempt 2 for 'Jaenice Smith'
-2025-10-31 13:54:00,592 [INFO] Payroll: found 12 table rows for 'Jaenice Smith' on attempt 2
-2025-10-31 13:54:00,825 [INFO] Payroll: attempt 2 row#1 -> year=2014, first='JAENICE', last='SMITH', agency_start='07/11/2005'
-2025-10-31 13:54:01,162 [INFO] Payroll: attempt 2 row#2 -> year=2025, first='JAENICE', last='SMITH', agency_start='07/11/2005'
-2025-10-31 13:54:01,371 [INFO] Payroll: attempt 2 row#3 -> year=2024, first='JAENICE', last='SMITH', agency_start='07/11/2005'
-2025-10-31 13:54:01,371 [INFO] Payroll: attempt 2 row#3 is 2024, chosen immediately
-2025-10-31 13:54:01,371 [INFO] Payroll: chosen row year=2024 agency_start=07/11/2005 status=ACTIVE - payroll fields updated
-2025-10-31 13:54:01,371 [INFO] Main: payroll enrich record #6 - First='Vincent' Last='Cavitolo'
-2025-10-31 13:54:01,371 [INFO] Payroll: Searching for 'Vincent Cavitolo'
-2025-10-31 13:54:01,371 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:54:01,371 [INFO] Payroll: using service_start tie-breaker = 2020-11-01
-2025-10-31 13:54:01,372 [INFO] Payroll: attempt 1/3 for 'Vincent Cavitolo'
-2025-10-31 13:54:03,876 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Vincent Cavitolo'
-2025-10-31 13:54:04,757 [INFO] Payroll: search submitted on attempt 1 for 'Vincent Cavitolo'
-2025-10-31 13:54:06,278 [INFO] Payroll: found 5 table rows for 'Vincent Cavitolo' on attempt 1
-2025-10-31 13:54:06,536 [INFO] Payroll: attempt 1 row#1 -> year=2025, first='VINCENT', last='CAVITOLO', agency_start='11/02/2020'
-2025-10-31 13:54:06,795 [INFO] Payroll: attempt 1 row#2 -> year=2024, first='VINCENT', last='CAVITOLO', agency_start='11/02/2020'
-2025-10-31 13:54:06,795 [INFO] Payroll: attempt 1 row#2 is 2024, chosen immediately
-2025-10-31 13:54:06,796 [INFO] Payroll: chosen row year=2024 agency_start=11/02/2020 status=ACTIVE - payroll fields updated
-2025-10-31 13:54:06,796 [INFO] Main: payroll enrich record #7 - First='Md' Last='Alam'
-2025-10-31 13:54:06,796 [INFO] Payroll: Searching for 'Md Alam'
-2025-10-31 13:54:06,796 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:54:06,796 [INFO] Payroll: using service_start tie-breaker = 2016-07-01
-2025-10-31 13:54:06,796 [INFO] Payroll: attempt 1/3 for 'Md Alam'
-2025-10-31 13:54:09,177 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Md Alam'
-2025-10-31 13:54:10,347 [INFO] Payroll: search submitted on attempt 1 for 'Md Alam'
-2025-10-31 13:54:12,656 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 1
-2025-10-31 13:54:12,853 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
-2025-10-31 13:54:12,991 [INFO] Payroll: attempt 1 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:54:13,142 [INFO] Payroll: attempt 1 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:54:13,278 [INFO] Payroll: attempt 1 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
-2025-10-31 13:54:13,417 [INFO] Payroll: attempt 1 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
-2025-10-31 13:54:13,560 [INFO] Payroll: attempt 1 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
-2025-10-31 13:54:13,749 [INFO] Payroll: attempt 1 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
-2025-10-31 13:54:13,893 [INFO] Payroll: attempt 1 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:54:14,036 [INFO] Payroll: attempt 1 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
-2025-10-31 13:54:14,175 [INFO] Payroll: attempt 1 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:54:14,175 [INFO] Payroll: reached 10 rows on attempt 1, stopping scan for this attempt
-2025-10-31 13:54:14,175 [INFO] Payroll: waiting 2000ms before attempt 2 for 'Md Alam'
-2025-10-31 13:54:16,181 [INFO] Payroll: attempt 2/3 for 'Md Alam'
-2025-10-31 13:54:18,906 [INFO] Payroll: navigated to payroll site for attempt 2 for 'Md Alam'
-2025-10-31 13:54:20,059 [INFO] Payroll: search submitted on attempt 2 for 'Md Alam'
-2025-10-31 13:54:22,386 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 2
-2025-10-31 13:54:22,576 [INFO] Payroll: attempt 2 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
-2025-10-31 13:54:22,727 [INFO] Payroll: attempt 2 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:54:22,872 [INFO] Payroll: attempt 2 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:54:23,013 [INFO] Payroll: attempt 2 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
-2025-10-31 13:54:23,161 [INFO] Payroll: attempt 2 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
-2025-10-31 13:54:23,405 [INFO] Payroll: attempt 2 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
-2025-10-31 13:54:23,574 [INFO] Payroll: attempt 2 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
-2025-10-31 13:54:23,727 [INFO] Payroll: attempt 2 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:54:23,882 [INFO] Payroll: attempt 2 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
-2025-10-31 13:54:24,024 [INFO] Payroll: attempt 2 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:54:24,024 [INFO] Payroll: reached 10 rows on attempt 2, stopping scan for this attempt
-2025-10-31 13:54:24,024 [INFO] Payroll: waiting 4000ms before attempt 3 for 'Md Alam'
-2025-10-31 13:54:28,028 [INFO] Payroll: attempt 3/3 for 'Md Alam'
-2025-10-31 13:54:30,608 [INFO] Payroll: navigated to payroll site for attempt 3 for 'Md Alam'
-2025-10-31 13:54:31,834 [INFO] Payroll: search submitted on attempt 3 for 'Md Alam'
-2025-10-31 13:54:34,309 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 3
-2025-10-31 13:54:34,469 [INFO] Payroll: attempt 3 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
-2025-10-31 13:54:34,608 [INFO] Payroll: attempt 3 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:54:34,759 [INFO] Payroll: attempt 3 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:54:34,893 [INFO] Payroll: attempt 3 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
-2025-10-31 13:54:35,028 [INFO] Payroll: attempt 3 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
-2025-10-31 13:54:35,198 [INFO] Payroll: attempt 3 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
-2025-10-31 13:54:35,341 [INFO] Payroll: attempt 3 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
-2025-10-31 13:54:36,151 [INFO] Payroll: attempt 3 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:54:36,310 [INFO] Payroll: attempt 3 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
-2025-10-31 13:54:36,458 [INFO] Payroll: attempt 3 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:54:36,458 [INFO] Payroll: reached 10 rows on attempt 3, stopping scan for this attempt
-2025-10-31 13:54:36,458 [WARNING] Payroll: no suitable payroll match found for 'Md Alam' — will attempt one refresh-and-retry
-2025-10-31 13:54:39,293 [INFO] Payroll: page reloaded for retry for 'Md Alam'
-2025-10-31 13:54:40,332 [INFO] Payroll: re-submitting search on final retry for 'Md Alam'
-2025-10-31 13:54:40,557 [INFO] Payroll: retry found 75 rows for 'Md Alam'
-2025-10-31 13:54:43,281 [INFO] Payroll(retry): row#13 is 2024, chosen immediately
-2025-10-31 13:54:43,282 [INFO] Payroll(retry): payroll fields updated from retry for 'Md Alam'
-2025-10-31 13:54:43,282 [INFO] Main: payroll enrich record #8 - First='Omar' Last='Habib'
-2025-10-31 13:54:43,282 [INFO] Payroll: Searching for 'Omar Habib'
-2025-10-31 13:54:43,282 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:54:43,282 [INFO] Payroll: using service_start tie-breaker = 2007-01-01
-2025-10-31 13:54:43,282 [INFO] Payroll: attempt 1/3 for 'Omar Habib'
-2025-10-31 13:54:45,722 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Omar Habib'
-2025-10-31 13:54:47,122 [INFO] Payroll: search submitted on attempt 1 for 'Omar Habib'
-2025-10-31 13:54:48,643 [INFO] Payroll: found 12 table rows for 'Omar Habib' on attempt 1
-2025-10-31 13:54:48,905 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='OMAR', last='HABIB', agency_start='01/10/2007'
-2025-10-31 13:54:49,293 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='OMAR', last='HABIB', agency_start='01/10/2007'
-2025-10-31 13:54:49,504 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='OMAR', last='HABIB', agency_start='01/10/2007'
-2025-10-31 13:54:49,504 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
-2025-10-31 13:54:49,504 [INFO] Payroll: chosen row year=2024 agency_start=01/10/2007 status=ACTIVE - payroll fields updated
-2025-10-31 13:54:49,504 [INFO] Main: payroll enrich record #9 - First='Vincent' Last='Cavitolo'
-2025-10-31 13:54:49,504 [INFO] Payroll: Searching for 'Vincent Cavitolo'
-2025-10-31 13:54:49,504 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:54:49,504 [INFO] Payroll: using service_start tie-breaker = 2020-11-01
-2025-10-31 13:54:49,504 [INFO] Payroll: attempt 1/3 for 'Vincent Cavitolo'
-2025-10-31 13:54:52,805 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Vincent Cavitolo'
-2025-10-31 13:54:53,580 [INFO] Payroll: search submitted on attempt 1 for 'Vincent Cavitolo'
-2025-10-31 13:54:55,063 [INFO] Payroll: found 5 table rows for 'Vincent Cavitolo' on attempt 1
-2025-10-31 13:54:55,234 [INFO] Payroll: attempt 1 row#1 -> year=2025, first='VINCENT', last='CAVITOLO', agency_start='11/02/2020'
-2025-10-31 13:54:55,430 [INFO] Payroll: attempt 1 row#2 -> year=2024, first='VINCENT', last='CAVITOLO', agency_start='11/02/2020'
-2025-10-31 13:54:55,431 [INFO] Payroll: attempt 1 row#2 is 2024, chosen immediately
-2025-10-31 13:54:55,431 [INFO] Payroll: chosen row year=2024 agency_start=11/02/2020 status=ACTIVE - payroll fields updated
-2025-10-31 13:54:55,431 [INFO] Main: payroll enrich record #10 - First='Md' Last='Alam'
-2025-10-31 13:54:55,431 [INFO] Payroll: Searching for 'Md Alam'
-2025-10-31 13:54:55,431 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:54:55,431 [INFO] Payroll: using service_start tie-breaker = 2016-07-01
-2025-10-31 13:54:55,431 [INFO] Payroll: attempt 1/3 for 'Md Alam'
-2025-10-31 13:54:57,903 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Md Alam'
-2025-10-31 13:54:58,452 [INFO] Payroll: search submitted on attempt 1 for 'Md Alam'
-2025-10-31 13:55:01,346 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 1
-2025-10-31 13:55:01,489 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
-2025-10-31 13:55:01,626 [INFO] Payroll: attempt 1 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:55:01,770 [INFO] Payroll: attempt 1 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:55:01,921 [INFO] Payroll: attempt 1 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
-2025-10-31 13:55:02,056 [INFO] Payroll: attempt 1 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
-2025-10-31 13:55:02,192 [INFO] Payroll: attempt 1 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
-2025-10-31 13:55:02,327 [INFO] Payroll: attempt 1 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
-2025-10-31 13:55:02,457 [INFO] Payroll: attempt 1 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:55:02,600 [INFO] Payroll: attempt 1 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
-2025-10-31 13:55:02,742 [INFO] Payroll: attempt 1 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:55:02,742 [INFO] Payroll: reached 10 rows on attempt 1, stopping scan for this attempt
-2025-10-31 13:55:02,742 [INFO] Payroll: waiting 2000ms before attempt 2 for 'Md Alam'
-2025-10-31 13:55:04,748 [INFO] Payroll: attempt 2/3 for 'Md Alam'
-2025-10-31 13:55:07,370 [INFO] Payroll: navigated to payroll site for attempt 2 for 'Md Alam'
-2025-10-31 13:55:08,938 [INFO] Payroll: search submitted on attempt 2 for 'Md Alam'
-2025-10-31 13:55:10,847 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 2
-2025-10-31 13:55:11,040 [INFO] Payroll: attempt 2 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
-2025-10-31 13:55:11,208 [INFO] Payroll: attempt 2 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:55:11,341 [INFO] Payroll: attempt 2 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:55:11,554 [INFO] Payroll: attempt 2 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
-2025-10-31 13:55:11,712 [INFO] Payroll: attempt 2 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
-2025-10-31 13:55:11,848 [INFO] Payroll: attempt 2 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
-2025-10-31 13:55:11,985 [INFO] Payroll: attempt 2 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
-2025-10-31 13:55:12,128 [INFO] Payroll: attempt 2 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:55:12,270 [INFO] Payroll: attempt 2 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
-2025-10-31 13:55:12,408 [INFO] Payroll: attempt 2 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:55:12,408 [INFO] Payroll: reached 10 rows on attempt 2, stopping scan for this attempt
-2025-10-31 13:55:12,408 [INFO] Payroll: waiting 4000ms before attempt 3 for 'Md Alam'
-2025-10-31 13:55:16,413 [INFO] Payroll: attempt 3/3 for 'Md Alam'
-2025-10-31 13:55:19,244 [INFO] Payroll: navigated to payroll site for attempt 3 for 'Md Alam'
-2025-10-31 13:55:20,203 [INFO] Payroll: search submitted on attempt 3 for 'Md Alam'
-2025-10-31 13:55:23,900 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 3
-2025-10-31 13:55:24,660 [INFO] Payroll: attempt 3 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
-2025-10-31 13:55:24,807 [INFO] Payroll: attempt 3 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:55:24,960 [INFO] Payroll: attempt 3 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:55:25,160 [INFO] Payroll: attempt 3 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
-2025-10-31 13:55:25,316 [INFO] Payroll: attempt 3 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
-2025-10-31 13:55:25,499 [INFO] Payroll: attempt 3 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
-2025-10-31 13:55:25,679 [INFO] Payroll: attempt 3 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
-2025-10-31 13:55:25,844 [INFO] Payroll: attempt 3 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:55:26,009 [INFO] Payroll: attempt 3 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
-2025-10-31 13:55:26,156 [INFO] Payroll: attempt 3 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:55:26,156 [INFO] Payroll: reached 10 rows on attempt 3, stopping scan for this attempt
-2025-10-31 13:55:26,156 [WARNING] Payroll: no suitable payroll match found for 'Md Alam' — will attempt one refresh-and-retry
-2025-10-31 13:55:29,336 [INFO] Payroll: page reloaded for retry for 'Md Alam'
-2025-10-31 13:55:30,409 [INFO] Payroll: re-submitting search on final retry for 'Md Alam'
-2025-10-31 13:55:30,883 [INFO] Payroll: retry found 75 rows for 'Md Alam'
-2025-10-31 13:55:33,873 [INFO] Payroll(retry): row#13 is 2024, chosen immediately
-2025-10-31 13:55:33,873 [INFO] Payroll(retry): payroll fields updated from retry for 'Md Alam'
-2025-10-31 13:55:33,873 [INFO] Main: payroll enrich record #11 - First='Vincent' Last='Cavitolo'
-2025-10-31 13:55:33,874 [INFO] Payroll: Searching for 'Vincent Cavitolo'
-2025-10-31 13:55:33,874 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:55:33,874 [INFO] Payroll: using service_start tie-breaker = 2020-11-01
-2025-10-31 13:55:33,874 [INFO] Payroll: attempt 1/3 for 'Vincent Cavitolo'
-2025-10-31 13:55:36,549 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Vincent Cavitolo'
-2025-10-31 13:55:37,928 [INFO] Payroll: search submitted on attempt 1 for 'Vincent Cavitolo'
-2025-10-31 13:55:39,273 [INFO] Payroll: found 5 table rows for 'Vincent Cavitolo' on attempt 1
-2025-10-31 13:55:39,588 [INFO] Payroll: attempt 1 row#1 -> year=2025, first='VINCENT', last='CAVITOLO', agency_start='11/02/2020'
-2025-10-31 13:55:39,764 [INFO] Payroll: attempt 1 row#2 -> year=2024, first='VINCENT', last='CAVITOLO', agency_start='11/02/2020'
-2025-10-31 13:55:39,765 [INFO] Payroll: attempt 1 row#2 is 2024, chosen immediately
-2025-10-31 13:55:39,765 [INFO] Payroll: chosen row year=2024 agency_start=11/02/2020 status=ACTIVE - payroll fields updated
-2025-10-31 13:55:39,765 [INFO] Main: payroll enrich record #12 - First='Md' Last='Alam'
-2025-10-31 13:55:39,765 [INFO] Payroll: Searching for 'Md Alam'
-2025-10-31 13:55:39,765 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:55:39,765 [INFO] Payroll: using service_start tie-breaker = 2016-07-01
-2025-10-31 13:55:39,765 [INFO] Payroll: attempt 1/3 for 'Md Alam'
-2025-10-31 13:55:42,621 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Md Alam'
-2025-10-31 13:55:42,902 [INFO] Payroll: search submitted on attempt 1 for 'Md Alam'
-2025-10-31 13:55:44,831 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 1
-2025-10-31 13:55:45,022 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
-2025-10-31 13:55:45,748 [INFO] Payroll: attempt 1 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:55:45,907 [INFO] Payroll: attempt 1 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:55:46,045 [INFO] Payroll: attempt 1 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
-2025-10-31 13:55:46,191 [INFO] Payroll: attempt 1 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
-2025-10-31 13:55:46,339 [INFO] Payroll: attempt 1 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
-2025-10-31 13:55:46,595 [INFO] Payroll: attempt 1 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
-2025-10-31 13:55:46,813 [INFO] Payroll: attempt 1 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:55:46,981 [INFO] Payroll: attempt 1 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
-2025-10-31 13:55:47,131 [INFO] Payroll: attempt 1 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:55:47,131 [INFO] Payroll: reached 10 rows on attempt 1, stopping scan for this attempt
-2025-10-31 13:55:47,131 [INFO] Payroll: waiting 2000ms before attempt 2 for 'Md Alam'
-2025-10-31 13:55:49,136 [INFO] Payroll: attempt 2/3 for 'Md Alam'
-2025-10-31 13:55:52,629 [INFO] Payroll: navigated to payroll site for attempt 2 for 'Md Alam'
-2025-10-31 13:55:52,888 [INFO] Payroll: search submitted on attempt 2 for 'Md Alam'
-2025-10-31 13:55:55,063 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 2
-2025-10-31 13:55:55,962 [INFO] Payroll: attempt 2 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
-2025-10-31 13:55:56,107 [INFO] Payroll: attempt 2 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:55:56,242 [INFO] Payroll: attempt 2 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:55:56,413 [INFO] Payroll: attempt 2 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
-2025-10-31 13:55:56,667 [INFO] Payroll: attempt 2 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
-2025-10-31 13:55:56,849 [INFO] Payroll: attempt 2 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
-2025-10-31 13:55:57,054 [INFO] Payroll: attempt 2 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
-2025-10-31 13:55:57,303 [INFO] Payroll: attempt 2 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:55:57,496 [INFO] Payroll: attempt 2 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
-2025-10-31 13:55:57,692 [INFO] Payroll: attempt 2 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:55:57,692 [INFO] Payroll: reached 10 rows on attempt 2, stopping scan for this attempt
-2025-10-31 13:55:57,692 [INFO] Payroll: waiting 4000ms before attempt 3 for 'Md Alam'
-2025-10-31 13:56:01,699 [INFO] Payroll: attempt 3/3 for 'Md Alam'
-2025-10-31 13:56:04,134 [INFO] Payroll: navigated to payroll site for attempt 3 for 'Md Alam'
-2025-10-31 13:56:04,663 [INFO] Payroll: search submitted on attempt 3 for 'Md Alam'
-2025-10-31 13:56:06,649 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 3
-2025-10-31 13:56:07,429 [INFO] Payroll: attempt 3 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
-2025-10-31 13:56:07,736 [INFO] Payroll: attempt 3 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:56:07,973 [INFO] Payroll: attempt 3 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
-2025-10-31 13:56:08,206 [INFO] Payroll: attempt 3 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
-2025-10-31 13:56:08,428 [INFO] Payroll: attempt 3 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
-2025-10-31 13:56:08,619 [INFO] Payroll: attempt 3 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
-2025-10-31 13:56:08,776 [INFO] Payroll: attempt 3 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
-2025-10-31 13:56:08,923 [INFO] Payroll: attempt 3 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:56:09,072 [INFO] Payroll: attempt 3 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
-2025-10-31 13:56:09,239 [INFO] Payroll: attempt 3 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
-2025-10-31 13:56:09,239 [INFO] Payroll: reached 10 rows on attempt 3, stopping scan for this attempt
-2025-10-31 13:56:09,239 [WARNING] Payroll: no suitable payroll match found for 'Md Alam' — will attempt one refresh-and-retry
-2025-10-31 13:56:11,956 [INFO] Payroll: page reloaded for retry for 'Md Alam'
-2025-10-31 13:56:12,988 [INFO] Payroll: re-submitting search on final retry for 'Md Alam'
-2025-10-31 13:56:13,267 [INFO] Payroll: retry found 75 rows for 'Md Alam'
-2025-10-31 13:56:15,756 [INFO] Payroll(retry): row#13 is 2024, chosen immediately
-2025-10-31 13:56:15,756 [INFO] Payroll(retry): payroll fields updated from retry for 'Md Alam'
-2025-10-31 13:56:15,756 [INFO] Main: payroll enrich record #13 - First='Omar' Last='Habib'
-2025-10-31 13:56:15,757 [INFO] Payroll: Searching for 'Omar Habib'
-2025-10-31 13:56:15,757 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:56:15,757 [INFO] Payroll: using service_start tie-breaker = 2007-01-01
-2025-10-31 13:56:15,757 [INFO] Payroll: attempt 1/3 for 'Omar Habib'
-2025-10-31 13:56:18,539 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Omar Habib'
-2025-10-31 13:56:19,094 [INFO] Payroll: search submitted on attempt 1 for 'Omar Habib'
-2025-10-31 13:56:20,517 [INFO] Payroll: found 12 table rows for 'Omar Habib' on attempt 1
-2025-10-31 13:56:20,694 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='OMAR', last='HABIB', agency_start='01/10/2007'
-2025-10-31 13:56:20,842 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='OMAR', last='HABIB', agency_start='01/10/2007'
-2025-10-31 13:56:21,095 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='OMAR', last='HABIB', agency_start='01/10/2007'
-2025-10-31 13:56:21,095 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
-2025-10-31 13:56:21,095 [INFO] Payroll: chosen row year=2024 agency_start=01/10/2007 status=ACTIVE - payroll fields updated
-2025-10-31 13:56:21,095 [INFO] Main: payroll enrich record #14 - First='Joshua' Last='Moscoso'
-2025-10-31 13:56:21,095 [INFO] Payroll: Searching for 'Joshua Moscoso'
-2025-10-31 13:56:21,095 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:56:21,095 [INFO] Payroll: using service_start tie-breaker = 2016-01-01
-2025-10-31 13:56:21,095 [INFO] Payroll: attempt 1/3 for 'Joshua Moscoso'
-2025-10-31 13:56:23,632 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Joshua Moscoso'
-2025-10-31 13:56:24,613 [INFO] Payroll: search submitted on attempt 1 for 'Joshua Moscoso'
-2025-10-31 13:56:25,359 [INFO] Payroll: found 10 table rows for 'Joshua Moscoso' on attempt 1
-2025-10-31 13:56:25,515 [INFO] Payroll: attempt 1 row#1 -> year=2025, first='JOSHUA', last='MOSCOSO', agency_start='01/06/2016'
-2025-10-31 13:56:25,654 [INFO] Payroll: attempt 1 row#2 -> year=2024, first='JOSHUA', last='MOSCOSO', agency_start='01/06/2016'
-2025-10-31 13:56:25,654 [INFO] Payroll: attempt 1 row#2 is 2024, chosen immediately
-2025-10-31 13:56:25,654 [INFO] Payroll: chosen row year=2024 agency_start=01/06/2016 status=ACTIVE - payroll fields updated
-2025-10-31 13:56:25,654 [INFO] Main: payroll enrich record #15 - First='Wayne' Last='Isaacs'
-2025-10-31 13:56:25,654 [INFO] Payroll: Searching for 'Wayne Isaacs'
-2025-10-31 13:56:25,654 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:56:25,654 [INFO] Payroll: using service_start tie-breaker = 2013-01-01
-2025-10-31 13:56:25,654 [INFO] Payroll: attempt 1/3 for 'Wayne Isaacs'
-2025-10-31 13:56:27,975 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Wayne Isaacs'
-2025-10-31 13:56:28,530 [INFO] Payroll: search submitted on attempt 1 for 'Wayne Isaacs'
-2025-10-31 13:56:30,174 [INFO] Payroll: found 12 table rows for 'Wayne Isaacs' on attempt 1
-2025-10-31 13:56:30,358 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
-2025-10-31 13:56:30,810 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
-2025-10-31 13:56:31,097 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
-2025-10-31 13:56:31,097 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
-2025-10-31 13:56:31,097 [INFO] Payroll: chosen row year=2024 agency_start=01/09/2013 status=ACTIVE - payroll fields updated
-2025-10-31 13:56:31,097 [INFO] Main: payroll enrich record #16 - First='Kiada' Last='Moragne'
-2025-10-31 13:56:31,097 [INFO] Payroll: Searching for 'Kiada Moragne'
-2025-10-31 13:56:31,097 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:56:31,097 [INFO] Payroll: using service_start tie-breaker = 2008-07-01
-2025-10-31 13:56:31,097 [INFO] Payroll: attempt 1/3 for 'Kiada Moragne'
-2025-10-31 13:56:33,644 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Kiada Moragne'
-2025-10-31 13:56:34,836 [INFO] Payroll: search submitted on attempt 1 for 'Kiada Moragne'
-2025-10-31 13:56:35,584 [INFO] Payroll: found 12 table rows for 'Kiada Moragne' on attempt 1
-2025-10-31 13:56:35,780 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='KIADA', last='MORAGNE', agency_start='07/08/2008'
-2025-10-31 13:56:35,936 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='KIADA', last='MORAGNE', agency_start='07/08/2008'
-2025-10-31 13:56:36,091 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='KIADA', last='MORAGNE', agency_start='07/08/2008'
-2025-10-31 13:56:36,091 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
-2025-10-31 13:56:36,092 [INFO] Payroll: chosen row year=2024 agency_start=07/08/2008 status=ACTIVE - payroll fields updated
-2025-10-31 13:56:36,092 [INFO] Main: payroll enrich record #17 - First='Wayne' Last='Isaacs'
-2025-10-31 13:56:36,092 [INFO] Payroll: Searching for 'Wayne Isaacs'
-2025-10-31 13:56:36,092 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:56:36,092 [INFO] Payroll: using service_start tie-breaker = 2013-01-01
-2025-10-31 13:56:36,092 [INFO] Payroll: attempt 1/3 for 'Wayne Isaacs'
-2025-10-31 13:56:38,539 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Wayne Isaacs'
-2025-10-31 13:56:39,946 [INFO] Payroll: search submitted on attempt 1 for 'Wayne Isaacs'
-2025-10-31 13:56:40,645 [INFO] Payroll: found 12 table rows for 'Wayne Isaacs' on attempt 1
-2025-10-31 13:56:40,822 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
-2025-10-31 13:56:40,996 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
-2025-10-31 13:56:41,472 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
-2025-10-31 13:56:41,472 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
-2025-10-31 13:56:41,472 [INFO] Payroll: chosen row year=2024 agency_start=01/09/2013 status=ACTIVE - payroll fields updated
-2025-10-31 13:56:41,472 [INFO] Main: payroll enrich record #18 - First='Wayne' Last='Isaacs'
-2025-10-31 13:56:41,472 [INFO] Payroll: Searching for 'Wayne Isaacs'
-2025-10-31 13:56:41,472 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:56:41,472 [INFO] Payroll: using service_start tie-breaker = 2013-01-01
-2025-10-31 13:56:41,472 [INFO] Payroll: attempt 1/3 for 'Wayne Isaacs'
-2025-10-31 13:56:43,955 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Wayne Isaacs'
-2025-10-31 13:56:44,551 [INFO] Payroll: search submitted on attempt 1 for 'Wayne Isaacs'
-2025-10-31 13:56:45,833 [INFO] Payroll: found 12 table rows for 'Wayne Isaacs' on attempt 1
-2025-10-31 13:56:46,007 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
-2025-10-31 13:56:46,174 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
-2025-10-31 13:56:46,314 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
-2025-10-31 13:56:46,314 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
-2025-10-31 13:56:46,314 [INFO] Payroll: chosen row year=2024 agency_start=01/09/2013 status=ACTIVE - payroll fields updated
-2025-10-31 13:56:46,314 [INFO] Main: payroll enrich record #19 - First='Tina' Last='Shymanski'
-2025-10-31 13:56:46,314 [INFO] Payroll: Searching for 'Tina Shymanski'
-2025-10-31 13:56:46,315 [INFO] Payroll: targeting 2024 first, then 2023
-2025-10-31 13:56:46,315 [INFO] Payroll: attempt 1/3 for 'Tina Shymanski'
-2025-10-31 13:56:48,576 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Tina Shymanski'
-2025-10-31 13:56:49,430 [INFO] Payroll: search submitted on attempt 1 for 'Tina Shymanski'
-2025-10-31 13:56:50,989 [INFO] Payroll: found 12 table rows for 'Tina Shymanski' on attempt 1
-2025-10-31 13:56:51,323 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='TINA', last='SHYMANSKI', agency_start='09/09/2002'
-2025-10-31 13:56:51,659 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='TINA', last='SHYMANSKI', agency_start='09/09/2002'
-2025-10-31 13:56:51,831 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='TINA', last='SHYMANSKI', agency_start='09/09/2002'
-2025-10-31 13:56:51,831 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
-2025-10-31 13:56:51,831 [INFO] Payroll: chosen row year=2024 agency_start=09/09/2002 status=ACTIVE - payroll fields updated
-2025-10-31 13:56:52,106 [INFO] Browser closed, Dogs returned
-2025-10-31 13:56:52,133 [INFO] CSV filename: Using latest trial date 11/24/2025
-2025-10-31 13:56:52,133 [INFO] Generated CSV filename: 2511-copwatchdog.csv
-2025-10-31 13:56:52,134 [INFO] Writing CSV to ../CSV/2511-copwatchdog.csv
-2025-10-31 13:56:52,137 [INFO] Writing CSV to copwatchdog.csv
-2025-10-31 13:56:52,141 [INFO] === THOTH Mission Complete ===
-2025-10-31 13:56:52,141 [INFO] Monthly CSV file (../CSV/2511-copwatchdog.csv): 19 rows
-2025-10-31 13:56:52,141 [INFO] Local CSV file (copwatchdog.csv): 19 rows
-2025-10-31 13:56:52,141 [INFO] Successful Operation - Ready for HERMES ETL
-[2025-10-31 13:56:52] [INFO] [COPWATCHDOG] [run_copwatchdog.sh] THOTH completed successfully
-[2025-10-31 13:56:52] [INFO] [HERMES] [run_copwatchdog.sh] Waiting for THOTH data collection and enrichment to complete...
-[2025-10-31 13:56:52] [INFO] [HERMES] [run_copwatchdog.sh] THOTH data collection and enrichment completed successfully
-[2025-10-31 13:56:52] [INFO] [HERMES] [run_copwatchdog.sh] Setting up database connection...
-[2025-10-31 13:57:22] [WARNING] [COPWATCHDOG] [run_copwatchdog.sh] Direct database connection failed, trying SSH tunnel...
-[2025-10-31 13:57:29] [INFO] [THOTH] [run_copwatchdog.sh] SSH tunnel established successfully
-[2025-10-31 13:57:29] [INFO] [THOTH] [run_copwatchdog.sh] Starting database import process...
-[2025-10-31 13:57:29] [INFO] [THOTH_IMPORT] [import_to_db.sh] Starting THOTH import script
-[2025-10-31 13:57:29] [INFO] [THOTH_IMPORT] [import_to_db.sh] Starting database import process
-[2025-10-31 13:57:29] [INFO] [COPWATCHDOG] [import_to_db.sh] Loaded environment from /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/.env
-[2025-10-31 13:57:29] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using SSH tunnel for database connection
-[2025-10-31 13:57:29] [INFO] [THOTH_IMPORT] [import_to_db.sh] Proceeding to CSV import...
-[2025-10-31 13:57:29] [INFO] [THOTH_IMPORT] [import_to_db.sh] Applying schema fixes before import
-[2025-10-31 13:57:59] [WARNING] [THOTH_IMPORT] [import_to_db.sh] Could not apply schema fixes; continuing import. If imports fail, review /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/SQL/create_cwd_schemas.sql
-[2025-10-31 13:57:59] [INFO] [THOTH_IMPORT] [import_to_db.sh] Found 3 CSV files to process
-[2025-10-31 13:57:59] [INFO] [THOTH_IMPORT] [import_to_db.sh]   - 2509-copwatchdog.csv
-[2025-10-31 13:57:59] [INFO] [THOTH_IMPORT] [import_to_db.sh]   - 2510-copwatchdog.csv
-[2025-10-31 13:57:59] [INFO] [THOTH_IMPORT] [import_to_db.sh]   - 2511-copwatchdog.csv
-[2025-10-31 13:57:59] [INFO] [THOTH_IMPORT] [import_to_db.sh] Importing /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
-[2025-10-31 13:57:59] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using service=copwatchdog configuration
-[2025-10-31 13:57:59] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using helper script to import /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
-[2025-10-31 13:58:30] [INFO] [THOTH_IMPORT] [import_to_db.sh] Import succeeded for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
-[2025-10-31 13:58:30] [INFO] [THOTH_IMPORT] [import_to_db.sh] Importing /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
-[2025-10-31 13:58:30] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using service=copwatchdog configuration
-[2025-10-31 13:58:30] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using helper script to import /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
-[2025-10-31 13:59:00] [INFO] [THOTH_IMPORT] [import_to_db.sh] Import succeeded for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
-[2025-10-31 13:59:00] [INFO] [THOTH_IMPORT] [import_to_db.sh] Importing /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2511-copwatchdog.csv
-[2025-10-31 13:59:00] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using service=copwatchdog configuration
-[2025-10-31 13:59:00] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using helper script to import /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2511-copwatchdog.csv
-[2025-10-31 13:59:31] [INFO] [THOTH_IMPORT] [import_to_db.sh] Import succeeded for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2511-copwatchdog.csv
-[2025-10-31 13:59:31] [INFO] [THOTH_IMPORT] [import_to_db.sh] Import run complete: processed=3 failed=0
-[2025-10-31 13:59:31] [INFO] [THOTH_IMPORT] [import_to_db.sh] Data successfully loaded into cwd_raw.officers_raw - no ETL transformation needed
-[2025-10-31 13:59:31] [INFO] [THOTH] [run_copwatchdog.sh] Database import completed successfully
-[2025-10-31 13:59:31] [INFO] [THOTH] [run_copwatchdog.sh] Data now available in cwd_raw.officers_raw (cwd_clean schema removed, no ETL needed)
-[2025-10-31 13:59:31] [INFO] [THOTH] [run_copwatchdog.sh] Copwatchdog run completed successfully
+2025-10-31 15:48:36,838 [INFO] 50-a: badge extracted via selector 'span.badge': 4998
+2025-10-31 15:48:36,853 [INFO] 50-a: service_start parsed: 01/01/2013
+2025-10-31 15:48:36,869 [INFO] 50-a: last_earned extracted from span.compensation: $156,000
+2025-10-31 15:48:36,895 [INFO] 50-a: has_discipline=N has_articles=Y
+2025-10-31 15:48:36,953 [INFO] 50-a: summary 'Complaints' -> 3
+2025-10-31 15:48:36,987 [INFO] 50-a: summary 'Allegations' -> 5
+2025-10-31 15:48:37,018 [INFO] 50-a: summary 'Substantiated' -> 1
+2025-10-31 15:48:37,046 [INFO] 50-a: summary 'Substantiated (Charges)' -> 1
+2025-10-31 15:48:37,107 [INFO] 50-a: summary 'Unsubstantiated' -> 1
+2025-10-31 15:48:37,124 [INFO] 50-a: lawsuits=4 settlements=$367,500
+2025-10-31 15:48:37,124 [INFO] 50-a: enrichment complete for 'Wayne Isaacs' (badge=4998, pct=393, started=01/01/2013, last_earned=$156,000)
+2025-10-31 15:48:37,124 [INFO] Main: 50-a enrich record #19 - Tina Shymanski
+2025-10-31 15:48:37,124 [INFO] 50-a: Searching for 'Tina Shymanski' (First='Tina' Last='Shymanski')
+2025-10-31 15:48:37,667 [INFO] 50-a: loaded https://www.50-a.org/
+2025-10-31 15:48:50,535 [WARNING] 50-a: timeout or no search results for 'Tina Shymanski'
+2025-10-31 15:48:50,535 [INFO] Main: beginning payroll enrichment pass
+2025-10-31 15:48:51,750 [INFO] Main: payroll enrich record #1 - First='Boubacar' Last='Barry'
+2025-10-31 15:48:51,750 [INFO] Payroll: Searching for 'Boubacar Barry'
+2025-10-31 15:48:51,751 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:48:51,752 [INFO] Payroll: using service_start tie-breaker = 2021-10-01
+2025-10-31 15:48:51,752 [INFO] Payroll: attempt 1/3 for 'Boubacar Barry'
+2025-10-31 15:48:53,920 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Boubacar Barry'
+2025-10-31 15:48:54,510 [WARNING] Payroll: search input not found on attempt 1 for 'Boubacar Barry' - will retry
+2025-10-31 15:48:55,016 [INFO] Payroll: waiting 2000ms before attempt 2 for 'Boubacar Barry'
+2025-10-31 15:48:57,024 [INFO] Payroll: attempt 2/3 for 'Boubacar Barry'
+2025-10-31 15:48:59,549 [INFO] Payroll: navigated to payroll site for attempt 2 for 'Boubacar Barry'
+2025-10-31 15:49:00,909 [INFO] Payroll: search submitted on attempt 2 for 'Boubacar Barry'
+2025-10-31 15:49:02,278 [WARNING] Payroll: search input did not apply for 'Boubacar Barry' on attempt 2 (input=''); will retry
+2025-10-31 15:49:02,782 [INFO] Payroll: waiting 4000ms before attempt 3 for 'Boubacar Barry'
+2025-10-31 15:49:06,792 [INFO] Payroll: attempt 3/3 for 'Boubacar Barry'
+2025-10-31 15:49:09,398 [INFO] Payroll: navigated to payroll site for attempt 3 for 'Boubacar Barry'
+2025-10-31 15:49:10,838 [INFO] Payroll: search submitted on attempt 3 for 'Boubacar Barry'
+2025-10-31 15:49:11,428 [INFO] Payroll: found 4 table rows for 'Boubacar Barry' on attempt 3
+2025-10-31 15:49:11,814 [INFO] Payroll: attempt 3 row#1 -> year=2025, first='BOUBACAR', last='BARRY', agency_start='10/12/2021'
+2025-10-31 15:49:11,971 [INFO] Payroll: attempt 3 row#2 -> year=2024, first='BOUBACAR', last='BARRY', agency_start='10/12/2021'
+2025-10-31 15:49:11,972 [INFO] Payroll: attempt 3 row#2 is 2024, chosen immediately
+2025-10-31 15:49:11,972 [INFO] Payroll: chosen row year=2024 agency_start=10/12/2021 status=ACTIVE - payroll fields updated
+2025-10-31 15:49:11,973 [INFO] Main: payroll enrich record #2 - First='Jaenice' Last='Smith'
+2025-10-31 15:49:11,974 [INFO] Payroll: Searching for 'Jaenice Smith'
+2025-10-31 15:49:11,974 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:49:11,974 [INFO] Payroll: using service_start tie-breaker = 2005-07-01
+2025-10-31 15:49:11,974 [INFO] Payroll: attempt 1/3 for 'Jaenice Smith'
+2025-10-31 15:49:14,801 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Jaenice Smith'
+2025-10-31 15:49:17,016 [INFO] Payroll: search submitted on attempt 1 for 'Jaenice Smith'
+2025-10-31 15:49:17,462 [INFO] Payroll: found 12 table rows for 'Jaenice Smith' on attempt 1
+2025-10-31 15:49:17,828 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='JAENICE', last='SMITH', agency_start='07/11/2005'
+2025-10-31 15:49:17,986 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='JAENICE', last='SMITH', agency_start='07/11/2005'
+2025-10-31 15:49:18,198 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='JAENICE', last='SMITH', agency_start='07/11/2005'
+2025-10-31 15:49:18,198 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
+2025-10-31 15:49:18,198 [INFO] Payroll: chosen row year=2024 agency_start=07/11/2005 status=ACTIVE - payroll fields updated
+2025-10-31 15:49:18,198 [INFO] Main: payroll enrich record #3 - First='Ryan' Last='Zelman'
+2025-10-31 15:49:18,198 [INFO] Payroll: Searching for 'Ryan Zelman'
+2025-10-31 15:49:18,198 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:49:18,199 [INFO] Payroll: using service_start tie-breaker = 2018-04-01
+2025-10-31 15:49:18,199 [INFO] Payroll: attempt 1/3 for 'Ryan Zelman'
+2025-10-31 15:49:21,186 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Ryan Zelman'
+2025-10-31 15:49:21,882 [INFO] Payroll: search submitted on attempt 1 for 'Ryan Zelman'
+2025-10-31 15:49:23,237 [INFO] Payroll: found 8 table rows for 'Ryan Zelman' on attempt 1
+2025-10-31 15:49:23,393 [INFO] Payroll: attempt 1 row#1 -> year=2025, first='RYAN', last='ZELMAN', agency_start='04/25/2018'
+2025-10-31 15:49:23,605 [INFO] Payroll: attempt 1 row#2 -> year=2024, first='RYAN', last='ZELMAN', agency_start='04/25/2018'
+2025-10-31 15:49:23,605 [INFO] Payroll: attempt 1 row#2 is 2024, chosen immediately
+2025-10-31 15:49:23,605 [INFO] Payroll: chosen row year=2024 agency_start=04/25/2018 status=ACTIVE - payroll fields updated
+2025-10-31 15:49:23,606 [INFO] Main: payroll enrich record #4 - First='Jaenice' Last='Smith'
+2025-10-31 15:49:23,606 [INFO] Payroll: Searching for 'Jaenice Smith'
+2025-10-31 15:49:23,606 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:49:23,606 [INFO] Payroll: using service_start tie-breaker = 2005-07-01
+2025-10-31 15:49:23,606 [INFO] Payroll: attempt 1/3 for 'Jaenice Smith'
+2025-10-31 15:49:27,118 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Jaenice Smith'
+2025-10-31 15:49:27,949 [INFO] Payroll: search submitted on attempt 1 for 'Jaenice Smith'
+2025-10-31 15:49:30,251 [INFO] Payroll: found 12 table rows for 'Jaenice Smith' on attempt 1
+2025-10-31 15:49:30,392 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='JAENICE', last='SMITH', agency_start='07/11/2005'
+2025-10-31 15:49:30,534 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='JAENICE', last='SMITH', agency_start='07/11/2005'
+2025-10-31 15:49:30,709 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='JAENICE', last='SMITH', agency_start='07/11/2005'
+2025-10-31 15:49:30,709 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
+2025-10-31 15:49:30,709 [INFO] Payroll: chosen row year=2024 agency_start=07/11/2005 status=ACTIVE - payroll fields updated
+2025-10-31 15:49:30,709 [INFO] Main: payroll enrich record #5 - First='Jaenice' Last='Smith'
+2025-10-31 15:49:30,709 [INFO] Payroll: Searching for 'Jaenice Smith'
+2025-10-31 15:49:30,709 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:49:30,709 [INFO] Payroll: using service_start tie-breaker = 2005-07-01
+2025-10-31 15:49:30,709 [INFO] Payroll: attempt 1/3 for 'Jaenice Smith'
+2025-10-31 15:49:33,397 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Jaenice Smith'
+2025-10-31 15:49:35,465 [INFO] Payroll: search submitted on attempt 1 for 'Jaenice Smith'
+2025-10-31 15:49:36,292 [INFO] Payroll: found 12 table rows for 'Jaenice Smith' on attempt 1
+2025-10-31 15:49:36,473 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='JAENICE', last='SMITH', agency_start='07/11/2005'
+2025-10-31 15:49:36,589 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='JAENICE', last='SMITH', agency_start='07/11/2005'
+2025-10-31 15:49:36,745 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='JAENICE', last='SMITH', agency_start='07/11/2005'
+2025-10-31 15:49:36,745 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
+2025-10-31 15:49:36,745 [INFO] Payroll: chosen row year=2024 agency_start=07/11/2005 status=ACTIVE - payroll fields updated
+2025-10-31 15:49:36,745 [INFO] Main: payroll enrich record #6 - First='Vincent' Last='Cavitolo'
+2025-10-31 15:49:36,745 [INFO] Payroll: Searching for 'Vincent Cavitolo'
+2025-10-31 15:49:36,746 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:49:36,746 [INFO] Payroll: using service_start tie-breaker = 2020-11-01
+2025-10-31 15:49:36,746 [INFO] Payroll: attempt 1/3 for 'Vincent Cavitolo'
+2025-10-31 15:49:38,277 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Vincent Cavitolo'
+2025-10-31 15:49:39,992 [INFO] Payroll: search submitted on attempt 1 for 'Vincent Cavitolo'
+2025-10-31 15:49:42,037 [WARNING] Payroll: search input did not apply for 'Vincent Cavitolo' on attempt 1 (input=''); will retry
+2025-10-31 15:49:42,541 [INFO] Payroll: waiting 2000ms before attempt 2 for 'Vincent Cavitolo'
+2025-10-31 15:49:44,547 [INFO] Payroll: attempt 2/3 for 'Vincent Cavitolo'
+2025-10-31 15:49:47,471 [INFO] Payroll: navigated to payroll site for attempt 2 for 'Vincent Cavitolo'
+2025-10-31 15:49:48,472 [INFO] Payroll: search submitted on attempt 2 for 'Vincent Cavitolo'
+2025-10-31 15:49:49,868 [INFO] Payroll: found 5 table rows for 'Vincent Cavitolo' on attempt 2
+2025-10-31 15:49:50,449 [INFO] Payroll: attempt 2 row#1 -> year=2025, first='VINCENT', last='CAVITOLO', agency_start='11/02/2020'
+2025-10-31 15:49:50,627 [INFO] Payroll: attempt 2 row#2 -> year=2024, first='VINCENT', last='CAVITOLO', agency_start='11/02/2020'
+2025-10-31 15:49:50,627 [INFO] Payroll: attempt 2 row#2 is 2024, chosen immediately
+2025-10-31 15:49:50,627 [INFO] Payroll: chosen row year=2024 agency_start=11/02/2020 status=ACTIVE - payroll fields updated
+2025-10-31 15:49:50,627 [INFO] Main: payroll enrich record #7 - First='Md' Last='Alam'
+2025-10-31 15:49:50,628 [INFO] Payroll: Searching for 'Md Alam'
+2025-10-31 15:49:50,628 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:49:50,628 [INFO] Payroll: using service_start tie-breaker = 2016-07-01
+2025-10-31 15:49:50,628 [INFO] Payroll: attempt 1/3 for 'Md Alam'
+2025-10-31 15:49:53,167 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Md Alam'
+2025-10-31 15:49:54,714 [INFO] Payroll: search submitted on attempt 1 for 'Md Alam'
+2025-10-31 15:49:56,821 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 1
+2025-10-31 15:49:57,154 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
+2025-10-31 15:49:57,511 [INFO] Payroll: attempt 1 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:49:57,636 [INFO] Payroll: attempt 1 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:49:57,821 [INFO] Payroll: attempt 1 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
+2025-10-31 15:49:58,111 [INFO] Payroll: attempt 1 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
+2025-10-31 15:49:58,420 [INFO] Payroll: attempt 1 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
+2025-10-31 15:49:58,699 [INFO] Payroll: attempt 1 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
+2025-10-31 15:49:58,850 [INFO] Payroll: attempt 1 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:49:59,124 [INFO] Payroll: attempt 1 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
+2025-10-31 15:49:59,247 [INFO] Payroll: attempt 1 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:49:59,247 [INFO] Payroll: reached 10 rows on attempt 1, stopping scan for this attempt
+2025-10-31 15:49:59,247 [INFO] Payroll: waiting 2000ms before attempt 2 for 'Md Alam'
+2025-10-31 15:50:01,255 [INFO] Payroll: attempt 2/3 for 'Md Alam'
+2025-10-31 15:50:02,763 [INFO] Payroll: navigated to payroll site for attempt 2 for 'Md Alam'
+2025-10-31 15:50:05,008 [INFO] Payroll: search submitted on attempt 2 for 'Md Alam'
+2025-10-31 15:50:06,918 [WARNING] Payroll: search input did not apply for 'Md Alam' on attempt 2 (input=''); will retry
+2025-10-31 15:50:07,421 [INFO] Payroll: waiting 4000ms before attempt 3 for 'Md Alam'
+2025-10-31 15:50:11,430 [INFO] Payroll: attempt 3/3 for 'Md Alam'
+2025-10-31 15:50:13,959 [INFO] Payroll: navigated to payroll site for attempt 3 for 'Md Alam'
+2025-10-31 15:50:15,513 [INFO] Payroll: search submitted on attempt 3 for 'Md Alam'
+2025-10-31 15:50:17,298 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 3
+2025-10-31 15:50:17,417 [INFO] Payroll: attempt 3 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
+2025-10-31 15:50:17,534 [INFO] Payroll: attempt 3 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:50:17,649 [INFO] Payroll: attempt 3 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:50:17,769 [INFO] Payroll: attempt 3 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
+2025-10-31 15:50:17,887 [INFO] Payroll: attempt 3 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
+2025-10-31 15:50:18,019 [INFO] Payroll: attempt 3 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
+2025-10-31 15:50:18,134 [INFO] Payroll: attempt 3 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
+2025-10-31 15:50:18,290 [INFO] Payroll: attempt 3 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:50:18,578 [INFO] Payroll: attempt 3 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
+2025-10-31 15:50:19,159 [INFO] Payroll: attempt 3 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:50:19,159 [INFO] Payroll: reached 10 rows on attempt 3, stopping scan for this attempt
+2025-10-31 15:50:19,159 [WARNING] Payroll: no suitable payroll match found for 'Md Alam' — will attempt one refresh-and-retry
+2025-10-31 15:50:22,013 [INFO] Payroll: page reloaded for retry for 'Md Alam'
+2025-10-31 15:50:23,221 [INFO] Payroll: re-submitting search on final retry for 'Md Alam'
+2025-10-31 15:50:23,607 [INFO] Payroll: retry found 75 rows for 'Md Alam'
+2025-10-31 15:50:26,101 [INFO] Payroll(retry): row#13 is 2024, chosen immediately
+2025-10-31 15:50:26,101 [INFO] Payroll(retry): payroll fields updated from retry for 'Md Alam'
+2025-10-31 15:50:26,101 [INFO] Main: payroll enrich record #8 - First='Omar' Last='Habib'
+2025-10-31 15:50:26,101 [INFO] Payroll: Searching for 'Omar Habib'
+2025-10-31 15:50:26,101 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:50:26,102 [INFO] Payroll: using service_start tie-breaker = 2007-01-01
+2025-10-31 15:50:26,102 [INFO] Payroll: attempt 1/3 for 'Omar Habib'
+2025-10-31 15:50:29,165 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Omar Habib'
+2025-10-31 15:50:31,474 [INFO] Payroll: search submitted on attempt 1 for 'Omar Habib'
+2025-10-31 15:50:31,963 [INFO] Payroll: found 12 table rows for 'Omar Habib' on attempt 1
+2025-10-31 15:50:32,197 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='OMAR', last='HABIB', agency_start='01/10/2007'
+2025-10-31 15:50:32,311 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='OMAR', last='HABIB', agency_start='01/10/2007'
+2025-10-31 15:50:32,483 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='OMAR', last='HABIB', agency_start='01/10/2007'
+2025-10-31 15:50:32,483 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
+2025-10-31 15:50:32,483 [INFO] Payroll: chosen row year=2024 agency_start=01/10/2007 status=ACTIVE - payroll fields updated
+2025-10-31 15:50:32,483 [INFO] Main: payroll enrich record #9 - First='Vincent' Last='Cavitolo'
+2025-10-31 15:50:32,483 [INFO] Payroll: Searching for 'Vincent Cavitolo'
+2025-10-31 15:50:32,483 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:50:32,483 [INFO] Payroll: using service_start tie-breaker = 2020-11-01
+2025-10-31 15:50:32,484 [INFO] Payroll: attempt 1/3 for 'Vincent Cavitolo'
+2025-10-31 15:50:34,180 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Vincent Cavitolo'
+2025-10-31 15:50:36,408 [INFO] Payroll: search submitted on attempt 1 for 'Vincent Cavitolo'
+2025-10-31 15:50:37,928 [WARNING] Payroll: search input did not apply for 'Vincent Cavitolo' on attempt 1 (input=''); will retry
+2025-10-31 15:50:38,432 [INFO] Payroll: waiting 2000ms before attempt 2 for 'Vincent Cavitolo'
+2025-10-31 15:50:40,439 [INFO] Payroll: attempt 2/3 for 'Vincent Cavitolo'
+2025-10-31 15:50:42,024 [INFO] Payroll: navigated to payroll site for attempt 2 for 'Vincent Cavitolo'
+2025-10-31 15:50:42,375 [WARNING] Payroll: search input not found on attempt 2 for 'Vincent Cavitolo' - will retry
+2025-10-31 15:50:42,889 [INFO] Payroll: waiting 4000ms before attempt 3 for 'Vincent Cavitolo'
+2025-10-31 15:50:46,898 [INFO] Payroll: attempt 3/3 for 'Vincent Cavitolo'
+2025-10-31 15:50:49,687 [INFO] Payroll: navigated to payroll site for attempt 3 for 'Vincent Cavitolo'
+2025-10-31 15:50:51,849 [INFO] Payroll: search submitted on attempt 3 for 'Vincent Cavitolo'
+2025-10-31 15:50:52,947 [INFO] Payroll: found 5 table rows for 'Vincent Cavitolo' on attempt 3
+2025-10-31 15:50:53,090 [INFO] Payroll: attempt 3 row#1 -> year=2025, first='VINCENT', last='CAVITOLO', agency_start='11/02/2020'
+2025-10-31 15:50:53,229 [INFO] Payroll: attempt 3 row#2 -> year=2024, first='VINCENT', last='CAVITOLO', agency_start='11/02/2020'
+2025-10-31 15:50:53,229 [INFO] Payroll: attempt 3 row#2 is 2024, chosen immediately
+2025-10-31 15:50:53,230 [INFO] Payroll: chosen row year=2024 agency_start=11/02/2020 status=ACTIVE - payroll fields updated
+2025-10-31 15:50:53,230 [INFO] Main: payroll enrich record #10 - First='Md' Last='Alam'
+2025-10-31 15:50:53,230 [INFO] Payroll: Searching for 'Md Alam'
+2025-10-31 15:50:53,230 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:50:53,230 [INFO] Payroll: using service_start tie-breaker = 2016-07-01
+2025-10-31 15:50:53,230 [INFO] Payroll: attempt 1/3 for 'Md Alam'
+2025-10-31 15:50:55,805 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Md Alam'
+2025-10-31 15:50:56,439 [INFO] Payroll: search submitted on attempt 1 for 'Md Alam'
+2025-10-31 15:50:59,169 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 1
+2025-10-31 15:50:59,408 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
+2025-10-31 15:50:59,572 [INFO] Payroll: attempt 1 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:50:59,703 [INFO] Payroll: attempt 1 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:50:59,864 [INFO] Payroll: attempt 1 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
+2025-10-31 15:50:59,991 [INFO] Payroll: attempt 1 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
+2025-10-31 15:51:00,129 [INFO] Payroll: attempt 1 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
+2025-10-31 15:51:00,259 [INFO] Payroll: attempt 1 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
+2025-10-31 15:51:00,452 [INFO] Payroll: attempt 1 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:51:00,595 [INFO] Payroll: attempt 1 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
+2025-10-31 15:51:00,717 [INFO] Payroll: attempt 1 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:51:00,717 [INFO] Payroll: reached 10 rows on attempt 1, stopping scan for this attempt
+2025-10-31 15:51:00,717 [INFO] Payroll: waiting 2000ms before attempt 2 for 'Md Alam'
+2025-10-31 15:51:02,721 [INFO] Payroll: attempt 2/3 for 'Md Alam'
+2025-10-31 15:51:05,779 [INFO] Payroll: navigated to payroll site for attempt 2 for 'Md Alam'
+2025-10-31 15:51:06,840 [INFO] Payroll: search submitted on attempt 2 for 'Md Alam'
+2025-10-31 15:51:08,525 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 2
+2025-10-31 15:51:08,979 [INFO] Payroll: attempt 2 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
+2025-10-31 15:51:09,109 [INFO] Payroll: attempt 2 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:51:09,237 [INFO] Payroll: attempt 2 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:51:09,392 [INFO] Payroll: attempt 2 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
+2025-10-31 15:51:09,638 [INFO] Payroll: attempt 2 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
+2025-10-31 15:51:09,775 [INFO] Payroll: attempt 2 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
+2025-10-31 15:51:09,983 [INFO] Payroll: attempt 2 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
+2025-10-31 15:51:10,113 [INFO] Payroll: attempt 2 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:51:10,230 [INFO] Payroll: attempt 2 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
+2025-10-31 15:51:10,487 [INFO] Payroll: attempt 2 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:51:10,487 [INFO] Payroll: reached 10 rows on attempt 2, stopping scan for this attempt
+2025-10-31 15:51:10,488 [INFO] Payroll: waiting 4000ms before attempt 3 for 'Md Alam'
+2025-10-31 15:51:14,493 [INFO] Payroll: attempt 3/3 for 'Md Alam'
+2025-10-31 15:51:17,242 [INFO] Payroll: navigated to payroll site for attempt 3 for 'Md Alam'
+2025-10-31 15:51:18,249 [INFO] Payroll: search submitted on attempt 3 for 'Md Alam'
+2025-10-31 15:51:20,687 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 3
+2025-10-31 15:51:20,805 [INFO] Payroll: attempt 3 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
+2025-10-31 15:51:20,932 [INFO] Payroll: attempt 3 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:51:21,140 [INFO] Payroll: attempt 3 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:51:21,340 [INFO] Payroll: attempt 3 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
+2025-10-31 15:51:21,477 [INFO] Payroll: attempt 3 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
+2025-10-31 15:51:21,704 [INFO] Payroll: attempt 3 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
+2025-10-31 15:51:21,846 [INFO] Payroll: attempt 3 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
+2025-10-31 15:51:22,102 [INFO] Payroll: attempt 3 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:51:22,355 [INFO] Payroll: attempt 3 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
+2025-10-31 15:51:22,561 [INFO] Payroll: attempt 3 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:51:22,562 [INFO] Payroll: reached 10 rows on attempt 3, stopping scan for this attempt
+2025-10-31 15:51:22,562 [WARNING] Payroll: no suitable payroll match found for 'Md Alam' — will attempt one refresh-and-retry
+2025-10-31 15:51:25,328 [INFO] Payroll: page reloaded for retry for 'Md Alam'
+2025-10-31 15:51:26,367 [INFO] Payroll: re-submitting search on final retry for 'Md Alam'
+2025-10-31 15:51:26,667 [INFO] Payroll: retry found 75 rows for 'Md Alam'
+2025-10-31 15:51:30,035 [INFO] Payroll(retry): row#13 is 2024, chosen immediately
+2025-10-31 15:51:30,035 [INFO] Payroll(retry): payroll fields updated from retry for 'Md Alam'
+2025-10-31 15:51:30,035 [INFO] Main: payroll enrich record #11 - First='Vincent' Last='Cavitolo'
+2025-10-31 15:51:30,035 [INFO] Payroll: Searching for 'Vincent Cavitolo'
+2025-10-31 15:51:30,035 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:51:30,036 [INFO] Payroll: using service_start tie-breaker = 2020-11-01
+2025-10-31 15:51:30,036 [INFO] Payroll: attempt 1/3 for 'Vincent Cavitolo'
+2025-10-31 15:51:33,063 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Vincent Cavitolo'
+2025-10-31 15:51:34,133 [INFO] Payroll: search submitted on attempt 1 for 'Vincent Cavitolo'
+2025-10-31 15:51:35,883 [INFO] Payroll: found 5 table rows for 'Vincent Cavitolo' on attempt 1
+2025-10-31 15:51:36,093 [INFO] Payroll: attempt 1 row#1 -> year=2025, first='VINCENT', last='CAVITOLO', agency_start='11/02/2020'
+2025-10-31 15:51:36,298 [INFO] Payroll: attempt 1 row#2 -> year=2024, first='VINCENT', last='CAVITOLO', agency_start='11/02/2020'
+2025-10-31 15:51:36,298 [INFO] Payroll: attempt 1 row#2 is 2024, chosen immediately
+2025-10-31 15:51:36,298 [INFO] Payroll: chosen row year=2024 agency_start=11/02/2020 status=ACTIVE - payroll fields updated
+2025-10-31 15:51:36,298 [INFO] Main: payroll enrich record #12 - First='Md' Last='Alam'
+2025-10-31 15:51:36,298 [INFO] Payroll: Searching for 'Md Alam'
+2025-10-31 15:51:36,298 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:51:36,298 [INFO] Payroll: using service_start tie-breaker = 2016-07-01
+2025-10-31 15:51:36,298 [INFO] Payroll: attempt 1/3 for 'Md Alam'
+2025-10-31 15:51:38,963 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Md Alam'
+2025-10-31 15:51:40,111 [INFO] Payroll: search submitted on attempt 1 for 'Md Alam'
+2025-10-31 15:51:42,414 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 1
+2025-10-31 15:51:42,613 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
+2025-10-31 15:51:42,795 [INFO] Payroll: attempt 1 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:51:42,948 [INFO] Payroll: attempt 1 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:51:43,091 [INFO] Payroll: attempt 1 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
+2025-10-31 15:51:43,216 [INFO] Payroll: attempt 1 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
+2025-10-31 15:51:43,362 [INFO] Payroll: attempt 1 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
+2025-10-31 15:51:43,526 [INFO] Payroll: attempt 1 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
+2025-10-31 15:51:43,658 [INFO] Payroll: attempt 1 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:51:43,822 [INFO] Payroll: attempt 1 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
+2025-10-31 15:51:43,979 [INFO] Payroll: attempt 1 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:51:43,980 [INFO] Payroll: reached 10 rows on attempt 1, stopping scan for this attempt
+2025-10-31 15:51:43,980 [INFO] Payroll: waiting 2000ms before attempt 2 for 'Md Alam'
+2025-10-31 15:51:45,986 [INFO] Payroll: attempt 2/3 for 'Md Alam'
+2025-10-31 15:51:48,926 [INFO] Payroll: navigated to payroll site for attempt 2 for 'Md Alam'
+2025-10-31 15:51:50,138 [INFO] Payroll: search submitted on attempt 2 for 'Md Alam'
+2025-10-31 15:51:52,605 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 2
+2025-10-31 15:51:52,875 [INFO] Payroll: attempt 2 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
+2025-10-31 15:51:52,987 [INFO] Payroll: attempt 2 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:51:53,152 [INFO] Payroll: attempt 2 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:51:53,271 [INFO] Payroll: attempt 2 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
+2025-10-31 15:51:53,410 [INFO] Payroll: attempt 2 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
+2025-10-31 15:51:53,533 [INFO] Payroll: attempt 2 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
+2025-10-31 15:51:53,728 [INFO] Payroll: attempt 2 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
+2025-10-31 15:51:53,979 [INFO] Payroll: attempt 2 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:51:54,135 [INFO] Payroll: attempt 2 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
+2025-10-31 15:51:54,371 [INFO] Payroll: attempt 2 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:51:54,371 [INFO] Payroll: reached 10 rows on attempt 2, stopping scan for this attempt
+2025-10-31 15:51:54,371 [INFO] Payroll: waiting 4000ms before attempt 3 for 'Md Alam'
+2025-10-31 15:51:58,381 [INFO] Payroll: attempt 3/3 for 'Md Alam'
+2025-10-31 15:52:01,282 [INFO] Payroll: navigated to payroll site for attempt 3 for 'Md Alam'
+2025-10-31 15:52:01,676 [INFO] Payroll: search submitted on attempt 3 for 'Md Alam'
+2025-10-31 15:52:04,122 [INFO] Payroll: found 75 table rows for 'Md Alam' on attempt 3
+2025-10-31 15:52:04,243 [INFO] Payroll: attempt 3 row#1 -> year=2014, first='MD', last='ALAM', agency_start='08/28/2006'
+2025-10-31 15:52:04,368 [INFO] Payroll: attempt 3 row#2 -> year=2014, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:52:04,583 [INFO] Payroll: attempt 3 row#3 -> year=2025, first='MD', last='ALAM', agency_start='03/26/2007'
+2025-10-31 15:52:04,740 [INFO] Payroll: attempt 3 row#4 -> year=2025, first='MD', last='ALAM', agency_start='07/13/2016'
+2025-10-31 15:52:05,071 [INFO] Payroll: attempt 3 row#5 -> year=2025, first='MD', last='ALAM', agency_start='10/11/2016'
+2025-10-31 15:52:05,195 [INFO] Payroll: attempt 3 row#6 -> year=2025, first='MD', last='ALAM', agency_start='04/27/2018'
+2025-10-31 15:52:05,318 [INFO] Payroll: attempt 3 row#7 -> year=2025, first='MD', last='ALAM', agency_start='02/24/2021'
+2025-10-31 15:52:05,599 [INFO] Payroll: attempt 3 row#8 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:52:05,883 [INFO] Payroll: attempt 3 row#9 -> year=2025, first='MD.', last='ALAM', agency_start='03/29/2022'
+2025-10-31 15:52:06,055 [INFO] Payroll: attempt 3 row#10 -> year=2025, first='MD', last='ALAM', agency_start='10/28/2022'
+2025-10-31 15:52:06,055 [INFO] Payroll: reached 10 rows on attempt 3, stopping scan for this attempt
+2025-10-31 15:52:06,056 [WARNING] Payroll: no suitable payroll match found for 'Md Alam' — will attempt one refresh-and-retry
+2025-10-31 15:52:08,942 [INFO] Payroll: page reloaded for retry for 'Md Alam'
+2025-10-31 15:52:09,986 [INFO] Payroll: re-submitting search on final retry for 'Md Alam'
+2025-10-31 15:52:10,193 [INFO] Payroll: retry found 75 rows for 'Md Alam'
+2025-10-31 15:52:13,040 [INFO] Payroll(retry): row#13 is 2024, chosen immediately
+2025-10-31 15:52:13,041 [INFO] Payroll(retry): payroll fields updated from retry for 'Md Alam'
+2025-10-31 15:52:13,041 [INFO] Main: payroll enrich record #13 - First='Omar' Last='Habib'
+2025-10-31 15:52:13,041 [INFO] Payroll: Searching for 'Omar Habib'
+2025-10-31 15:52:13,041 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:52:13,041 [INFO] Payroll: using service_start tie-breaker = 2007-01-01
+2025-10-31 15:52:13,041 [INFO] Payroll: attempt 1/3 for 'Omar Habib'
+2025-10-31 15:52:15,787 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Omar Habib'
+2025-10-31 15:52:16,328 [INFO] Payroll: search submitted on attempt 1 for 'Omar Habib'
+2025-10-31 15:52:17,574 [INFO] Payroll: found 12 table rows for 'Omar Habib' on attempt 1
+2025-10-31 15:52:17,712 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='OMAR', last='HABIB', agency_start='01/10/2007'
+2025-10-31 15:52:17,838 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='OMAR', last='HABIB', agency_start='01/10/2007'
+2025-10-31 15:52:17,956 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='OMAR', last='HABIB', agency_start='01/10/2007'
+2025-10-31 15:52:17,956 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
+2025-10-31 15:52:17,956 [INFO] Payroll: chosen row year=2024 agency_start=01/10/2007 status=ACTIVE - payroll fields updated
+2025-10-31 15:52:17,956 [INFO] Main: payroll enrich record #14 - First='Joshua' Last='Moscoso'
+2025-10-31 15:52:17,956 [INFO] Payroll: Searching for 'Joshua Moscoso'
+2025-10-31 15:52:17,957 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:52:17,957 [INFO] Payroll: using service_start tie-breaker = 2016-01-01
+2025-10-31 15:52:17,957 [INFO] Payroll: attempt 1/3 for 'Joshua Moscoso'
+2025-10-31 15:52:20,695 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Joshua Moscoso'
+2025-10-31 15:52:21,631 [INFO] Payroll: search submitted on attempt 1 for 'Joshua Moscoso'
+2025-10-31 15:52:22,925 [INFO] Payroll: found 10 table rows for 'Joshua Moscoso' on attempt 1
+2025-10-31 15:52:23,442 [INFO] Payroll: attempt 1 row#1 -> year=2025, first='JOSHUA', last='MOSCOSO', agency_start='01/06/2016'
+2025-10-31 15:52:23,667 [INFO] Payroll: attempt 1 row#2 -> year=2024, first='JOSHUA', last='MOSCOSO', agency_start='01/06/2016'
+2025-10-31 15:52:23,668 [INFO] Payroll: attempt 1 row#2 is 2024, chosen immediately
+2025-10-31 15:52:23,668 [INFO] Payroll: chosen row year=2024 agency_start=01/06/2016 status=ACTIVE - payroll fields updated
+2025-10-31 15:52:23,673 [INFO] Main: payroll enrich record #15 - First='Wayne' Last='Isaacs'
+2025-10-31 15:52:23,674 [INFO] Payroll: Searching for 'Wayne Isaacs'
+2025-10-31 15:52:23,674 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:52:23,674 [INFO] Payroll: using service_start tie-breaker = 2013-01-01
+2025-10-31 15:52:23,674 [INFO] Payroll: attempt 1/3 for 'Wayne Isaacs'
+2025-10-31 15:52:26,442 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Wayne Isaacs'
+2025-10-31 15:52:27,271 [INFO] Payroll: search submitted on attempt 1 for 'Wayne Isaacs'
+2025-10-31 15:52:28,808 [INFO] Payroll: found 12 table rows for 'Wayne Isaacs' on attempt 1
+2025-10-31 15:52:29,498 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
+2025-10-31 15:52:29,636 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
+2025-10-31 15:52:29,815 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
+2025-10-31 15:52:29,815 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
+2025-10-31 15:52:29,815 [INFO] Payroll: chosen row year=2024 agency_start=01/09/2013 status=ACTIVE - payroll fields updated
+2025-10-31 15:52:29,815 [INFO] Main: payroll enrich record #16 - First='Kiada' Last='Moragne'
+2025-10-31 15:52:29,815 [INFO] Payroll: Searching for 'Kiada Moragne'
+2025-10-31 15:52:29,815 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:52:29,815 [INFO] Payroll: using service_start tie-breaker = 2008-07-01
+2025-10-31 15:52:29,815 [INFO] Payroll: attempt 1/3 for 'Kiada Moragne'
+2025-10-31 15:52:32,479 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Kiada Moragne'
+2025-10-31 15:52:34,144 [INFO] Payroll: search submitted on attempt 1 for 'Kiada Moragne'
+2025-10-31 15:52:35,697 [INFO] Payroll: found 12 table rows for 'Kiada Moragne' on attempt 1
+2025-10-31 15:52:35,898 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='KIADA', last='MORAGNE', agency_start='07/08/2008'
+2025-10-31 15:52:36,179 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='KIADA', last='MORAGNE', agency_start='07/08/2008'
+2025-10-31 15:52:36,426 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='KIADA', last='MORAGNE', agency_start='07/08/2008'
+2025-10-31 15:52:36,426 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
+2025-10-31 15:52:36,426 [INFO] Payroll: chosen row year=2024 agency_start=07/08/2008 status=ACTIVE - payroll fields updated
+2025-10-31 15:52:36,426 [INFO] Main: payroll enrich record #17 - First='Wayne' Last='Isaacs'
+2025-10-31 15:52:36,426 [INFO] Payroll: Searching for 'Wayne Isaacs'
+2025-10-31 15:52:36,426 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:52:36,427 [INFO] Payroll: using service_start tie-breaker = 2013-01-01
+2025-10-31 15:52:36,427 [INFO] Payroll: attempt 1/3 for 'Wayne Isaacs'
+2025-10-31 15:52:39,232 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Wayne Isaacs'
+2025-10-31 15:52:40,416 [INFO] Payroll: search submitted on attempt 1 for 'Wayne Isaacs'
+2025-10-31 15:52:42,460 [INFO] Payroll: found 12 table rows for 'Wayne Isaacs' on attempt 1
+2025-10-31 15:52:42,576 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
+2025-10-31 15:52:42,708 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
+2025-10-31 15:52:43,265 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
+2025-10-31 15:52:43,265 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
+2025-10-31 15:52:43,266 [INFO] Payroll: chosen row year=2024 agency_start=01/09/2013 status=ACTIVE - payroll fields updated
+2025-10-31 15:52:43,266 [INFO] Main: payroll enrich record #18 - First='Wayne' Last='Isaacs'
+2025-10-31 15:52:43,266 [INFO] Payroll: Searching for 'Wayne Isaacs'
+2025-10-31 15:52:43,266 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:52:43,266 [INFO] Payroll: using service_start tie-breaker = 2013-01-01
+2025-10-31 15:52:43,266 [INFO] Payroll: attempt 1/3 for 'Wayne Isaacs'
+2025-10-31 15:52:46,345 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Wayne Isaacs'
+2025-10-31 15:52:47,440 [INFO] Payroll: search submitted on attempt 1 for 'Wayne Isaacs'
+2025-10-31 15:52:48,652 [INFO] Payroll: found 12 table rows for 'Wayne Isaacs' on attempt 1
+2025-10-31 15:52:49,343 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
+2025-10-31 15:52:49,735 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
+2025-10-31 15:52:49,923 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='WAYNE', last='ISAACS', agency_start='01/09/2013'
+2025-10-31 15:52:49,923 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
+2025-10-31 15:52:49,923 [INFO] Payroll: chosen row year=2024 agency_start=01/09/2013 status=ACTIVE - payroll fields updated
+2025-10-31 15:52:49,923 [INFO] Main: payroll enrich record #19 - First='Tina' Last='Shymanski'
+2025-10-31 15:52:49,924 [INFO] Payroll: Searching for 'Tina Shymanski'
+2025-10-31 15:52:49,924 [INFO] Payroll: targeting 2024 first, then 2023
+2025-10-31 15:52:49,924 [INFO] Payroll: attempt 1/3 for 'Tina Shymanski'
+2025-10-31 15:52:52,879 [INFO] Payroll: navigated to payroll site for attempt 1 for 'Tina Shymanski'
+2025-10-31 15:52:53,859 [INFO] Payroll: search submitted on attempt 1 for 'Tina Shymanski'
+2025-10-31 15:52:54,642 [INFO] Payroll: found 12 table rows for 'Tina Shymanski' on attempt 1
+2025-10-31 15:52:54,862 [INFO] Payroll: attempt 1 row#1 -> year=2014, first='TINA', last='SHYMANSKI', agency_start='09/09/2002'
+2025-10-31 15:52:55,130 [INFO] Payroll: attempt 1 row#2 -> year=2025, first='TINA', last='SHYMANSKI', agency_start='09/09/2002'
+2025-10-31 15:52:55,274 [INFO] Payroll: attempt 1 row#3 -> year=2024, first='TINA', last='SHYMANSKI', agency_start='09/09/2002'
+2025-10-31 15:52:55,274 [INFO] Payroll: attempt 1 row#3 is 2024, chosen immediately
+2025-10-31 15:52:55,274 [INFO] Payroll: chosen row year=2024 agency_start=09/09/2002 status=ACTIVE - payroll fields updated
+2025-10-31 15:52:55,697 [INFO] Browser closed, Dogs returned
+2025-10-31 15:52:55,764 [INFO] CSV filename: Using latest trial date 11/24/2025
+2025-10-31 15:52:55,765 [INFO] Generated CSV filename: 2511-copwatchdog.csv
+2025-10-31 15:52:55,766 [INFO] Writing CSV to ../CSV/2511-copwatchdog.csv
+2025-10-31 15:52:55,774 [INFO] Writing CSV to copwatchdog.csv
+2025-10-31 15:52:55,777 [INFO] === THOTH Mission Complete ===
+2025-10-31 15:52:55,777 [INFO] Monthly CSV file (../CSV/2511-copwatchdog.csv): 19 rows
+2025-10-31 15:52:55,777 [INFO] Local CSV file (copwatchdog.csv): 19 rows
+2025-10-31 15:52:55,777 [INFO] Successful Operation - Ready for HERMES ETL
+[2025-10-31 15:52:56] [INFO] [COPWATCHDOG] [run_copwatchdog.sh] THOTH completed successfully
+[2025-10-31 15:52:56] [INFO] [HERMES] [run_copwatchdog.sh] Waiting for THOTH data collection and enrichment to complete...
+[2025-10-31 15:52:56] [INFO] [HERMES] [run_copwatchdog.sh] THOTH data collection and enrichment completed successfully
+[2025-10-31 15:52:56] [INFO] [HERMES] [run_copwatchdog.sh] Setting up database connection...
+[2025-10-31 15:53:26] [WARNING] [COPWATCHDOG] [run_copwatchdog.sh] Direct database connection failed, trying SSH tunnel...
+[2025-10-31 15:53:31] [INFO] [THOTH] [run_copwatchdog.sh] SSH tunnel established successfully
+[2025-10-31 15:53:31] [INFO] [THOTH] [run_copwatchdog.sh] Starting database import process...
+[2025-10-31 15:53:31] [INFO] [THOTH_IMPORT] [import_to_db.sh] Starting THOTH import script
+[2025-10-31 15:53:31] [INFO] [THOTH_IMPORT] [import_to_db.sh] Starting database import process
+[2025-10-31 15:53:31] [INFO] [COPWATCHDOG] [import_to_db.sh] Loaded environment from /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/.env
+[2025-10-31 15:53:31] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using SSH tunnel for database connection
+[2025-10-31 15:53:31] [INFO] [THOTH_IMPORT] [import_to_db.sh] Proceeding to CSV import...
+[2025-10-31 15:53:31] [INFO] [THOTH_IMPORT] [import_to_db.sh] Applying schema fixes before import
+[2025-10-31 15:54:01] [WARNING] [THOTH_IMPORT] [import_to_db.sh] Could not apply schema fixes; continuing import. If imports fail, review /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/SQL/create_cwd_schemas.sql
+[2025-10-31 15:54:01] [INFO] [THOTH_IMPORT] [import_to_db.sh] Found 3 CSV files to process
+[2025-10-31 15:54:01] [INFO] [THOTH_IMPORT] [import_to_db.sh]   - 2509-copwatchdog.csv
+[2025-10-31 15:54:01] [INFO] [THOTH_IMPORT] [import_to_db.sh]   - 2510-copwatchdog.csv
+[2025-10-31 15:54:01] [INFO] [THOTH_IMPORT] [import_to_db.sh]   - 2511-copwatchdog.csv
+[2025-10-31 15:54:01] [INFO] [THOTH_IMPORT] [import_to_db.sh] Importing /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
+[2025-10-31 15:54:01] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using service=copwatchdog configuration
+[2025-10-31 15:54:01] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using helper script to import /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
+[2025-10-31 15:54:32] [INFO] [THOTH_IMPORT] [import_to_db.sh] Import succeeded for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
+[2025-10-31 15:54:32] [INFO] [THOTH_IMPORT] [import_to_db.sh] Importing /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
+[2025-10-31 15:54:32] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using service=copwatchdog configuration
+[2025-10-31 15:54:32] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using helper script to import /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
+[2025-10-31 15:55:03] [INFO] [THOTH_IMPORT] [import_to_db.sh] Import succeeded for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
+[2025-10-31 15:55:03] [INFO] [THOTH_IMPORT] [import_to_db.sh] Importing /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2511-copwatchdog.csv
+[2025-10-31 15:55:03] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using service=copwatchdog configuration
+[2025-10-31 15:55:03] [INFO] [THOTH_IMPORT] [import_to_db.sh] Using helper script to import /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2511-copwatchdog.csv
+[2025-10-31 15:55:34] [INFO] [THOTH_IMPORT] [import_to_db.sh] Import succeeded for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2511-copwatchdog.csv
+[2025-10-31 15:55:34] [INFO] [THOTH_IMPORT] [import_to_db.sh] Import run complete: processed=3 failed=0
+[2025-10-31 15:55:34] [INFO] [THOTH_IMPORT] [import_to_db.sh] Data successfully loaded into cwd_raw.officers_raw - no ETL transformation needed
+[2025-10-31 15:55:34] [INFO] [THOTH] [run_copwatchdog.sh] Database import completed successfully
+[2025-10-31 15:55:34] [INFO] [THOTH] [run_copwatchdog.sh] Data now available in cwd_raw.officers_raw (cwd_clean schema removed, no ETL needed)
+[2025-10-31 15:55:34] [INFO] [THOTH] [run_copwatchdog.sh] Copwatchdog run completed successfully
