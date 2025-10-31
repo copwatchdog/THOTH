@@ -536,6 +536,13 @@ def enrich_with_payroll(page, record):
 
     while attempt < max_attempts and not chosen:
         attempt += 1
+        
+        # Progressive wait between attempts: 0s, 2s, 4s
+        if attempt > 1:
+            wait_time = (attempt - 1) * 2000
+            logging.info(f"Payroll: waiting {wait_time}ms before attempt {attempt} for '{query}'")
+            page.wait_for_timeout(wait_time)
+        
         logging.info(f"Payroll: attempt {attempt}/{max_attempts} for '{query}'")
         try:
             # Do a full re-entry each attempt: navigate to the payroll site and submit the search
