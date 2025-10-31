@@ -26,10 +26,7 @@ os.makedirs(LOGS_DIR, exist_ok=True)
 
 THOTH_LOG = os.path.join(LOGS_DIR, "thoth.log")
 
-# Generate monthly CSV filename in format YYMM-copwatchdog.csv
-current_date = datetime.now()
-month_prefix = f"{str(current_date.year)[2:]}{current_date.month:02d}"
-CSV_FILE = f"{month_prefix}-copwatchdog.csv"
+# CSV configuration - filename will be generated after extracting trial dates
 CSV_DIR = Path("../CSV")  # Output directory for CSV files
 LOCAL_CSV_FILE = "copwatchdog.csv"  # Keep a copy in the current directory
 
@@ -150,6 +147,57 @@ def _extract_initial(name_text: str) -> str:
     if m2 and len(m2.group(1)) == 1:
         return m2.group(1).upper()
     return ""
+
+def _generate_csv_filename(records):
+    """
+    Generate CSV filename based on trial dates found in records.
+    Format: YYMM-copwatchdog.csv
+    
+    Uses the most recent (latest) trial date found in the records.
+    Falls back to current date if no valid dates are found.
+    
+    Args:
+        records: List of trial records containing 'Date' field
+        
+    Returns:
+        String filename in format YYMM-copwatchdog.csv
+    """
+    latest_date = None
+    
+    for record in records:
+        date_str = record.get("Date", "")
+        if not date_str:
+            continue
+        
+        # Try parsing the date (assuming format like "11/3/2025" or "M/D/YYYY")
+        try:
+            trial_date = datetime.strptime(date_str, "%m/%d/%Y")
+            if latest_date is None or trial_date > latest_date:
+                latest_date = trial_date
+        except ValueError:
+            # Try other common formats
+            for fmt in ["%m-%d-%Y", "%Y-%m-%d", "%d/%m/%Y"]:
+                try:
+                    trial_date = datetime.strptime(date_str, fmt)
+                    if latest_date is None or trial_date > latest_date:
+                        latest_date = trial_date
+                    break
+                except ValueError:
+                    continue
+    
+    # Use the latest trial date if found, otherwise fall back to current date
+    if latest_date:
+        target_date = latest_date
+        logging.info(f"CSV filename: Using latest trial date {target_date.strftime('%m/%d/%Y')}")
+    else:
+        target_date = datetime.now()
+        logging.warning(f"CSV filename: No valid trial dates found, using current date {target_date.strftime('%m/%d/%Y')}")
+    
+    month_prefix = f"{str(target_date.year)[2:]}{target_date.month:02d}"
+    filename = f"{month_prefix}-copwatchdog.csv"
+    logging.info(f"Generated CSV filename: {filename}")
+    return filename
+
 
 # === Payroll Name Matching Helpers ===
 def _strip_suffix(name: str) -> str:
@@ -742,6 +790,9 @@ with sync_playwright() as p:
     logging.info("Browser closed, Dogs returned")
 
 # === Save CSV ===
+# Generate CSV filename based on actual trial dates
+CSV_FILE = _generate_csv_filename(all_records)
+
 # Ensure the CSV directory exists
 CSV_DIR.mkdir(parents=True, exist_ok=True)
 csv_path = CSV_DIR / CSV_FILE
