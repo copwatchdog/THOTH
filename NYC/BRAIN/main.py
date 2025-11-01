@@ -4,6 +4,7 @@ import re
 import os
 import gc
 import atexit
+import random
 from datetime import datetime
 from pathlib import Path
 from playwright.sync_api import sync_playwright, TimeoutError
@@ -29,6 +30,9 @@ THOTH_LOG = os.path.join(LOGS_DIR, "thoth.log")
 # CSV configuration - filename will be generated after extracting trial dates
 CSV_DIR = Path("../CSV")  # Output directory for CSV files
 LOCAL_CSV_FILE = "copwatchdog.csv"  # Keep a copy in the current directory
+
+# Payroll cache to avoid re-querying same officer
+_payroll_cache = {}
 
 # === Setup logging ===
 # Clear old log file
@@ -513,6 +517,14 @@ def enrich_with_payroll(page, record):
         logging.warning("Payroll: Missing First or Last; skipping enrichment")
         return
 
+    # Check cache first - reuse successful payroll data for duplicate officers
+    cache_key = (first.lower(), last.lower(), record.get("service_start", ""))
+    if cache_key in _payroll_cache:
+        cached_data = _payroll_cache[cache_key]
+        record.update(cached_data)
+        logging.info(f"Payroll: reused cached data for '{first} {last}' (service_start={record.get('service_start')})")
+        return
+
     # Include middle initial in the payroll query when available to improve matching
     initial = record.get("Initial", "")
     if initial:
@@ -541,9 +553,9 @@ def enrich_with_payroll(page, record):
     while attempt < max_attempts and not chosen:
         attempt += 1
         
-        # Progressive wait between attempts: 0s, 2s, 4s
+        # Non-linear exponential backoff: 0s, 2s, 5s
         if attempt > 1:
-            wait_time = (attempt - 1) * 2000
+            wait_time = int(2000 * (1.5 ** (attempt - 2)))
             logging.info(f"Payroll: waiting {wait_time}ms before attempt {attempt} for '{query}'")
             page.wait_for_timeout(wait_time)
         
@@ -687,9 +699,13 @@ def enrich_with_payroll(page, record):
             }
             record.update(payroll_data)
             record["Last Earned"] = payroll_data["regular_gross_paid"]
+            
+            # Cache successful payroll data
+            _payroll_cache[cache_key] = payroll_data.copy()
+            
             logging.info(
                 f"Payroll: chosen row year={cells[0]} agency_start={cells[6]} status={cells[9]} "
-                f"- payroll fields updated"
+                f"- payroll fields updated and cached"
             )
         except Exception as e:
             logging.warning(f"Payroll: failed to parse chosen row for '{query}': {e}")
@@ -762,7 +778,11 @@ def enrich_with_payroll(page, record):
                     }
                     record.update(payroll_data)
                     record["Last Earned"] = payroll_data["regular_gross_paid"]
-                    logging.info(f"Payroll(retry): payroll fields updated from retry for '{query}'")
+                    
+                    # Cache successful retry data
+                    _payroll_cache[cache_key] = payroll_data.copy()
+                    
+                    logging.info(f"Payroll(retry): payroll fields updated from retry for '{query}' and cached")
                 except Exception as e:
                     logging.warning(f"Payroll(retry): failed to parse chosen row for '{query}': {e}")
         except TimeoutError:
@@ -789,6 +809,9 @@ with sync_playwright() as p:
     for idx, record in enumerate(all_records, start=1):
         logging.info(f"Main: 50-a enrich record #{idx} - {record.get('Name')}")
         enrich_with_50a(page, record)
+        # Random jitter between 50-a queries to reduce server-side throttling
+        jitter = int(random.uniform(150, 600))
+        page.wait_for_timeout(jitter)
 
     # Enrich with PAYROLL
     logging.info("Main: beginning payroll enrichment pass")
@@ -796,6 +819,9 @@ with sync_playwright() as p:
     for idx, record in enumerate(all_records, start=1):
         logging.info(f"Main: payroll enrich record #{idx} - First='{record.get('First')}' Last='{record.get('Last')}'")
         enrich_with_payroll(page, record)
+        # Random jitter between payroll queries to reduce server-side throttling
+        jitter = int(random.uniform(150, 600))
+        page.wait_for_timeout(jitter)
 
     browser.close()
     logging.info("Browser closed, Dogs returned")
