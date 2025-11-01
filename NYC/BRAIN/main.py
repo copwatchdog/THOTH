@@ -374,7 +374,33 @@ def enrich_with_50a(page, record):
         return
 
     identity_text = identity.inner_text().strip()
-    logging.info(f"50-a: identity snippet (first 300 chars): {identity_text[:300]!s}")
+
+    # Extract Race and Gender (e.g., "Badge #4748, White Male")
+    race = None
+    gender = None
+    race_gender_match = re.search(r'Badge\s*#?\d+,\s*([A-Za-z\s]+?)\s+(Male|Female)', identity_text, re.I)
+    if race_gender_match:
+        race = race_gender_match.group(1).strip()
+        gender = race_gender_match.group(2).strip()
+        logging.info(f"50-a: {race} {gender}")
+    record["race"] = race
+    record["gender"] = gender
+
+    # Extract Email
+    email = None
+    email_match = re.search(r'([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})', identity_text)
+    if email_match:
+        email = email_match.group(1)
+        logging.info(f"50-a: Email: {email}")
+    record["email"] = email
+
+    # Extract Tax ID (e.g., "Tax #965911")
+    tax_id = None
+    tax_match = re.search(r'Tax\s*#?\s*(\d+)', identity_text, re.I)
+    if tax_match:
+        tax_id = tax_match.group(1)
+        logging.info(f"50-a: Tax: #{tax_id}")
+    record["tax_id"] = tax_id
 
     badge = None
     badge_selectors = ["span.badge", ".badge", "span.badge-number", "div.badge"]
@@ -391,11 +417,25 @@ def enrich_with_50a(page, record):
         m = re.search(r'Badge\s*#?\s*([0-9]+)', identity_text, re.I)
         if m:
             badge = m.group(1)
-            logging.info(f"50-a: badge extracted via regex in identity text: {badge}")
+            logging.info(f"50-a: Badge: #{badge}")
+    else:
+        logging.info(f"50-a: Badge: #{badge}")
     record["badge"] = badge
 
+    # Extract Precinct Description (e.g., "45th Precinct since May 2019")
+    precinct_desc = None
     precinct_link = None
     precinct_number = None
+    
+    # Try to get full precinct description from identity text
+    precinct_desc_match = re.search(r'(Police Officer|Detective|Sergeant|Lieutenant|Captain)\s+at\s+(.+?)(?:Service started|$)', identity_text, re.I | re.DOTALL)
+    if precinct_desc_match:
+        precinct_desc = precinct_desc_match.group(2).strip()
+        # Clean up newlines and extra whitespace
+        precinct_desc = re.sub(r'\s+', ' ', precinct_desc).strip()
+        logging.info(f"50-a: {precinct_desc}")
+    record["precinct_desc"] = precinct_desc
+
     anchor_selectors = ["div.command a.command", "a[href*='precinct']", "a[href*='pct']", "a[href*='precincts']", "a"]
     for sel in anchor_selectors:
         el = identity.query_selector(sel)
@@ -430,7 +470,7 @@ def enrich_with_50a(page, record):
         try:
             month = datetime.strptime(month_str[:3], "%b").month
             service_start = f"{month:02}/01/{year}"
-            logging.info(f"50-a: service_start parsed: {service_start}")
+            logging.info(f"50-a: Started {month_str} {year}")
         except Exception:
             service_start = None
     else:
@@ -440,7 +480,7 @@ def enrich_with_50a(page, record):
             try:
                 month = datetime.strptime(month_str[:3], "%b").month
                 service_start = f"{month:02}/01/{year}"
-                logging.info(f"50-a: service_start parsed via fallback: {service_start}")
+                logging.info(f"50-a: Started {month_str} {year}")
             except Exception:
                 service_start = None
     record["service_start"] = service_start
@@ -452,21 +492,32 @@ def enrich_with_50a(page, record):
         m = re.search(r'\$[\d,]+(?:\.\d+)?', comp_text)
         if m:
             last_earned = m.group(0)
-            logging.info(f"50-a: last_earned extracted from span.compensation: {last_earned}")
+            logging.info(f"50-a: Made {last_earned} last year")
         else:
             last_earned = comp_text
-            logging.info(f"50-a: last_earned raw extracted from span.compensation: {last_earned}")
+            logging.info(f"50-a: Made {last_earned} last year")
     else:
         m = re.search(r'made\s*\$([\d,]+(?:\.\d+)?)', identity_text, re.I)
         if m:
             last_earned = f"${m.group(1)}"
-            logging.info(f"50-a: last_earned extracted via regex in identity text: {last_earned}")
+            logging.info(f"50-a: Made {last_earned} last year")
     record["last_earned"] = last_earned
 
     discipline = identity.query_selector("div.discipline")
     record["has_discipline"] = "Y" if discipline and discipline.query_selector("article.message") else "N"
     news = identity.query_selector("div.news")
     record["has_articles"] = "Y" if news and news.query_selector_all("a") else "N"
+
+    # Log substantiated allegations if present
+    substantiated_div = page.query_selector("div.substantiated")
+    if substantiated_div:
+        allegations = []
+        for item in substantiated_div.query_selector_all("li"):
+            allegations.append(item.inner_text().strip())
+        if allegations:
+            allegations_str = ", ".join(allegations)
+            logging.info(f"50-a: Substantiated Allegations: {allegations_str}")
+
     logging.info(f"50-a: has_discipline={record['has_discipline']} has_articles={record['has_articles']}")
 
     summary = page.query_selector("div.container.summary")
@@ -837,7 +888,7 @@ local_csv_path = Path(LOCAL_CSV_FILE)
 
 fieldnames = [
     "Date","Time","Rank","First","Last","Room","Case Type",
-    "Badge","PCT","PCT URL","Started","Last Earned",
+    "Badge","PCT","PCT URL","Race","Gender","Tax ID","Email","Precinct Desc","Started","Last Earned",
     "Disciplined","Articles",
     "# Complaints","# Allegations","# Substantiated","# Charges",
     "# Unsubstantiated","# Guidelined",
@@ -864,6 +915,11 @@ def write_csv_file(filepath, records):
                 "Badge":                r.get("badge",""),
                 "PCT":                  r.get("precinct_number",""),
                 "PCT URL":              r.get("precinct_link",""),
+                "Race":                 r.get("race",""),
+                "Gender":               r.get("gender",""),
+                "Tax ID":               r.get("tax_id",""),
+                "Email":                r.get("email",""),
+                "Precinct Desc":        r.get("precinct_desc",""),
                 "Started":              r.get("service_start",""),
                 "Last Earned":          r.get("last_earned",""),
                 "Disciplined":          r.get("has_discipline","N"),
