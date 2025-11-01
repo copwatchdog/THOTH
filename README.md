@@ -38,23 +38,18 @@ copwatchdog/
 
 CopWatchdog works by:
 
-1. **Data Collection**: The Python-based scraper (`NYC/BRAIN/main.py`) automatically visits the NYPD Trials public calendar website using a headless Chrome browser.
+1. **Data Collection**: The Python-based scraper (`main.py`) automatically visits designated websites using a headless Chrome browser.
 
-2. **Table Identification**: The scraper intelligently identifies relevant tables containing officer information by scoring them based on keywords.
+2. **Table Identification**: The scraper identifies relevant tables containing officer information by scoring them based on keywords.
 
-3. **Data Extraction**: Once the relevant tables are found, the system extracts officer data including:
-   - Trial dates, times, and locations
-   - Officer names and ranks
-   - Case types and details
+3. **Data Extraction**: Once the relevant tables are found, the system extracts officer data.
 
-4. **Data Enrichment**: Additional officer information is gathered from 50-a.org and other public sources, including:
-   - Badge numbers and precinct information
-   - Complaint histories and settlement amounts
-   - Salary and overtime data
+4. Storage & Import: The extracted data is saved to CSV files (`copwatchdog.csv`).
 
-5. **Storage & Import**: The extracted data is saved to CSV files (`copwatchdog.csv` and `NYC/BRAIN/copwatchdog.csv`) and can be imported to a database using the `scripts/import_to_db.sh` script.
 
-## CopWatchDog Community License 1.0 (Simple)
+## CopWatchDog Community License 1.0
+
+See <a href="https://github.com/YUMYODA/copwatchdog/blob/main/LICENSE">LICENSE</a> for full iteration.
 
 You're free to use, copy, change, and share this software only if:
 
@@ -67,5 +62,4 @@ If you share or change the software, you have to:
 - Share your changes with the same rules.
 
 We provide this software as-is, with no promises it works.
-
 If you break these rules, your right to use the software ends.
