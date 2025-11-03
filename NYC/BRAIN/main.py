@@ -5,6 +5,8 @@ import os
 import gc
 import atexit
 import random
+import sys
+import argparse
 from datetime import datetime
 from pathlib import Path
 from playwright.sync_api import sync_playwright, TimeoutError
@@ -35,17 +37,53 @@ LOCAL_CSV_FILE = "copwatchdog.csv"  # Keep a copy in the current directory
 _payroll_cache = {}
 
 # === Setup logging ===
-# Clear old log file
-if os.path.exists(THOTH_LOG):
-    open(THOTH_LOG, 'w').close()
-
 logging.basicConfig(
     filename=THOTH_LOG,
-    filemode="w",  # Always overwrite
+    filemode="a",  # Append mode - don't overwrite
     level=logging.INFO,
     format="%(asctime)s [%(levelname)s] %(message)s",
 )
 logging.info("Them Dogs Gonna Get'm")
+
+# === Parse Command Line Arguments ===
+parser = argparse.ArgumentParser(description="THOTH: CopWatchDog scraper with incremental re-scrape support")
+parser.add_argument(
+    "--rescrape-list",
+    type=str,
+    help="Path to CSV file containing officers to re-scrape (must have First, Last, Badge columns)"
+)
+parser.add_argument(
+    "--version-tag",
+    type=str,
+    help="Override version tag for re-scrape CSV filename (e.g., '2509' for September 2025)"
+)
+args = parser.parse_args()
+
+# If rescrape mode, load target list
+rescrape_mode = args.rescrape_list is not None
+rescrape_targets = []
+override_version_tag = args.version_tag
+
+if rescrape_mode:
+    logging.info(f"RESCRAPE MODE: Loading target list from {args.rescrape_list}")
+    try:
+        with open(args.rescrape_list, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                # Extract identifying info
+                target = {
+                    'first_name': row.get('first_name', '').strip(),
+                    'last_name': row.get('last_name', '').strip(),
+                    'badge': row.get('badge', '').strip(),
+                    'source_id': row.get('source_id', '').strip()
+                }
+                rescrape_targets.append(target)
+        logging.info(f"RESCRAPE MODE: Loaded {len(rescrape_targets)} officers to re-scrape")
+    except Exception as e:
+        logging.error(f"RESCRAPE MODE: Failed to load target list: {e}")
+        sys.exit(1)
+else:
+    logging.info("FULL SCRAPE MODE: Extracting all officers from NYPD Trials page")
 
 # === Helper Functions ===
 def score_table_by_keywords(table, keywords):
@@ -152,20 +190,27 @@ def _extract_initial(name_text: str) -> str:
         return m2.group(1).upper()
     return ""
 
-def _generate_csv_filename(records):
+def _generate_csv_filename(records, override_version_tag=None):
     """
-    Generate CSV filename based on trial dates found in records.
-    Format: YYMM-copwatchdog.csv
+    Generate CSV filename based on trial dates.
+    Format: YYMM-copwatchdog.csv (monthly version tag)
     
-    Uses the most recent (latest) trial date found in the records.
+    Uses the most recent (latest) trial date found in the records for the YYMM prefix.
     Falls back to current date if no valid dates are found.
     
     Args:
         records: List of trial records containing 'Date' field
+        override_version_tag: Optional version tag to use (for re-scrapes)
         
     Returns:
-        String filename in format YYMM-copwatchdog.csv
+        String filename in format YYMM-copwatchdog.csv or YYMM_rescrape-copwatchdog.csv
     """
+    # If override provided (for re-scrapes), use it directly
+    if override_version_tag:
+        filename = f"{override_version_tag}_rescrape-copwatchdog.csv"
+        logging.info(f"CSV filename: Using override version_tag {override_version_tag} → {filename}")
+        return filename
+    
     latest_date = None
     
     for record in records:
@@ -197,11 +242,11 @@ def _generate_csv_filename(records):
         target_date = datetime.now()
         logging.warning(f"CSV filename: No valid trial dates found, using current date {target_date.strftime('%m/%d/%Y')}")
     
+    # Generate YYMM format (monthly version tag)
     month_prefix = f"{str(target_date.year)[2:]}{target_date.month:02d}"
     filename = f"{month_prefix}-copwatchdog.csv"
     logging.info(f"Generated CSV filename: {filename}")
     return filename
-
 
 # === Payroll Name Matching Helpers ===
 def _strip_suffix(name: str) -> str:
@@ -851,9 +896,29 @@ with sync_playwright() as p:
     context = browser.new_context()
     page = context.new_page()
 
-    # Extract NYPDTRIAL
-    all_records = extract_from_nypdtrial(page, retries=3, timeout=5000)
-    logging.info(f"Main: extracted {len(all_records)} records from NYPDTRIAL")
+    # Extract NYPDTRIAL or build from rescrape list
+    if rescrape_mode:
+        logging.info("RESCRAPE MODE: Building officer list from target CSV (skipping NYPD Trials page)")
+        # Build minimal records from target list - enrichment will fill in the rest
+        for target in rescrape_targets:
+            record = {
+                'Name': f"{target['first_name']} {target['last_name']}",  # Required by enrich_with_50a
+                'First': target['first_name'],
+                'Last': target['last_name'],
+                'badge': target['badge'],
+                'source_id': target['source_id'],
+                'Date': '',  # Not needed for rescrape
+                'Time': '',
+                'Rank': '',  # Will be filled by 50-a enrichment
+                'Trial Room': '',
+                'Case Type': 'Re-scrape'
+            }
+            all_records.append(record)
+        logging.info(f"RESCRAPE MODE: Built {len(all_records)} officer records from target list")
+    else:
+        # Full scrape mode - extract from NYPD Trials page
+        all_records = extract_from_nypdtrial(page, retries=3, timeout=5000)
+        logging.info(f"Main: extracted {len(all_records)} records from NYPDTRIAL")
 
     # Enrich with FIFTYA
     logging.info("Main: beginning 50-a enrichment pass")
@@ -879,7 +944,7 @@ with sync_playwright() as p:
 
 # === Save CSV ===
 # Generate CSV filename based on actual trial dates
-CSV_FILE = _generate_csv_filename(all_records)
+CSV_FILE = _generate_csv_filename(all_records, override_version_tag)
 
 # Ensure the CSV directory exists
 CSV_DIR.mkdir(parents=True, exist_ok=True)

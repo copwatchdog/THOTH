@@ -1,5 +1,3 @@
-[2025-11-01 10:39:34] [WARNING] [COPWATCHDOG] [run_copwatchdog.sh] Direct database connection failed, trying SSH tunnel...
-[2025-11-01 10:40:11] [WARNING] [THOTH_IMPORT] [import_to_db.sh] Could not apply schema fixes; continuing import. If imports fail, review /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/SQL/create_cwd_schemas.sql
-[2025-11-01 10:40:12] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2509-copwatchdog.csv
-[2025-11-01 10:40:12] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2510-copwatchdog.csv
-[2025-11-01 10:40:13] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/HERMES/THOTH/NYC/CSV/2511-copwatchdog.csv
+[2025-11-03 16:25:35] [WARNING] [DB_IMPORT] [import_with_staging.sh] New column detected: Total Other Pay (will extend schema)
+[2025-11-03 16:31:18] [WARNING] [DB_IMPORT] [import_with_staging.sh] New column detected: Total Other Pay (will extend schema)
+[2025-11-03 16:33:55] [WARNING] [DB_IMPORT] [import_with_staging.sh] New column detected: Total Other Pay (will extend schema)
