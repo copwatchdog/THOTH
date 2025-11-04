@@ -36,16 +36,8 @@ LOCAL_CSV_FILE = "copwatchdog.csv"  # Keep a copy in the current directory
 # Payroll cache to avoid re-querying same officer
 _payroll_cache = {}
 
-# === Setup logging ===
-logging.basicConfig(
-    filename=THOTH_LOG,
-    filemode="a",  # Append mode - don't overwrite
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(message)s",
-)
-logging.info("Them Dogs Gonna Get'm")
-
 # === Parse Command Line Arguments ===
+# Parse args BEFORE setting up logging so we can determine the log mode
 parser = argparse.ArgumentParser(description="THOTH: CopWatchDog scraper with incremental re-scrape support")
 parser.add_argument(
     "--rescrape-list",
@@ -59,10 +51,26 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-# If rescrape mode, load target list
+# If rescrape mode, load target list (HERMES Functionality)
 rescrape_mode = args.rescrape_list is not None
 rescrape_targets = []
 override_version_tag = args.version_tag
+
+# === Setup logging ===
+# Standalone mode: overwrite log (fresh start)
+# Rescrape mode: append to log (continue HERMES workflow)
+log_mode = "a" if rescrape_mode else "w"
+logging.basicConfig(
+    filename=THOTH_LOG,
+    filemode=log_mode,
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+)
+logging.info("Them Dogs Gonna Get'm")
+if rescrape_mode:
+    logging.info("=== RESCRAPE MODE: Appending to existing log ===")
+else:
+    logging.info("=== STANDALONE MODE: Fresh log started ===")
 
 if rescrape_mode:
     logging.info(f"RESCRAPE MODE: Loading target list from {args.rescrape_list}")
@@ -198,16 +206,19 @@ def _generate_csv_filename(records, override_version_tag=None):
     Uses the most recent (latest) trial date found in the records for the YYMM prefix.
     Falls back to current date if no valid dates are found.
     
+    In rescrape mode, uses the same filename as initial scrape (not _rescrape suffix)
+    to merge updates into the existing monthly CSV.
+    
     Args:
         records: List of trial records containing 'Date' field
         override_version_tag: Optional version tag to use (for re-scrapes)
         
     Returns:
-        String filename in format YYMM-copwatchdog.csv or YYMM_rescrape-copwatchdog.csv
+        String filename in format YYMM-copwatchdog.csv
     """
-    # If override provided (for re-scrapes), use it directly
+    # If override provided (for re-scrapes), use the same base filename (no _rescrape suffix)
     if override_version_tag:
-        filename = f"{override_version_tag}_rescrape-copwatchdog.csv"
+        filename = f"{override_version_tag}-copwatchdog.csv"
         logging.info(f"CSV filename: Using override version_tag {override_version_tag} → {filename}")
         return filename
     
@@ -350,7 +361,20 @@ def extract_from_nypdtrial(page, retries=5, timeout=30000):  # Increased timeout
     return records
 
 # === FIFTYA Enrichment ===
-def enrich_with_50a(page, record):
+def enrich_with_50a(page, record, is_rescrape=False):
+    """
+    Enrich record with data from 50-a.org
+    
+    Args:
+        page: Playwright page object
+        record: Officer record dictionary
+        is_rescrape: If True, apply status codes (NOT_FOUND, UNVERIFIED) for missing data
+                     If False (first run), leave fields as NULL
+    """
+    # Fields that 50-a enrichment populates
+    FIFTYA_FIELDS = ["race", "gender", "tax_id", "email", "badge", "precinct_desc", 
+                     "precinct_link", "precinct_number", "service_start", "last_earned"]
+    
     officer_name = record.get("Name")
     first = record.get("First")
     last = record.get("Last")
@@ -402,7 +426,15 @@ def enrich_with_50a(page, record):
                 break
 
     if not target_officer:
-        logging.warning(f"50-a: still no match for '{officer_name}'. Skipping 50-a enrichment.")
+        logging.warning(f"50-a: still no match for '{officer_name}'.")
+        # Only set NOT_FOUND status during rescrape (Phase 2)
+        # On first run, fields remain NULL to trigger future rescrape
+        if is_rescrape:
+            logging.info(f"50-a: rescrape mode - setting NOT_FOUND status for 50-a fields")
+            # Dynamically set NOT_FOUND for critical 50-a fields that are empty
+            for field in ["race", "gender", "tax_id", "email"]:
+                if not record.get(field):
+                    record[field] = "NOT_FOUND"
         return
 
     try:
@@ -602,10 +634,37 @@ def enrich_with_50a(page, record):
             record["total_settlements"] = 0
         logging.info(f"50-a: lawsuits={record.get('num_lawsuits')} settlements={record.get('total_settlements')}")
 
+    # Mark successful enrichment
+    record["enrichment_status_50a"] = "FOUND"
+    
+    # Set UNVERIFIED status for fields that should have data but extraction failed
+    # Only apply during rescrape (Phase 2) - on first run, fields remain NULL
+    if is_rescrape:
+        if not record.get("race"):
+            record["race"] = "UNVERIFIED"
+            logging.info(f"50-a: race field set to UNVERIFIED (extraction failed)")
+        if not record.get("gender"):
+            record["gender"] = "UNVERIFIED"
+            logging.info(f"50-a: gender field set to UNVERIFIED (extraction failed)")
+    
     logging.info(f"50-a: enrichment complete for '{officer_name}' (badge={record.get('badge')}, pct={record.get('precinct_number')}, started={record.get('service_start')}, last_earned={record.get('last_earned')})")
 
 # === PAYROLL Enrichment ===
-def enrich_with_payroll(page, record):
+def enrich_with_payroll(page, record, is_rescrape=False):
+    """
+    Enrich record with NYC Payroll data
+    
+    Args:
+        page: Playwright page object
+        record: Officer record dictionary
+        is_rescrape: If True, apply status codes (NOT_FOUND, UNVERIFIED) for missing data
+                     If False (first run), leave fields as NULL
+    """
+    # Fields that payroll enrichment populates
+    PAYROLL_FIELDS = ["leave_status_as_of_june_30", "base_salary", "pay_basis", 
+                      "regular_hours", "regular_gross_paid", "ot_hours", 
+                      "total_ot_paid", "total_other_pay"]
+    
     first = record.get("First", "")
     last = record.get("Last", "")
 
@@ -799,6 +858,19 @@ def enrich_with_payroll(page, record):
             # Cache successful payroll data
             _payroll_cache[cache_key] = payroll_data.copy()
             
+            # Mark successful enrichment
+            record["enrichment_status_payroll"] = "FOUND"
+            
+            # Set UNVERIFIED status for payroll fields that should have data but are missing
+            # Only during rescrape (Phase 2) - on first run, fields remain NULL
+            if is_rescrape:
+                if not record.get("base_salary"):
+                    record["base_salary"] = "UNVERIFIED"
+                    logging.info(f"Payroll: base_salary field set to UNVERIFIED (extraction failed)")
+                if not record.get("pay_basis"):
+                    record["pay_basis"] = "UNVERIFIED"
+                    logging.info(f"Payroll: pay_basis field set to UNVERIFIED (extraction failed)")
+            
             logging.info(
                 f"Payroll: chosen row year={cells[0]} agency_start={cells[6]} status={cells[9]} "
                 f"- payroll fields updated and cached"
@@ -885,6 +957,17 @@ def enrich_with_payroll(page, record):
             logging.warning(f"Payroll: retry timed out for '{query}'")
         except Exception as e:
             logging.warning(f"Payroll: retry encountered error for '{query}': {e}")
+    
+    # If payroll data still not found, set status codes for payroll fields
+    # Only during rescrape (Phase 2) - on first run, fields remain NULL
+    if not record.get("base_salary") and not record.get("pay_basis"):
+        if is_rescrape:
+            logging.info(f"Payroll: rescrape mode - No data found for '{query}', setting NOT_FOUND status for payroll fields")
+            # Dynamically set NOT_FOUND for all payroll fields
+            for field in ["base_salary", "pay_basis", "regular_hours", "regular_gross_paid", 
+                         "ot_hours", "total_ot_paid", "total_other_pay"]:
+                if not record.get(field):
+                    record[field] = "NOT_FOUND"
 
 
 # === Main Script ===
@@ -924,7 +1007,7 @@ with sync_playwright() as p:
     logging.info("Main: beginning 50-a enrichment pass")
     for idx, record in enumerate(all_records, start=1):
         logging.info(f"Main: 50-a enrich record #{idx} - {record.get('Name')}")
-        enrich_with_50a(page, record)
+        enrich_with_50a(page, record, is_rescrape=rescrape_mode)
         # Random jitter between 50-a queries to reduce server-side throttling
         jitter = int(random.uniform(150, 600))
         page.wait_for_timeout(jitter)
@@ -934,13 +1017,26 @@ with sync_playwright() as p:
     page = context.new_page()
     for idx, record in enumerate(all_records, start=1):
         logging.info(f"Main: payroll enrich record #{idx} - First='{record.get('First')}' Last='{record.get('Last')}'")
-        enrich_with_payroll(page, record)
+        enrich_with_payroll(page, record, is_rescrape=rescrape_mode)
         # Random jitter between payroll queries to reduce server-side throttling
         jitter = int(random.uniform(150, 600))
         page.wait_for_timeout(jitter)
 
     browser.close()
     logging.info("Browser closed, Dogs returned")
+
+    # === Apply N/A status for non-applicable fields ===
+    # Only during rescrape (Phase 2) - on first run, fields remain NULL
+    if rescrape_mode:
+        logging.info("Main: rescrape mode - applying N/A status for rank-based field exclusions")
+        for idx, record in enumerate(all_records, start=1):
+            rank = record.get("Rank", "").lower()
+            is_lieutenant_or_higher = any(r in rank for r in ["lieutenant", "captain", "deputy", "chief", "inspector"])
+            
+            # Lieutenants and higher ranks don't have badge numbers
+            if is_lieutenant_or_higher and not record.get("badge"):
+                record["badge"] = "N/A"
+                logging.info(f"Main: record #{idx} ({record.get('Name')}) - set badge=N/A (rank: {record.get('Rank')})")
 
 # === Save CSV ===
 # Generate CSV filename based on actual trial dates
@@ -950,6 +1046,85 @@ CSV_FILE = _generate_csv_filename(all_records, override_version_tag)
 CSV_DIR.mkdir(parents=True, exist_ok=True)
 csv_path = CSV_DIR / CSV_FILE
 local_csv_path = Path(LOCAL_CSV_FILE)
+
+# === Merge with existing CSV if in rescrape mode ===
+if rescrape_mode and csv_path.exists():
+    logging.info(f"RESCRAPE MODE: Merging with existing CSV at {csv_path}")
+    try:
+        existing_records = []
+        with csv_path.open("r", newline="", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            existing_records = list(reader)
+        
+        logging.info(f"Loaded {len(existing_records)} existing records from {csv_path}")
+        
+        # Create a map of rescraped officers by (First, Last) for quick lookup
+        rescrape_map = {}
+        for record in all_records:
+            first = record.get("First", "").strip().lower()
+            last = record.get("Last", "").strip().lower()
+            key = (first, last)
+            rescrape_map[key] = record
+        
+        logging.info(f"Rescraped {len(rescrape_map)} unique officers")
+        
+        # Merge: Update existing records with rescraped data, keep non-rescraped records as-is
+        merged_records = []
+        updated_count = 0
+        for existing in existing_records:
+            first = existing.get("First", "").strip().lower()
+            last = existing.get("Last", "").strip().lower()
+            key = (first, last)
+            
+            if key in rescrape_map:
+                # This officer was rescraped - fill in ALL enrichment fields
+                # Keep trial data (Date, Time, Room, Case Type, Rank) from existing
+                rescraped = rescrape_map[key]
+                
+                # Fill in enrichment fields from rescraped data (internal field names)
+                existing["Badge"] = rescraped.get("badge", existing.get("Badge", ""))
+                existing["PCT"] = rescraped.get("precinct_number", existing.get("PCT", ""))
+                existing["PCT URL"] = rescraped.get("precinct_link", existing.get("PCT URL", ""))
+                existing["Race"] = rescraped.get("race", existing.get("Race", ""))
+                existing["Gender"] = rescraped.get("gender", existing.get("Gender", ""))
+                existing["Tax ID"] = rescraped.get("tax_id", existing.get("Tax ID", ""))
+                existing["Email"] = rescraped.get("email", existing.get("Email", ""))
+                existing["Precinct Desc"] = rescraped.get("precinct_desc", existing.get("Precinct Desc", ""))
+                existing["Started"] = rescraped.get("service_start", existing.get("Started", ""))
+                existing["Last Earned"] = rescraped.get("last_earned", existing.get("Last Earned", ""))
+                existing["Disciplined"] = rescraped.get("has_discipline", existing.get("Disciplined", ""))
+                existing["Articles"] = rescraped.get("has_articles", existing.get("Articles", ""))
+                existing["# Complaints"] = rescraped.get("num_complaints", existing.get("# Complaints", ""))
+                existing["# Allegations"] = rescraped.get("num_allegations", existing.get("# Allegations", ""))
+                existing["# Substantiated"] = rescraped.get("num_substantiated", existing.get("# Substantiated", ""))
+                existing["# Charges"] = rescraped.get("num_substantiated_charges", existing.get("# Charges", ""))
+                existing["# Unsubstantiated"] = rescraped.get("num_unsubstantiated", existing.get("# Unsubstantiated", ""))
+                existing["# Guidelined"] = rescraped.get("num_within_guidelines", existing.get("# Guidelined", ""))
+                existing["# Lawsuits"] = rescraped.get("num_lawsuits", existing.get("# Lawsuits", ""))
+                existing["Total Settlements"] = rescraped.get("total_settlements", existing.get("Total Settlements", ""))
+                existing["Status"] = rescraped.get("leave_status_as_of_june_30", existing.get("Status", ""))
+                existing["Base Salary"] = rescraped.get("base_salary", existing.get("Base Salary", ""))
+                existing["Pay Basis"] = rescraped.get("pay_basis", existing.get("Pay Basis", ""))
+                existing["Regular Hours"] = rescraped.get("regular_hours", existing.get("Regular Hours", ""))
+                existing["Regular Gross Paid"] = rescraped.get("regular_gross_paid", existing.get("Regular Gross Paid", ""))
+                existing["OT Hours"] = rescraped.get("ot_hours", existing.get("OT Hours", ""))
+                existing["Total OT Paid"] = rescraped.get("total_ot_paid", existing.get("Total OT Paid", ""))
+                existing["Total Other Pay"] = rescraped.get("total_other_pay", existing.get("Total Other Pay", ""))
+                
+                merged_records.append(existing)
+                updated_count += 1
+                logging.info(f"Merged enrichment for {first.title()} {last.title()}")
+            else:
+                # This officer was not rescraped - keep existing data unchanged
+                merged_records.append(existing)
+        
+        # Replace all_records with merged data
+        all_records = merged_records
+        logging.info(f"Merge complete: {updated_count} records updated, {len(merged_records)} total records")
+        
+    except Exception as e:
+        logging.error(f"Failed to merge with existing CSV: {e}")
+        logging.info("Proceeding with rescraped records only")
 
 fieldnames = [
     "Date","Time","Rank","First","Last","Room","Case Type",
@@ -970,41 +1145,41 @@ def write_csv_file(filepath, records):
         written = 0
         for r in records:
             writer.writerow({
-                "Date":                 r.get("Date",""),
-                "Time":                 r.get("Time",""),
-                "Rank":                 r.get("Rank",""),
-                "First":                r.get("First",""),
-                "Last":                 r.get("Last",""),
-                "Room":                 r.get("Trial Room",""),
-                "Case Type":            r.get("Case Type",""),
-                "Badge":                r.get("badge",""),
-                "PCT":                  r.get("precinct_number",""),
-                "PCT URL":              r.get("precinct_link",""),
-                "Race":                 r.get("race",""),
-                "Gender":               r.get("gender",""),
-                "Tax ID":               r.get("tax_id",""),
-                "Email":                r.get("email",""),
-                "Precinct Desc":        r.get("precinct_desc",""),
-                "Started":              r.get("service_start",""),
-                "Last Earned":          r.get("last_earned",""),
-                "Disciplined":          r.get("has_discipline","N"),
-                "Articles":             r.get("has_articles","N"),
-                "# Complaints":         r.get("num_complaints",0),
-                "# Allegations":        r.get("num_allegations",0),
-                "# Substantiated":      r.get("num_substantiated",0),
-                "# Charges":            r.get("num_substantiated_charges",0),
-                "# Unsubstantiated":    r.get("num_unsubstantiated",0),
-                "# Guidelined":         r.get("num_within_guidelines",0),
-                "# Lawsuits":           r.get("num_lawsuits",0),
-                "Total Settlements":    r.get("total_settlements",""),
-                "Status":               r.get("leave_status_as_of_june_30",""),
-                "Base Salary":          r.get("base_salary",""),
-                "Pay Basis":            r.get("pay_basis",""),
-                "Regular Hours":        r.get("regular_hours",""),
-                "Regular Gross Paid":   r.get("regular_gross_paid",""),
-                "OT Hours":             r.get("ot_hours",""),
-                "Total OT Paid":        r.get("total_ot_paid",""),
-                "Total Other Pay":      r.get("total_other_pay",""),
+                "Date":                 r.get("Date", ""),
+                "Time":                 r.get("Time", ""),
+                "Rank":                 r.get("Rank", ""),
+                "First":                r.get("First", ""),
+                "Last":                 r.get("Last", ""),
+                "Room":                 r.get("Room", r.get("Trial Room", "")),
+                "Case Type":            r.get("Case Type", ""),
+                "Badge":                r.get("Badge", r.get("badge", "")),
+                "PCT":                  r.get("PCT", r.get("precinct_number", "")),
+                "PCT URL":              r.get("PCT URL", r.get("precinct_link", "")),
+                "Race":                 r.get("Race", r.get("race", "")),
+                "Gender":               r.get("Gender", r.get("gender", "")),
+                "Tax ID":               r.get("Tax ID", r.get("tax_id", "")),
+                "Email":                r.get("Email", r.get("email", "")),
+                "Precinct Desc":        r.get("Precinct Desc", r.get("precinct_desc", "")),
+                "Started":              r.get("Started", r.get("service_start", "")),
+                "Last Earned":          r.get("Last Earned", r.get("last_earned", "")),
+                "Disciplined":          r.get("Disciplined", r.get("has_discipline", "N")),
+                "Articles":             r.get("Articles", r.get("has_articles", "N")),
+                "# Complaints":         r.get("# Complaints", r.get("num_complaints", 0)),
+                "# Allegations":        r.get("# Allegations", r.get("num_allegations", 0)),
+                "# Substantiated":      r.get("# Substantiated", r.get("num_substantiated", 0)),
+                "# Charges":            r.get("# Charges", r.get("num_substantiated_charges", 0)),
+                "# Unsubstantiated":    r.get("# Unsubstantiated", r.get("num_unsubstantiated", 0)),
+                "# Guidelined":         r.get("# Guidelined", r.get("num_within_guidelines", 0)),
+                "# Lawsuits":           r.get("# Lawsuits", r.get("num_lawsuits", 0)),
+                "Total Settlements":    r.get("Total Settlements", r.get("total_settlements", "")),
+                "Status":               r.get("Status", r.get("leave_status_as_of_june_30", "")),
+                "Base Salary":          r.get("Base Salary", r.get("base_salary", "")),
+                "Pay Basis":            r.get("Pay Basis", r.get("pay_basis", "")),
+                "Regular Hours":        r.get("Regular Hours", r.get("regular_hours", "")),
+                "Regular Gross Paid":   r.get("Regular Gross Paid", r.get("regular_gross_paid", "")),
+                "OT Hours":             r.get("OT Hours", r.get("ot_hours", "")),
+                "Total OT Paid":        r.get("Total OT Paid", r.get("total_ot_paid", "")),
+                "Total Other Pay":      r.get("Total Other Pay", r.get("total_other_pay", "")),
             })
             written += 1
         return written
