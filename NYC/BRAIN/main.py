@@ -22,8 +22,9 @@ KEYWORDS = ["Date", "Time", "Rank", "Name", "Trial Room", "Case Type"]
 THRESHOLD = 2
 SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
 
-# Set up paths
-THOTH_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+# Set up paths - uses dynamic resolution to work in any directory location
+# Supports both direct execution and HERMES_DIR environment variable override
+THOTH_ROOT = os.getenv("THOTH_ROOT") or os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 LOGS_DIR = os.path.join(THOTH_ROOT, "LOGS")
 os.makedirs(LOGS_DIR, exist_ok=True)
 
