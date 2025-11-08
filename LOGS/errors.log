@@ -1,4 +1,6 @@
-[2025-11-04 10:35:28] [WARNING] [COPWATCHDOG] [run_copwatchdog.sh] Direct database connection failed, trying SSH tunnel...
-[2025-11-04 10:39:07] [WARNING] [DB_IMPORT] [import_with_staging.sh] New column detected: Total Other Pay (will extend schema)
-[2025-11-04 10:45:16] [WARNING] [DB_IMPORT] [import_with_staging.sh] New column detected: Total Other Pay (will extend schema)
-[2025-11-04 10:50:00] [WARNING] [DB_IMPORT] [import_with_staging.sh] New column detected: Total Other Pay (will extend schema)
+[2025-11-05 13:47:26] [WARNING] [COPWATCHDOG] [run_copwatchdog.sh] Direct database connection failed, trying SSH tunnel...
+[2025-11-05 13:52:32] [WARNING] [DB_IMPORT] [import_with_staging.sh] New column detected: Started (will extend schema)
+[2025-11-05 13:52:32] [WARNING] [DB_IMPORT] [import_with_staging.sh] New column detected: # Guidelined (will extend schema)
+[2025-11-05 13:52:33] [WARNING] [DB_IMPORT] [import_with_staging.sh] New column detected: Total Other Pay (will extend schema)
+[2025-11-05 13:58:31] [WARNING] [DB_IMPORT] [import_with_staging.sh] New column detected: Total Other Pay (will extend schema)
+[2025-11-05 14:01:23] [WARNING] [DB_IMPORT] [import_with_staging.sh] New column detected: Total Other Pay (will extend schema)
