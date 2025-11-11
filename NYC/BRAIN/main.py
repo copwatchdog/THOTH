@@ -199,6 +199,131 @@ def _extract_initial(name_text: str) -> str:
         return m2.group(1).upper()
     return ""
 
+def _parse_precinct_desc(precinct_desc):
+    """
+    Parse precinct description into three components:
+    - Current assignment (precinct/unit name)
+    - Current assignment start date
+    - Previous assignments (comma-separated list)
+    
+    Example input: "Quartermaster Section since April 2024 Also served at Housing Bureau, Patrol Services Bureau, Transit Bureau"
+    
+    Args:
+        precinct_desc: Raw precinct description string (can be None)
+    
+    Returns:
+        Tuple of (current_assignment, assignment_start, previous_assignments)
+    """
+    if not precinct_desc:
+        return (None, None, None)
+    
+    current_assignment = None
+    assignment_start = None
+    previous_assignments = None
+    
+    # Pattern: "Unit Name since Month Year Also served at Previous1, Previous2, Previous3"
+    # Look for "since" pattern to extract current assignment and start date
+    since_match = re.search(r'^(.+?)\s+since\s+([A-Za-z]+\s+\d{4})', precinct_desc, re.I)
+    if since_match:
+        current_assignment = since_match.group(1).strip()
+        assignment_start = since_match.group(2).strip()
+    else:
+        # No "since" found - treat entire string as current assignment
+        current_assignment = precinct_desc.strip()
+    
+    # Look for "Also served at" pattern to extract previous assignments
+    also_match = re.search(r'Also served at\s+(.+)$', precinct_desc, re.I)
+    if also_match:
+        previous_assignments = also_match.group(1).strip()
+        # If we found "Also served at", remove it from current_assignment if it's there
+        if current_assignment and "Also served at" in current_assignment:
+            current_assignment = re.sub(r'\s*Also served at.+$', '', current_assignment, flags=re.I).strip()
+    
+    logging.debug(f"Parsed precinct: current='{current_assignment}', start='{assignment_start}', previous='{previous_assignments}'")
+    return (current_assignment, assignment_start, previous_assignments)
+
+def _parse_article_html(article_element):
+    """
+    Parse article data from a 50-a.org news anchor element.
+    
+    Expected HTML structure in div.news:
+    <a href="url">Title</a>, Source, Date<br>
+    
+    The source and date are TEXT SIBLINGS of the anchor, not inside it.
+    
+    Args:
+        article_element: Playwright element handle for anchor tag
+        
+    Returns:
+        Dict with keys: title, source, date_published, url (or None if parsing fails)
+    """
+    try:
+        # Element should be an anchor tag
+        tag_name = article_element.evaluate("el => el.tagName").lower()
+        
+        if tag_name != "a":
+            # Not an anchor, skip
+            logging.debug(f"Article parser: skipping non-anchor element ({tag_name})")
+            return None
+        
+        # Extract URL and title from anchor
+        url = article_element.get_attribute("href")
+        title = article_element.inner_text().strip()
+        
+        if not url or not title:
+            logging.debug(f"Article parser: missing url or title (url={url}, title={title})")
+            return None
+        
+        # Get the text that follows the anchor (sibling text nodes)
+        # This contains: ", Source, Date"
+        try:
+            # Use JavaScript to get the next sibling text content
+            sibling_text = article_element.evaluate("""
+                (anchor) => {
+                    let text = '';
+                    let node = anchor.nextSibling;
+                    // Collect text until we hit a <br> or another anchor
+                    while (node && node.nodeName !== 'BR' && node.nodeName !== 'A') {
+                        if (node.nodeType === 3) { // Text node
+                            text += node.textContent;
+                        }
+                        node = node.nextSibling;
+                    }
+                    return text.trim();
+                }
+            """)
+        except Exception as e:
+            logging.debug(f"Article parser: failed to extract sibling text: {e}")
+            sibling_text = ""
+        
+        source = None
+        date_published = None
+        
+        # Parse sibling text: ", Source, Date"
+        if sibling_text:
+            # Remove leading comma and whitespace
+            sibling_text = sibling_text.lstrip(", ").strip()
+            
+            # Split by comma to get [Source, Date]
+            parts = [p.strip() for p in sibling_text.split(",")]
+            
+            if len(parts) >= 1:
+                source = parts[0]
+            if len(parts) >= 2:
+                date_published = parts[1]
+        
+        logging.debug(f"Article parsed: title='{title}', source='{source}', date='{date_published}', url='{url}'")
+        
+        return {
+            "title": title,
+            "source": source,
+            "date_published": date_published,
+            "url": url
+        }
+    except Exception as e:
+        logging.warning(f"Article parser: failed to parse article element: {e}")
+        return None
+
 def _generate_csv_filename(records, override_version_tag=None):
     """
     Generate CSV filename based on trial dates.
@@ -259,6 +384,81 @@ def _generate_csv_filename(records, override_version_tag=None):
     filename = f"{month_prefix}-copwatchdog.csv"
     logging.info(f"Generated CSV filename: {filename}")
     return filename
+
+def load_existing_articles(articles_csv_path):
+    """
+    Load existing articles from articles.csv to prevent duplicates.
+    
+    Args:
+        articles_csv_path: Path to the articles.csv file
+        
+    Returns:
+        Tuple of (existing_articles_list, existing_urls_set, next_article_id)
+    """
+    existing_articles = []
+    existing_urls = set()
+    next_article_id = 1
+    
+    if articles_csv_path.exists():
+        try:
+            with articles_csv_path.open("r", newline="", encoding="utf-8") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    existing_articles.append(row)
+                    url = row.get("url", "")
+                    if url:
+                        existing_urls.add(url)
+                    # Track highest article_id to generate next ID
+                    try:
+                        article_id = int(row.get("article_id", 0))
+                        if article_id >= next_article_id:
+                            next_article_id = article_id + 1
+                    except ValueError:
+                        pass
+            
+            logging.info(f"Articles: Loaded {len(existing_articles)} existing articles from {articles_csv_path}")
+            logging.info(f"Articles: Next article_id will be {next_article_id}")
+        except Exception as e:
+            logging.warning(f"Articles: Failed to load existing articles from {articles_csv_path}: {e}")
+    else:
+        logging.info(f"Articles: No existing articles.csv found at {articles_csv_path}, will create new file")
+    
+    return existing_articles, existing_urls, next_article_id
+
+def save_articles_csv(articles_csv_path, articles_list):
+    """
+    Write articles to articles.csv with proper fieldnames.
+    
+    Args:
+        articles_csv_path: Path to the articles.csv file
+        articles_list: List of article dictionaries to write
+        
+    Returns:
+        Number of articles written
+    """
+    fieldnames = [
+        "article_id",
+        "badge",
+        "first_name",
+        "last_name",
+        "title",
+        "source",
+        "date_published",
+        "url"
+    ]
+    
+    try:
+        with articles_csv_path.open("w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            for article in articles_list:
+                writer.writerow(article)
+        
+        logging.info(f"Articles: Wrote {len(articles_list)} articles to {articles_csv_path}")
+        return len(articles_list)
+    except Exception as e:
+        logging.error(f"Articles: Failed to write articles.csv: {e}")
+        return 0
 
 # === Payroll Name Matching Helpers ===
 def _strip_suffix(name: str) -> str:
@@ -371,9 +571,13 @@ def enrich_with_50a(page, record, is_rescrape=False):
         record: Officer record dictionary
         is_rescrape: If True, apply status codes (NOT_FOUND, UNVERIFIED) for missing data
                      If False (first run), leave fields as NULL
+    
+    Returns:
+        List of article dictionaries extracted from officer's news section
     """
     # Fields that 50-a enrichment populates
-    FIFTYA_FIELDS = ["race", "gender", "tax_id", "email", "badge", "precinct_desc", 
+    FIFTYA_FIELDS = ["race", "gender", "tax_id", "email", "badge", 
+                     "current_assignment", "assignment_start", "previous_assignments",
                      "precinct_link", "precinct_number", "service_start", "last_earned"]
     
     officer_name = record.get("Name")
@@ -381,7 +585,7 @@ def enrich_with_50a(page, record, is_rescrape=False):
     last = record.get("Last")
     if not officer_name or not first or not last:
         logging.warning("50-a: Missing Name/First/Last; skipping enrichment")
-        return
+        return []
 
     logging.info(f"50-a: Searching for '{officer_name}' (First='{first}' Last='{last}')")
     try:
@@ -396,7 +600,7 @@ def enrich_with_50a(page, record, is_rescrape=False):
         page.wait_for_selector(".officer.active", timeout=7000)
     except TimeoutError:
         logging.warning(f"50-a: timeout or no search results for '{officer_name}'")
-        return
+        return []
 
     officers = page.query_selector_all(".officer.active")
     logging.info(f"50-a: {len(officers)} search results for '{officer_name}'")
@@ -436,7 +640,7 @@ def enrich_with_50a(page, record, is_rescrape=False):
             for field in ["race", "gender", "tax_id", "email"]:
                 if not record.get(field):
                     record[field] = "NOT_FOUND"
-        return
+        return []
 
     try:
         target_officer.query_selector("a.name").click()
@@ -444,12 +648,12 @@ def enrich_with_50a(page, record, is_rescrape=False):
         logging.info("50-a: officer profile loaded")
     except TimeoutError:
         logging.warning("50-a: officer profile did not load in time after click")
-        return
+        return []
 
     identity = page.query_selector("div.identity")
     if not identity:
         logging.warning("50-a: 'div.identity' not found on profile")
-        return
+        return []
 
     identity_text = identity.inner_text().strip()
 
@@ -500,19 +704,27 @@ def enrich_with_50a(page, record, is_rescrape=False):
         logging.info(f"50-a: Badge: #{badge}")
     record["badge"] = badge
 
-    # Extract Precinct Description (e.g., "45th Precinct since May 2019")
-    precinct_desc = None
+    # Extract Precinct Description and parse into three fields
+    precinct_desc_raw = None
     precinct_link = None
     precinct_number = None
     
     # Try to get full precinct description from identity text
     precinct_desc_match = re.search(r'(Police Officer|Detective|Sergeant|Lieutenant|Captain)\s+at\s+(.+?)(?:Service started|$)', identity_text, re.I | re.DOTALL)
     if precinct_desc_match:
-        precinct_desc = precinct_desc_match.group(2).strip()
+        precinct_desc_raw = precinct_desc_match.group(2).strip()
         # Clean up newlines and extra whitespace
-        precinct_desc = re.sub(r'\s+', ' ', precinct_desc).strip()
-        logging.info(f"50-a: {precinct_desc}")
-    record["precinct_desc"] = precinct_desc
+        precinct_desc_raw = re.sub(r'\s+', ' ', precinct_desc_raw).strip()
+        logging.info(f"50-a: Raw precinct desc: {precinct_desc_raw}")
+    
+    # Parse precinct description into three components
+    current_assignment, assignment_start, previous_assignments = _parse_precinct_desc(precinct_desc_raw)
+    record["current_assignment"] = current_assignment
+    record["assignment_start"] = assignment_start
+    record["previous_assignments"] = previous_assignments
+    
+    logging.info(f"50-a: Current Assignment: '{current_assignment}' | Start: '{assignment_start}' | Previous: '{previous_assignments}'")
+
 
     anchor_selectors = ["div.command a.command", "a[href*='precinct']", "a[href*='pct']", "a[href*='precincts']", "a"]
     for sel in anchor_selectors:
@@ -586,6 +798,25 @@ def enrich_with_50a(page, record, is_rescrape=False):
     news = identity.query_selector("div.news")
     record["has_articles"] = "Y" if news and news.query_selector_all("a") else "N"
 
+    # Extract articles from div.news if present
+    articles = []
+    if news:
+        # 50-a.org structure: <a href="url">Title</a>, Source, Date<br>
+        # Extract all anchor tags directly (exclude the header anchor #articles)
+        news_items = news.query_selector_all("a[href^='http']")
+        
+        logging.info(f"50-a: Found {len(news_items)} potential news items for '{officer_name}'")
+        
+        for item in news_items:
+            article_data = _parse_article_html(item)
+            if article_data:
+                # Link article to officer
+                article_data["badge"] = record.get("badge", "")
+                article_data["first_name"] = record.get("First", "")
+                article_data["last_name"] = record.get("Last", "")
+                articles.append(article_data)
+                logging.info(f"50-a: Extracted article '{article_data['title']}' for '{officer_name}'")
+
     # Log substantiated allegations if present
     substantiated_div = page.query_selector("div.substantiated")
     if substantiated_div:
@@ -649,6 +880,7 @@ def enrich_with_50a(page, record, is_rescrape=False):
             logging.info(f"50-a: gender field set to UNVERIFIED (extraction failed)")
     
     logging.info(f"50-a: enrichment complete for '{officer_name}' (badge={record.get('badge')}, pct={record.get('precinct_number')}, started={record.get('service_start')}, last_earned={record.get('last_earned')})")
+    return articles
 
 # === PAYROLL Enrichment ===
 def enrich_with_payroll(page, record, is_rescrape=False):
@@ -973,6 +1205,7 @@ def enrich_with_payroll(page, record, is_rescrape=False):
 
 # === Main Script ===
 all_records = []
+all_articles = []  # Collect articles during enrichment
 
 with sync_playwright() as p:
     logging.info("Launching headless Chromium")
@@ -1008,7 +1241,8 @@ with sync_playwright() as p:
     logging.info("Main: beginning 50-a enrichment pass")
     for idx, record in enumerate(all_records, start=1):
         logging.info(f"Main: 50-a enrich record #{idx} - {record.get('Name')}")
-        enrich_with_50a(page, record, is_rescrape=rescrape_mode)
+        articles = enrich_with_50a(page, record, is_rescrape=rescrape_mode)
+        all_articles.extend(articles)  # Collect articles from this officer
         # Random jitter between 50-a queries to reduce server-side throttling
         jitter = int(random.uniform(150, 600))
         page.wait_for_timeout(jitter)
@@ -1090,7 +1324,9 @@ if rescrape_mode and csv_path.exists():
                 existing["Gender"] = rescraped.get("gender", existing.get("Gender", ""))
                 existing["Tax ID"] = rescraped.get("tax_id", existing.get("Tax ID", ""))
                 existing["Email"] = rescraped.get("email", existing.get("Email", ""))
-                existing["Precinct Desc"] = rescraped.get("precinct_desc", existing.get("Precinct Desc", ""))
+                existing["Current Assignment"] = rescraped.get("current_assignment", existing.get("Current Assignment", ""))
+                existing["Assignment Start"] = rescraped.get("assignment_start", existing.get("Assignment Start", ""))
+                existing["Previous Assignments"] = rescraped.get("previous_assignments", existing.get("Previous Assignments", ""))
                 existing["Started"] = rescraped.get("service_start", existing.get("Started", ""))
                 existing["Last Earned"] = rescraped.get("last_earned", existing.get("Last Earned", ""))
                 existing["Disciplined"] = rescraped.get("has_discipline", existing.get("Disciplined", ""))
@@ -1129,7 +1365,9 @@ if rescrape_mode and csv_path.exists():
 
 fieldnames = [
     "Date","Time","Rank","First","Last","Room","Case Type",
-    "Badge","PCT","PCT URL","Race","Gender","Tax ID","Email","Precinct Desc","Started","Last Earned",
+    "Badge","PCT","PCT URL","Race","Gender","Tax ID","Email",
+    "Current Assignment","Assignment Start","Previous Assignments",
+    "Started","Last Earned",
     "Disciplined","Articles",
     "# Complaints","# Allegations","# Substantiated","# Charges",
     "# Unsubstantiated","# Guidelined",
@@ -1160,7 +1398,9 @@ def write_csv_file(filepath, records):
                 "Gender":               r.get("Gender", r.get("gender", "")),
                 "Tax ID":               r.get("Tax ID", r.get("tax_id", "")),
                 "Email":                r.get("Email", r.get("email", "")),
-                "Precinct Desc":        r.get("Precinct Desc", r.get("precinct_desc", "")),
+                "Current Assignment":   r.get("Current Assignment", r.get("current_assignment", "")),
+                "Assignment Start":     r.get("Assignment Start", r.get("assignment_start", "")),
+                "Previous Assignments": r.get("Previous Assignments", r.get("previous_assignments", "")),
                 "Started":              r.get("Started", r.get("service_start", "")),
                 "Last Earned":          r.get("Last Earned", r.get("last_earned", "")),
                 "Disciplined":          r.get("Disciplined", r.get("has_discipline", "N")),
@@ -1188,6 +1428,39 @@ def write_csv_file(filepath, records):
 # Write to both locations
 monthly_written = write_csv_file(csv_path, all_records)
 local_written = write_csv_file(local_csv_path, all_records)
+
+# === Save Articles CSV ===
+articles_csv_path = CSV_DIR / "articles.csv"
+logging.info(f"Articles: Processing {len(all_articles)} articles scraped from 50-a.org")
+
+# Load existing articles and get next article_id
+existing_articles, existing_urls, next_article_id = load_existing_articles(articles_csv_path)
+
+# Filter out duplicate articles (by URL) and assign article_id
+new_articles = []
+duplicate_count = 0
+for article in all_articles:
+    url = article.get("url", "")
+    if url and url not in existing_urls:
+        article["article_id"] = next_article_id
+        next_article_id += 1
+        new_articles.append(article)
+        existing_urls.add(url)  # Track for this batch
+    else:
+        duplicate_count += 1
+        logging.debug(f"Articles: Skipping duplicate article: {url}")
+
+logging.info(f"Articles: {len(new_articles)} new articles, {duplicate_count} duplicates skipped")
+
+# Combine existing + new articles
+combined_articles = existing_articles + new_articles
+
+# Write articles.csv
+if combined_articles:
+    articles_written = save_articles_csv(articles_csv_path, combined_articles)
+    logging.info(f"Articles CSV file ({articles_csv_path}): {articles_written} rows")
+else:
+    logging.info("Articles: No articles to write")
 
 logging.info(f"=== THOTH Mission Complete ===")
 logging.info(f"Monthly CSV file ({csv_path}): {monthly_written} rows")
