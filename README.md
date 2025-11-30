@@ -1,10 +1,10 @@
 ## Repository Structure & Branch Conventions
 
-- **COPWATCHDOG** (meta repository): `master` branch
-- **HERMES**: `main` branch
+- **COPWATCHDOG** (meta repository): `master` branch [private]
+- **HERMES**: `main` branch [private]
 - **THOTH**: `main` branch
-- **MERCURY**: `main` branch
-- **DOGHOUSE_API**: `main` branch
+- **MERCURY**: `main` branch [private]
+- **DOGHOUSE_API**: `main` branch [private]
 
 All repositories are under the [COPWATCHDOG GitHub organization](https://github.com/copwatchdog).
 
