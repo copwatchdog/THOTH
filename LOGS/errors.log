@@ -2,3 +2,7 @@
 [2025-11-11 01:20:31] [WARNING] [HERMES] [run_copwatchdog.sh] Incremental re-scrape encountered issues but continuing
 [2025-11-11 10:22:02] [ERROR] [DB_TUNNEL] [setup_db_tunnel.sh] SSH tunnel command failed with code 255 (attempt 1/1)
 [2025-11-11 10:22:05] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] Failed to establish tunnel on primary port 5433, trying alternatives
+[2025-12-02 10:51:08] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] SSH tunnel established but database connection failed (attempt 1/1)
+[2025-12-02 10:51:11] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] Failed to establish tunnel on primary port 5433, trying alternatives
+[2025-12-02 10:51:15] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] SSH tunnel established but database connection failed (attempt 1/1)
+[2025-12-02 10:51:18] [WARNING] [DB_TUNNEL] [setup_db_tunnel.sh] All tunnel attempts failed, attempting direct connection to database
