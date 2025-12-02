@@ -1,3 +1,7 @@
+# THOTH - DATA COLLECTION ENGINE
+
+---
+
 ## Repository Structure & Branch Conventions
 
 - **COPWATCHDOG** (meta repository): `master` branch private
@@ -7,10 +11,6 @@
 - **DOGHOUSE_API**: `main` branch private
 
 All repositories are under the [COPWATCHDOG GitHub organization](https://github.com/copwatchdog).
-
----
-
-# THOTH - Data Collection Engine
 
 ---
 
@@ -27,7 +27,7 @@ All repositories (including THOTH) are under the COPWATCHDOG GitHub organization
 ![CopWatchdog Logo (Dark)](assets/images/logo-dark.png)
 ![CopWatchdog Logo (Light)](assets/images/logo-light.png)
 
-**Version:** v110 (November 2025)  
+**Version:** v111 (December 2025)  
 **Component:** THOTH (Data Collection)  
 **Purpose:** Automated web scraping of NYPD trial schedules, enriched with 50-a.org complaints and NYC Payroll data
 
@@ -79,7 +79,7 @@ THOTH is the data collection engine for the COPWATCHDOG project. It scrapes NYPD
 THOTH/
 ├── NYC/
 │   ├── BRAIN/
-│   │   ├── main.py              # Main scraper script (v110)
+│   │   ├── main.py              # Main scraper script (v111)
 │   │   ├── copwatchdog.csv      # Latest scraped data (working copy)
 │   │   └── __pycache__/         # Python cache
 │   └── CSV/
