@@ -27,7 +27,7 @@ All repositories (including THOTH) are under the COPWATCHDOG GitHub organization
 ![CopWatchdog Logo (Dark)](assets/images/logo-dark.png)
 ![CopWatchdog Logo (Light)](assets/images/logo-light.png)
 
-**Version:** v112 (December 2025)  
+**Version:** v113 (December 2025)  
 **Component:** THOTH (Data Collection)  
 **Purpose:** Automated web scraping of NYPD trial schedules, enriched with 50-a.org complaints and NYC Payroll data
 

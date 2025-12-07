@@ -393,10 +393,10 @@ def load_existing_articles(articles_csv_path):
         articles_csv_path: Path to the articles.csv file
         
     Returns:
-        Tuple of (existing_articles_list, existing_urls_set, next_article_id)
+        Tuple of (existing_articles_list, existing_url_badge_pairs_set, next_article_id)
     """
     existing_articles = []
-    existing_urls = set()
+    existing_url_badge_pairs = set()  # Track (url, badge) combinations
     next_article_id = 1
     
     if articles_csv_path.exists():
@@ -406,8 +406,10 @@ def load_existing_articles(articles_csv_path):
                 for row in reader:
                     existing_articles.append(row)
                     url = row.get("url", "")
-                    if url:
-                        existing_urls.add(url)
+                    badge = row.get("badge", "")
+                    if url and badge:
+                        # Track URL+badge combination to allow same article for different officers
+                        existing_url_badge_pairs.add((url, badge))
                     # Track highest article_id to generate next ID
                     try:
                         article_id = int(row.get("article_id", 0))
@@ -423,7 +425,7 @@ def load_existing_articles(articles_csv_path):
     else:
         logging.info(f"Articles: No existing articles.csv found at {articles_csv_path}, will create new file")
     
-    return existing_articles, existing_urls, next_article_id
+    return existing_articles, existing_url_badge_pairs, next_article_id
 
 def save_articles_csv(articles_csv_path, articles_list):
     """
@@ -657,6 +659,20 @@ def enrich_with_50a(page, record, is_rescrape=False):
 
     identity_text = identity.inner_text().strip()
 
+    # Extract officer image URL if available
+    officer_image = None
+    image_link = identity.query_selector("a.is-pulled-right.ml-1.is-hidden-mobile")
+    if image_link:
+        href = image_link.get_attribute("href")
+        if href:
+            # Convert relative URL to absolute URL
+            if href.startswith("http"):
+                officer_image = href
+            else:
+                officer_image = SITES["FIFTYA"].rstrip("/") + href
+            logging.info(f"50-a: Officer image found: {officer_image}")
+    record["officer_image"] = officer_image
+
     # Extract Race and Gender (e.g., "Badge #4748, White Male")
     race = None
     gender = None
@@ -796,7 +812,7 @@ def enrich_with_50a(page, record, is_rescrape=False):
     discipline = identity.query_selector("div.discipline")
     record["has_discipline"] = "Y" if discipline and discipline.query_selector("article.message") else "N"
     news = identity.query_selector("div.news")
-    record["has_articles"] = "Y" if news and news.query_selector_all("a") else "N"
+    record["has_articles"] = "Y" if news and news.query_selector_all("a[href^='http']") else "N"
 
     # Extract articles from div.news if present
     articles = []
@@ -1367,7 +1383,7 @@ fieldnames = [
     "Date","Time","Rank","First","Last","Room","Case Type",
     "Badge","PCT","PCT URL","Race","Gender","Tax ID","Email",
     "Current Assignment","Assignment Start","Previous Assignments",
-    "Started","Last Earned",
+    "Officer Image","Started","Last Earned",
     "Disciplined","Articles",
     "# Complaints","# Allegations","# Substantiated","# Charges",
     "# Unsubstantiated","# Guidelined",
@@ -1401,6 +1417,7 @@ def write_csv_file(filepath, records):
                 "Current Assignment":   r.get("Current Assignment", r.get("current_assignment", "")),
                 "Assignment Start":     r.get("Assignment Start", r.get("assignment_start", "")),
                 "Previous Assignments": r.get("Previous Assignments", r.get("previous_assignments", "")),
+                "Officer Image":        r.get("Officer Image", r.get("officer_image", "")),
                 "Started":              r.get("Started", r.get("service_start", "")),
                 "Last Earned":          r.get("Last Earned", r.get("last_earned", "")),
                 "Disciplined":          r.get("Disciplined", r.get("has_discipline", "N")),
@@ -1434,21 +1451,26 @@ articles_csv_path = CSV_DIR / "articles.csv"
 logging.info(f"Articles: Processing {len(all_articles)} articles scraped from 50-a.org")
 
 # Load existing articles and get next article_id
-existing_articles, existing_urls, next_article_id = load_existing_articles(articles_csv_path)
+existing_articles, existing_url_badge_pairs, next_article_id = load_existing_articles(articles_csv_path)
 
-# Filter out duplicate articles (by URL) and assign article_id
+# Filter out duplicate articles (by URL+badge combination) and assign article_id
 new_articles = []
 duplicate_count = 0
 for article in all_articles:
     url = article.get("url", "")
-    if url and url not in existing_urls:
+    badge = article.get("badge", "")
+    url_badge_pair = (url, badge)
+    
+    # Only skip if this exact URL+badge combination already exists
+    # This allows the same article to be linked to multiple officers
+    if url and badge and url_badge_pair not in existing_url_badge_pairs:
         article["article_id"] = next_article_id
         next_article_id += 1
         new_articles.append(article)
-        existing_urls.add(url)  # Track for this batch
+        existing_url_badge_pairs.add(url_badge_pair)  # Track for this batch
     else:
         duplicate_count += 1
-        logging.debug(f"Articles: Skipping duplicate article: {url}")
+        logging.debug(f"Articles: Skipping duplicate article: {url} for badge {badge}")
 
 logging.info(f"Articles: {len(new_articles)} new articles, {duplicate_count} duplicates skipped")
 
