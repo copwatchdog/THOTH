@@ -659,6 +659,18 @@ def enrich_with_50a(page, record, is_rescrape=False):
 
     identity_text = identity.inner_text().strip()
 
+    # Extract profile URL (page URL on 50-a.org)
+    profile_url = None
+    try:
+        # Get current page URL after clicking into officer profile
+        current_url = page.url
+        if current_url and '/officer/' in current_url:
+            profile_url = current_url
+            logging.info(f"50-a: Profile URL captured: {profile_url}")
+    except Exception as e:
+        logging.warning(f"50-a: Failed to capture profile URL: {e}")
+    record["profile_url"] = profile_url
+
     # Extract officer image URL if available
     officer_image = None
     image_link = identity.query_selector("a.is-pulled-right.ml-1.is-hidden-mobile")
@@ -1383,7 +1395,7 @@ fieldnames = [
     "Date","Time","Rank","First","Last","Room","Case Type",
     "Badge","PCT","PCT URL","Race","Gender","Tax ID","Email",
     "Current Assignment","Assignment Start","Previous Assignments",
-    "Officer Image","Started","Last Earned",
+    "Officer Image","Profile URL","Started","Last Earned",
     "Disciplined","Articles",
     "# Complaints","# Allegations","# Substantiated","# Charges",
     "# Unsubstantiated","# Guidelined",
@@ -1418,6 +1430,7 @@ def write_csv_file(filepath, records):
                 "Assignment Start":     r.get("Assignment Start", r.get("assignment_start", "")),
                 "Previous Assignments": r.get("Previous Assignments", r.get("previous_assignments", "")),
                 "Officer Image":        r.get("Officer Image", r.get("officer_image", "")),
+                "Profile URL":          r.get("Profile URL", r.get("profile_url", "")),
                 "Started":              r.get("Started", r.get("service_start", "")),
                 "Last Earned":          r.get("Last Earned", r.get("last_earned", "")),
                 "Disciplined":          r.get("Disciplined", r.get("has_discipline", "N")),

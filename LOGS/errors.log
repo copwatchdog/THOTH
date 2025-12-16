@@ -1,17 +1,17 @@
-[2025-12-07 03:42:33] [WARNING] [COPWATCHDOG] [run_copwatchdog.sh] Direct database connection failed, trying SSH tunnel...
-[2025-12-07 03:42:40] [ERROR] [DB_IMPORT] [import_into_cwd_raw.sh] SQL stderr: ERROR:  missing data for column "Total Other Pay"
+[2025-12-16 13:53:05] [WARNING] [COPWATCHDOG] [run_copwatchdog.sh] Direct database connection failed, trying SSH tunnel...
+[2025-12-16 13:53:11] [ERROR] [DB_IMPORT] [import_into_cwd_raw.sh] SQL stderr: ERROR:  missing data for column "Total OT Paid"
 CONTEXT:  COPY tmp_cwd_csv, line 2: "9/3/2025,1000,Detective,Frankie,Palaguachi,A,Drug Test,27476,59,https://50-a.org/command/59,Hispanic..."
-[2025-12-07 03:42:40] [ERROR] [DB_IMPORT] [import_into_cwd_raw.sh] SQL import failed with exit code 3 for v112 format
-[2025-12-07 03:42:40] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/THOTH/NYC/CSV/2509-copwatchdog.csv
-[2025-12-07 03:42:41] [ERROR] [DB_IMPORT] [import_into_cwd_raw.sh] SQL stderr: ERROR:  missing data for column "Total Other Pay"
+[2025-12-16 13:53:11] [ERROR] [DB_IMPORT] [import_into_cwd_raw.sh] SQL import failed with exit code 3
+[2025-12-16 13:53:11] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/THOTH/NYC/CSV/2509-copwatchdog.csv
+[2025-12-16 13:53:11] [ERROR] [DB_IMPORT] [import_into_cwd_raw.sh] SQL stderr: ERROR:  missing data for column "Total OT Paid"
 CONTEXT:  COPY tmp_cwd_csv, line 2: "10/1/2025,1000,Police Officer,Julian,Reyes,A,Use of Force,19056,44,https://50-a.org/command/44pct,Hi..."
-[2025-12-07 03:42:41] [ERROR] [DB_IMPORT] [import_into_cwd_raw.sh] SQL import failed with exit code 3 for v112 format
-[2025-12-07 03:42:41] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/THOTH/NYC/CSV/2510-copwatchdog.csv
-[2025-12-07 03:42:42] [ERROR] [DB_IMPORT] [import_into_cwd_raw.sh] SQL stderr: ERROR:  missing data for column "Total Other Pay"
+[2025-12-16 13:53:11] [ERROR] [DB_IMPORT] [import_into_cwd_raw.sh] SQL import failed with exit code 3
+[2025-12-16 13:53:11] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/THOTH/NYC/CSV/2510-copwatchdog.csv
+[2025-12-16 13:53:12] [ERROR] [DB_IMPORT] [import_into_cwd_raw.sh] SQL stderr: ERROR:  missing data for column "Total OT Paid"
 CONTEXT:  COPY tmp_cwd_csv, line 2: "11/3/2025,1000,Police Officer,Boubacar,Barry,A,Misleading Statements,4530,4,https://50-a.org/command..."
-[2025-12-07 03:42:43] [ERROR] [DB_IMPORT] [import_into_cwd_raw.sh] SQL import failed with exit code 3 for v112 format
-[2025-12-07 03:42:43] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/THOTH/NYC/CSV/2511-copwatchdog.csv
-[2025-12-07 03:42:44] [WARNING] [THOTH_IMPORT] [import_to_db.sh] Import completed with failures: 3 out of 4 CSVs failed to import
-[2025-12-07 03:42:44] [WARNING] [THOTH_IMPORT] [import_to_db.sh] Check ERROR_LOG for details on failed imports
-[2025-12-07 03:42:45] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Database import process completed with errors: 3 officer CSV(s) failed
-[2025-12-07 03:42:45] [ERROR] [THOTH] [run_copwatchdog.sh] Database import process failed
+[2025-12-16 13:53:12] [ERROR] [DB_IMPORT] [import_into_cwd_raw.sh] SQL import failed with exit code 3
+[2025-12-16 13:53:12] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Import FAILED for /Users/vicstizzi/ART/YUMYODA/TECH/COPWATCHDOG/THOTH/NYC/CSV/2511-copwatchdog.csv
+[2025-12-16 13:53:13] [WARNING] [THOTH_IMPORT] [import_to_db.sh] Import completed with failures: 3 out of 4 CSVs failed to import
+[2025-12-16 13:53:13] [WARNING] [THOTH_IMPORT] [import_to_db.sh] Check ERROR_LOG for details on failed imports
+[2025-12-16 13:53:14] [ERROR] [THOTH_IMPORT] [import_to_db.sh] Database import process completed with errors: 3 officer CSV(s) failed
+[2025-12-16 13:53:14] [ERROR] [THOTH] [run_copwatchdog.sh] Database import process failed

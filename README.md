@@ -27,9 +27,17 @@ All repositories (including THOTH) are under the COPWATCHDOG GitHub organization
 ![CopWatchdog Logo (Dark)](assets/images/logo-dark.png)
 ![CopWatchdog Logo (Light)](assets/images/logo-light.png)
 
-**Version:** v113 (December 2025)  
+**Version:** v114 (December 2025)  
 **Component:** THOTH (Data Collection)  
 **Purpose:** Automated web scraping of NYPD trial schedules, enriched with 50-a.org complaints and NYC Payroll data
+
+## Version Control
+
+When updating versions, change the version number in these files:
+- `README.md` - Line 30 (header)
+- `/VERSIONS/THOT_VERSION/CHANGELOG.md` - Add new version entry at top
+- `/README.md` (root) - Update THOTH current version reference
+- Create new version file: `/VERSIONS/THOT_VERSION/v{XXX}.py` (archive current main.py)
 
 ---
 
