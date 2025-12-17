@@ -46,21 +46,28 @@ parser.add_argument(
     help="Path to CSV file containing officers to re-scrape (must have First, Last, Badge columns)"
 )
 parser.add_argument(
+    "--enrich-mode",
+    type=str,
+    help="Path to delta enrichment CSV (source_id,column_name,current_value,priority) for targeted field extraction"
+)
+parser.add_argument(
     "--version-tag",
     type=str,
     help="Override version tag for re-scrape CSV filename (e.g., '2509' for September 2025)"
 )
 args = parser.parse_args()
 
-# If rescrape mode, load target list (HERMES Functionality)
+# Determine operation mode
 rescrape_mode = args.rescrape_list is not None
+enrich_mode = args.enrich_mode is not None
 rescrape_targets = []
+enrich_targets = {}  # Dict: source_id -> {columns: [], priority: str}
 override_version_tag = args.version_tag
 
 # === Setup logging ===
 # Standalone mode: overwrite log (fresh start)
-# Rescrape mode: append to log (continue HERMES workflow)
-log_mode = "a" if rescrape_mode else "w"
+# Rescrape/Enrich mode: append to log (continue HERMES workflow)
+log_mode = "a" if (rescrape_mode or enrich_mode) else "w"
 logging.basicConfig(
     filename=THOTH_LOG,
     filemode=log_mode,
@@ -68,12 +75,49 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(message)s",
 )
 logging.info("Them Dogs Gonna Get'm")
-if rescrape_mode:
+if enrich_mode:
+    logging.info("=== ENRICH MODE: Appending to existing log ===")
+elif rescrape_mode:
     logging.info("=== RESCRAPE MODE: Appending to existing log ===")
 else:
     logging.info("=== STANDALONE MODE: Fresh log started ===")
 
-if rescrape_mode:
+if enrich_mode:
+    logging.info(f"ENRICH MODE: Loading delta enrichment list from {args.enrich_mode}")
+    try:
+        with open(args.enrich_mode, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                source_id = row.get('source_id', '').strip()
+                column_name = row.get('column_name', '').strip()
+                priority = row.get('priority', 'low').strip()
+                
+                # Parse source_id to extract identifying info (format: YYMM-badge)
+                # e.g., "2512-12345" -> version_tag=2512, badge=12345
+                if '-' in source_id:
+                    version_tag, badge = source_id.split('-', 1)
+                else:
+                    logging.warning(f"ENRICH MODE: Malformed source_id: {source_id}, skipping")
+                    continue
+                
+                # Group by source_id
+                if source_id not in enrich_targets:
+                    enrich_targets[source_id] = {
+                        'columns': [],
+                        'priority': priority,
+                        'badge': badge,
+                        'version_tag': version_tag
+                    }
+                
+                # Add column to target list for this officer
+                if column_name not in enrich_targets[source_id]['columns']:
+                    enrich_targets[source_id]['columns'].append(column_name)
+        
+        logging.info(f"ENRICH MODE: Loaded {len(enrich_targets)} officers with {sum(len(t['columns']) for t in enrich_targets.values())} fields to enrich")
+    except Exception as e:
+        logging.error(f"ENRICH MODE: Failed to load enrichment list: {e}")
+        sys.exit(1)
+elif rescrape_mode:
     logging.info(f"RESCRAPE MODE: Loading target list from {args.rescrape_list}")
     try:
         with open(args.rescrape_list, 'r', encoding='utf-8') as f:
@@ -582,6 +626,13 @@ def enrich_with_50a(page, record, is_rescrape=False):
                      "current_assignment", "assignment_start", "previous_assignments",
                      "precinct_link", "precinct_number", "service_start", "last_earned"]
     
+    # Check if this is enrich mode with targeted columns
+    enrich_columns = record.get("enrich_columns", [])
+    if enrich_columns:
+        # Only scrape fields that are in the target list
+        FIFTYA_FIELDS = [f for f in FIFTYA_FIELDS if f in enrich_columns]
+        logging.info(f"50-a: ENRICH MODE - targeting {len(FIFTYA_FIELDS)} fields: {FIFTYA_FIELDS}")
+    
     officer_name = record.get("Name")
     first = record.get("First")
     last = record.get("Last")
@@ -926,6 +977,16 @@ def enrich_with_payroll(page, record, is_rescrape=False):
                       "regular_hours", "regular_gross_paid", "ot_hours", 
                       "total_ot_paid", "total_other_pay"]
     
+    # Check if this is enrich mode with targeted columns
+    enrich_columns = record.get("enrich_columns", [])
+    if enrich_columns:
+        # Only scrape fields that are in the target list
+        PAYROLL_FIELDS = [f for f in PAYROLL_FIELDS if f in enrich_columns]
+        logging.info(f"Payroll: ENRICH MODE - targeting {len(PAYROLL_FIELDS)} fields: {PAYROLL_FIELDS}")
+        if not PAYROLL_FIELDS:
+            logging.info(f"Payroll: No payroll fields in enrich target list, skipping")
+            return
+    
     first = record.get("First", "")
     last = record.get("Last", "")
 
@@ -1241,8 +1302,65 @@ with sync_playwright() as p:
     context = browser.new_context()
     page = context.new_page()
 
-    # Extract NYPDTRIAL or build from rescrape list
-    if rescrape_mode:
+    # Extract NYPDTRIAL or build from rescrape/enrich list
+    if enrich_mode:
+        logging.info("ENRICH MODE: Building officer list from delta enrichment CSV")
+        
+        # Connect to database to fetch officer names
+        try:
+            conn = psycopg2.connect(
+                host=os.getenv('PGHOST', 'localhost'),
+                port=os.getenv('PGPORT', '5433'),
+                database=os.getenv('DB_NAME', 'copwatch'),
+                user=os.getenv('DB_USER', 'postgres'),
+                password=os.getenv('DB_PASS', '')
+            )
+            cursor = conn.cursor(cursor_factory=RealDictCursor)
+            
+            # Fetch officer names for all source_ids in one query
+            source_ids = list(enrich_targets.keys())
+            cursor.execute(
+                "SELECT source_id, first_name, last_name, badge FROM cwd_raw.officers_raw WHERE source_id = ANY(%s)",
+                (source_ids,)
+            )
+            officer_data = {row['source_id']: row for row in cursor.fetchall()}
+            cursor.close()
+            conn.close()
+            
+            logging.info(f"ENRICH MODE: Fetched names for {len(officer_data)} officers from database")
+            
+        except Exception as e:
+            logging.error(f"ENRICH MODE: Database connection failed: {e}")
+            logging.error("Cannot proceed without officer names - exiting")
+            sys.exit(1)
+        
+        # Build records with names from database
+        for source_id, target_info in enrich_targets.items():
+            if source_id not in officer_data:
+                logging.warning(f"ENRICH MODE: source_id {source_id} not found in database, skipping")
+                continue
+            
+            officer = officer_data[source_id]
+            record = {
+                'Name': f"{officer['first_name']} {officer['last_name']}",
+                'First': officer['first_name'],
+                'Last': officer['last_name'],
+                'badge': officer['badge'] or target_info['badge'],
+                'source_id': source_id,
+                'version_tag': target_info['version_tag'],
+                'enrich_columns': target_info['columns'],
+                'priority': target_info['priority'],
+                'Date': '',
+                'Time': '',
+                'Rank': '',
+                'Trial Room': '',
+                'Case Type': 'Enrichment'
+            }
+            all_records.append(record)
+        
+        logging.info(f"ENRICH MODE: Built {len(all_records)} officer records for enrichment")
+        logging.info(f"ENRICH MODE: Total fields to enrich: {sum(len(r.get('enrich_columns', [])) for r in all_records)}")
+    elif rescrape_mode:
         logging.info("RESCRAPE MODE: Building officer list from target CSV (skipping NYPD Trials page)")
         # Build minimal records from target list - enrichment will fill in the rest
         for target in rescrape_targets:
@@ -1455,13 +1573,79 @@ def write_csv_file(filepath, records):
             written += 1
         return written
 
-# Write to both locations
-monthly_written = write_csv_file(csv_path, all_records)
-local_written = write_csv_file(local_csv_path, all_records)
+# Conditional output based on operation mode
+if enrich_mode:
+    # === ENRICH MODE: Output enrichment CSV (source_id, column_name, new_value) ===
+    logging.info("ENRICH MODE: Generating enrichment CSV output")
+    
+    # Map internal field names to database column names
+    FIELD_TO_COLUMN = {
+        'profile_url': 'profile_url',
+        'race': 'race',
+        'gender': 'gender',
+        'tax_id': 'tax_id',
+        'email': 'email',
+        'badge': 'badge',
+        'precinct_number': 'precinct_number',
+        'current_assignment': 'current_assignment',
+        'assignment_start': 'assignment_start',
+        'service_start': 'service_start',
+        'last_earned': 'last_earned',
+        'base_salary': 'base_salary',
+        'pay_basis': 'pay_basis'
+    }
+    
+    enrichment_path = CSV_DIR / f"enrichment_{override_version_tag or 'output'}.csv"
+    CSV_DIR.mkdir(parents=True, exist_ok=True)
+    
+    with enrichment_path.open("w", newline="", encoding="utf-8") as f:
+        enrichment_writer = csv.writer(f)
+        enrichment_writer.writerow(["source_id", "column_name", "new_value"])
+        
+        enrichment_count = 0
+        for record in all_records:
+            source_id = record.get('source_id')
+            target_columns = record.get('enrich_columns', [])
+            
+            for column in target_columns:
+                # Find the internal field name that maps to this column
+                internal_field = None
+                for field, col in FIELD_TO_COLUMN.items():
+                    if col == column:
+                        internal_field = field
+                        break
+                
+                if not internal_field:
+                    logging.warning(f"ENRICH MODE: Unknown column '{column}' for {source_id}, skipping")
+                    continue
+                
+                # Get the value from the record
+                new_value = record.get(internal_field, '')
+                
+                # Only write if we found a value (not empty or NOT_FOUND)
+                if new_value and new_value not in ['', 'NOT_FOUND', 'N/A']:
+                    enrichment_writer.writerow([source_id, column, new_value])
+                    enrichment_count += 1
+                    logging.info(f"ENRICH MODE: {source_id}.{column} = {new_value}")
+                else:
+                    # Mark as not found
+                    enrichment_writer.writerow([source_id, column, 'NOT_FOUND'])
+                    logging.info(f"ENRICH MODE: {source_id}.{column} = NOT_FOUND")
+    
+    logging.info(f"=== THOTH ENRICH MODE Complete ===")
+    logging.info(f"Enrichment CSV file ({enrichment_path}): {enrichment_count} fields enriched")
+    
+else:
+    # === NORMAL MODE: Output standard copwatchdog CSV ===
+    # Write to both locations
+    monthly_written = write_csv_file(csv_path, all_records)
+    local_written = write_csv_file(local_csv_path, all_records)
 
 # === Save Articles CSV ===
-articles_csv_path = CSV_DIR / "articles.csv"
-logging.info(f"Articles: Processing {len(all_articles)} articles scraped from 50-a.org")
+# Skip articles in enrich mode (not needed for targeted enrichment)
+if not enrich_mode:
+    articles_csv_path = CSV_DIR / "articles.csv"
+    logging.info(f"Articles: Processing {len(all_articles)} articles scraped from 50-a.org")
 
 # Load existing articles and get next article_id
 existing_articles, existing_url_badge_pairs, next_article_id = load_existing_articles(articles_csv_path)
@@ -1485,19 +1669,24 @@ for article in all_articles:
         duplicate_count += 1
         logging.debug(f"Articles: Skipping duplicate article: {url} for badge {badge}")
 
-logging.info(f"Articles: {len(new_articles)} new articles, {duplicate_count} duplicates skipped")
+    logging.info(f"Articles: {len(new_articles)} new articles, {duplicate_count} duplicates skipped")
 
-# Combine existing + new articles
-combined_articles = existing_articles + new_articles
+    # Combine existing + new articles
+    combined_articles = existing_articles + new_articles
 
-# Write articles.csv
-if combined_articles:
-    articles_written = save_articles_csv(articles_csv_path, combined_articles)
-    logging.info(f"Articles CSV file ({articles_csv_path}): {articles_written} rows")
+    # Write articles.csv
+    if combined_articles:
+        articles_written = save_articles_csv(articles_csv_path, combined_articles)
+        logging.info(f"Articles CSV file ({articles_csv_path}): {articles_written} rows")
+    else:
+        logging.info("Articles: No articles to write")
+
+# === Final Summary ===
+if enrich_mode:
+    logging.info(f"=== THOTH ENRICH MODE Complete ===")
+    logging.info("Enrichment CSV ready for HERMES enrich_from_deltas.sh")
 else:
-    logging.info("Articles: No articles to write")
-
-logging.info(f"=== THOTH Mission Complete ===")
-logging.info(f"Monthly CSV file ({csv_path}): {monthly_written} rows")
-logging.info(f"Local CSV file ({local_csv_path}): {local_written} rows")
-logging.info("Successful Operation - Ready for HERMES ETL")
+    logging.info(f"=== THOTH Mission Complete ===")
+    logging.info(f"Monthly CSV file ({csv_path}): {monthly_written} rows")
+    logging.info(f"Local CSV file ({local_csv_path}): {local_written} rows")
+    logging.info("Successful Operation - Ready for HERMES ETL")
