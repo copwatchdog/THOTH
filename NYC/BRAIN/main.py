@@ -11,6 +11,9 @@ from datetime import datetime
 from pathlib import Path
 from playwright.sync_api import sync_playwright, TimeoutError
 
+import psycopg2
+from psycopg2.extras import RealDictCursor
+
 # === Configuration ===
 SITES = {
     "NYPDTRIAL": "https://www.nyc.gov/site/nypd/bureaus/administrative/trials.page",
@@ -1473,6 +1476,8 @@ if rescrape_mode and csv_path.exists():
                 existing["Current Assignment"] = rescraped.get("current_assignment", existing.get("Current Assignment", ""))
                 existing["Assignment Start"] = rescraped.get("assignment_start", existing.get("Assignment Start", ""))
                 existing["Previous Assignments"] = rescraped.get("previous_assignments", existing.get("Previous Assignments", ""))
+                existing["Officer Image"] = rescraped.get("officer_image", existing.get("Officer Image", ""))
+                existing["Profile URL"] = rescraped.get("profile_url", existing.get("Profile URL", ""))
                 existing["Started"] = rescraped.get("service_start", existing.get("Started", ""))
                 existing["Last Earned"] = rescraped.get("last_earned", existing.get("Last Earned", ""))
                 existing["Disciplined"] = rescraped.get("has_discipline", existing.get("Disciplined", ""))
